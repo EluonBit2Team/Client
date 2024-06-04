@@ -1,9 +1,9 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/images/eluonlogo.png</file>
     <file>images/images/loginmail.png</file>
+    <file>images/images/loginback2.jpg</file>
     <file>images/images/logincall.png</file>
-    <file>images/images/login.png</file>
-    <file>images/images/loginback.jpg</file>
     <file>images/images/PyDracula_vertical.png</file>
   </qresource>
   <qresource prefix="icons">
