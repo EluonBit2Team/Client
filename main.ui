@@ -2760,7 +2760,7 @@ QPushButton:pressed {
                              </rect>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">background-image: url(:/images/images/images/eluonlogo.png);
+                             <string notr="true">background-image: url(:/images/images/images/loginbackground.jpg);
 border-radius: 20px;
 </string>
                             </property>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainyDPeBq.ui'
+## Form generated from reading UI file 'mainTlyXJt.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -585,8 +585,7 @@ class Ui_MainWindow(object):
         self.topLogo.setMaximumSize(QSize(42, 42))
         self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/eluonlogo.png);\n"
 "background-repeat: no-repeat;\n"
-"background-position: center;\n"
-"background-size: cover;")
+"background-position: center;")
         self.topLogo.setFrameShape(QFrame.Shape.NoFrame)
         self.topLogo.setFrameShadow(QFrame.Shadow.Raised)
         self.titleLeftApp = QLabel(self.topLogoInfo)
@@ -1413,7 +1412,7 @@ class Ui_MainWindow(object):
         self.background = QLabel(self.widget)
         self.background.setObjectName(u"background")
         self.background.setGeometry(QRect(10, 10, 941, 541))
-        self.background.setStyleSheet(u"background-image: url(:/images/images/images/loginback2.jpg);\n"
+        self.background.setStyleSheet(u"background-image: url(:/images/images/images/loginbackground.jpg);\n"
 "border-radius: 20px;\n"
 "")
         self.login_logo = QLabel(self.widget)
@@ -1482,7 +1481,6 @@ class Ui_MainWindow(object):
         self.mail_btn.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-closed.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
-"background-size: ;\n"
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
 "margin-left:10px;")
@@ -1494,7 +1492,6 @@ class Ui_MainWindow(object):
         self.call_btn.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-phone.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
-"background-size: ;\n"
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
 "margin-left:10px;")
