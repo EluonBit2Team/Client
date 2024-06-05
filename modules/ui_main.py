@@ -585,8 +585,7 @@ class Ui_MainWindow(object):
         self.topLogo.setMaximumSize(QSize(42, 42))
         self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/eluonlogo.png);\n"
 "background-repeat: no-repeat;\n"
-"background-position: center;\n"
-"background-size: cover;")
+"background-position: center;\n")
         self.topLogo.setFrameShape(QFrame.Shape.NoFrame)
         self.topLogo.setFrameShadow(QFrame.Shadow.Raised)
         self.titleLeftApp = QLabel(self.topLogoInfo)
@@ -1488,7 +1487,6 @@ class Ui_MainWindow(object):
         self.mail_btn.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-closed.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
-"background-size: contain;\n"
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
 "margin-left:10px;")
@@ -1500,7 +1498,6 @@ class Ui_MainWindow(object):
         self.call_btn.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-phone.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
-"background-size: contain;\n"
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
 "margin-left:10px;")
