@@ -27,6 +27,12 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="styleSheet">
+   <property name="maximumSize">
+    <size>
+     <width>1085</width>
+     <height>700</height>
+    </size>
+   </property>
    <property name="font">
     <font>
      <family>Segoe UI</family>
@@ -636,6 +642,9 @@ Button */
               <height>50</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
             <property name="frameShape">
              <enum>QFrame::Shape::NoFrame</enum>
             </property>
@@ -650,6 +659,12 @@ Button */
                <width>42</width>
                <height>42</height>
               </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
              </property>
              <property name="minimumSize">
               <size>
@@ -666,8 +681,7 @@ Button */
              <property name="styleSheet">
               <string notr="true">background-image: url(:/images/images/images/eluonlogo.png);
 background-repeat: no-repeat;
-background-position: center;
-background-size: cover;</string>
+background-position: center;</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::Shape::NoFrame</enum>
@@ -675,63 +689,24 @@ background-size: cover;</string>
              <property name="frameShadow">
               <enum>QFrame::Shadow::Raised</enum>
              </property>
-            </widget>
-            <widget class="QLabel" name="titleLeftApp">
-             <property name="geometry">
-              <rect>
-               <x>70</x>
-               <y>8</y>
-               <width>160</width>
-               <height>20</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Segoe UI</family>
-               <pointsize>12</pointsize>
-               <italic>false</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
-             </property>
-             <property name="text">
-              <string>PyDracula</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
-             </property>
-            </widget>
-            <widget class="QLabel" name="titleLeftDescription">
-             <property name="geometry">
-              <rect>
-               <x>70</x>
-               <y>27</y>
-               <width>160</width>
-               <height>16</height>
-              </rect>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Segoe UI</family>
-               <pointsize>8</pointsize>
-               <italic>false</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>Modern GUI / Flat Style</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
-             </property>
+             <widget class="QLabel" name="label_3">
+              <property name="geometry">
+               <rect>
+                <x>30</x>
+                <y>0</y>
+                <width>151</width>
+                <height>41</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-image: url(:/images/images/images/LUON.png);
+background-repeat: no-repeat;
+background-position: center;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
             </widget>
            </widget>
           </item>
@@ -2805,7 +2780,8 @@ border-radius: 20px;
                             </property>
                             <property name="styleSheet">
                              <string notr="true">font: 28pt &quot;Segoe UI&quot;;
-font-weight: 100;</string>
+font-weight: 100;
+color: rgb(255, 255, 255);</string>
                             </property>
                             <property name="text">
                              <string>✨ LOGIN</string>
@@ -2955,7 +2931,6 @@ color:rgba(255, 255, 255, 130);</string>
                                 <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-closed.png);
 background-repeat: no-repeat;
 background-position: center;
-background-size: contain;
 border-radius: 14px;
 margin-right: 10px;
 margin-left:10px;</string>
@@ -2971,7 +2946,6 @@ margin-left:10px;</string>
                                 <string notr="true">background-image: url(:/icons/images/icons/cil-phone.png);
 background-repeat: no-repeat;
 background-position: center;
-background-size: contain;
 border-radius: 14px;
 margin-right: 10px;
 margin-left:10px;</string>
