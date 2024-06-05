@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainTlyXJt.ui'
+## Form generated from reading UI file 'mainSDrYtf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -585,7 +585,8 @@ class Ui_MainWindow(object):
         self.topLogo.setMaximumSize(QSize(42, 42))
         self.topLogo.setStyleSheet(u"background-image: url(:/images/images/images/eluonlogo.png);\n"
 "background-repeat: no-repeat;\n"
-"background-position: center;")
+"background-position: center;\n"
+"background-size: cover;")
         self.topLogo.setFrameShape(QFrame.Shape.NoFrame)
         self.topLogo.setFrameShadow(QFrame.Shadow.Raised)
         self.titleLeftApp = QLabel(self.topLogoInfo)
@@ -679,17 +680,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_widgets)
 
-        self.btn_new = QPushButton(self.topMenu)
-        self.btn_new.setObjectName(u"btn_new")
-        sizePolicy.setHeightForWidth(self.btn_new.sizePolicy().hasHeightForWidth())
-        self.btn_new.setSizePolicy(sizePolicy)
-        self.btn_new.setMinimumSize(QSize(0, 45))
-        self.btn_new.setFont(font)
-        self.btn_new.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_new.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_new.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
+        self.btn_login = QPushButton(self.topMenu)
+        self.btn_login.setObjectName(u"btn_login")
+        sizePolicy.setHeightForWidth(self.btn_login.sizePolicy().hasHeightForWidth())
+        self.btn_login.setSizePolicy(sizePolicy)
+        self.btn_login.setMinimumSize(QSize(0, 45))
+        self.btn_login.setFont(font)
+        self.btn_login.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_login.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.btn_login.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
 
-        self.verticalLayout_8.addWidget(self.btn_new)
+        self.verticalLayout_8.addWidget(self.btn_login)
 
         self.btn_save = QPushButton(self.topMenu)
         self.btn_save.setObjectName(u"btn_save")
@@ -1382,6 +1383,12 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.row_3)
 
         self.stackedWidget.addWidget(self.widgets)
+        self.signuppage = QWidget()
+        self.signuppage.setObjectName(u"signuppage")
+        self.label_2 = QLabel(self.signuppage)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(460, 260, 91, 16))
+        self.stackedWidget.addWidget(self.signuppage)
         self.loginpage = QWidget()
         self.loginpage.setObjectName(u"loginpage")
         self.loginpage.setStyleSheet(u"QPushButton {\n"
@@ -1481,6 +1488,7 @@ class Ui_MainWindow(object):
         self.mail_btn.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-closed.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
+"background-size: contain;\n"
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
 "margin-left:10px;")
@@ -1492,6 +1500,7 @@ class Ui_MainWindow(object):
         self.call_btn.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-phone.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
+"background-size: contain;\n"
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
 "margin-left:10px;")
@@ -1668,7 +1677,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
-        self.btn_new.setText(QCoreApplication.translate("MainWindow", u"New", None))
+        self.btn_login.setText(QCoreApplication.translate("MainWindow", u"New", None))
         self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
@@ -1780,6 +1789,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0\uac00\uc785", None))
         self.background.setText("")
         self.login_logo.setText(QCoreApplication.translate("MainWindow", u"\u2728 LOGIN", None))
         self.username.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User Name", None))

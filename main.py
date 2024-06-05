@@ -71,7 +71,7 @@ class MainWindow(QMainWindow):
         # LEFT MENUS
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_widgets.clicked.connect(self.buttonClick)
-        widgets.btn_new.clicked.connect(self.buttonClick)
+        widgets.btn_login.clicked.connect(self.buttonClick)
         widgets.btn_save.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
@@ -129,17 +129,19 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW NEW PAGE
-        if btnName == "btn_new":
+        # SHOW LOGIN PAGE
+        if btnName == "btn_login":
             widgets.stackedWidget.setCurrentWidget(widgets.loginpage) # SET PAGE
             UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
+
+        
 
         if btnName == "btn_save":
             print("Save BTN clicked!")
 
         # PRINT BTN NAME
-        print(f'Button "{btnName}" pressed!ㅋㅋㅋ')
+        print(f'Button "{btnName}" pressed!')
 
 
     # RESIZE EVENTS

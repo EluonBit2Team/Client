@@ -1,8 +1,8 @@
 <RCC>
   <qresource prefix="images">
     <file>images/images/loginmail.png</file>
-    <file>images/images/eluonlogo.png</file>
     <file>images/images/logincall.png</file>
+    <file>images/images/eluonlogo.png</file>
     <file>images/images/loginbackground.jpg</file>
     <file>images/images/PyDracula_vertical.png</file>
   </qresource>

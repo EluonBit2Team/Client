@@ -687,11 +687,14 @@ background-size: cover;</string>
              </property>
              <property name="font">
               <font>
-               <family>Segoe UI Semibold</family>
+               <family>Segoe UI</family>
                <pointsize>12</pointsize>
                <italic>false</italic>
-               <fontweight></fontweight>
+               <bold>false</bold>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 12pt &quot;Segoe UI&quot;;</string>
              </property>
              <property name="text">
               <string>PyDracula</string>
@@ -922,7 +925,7 @@ background-size: cover;</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="btn_new">
+                 <widget class="QPushButton" name="btn_login">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -1874,7 +1877,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>3</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2723,6 +2726,21 @@ background-repeat: no-repeat;</string>
                        </item>
                       </layout>
                      </widget>
+                     <widget class="QWidget" name="signuppage">
+                      <widget class="QLabel" name="label_2">
+                       <property name="geometry">
+                        <rect>
+                         <x>460</x>
+                         <y>260</y>
+                         <width>91</width>
+                         <height>16</height>
+                        </rect>
+                       </property>
+                       <property name="text">
+                        <string>회원가입</string>
+                       </property>
+                      </widget>
+                     </widget>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
                        <string notr="true">QPushButton {
@@ -2779,14 +2797,15 @@ border-radius: 20px;
                             </property>
                             <property name="font">
                              <font>
-                              <family>Segoe UI Variable Display Light</family>
+                              <family>Segoe UI</family>
                               <pointsize>28</pointsize>
                               <italic>false</italic>
-                              <fontweight></fontweight>
+                              <fontweight>Thin</fontweight>
                              </font>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">font: 10 28pt &quot;Segoe UI Variable Display Light&quot;;</string>
+                             <string notr="true">font: 28pt &quot;Segoe UI&quot;;
+font-weight: 100;</string>
                             </property>
                             <property name="text">
                              <string>✨ LOGIN</string>
