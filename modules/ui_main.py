@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maindKLqWa.ui'
+## Form generated from reading UI file 'mainlGWRSP.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,6 +13,7 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
 from . resources_rc import *
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -566,6 +567,7 @@ class Ui_MainWindow(object):
         self.leftMenuBg.setObjectName(u"leftMenuBg")
         self.leftMenuBg.setMinimumSize(QSize(60, 0))
         self.leftMenuBg.setMaximumSize(QSize(60, 16777215))
+        self.leftMenuBg.setStyleSheet(u"")
         self.leftMenuBg.setFrameShape(QFrame.Shape.NoFrame)
         self.leftMenuBg.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.leftMenuBg)
@@ -594,12 +596,21 @@ class Ui_MainWindow(object):
 "background-position: center;")
         self.topLogo.setFrameShape(QFrame.Shape.NoFrame)
         self.topLogo.setFrameShadow(QFrame.Shadow.Raised)
-        self.label_3 = QLabel(self.topLogo)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(30, 0, 171, 41))
-        self.label_3.setStyleSheet(u"background-image: url(:/images/images/images/LUON.png);\n"
+        self.titleLeftApp = QLabel(self.topLogoInfo)
+        self.titleLeftApp.setObjectName(u"titleLeftApp")
+        self.titleLeftApp.setGeometry(QRect(49, 10, 161, 31))
+        font1 = QFont()
+        font1.setFamilies([u"Segoe UI Semibold"])
+        font1.setPointSize(12)
+        font1.setBold(False)
+        font1.setItalic(False)
+        self.titleLeftApp.setFont(font1)
+        self.titleLeftApp.setStyleSheet(u"background-image: url(:/images/images/images/LUON.png);\n"
 "background-repeat: no-repeat;\n"
-"background-position: center;")
+"background-position: center;\n"
+"font-weight: normal;\n"
+"height: 42px;")
+        self.titleLeftApp.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
 
         self.verticalLayout_3.addWidget(self.topLogoInfo)
 
@@ -775,6 +786,7 @@ class Ui_MainWindow(object):
         self.extraLabel = QLabel(self.extraTopBg)
         self.extraLabel.setObjectName(u"extraLabel")
         self.extraLabel.setMinimumSize(QSize(150, 0))
+        self.extraLabel.setStyleSheet(u"")
 
         self.extraTopLayout.addWidget(self.extraLabel, 0, 1, 1, 1)
 
@@ -966,13 +978,13 @@ class Ui_MainWindow(object):
         self.maximizeRestoreAppBtn.setObjectName(u"maximizeRestoreAppBtn")
         self.maximizeRestoreAppBtn.setMinimumSize(QSize(28, 28))
         self.maximizeRestoreAppBtn.setMaximumSize(QSize(28, 28))
-        font1 = QFont()
-        font1.setFamilies([u"Segoe UI"])
-        font1.setPointSize(10)
-        font1.setBold(False)
-        font1.setItalic(False)
-        font1.setStyleStrategy(QFont.PreferDefault)
-        self.maximizeRestoreAppBtn.setFont(font1)
+        font2 = QFont()
+        font2.setFamilies([u"Segoe UI"])
+        font2.setPointSize(10)
+        font2.setBold(False)
+        font2.setItalic(False)
+        font2.setStyleStrategy(QFont.PreferDefault)
+        self.maximizeRestoreAppBtn.setFont(font2)
         self.maximizeRestoreAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon3 = QIcon()
         icon3.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -1172,7 +1184,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 274, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1261,10 +1273,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         if (self.tableWidget.rowCount() < 16):
             self.tableWidget.setRowCount(16)
-        font2 = QFont()
-        font2.setFamilies([u"Segoe UI"])
+        font3 = QFont()
+        font3.setFamilies([u"Segoe UI"])
         __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setFont(font2);
+        __qtablewidgetitem4.setFont(font3);
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(1, __qtablewidgetitem5)
@@ -1415,24 +1427,24 @@ class Ui_MainWindow(object):
         self.login_logo = QLabel(self.widget)
         self.login_logo.setObjectName(u"login_logo")
         self.login_logo.setGeometry(QRect(380, 70, 201, 61))
-        font3 = QFont()
-        font3.setFamilies([u"Segoe UI"])
-        font3.setPointSize(28)
-        font3.setWeight(QFont.Thin)
-        font3.setItalic(False)
-        self.login_logo.setFont(font3)
+        font4 = QFont()
+        font4.setFamilies([u"Segoe UI"])
+        font4.setPointSize(28)
+        font4.setWeight(QFont.Thin)
+        font4.setItalic(False)
+        self.login_logo.setFont(font4)
         self.login_logo.setStyleSheet(u"font: 28pt \"Segoe UI\";\n"
 "font-weight: 100;\n"
 "color: rgb(255, 255, 255);")
         self.username = QLineEdit(self.widget)
         self.username.setObjectName(u"username")
         self.username.setGeometry(QRect(240, 180, 491, 41))
-        font4 = QFont()
-        font4.setFamilies([u"Segoe UI"])
-        font4.setPointSize(12)
-        font4.setBold(False)
-        font4.setItalic(False)
-        self.username.setFont(font4)
+        font5 = QFont()
+        font5.setFamilies([u"Segoe UI"])
+        font5.setPointSize(12)
+        font5.setBold(False)
+        font5.setItalic(False)
+        self.username.setFont(font5)
         self.username.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
@@ -1442,7 +1454,7 @@ class Ui_MainWindow(object):
         self.password = QLineEdit(self.widget)
         self.password.setObjectName(u"password")
         self.password.setGeometry(QRect(240, 240, 491, 41))
-        self.password.setFont(font4)
+        self.password.setFont(font5)
         self.password.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
@@ -1614,11 +1626,11 @@ class Ui_MainWindow(object):
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
-        font5 = QFont()
-        font5.setFamilies([u"Segoe UI"])
-        font5.setBold(False)
-        font5.setItalic(False)
-        self.creditsLabel.setFont(font5)
+        font6 = QFont()
+        font6.setFamilies([u"Segoe UI"])
+        font6.setBold(False)
+        font6.setItalic(False)
+        self.creditsLabel.setFont(font6)
         self.creditsLabel.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.creditsLabel)
@@ -1662,7 +1674,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.label_3.setText("")
+        self.titleLeftApp.setText("")
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))

@@ -606,6 +606,9 @@ Button */
            <height>16777215</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Shape::NoFrame</enum>
          </property>
@@ -689,24 +692,37 @@ background-position: center;</string>
              <property name="frameShadow">
               <enum>QFrame::Shadow::Raised</enum>
              </property>
-             <widget class="QLabel" name="label_3">
-              <property name="geometry">
-               <rect>
-                <x>30</x>
-                <y>0</y>
-                <width>151</width>
-                <height>41</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-image: url(:/images/images/images/LUON.png);
+            </widget>
+            <widget class="QLabel" name="titleLeftApp">
+             <property name="geometry">
+              <rect>
+               <x>49</x>
+               <y>10</y>
+               <width>161</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI Semibold</family>
+               <pointsize>12</pointsize>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-image: url(:/images/images/images/LUON.png);
 background-repeat: no-repeat;
-background-position: center;</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-             </widget>
+background-position: center;
+font-weight: normal;
+height: 42px;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+             </property>
             </widget>
            </widget>
           </item>
@@ -1194,6 +1210,9 @@ background-position: center;</string>
                    <width>150</width>
                    <height>0</height>
                   </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
                  </property>
                  <property name="text">
                   <string>Left Box</string>
@@ -2156,7 +2175,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>218</width>
+                                 <width>274</width>
                                  <height>218</height>
                                 </rect>
                                </property>
