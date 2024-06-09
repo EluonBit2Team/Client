@@ -85,6 +85,11 @@ class MainWindow(QMainWindow):
             UIFunctions.toggleRightBox(self, True)
         widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
 
+        # LOGIN PAGE
+        widgets.signUp_btn.clicked.connect(self.buttonClick) #회원가입 버튼 이벤트
+        
+
+
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
@@ -134,6 +139,14 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.loginpage) # SET PAGE
             UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
+
+        # SHOW SIGNUP PAGE
+        if btnName == "signUp_btn":
+            widgets.stackedWidget.setCurrentWidget(widgets.signuppage) # SET PAGE
+            UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
+                
+            
 
         
 

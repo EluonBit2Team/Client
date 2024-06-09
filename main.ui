@@ -1871,7 +1871,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>3</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2908,6 +2908,14 @@ color:rgba(255, 255, 255, 180);</string>
                               <width>321</width>
                               <height>31</height>
                              </rect>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>10</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
                             </property>
                             <property name="styleSheet">
                              <string notr="true">font: 10pt &quot;Segoe UI&quot;;
