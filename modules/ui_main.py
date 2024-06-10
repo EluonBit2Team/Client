@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainpdBjgL.ui'
+## Form generated from reading UI file 'mainrUierh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1368,7 +1368,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.widgets)
         self.signuppage = QWidget()
         self.signuppage.setObjectName(u"signuppage")
-        self.signuppage.setStyleSheet(u"QPushButton#signuppush_btn {\n"
+        self.signuppage.setStyleSheet(u"QPushButton#signup_btn_submit {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -1376,7 +1376,7 @@ class Ui_MainWindow(object):
 "    padding: 5px 10px;\n"
 "    color: white;\n"
 "}\n"
-"QPushButton#clear_btn {\n"
+"QPushButton#signup_btn_clear {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -1384,92 +1384,101 @@ class Ui_MainWindow(object):
 "    padding: 5px 10px;\n"
 "    color: white;\n"
 "}")
-        self.label_2 = QLabel(self.signuppage)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(20, 20, 941, 541))
-        self.label_2.setStyleSheet(u"background-image: url(:/images/images/images/loginbackground.jpg);\n"
+        self.signup_label_back = QLabel(self.signuppage)
+        self.signup_label_back.setObjectName(u"signup_label_back")
+        self.signup_label_back.setGeometry(QRect(20, 20, 941, 541))
+        self.signup_label_back.setStyleSheet(u"background-image: url(:/images/images/images/loginbackground.jpg);\n"
 "border-radius: 20px;\n"
 "")
-        self.lineEdit_2 = QLineEdit(self.signuppage)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setGeometry(QRect(230, 130, 251, 31))
-        self.lineEdit_2.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+        self.signup_input_id = QLineEdit(self.signuppage)
+        self.signup_input_id.setObjectName(u"signup_input_id")
+        self.signup_input_id.setGeometry(QRect(230, 130, 251, 31))
+        self.signup_input_id.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
 "font: 12pt \"Segoe UI\";")
-        self.lineEdit_3 = QLineEdit(self.signuppage)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setGeometry(QRect(230, 180, 251, 31))
-        self.lineEdit_3.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+        self.signup_input_pw = QLineEdit(self.signuppage)
+        self.signup_input_pw.setObjectName(u"signup_input_pw")
+        self.signup_input_pw.setGeometry(QRect(230, 180, 251, 31))
+        self.signup_input_pw.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
 "font: 12pt \"Segoe UI\";")
-        self.lineEdit_4 = QLineEdit(self.signuppage)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
-        self.lineEdit_4.setGeometry(QRect(230, 230, 251, 31))
-        self.lineEdit_4.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+        self.signup_input_name = QLineEdit(self.signuppage)
+        self.signup_input_name.setObjectName(u"signup_input_name")
+        self.signup_input_name.setGeometry(QRect(230, 230, 251, 31))
+        self.signup_input_name.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
 "font: 12pt \"Segoe UI\";")
-        self.lineEdit_5 = QLineEdit(self.signuppage)
-        self.lineEdit_5.setObjectName(u"lineEdit_5")
-        self.lineEdit_5.setGeometry(QRect(230, 280, 251, 31))
-        self.lineEdit_5.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+        self.signup_input_phone = QLineEdit(self.signuppage)
+        self.signup_input_phone.setObjectName(u"signup_input_phone")
+        self.signup_input_phone.setGeometry(QRect(230, 280, 251, 31))
+        self.signup_input_phone.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
 "font: 12pt \"Segoe UI\";")
-        self.lineEdit_6 = QLineEdit(self.signuppage)
-        self.lineEdit_6.setObjectName(u"lineEdit_6")
-        self.lineEdit_6.setGeometry(QRect(230, 330, 251, 31))
-        self.lineEdit_6.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+        self.signup_input_email = QLineEdit(self.signuppage)
+        self.signup_input_email.setObjectName(u"signup_input_email")
+        self.signup_input_email.setGeometry(QRect(230, 330, 251, 31))
+        self.signup_input_email.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
 "font: 12pt \"Segoe UI\";")
-        self.comboBox_2 = QComboBox(self.signuppage)
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.addItem("")
-        self.comboBox_2.setObjectName(u"comboBox_2")
-        self.comboBox_2.setGeometry(QRect(540, 170, 186, 33))
-        self.comboBox_2.setFont(font)
-        self.comboBox_2.setAutoFillBackground(False)
-        self.comboBox_2.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-        self.comboBox_2.setIconSize(QSize(16, 16))
-        self.comboBox_2.setFrame(True)
-        self.comboBox_3 = QComboBox(self.signuppage)
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.addItem("")
-        self.comboBox_3.setObjectName(u"comboBox_3")
-        self.comboBox_3.setGeometry(QRect(540, 230, 186, 33))
-        self.comboBox_3.setFont(font)
-        self.comboBox_3.setAutoFillBackground(False)
-        self.comboBox_3.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-        self.comboBox_3.setIconSize(QSize(16, 16))
-        self.comboBox_3.setFrame(True)
-        self.signuppush_btn = QPushButton(self.signuppage)
-        self.signuppush_btn.setObjectName(u"signuppush_btn")
-        self.signuppush_btn.setGeometry(QRect(540, 280, 181, 31))
-        self.signuppush_btn.setStyleSheet(u"")
-        self.clear_btn = QPushButton(self.signuppage)
-        self.clear_btn.setObjectName(u"clear_btn")
-        self.clear_btn.setGeometry(QRect(540, 320, 181, 31))
+        self.signup_combo_dept = QComboBox(self.signuppage)
+        self.signup_combo_dept.addItem("")
+        self.signup_combo_dept.addItem("")
+        self.signup_combo_dept.addItem("")
+        self.signup_combo_dept.addItem("")
+        self.signup_combo_dept.addItem("")
+        self.signup_combo_dept.setObjectName(u"signup_combo_dept")
+        self.signup_combo_dept.setGeometry(QRect(550, 190, 186, 33))
+        self.signup_combo_dept.setFont(font)
+        self.signup_combo_dept.setAutoFillBackground(False)
+        self.signup_combo_dept.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.signup_combo_dept.setIconSize(QSize(16, 16))
+        self.signup_combo_dept.setFrame(True)
+        self.signup_combo_position = QComboBox(self.signuppage)
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.setObjectName(u"signup_combo_position")
+        self.signup_combo_position.setGeometry(QRect(550, 280, 186, 33))
+        self.signup_combo_position.setFont(font)
+        self.signup_combo_position.setAutoFillBackground(False)
+        self.signup_combo_position.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.signup_combo_position.setIconSize(QSize(16, 16))
+        self.signup_combo_position.setFrame(True)
+        self.signup_btn_submit = QPushButton(self.signuppage)
+        self.signup_btn_submit.setObjectName(u"signup_btn_submit")
+        self.signup_btn_submit.setGeometry(QRect(340, 450, 331, 31))
+        self.signup_btn_submit.setStyleSheet(u"")
+        self.signup_btn_back = QLabel(self.signuppage)
+        self.signup_btn_back.setObjectName(u"signup_btn_back")
+        self.signup_btn_back.setGeometry(QRect(690, 90, 41, 41))
+        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.signup_btn_back.sizePolicy().hasHeightForWidth())
+        self.signup_btn_back.setSizePolicy(sizePolicy5)
+        self.signup_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
+"")
         self.stackedWidget.addWidget(self.signuppage)
         self.loginpage = QWidget()
         self.loginpage.setObjectName(u"loginpage")
@@ -1914,30 +1923,30 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
-        self.label_2.setText("")
-        self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
-        self.lineEdit_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
-        self.lineEdit_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Name", None))
-        self.lineEdit_5.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Phone", None))
-        self.lineEdit_6.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email", None))
-        self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u" 1\ud300", None))
-        self.comboBox_2.setItemText(2, QCoreApplication.translate("MainWindow", u" 2\ud300", None))
-        self.comboBox_2.setItemText(3, QCoreApplication.translate("MainWindow", u" 3\ud300", None))
-        self.comboBox_2.setItemText(4, QCoreApplication.translate("MainWindow", u" \uc194\ub8e8\uc158\ud300", None))
+        self.signup_label_back.setText("")
+        self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
+        self.signup_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
+        self.signup_input_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Name", None))
+        self.signup_input_phone.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Phone", None))
+        self.signup_input_email.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email", None))
+        self.signup_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.signup_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u" 1\ud300", None))
+        self.signup_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u" 2\ud300", None))
+        self.signup_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u" 3\ud300", None))
+        self.signup_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u" \uc194\ub8e8\uc158\ud300", None))
 
-        self.comboBox_2.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"\ud68c\uc7a5", None))
-        self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"\uc0ac\uc7a5", None))
-        self.comboBox_3.setItemText(3, QCoreApplication.translate("MainWindow", u"\ucc28\uc7a5", None))
-        self.comboBox_3.setItemText(4, QCoreApplication.translate("MainWindow", u"\uacfc\uc7a5", None))
-        self.comboBox_3.setItemText(5, QCoreApplication.translate("MainWindow", u"\ub300\ub9ac", None))
-        self.comboBox_3.setItemText(6, QCoreApplication.translate("MainWindow", u"\uc0ac\uc6d0", None))
+        self.signup_combo_dept.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.signup_combo_position.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.signup_combo_position.setItemText(1, QCoreApplication.translate("MainWindow", u"\ud68c\uc7a5", None))
+        self.signup_combo_position.setItemText(2, QCoreApplication.translate("MainWindow", u"\uc0ac\uc7a5", None))
+        self.signup_combo_position.setItemText(3, QCoreApplication.translate("MainWindow", u"\ucc28\uc7a5", None))
+        self.signup_combo_position.setItemText(4, QCoreApplication.translate("MainWindow", u"\uacfc\uc7a5", None))
+        self.signup_combo_position.setItemText(5, QCoreApplication.translate("MainWindow", u"\ub300\ub9ac", None))
+        self.signup_combo_position.setItemText(6, QCoreApplication.translate("MainWindow", u"\uc0ac\uc6d0", None))
 
-        self.comboBox_3.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.signuppush_btn.setText(QCoreApplication.translate("MainWindow", u"Signup", None))
-        self.clear_btn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.signup_combo_position.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.signup_btn_submit.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
+        self.signup_btn_back.setText("")
         self.background.setText("")
         self.login_logo.setText(QCoreApplication.translate("MainWindow", u"\u2728 LOGIN", None))
         self.username.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User Name", None))
