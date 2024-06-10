@@ -18,7 +18,6 @@ import sys
 import os
 import platform
 import socket
-
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules import *
@@ -100,7 +99,7 @@ class MainWindow(QMainWindow):
         widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
 
         # LOGIN PAGE
-        widgets.signUp_btn.clicked.connect(self.buttonClick) #회원가입 버튼 이벤트
+        widgets.btn_signup.clicked.connect(self.buttonClick) #회원가입 버튼 이벤트
         
 
 
@@ -136,28 +135,28 @@ class MainWindow(QMainWindow):
         btn = self.sender()
         btnName = btn.objectName()
 
+        
+        UIFunctions.resetStyle(self, btnName)
+
         # SHOW HOME PAGE
         if btnName == "btn_home":
             widgets.stackedWidget.setCurrentWidget(widgets.home)
-            UIFunctions.resetStyle(self, btnName)
+
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW WIDGETS PAGE
         if btnName == "btn_widgets":
             widgets.stackedWidget.setCurrentWidget(widgets.widgets)
-            UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW LOGIN PAGE
         if btnName == "btn_login":
             widgets.stackedWidget.setCurrentWidget(widgets.loginpage) # SET PAGE
-            UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
         # SHOW SIGNUP PAGE
-        if btnName == "signUp_btn":
+        if btnName == "btn_signup":
             widgets.stackedWidget.setCurrentWidget(widgets.signuppage) # SET PAGE
-            UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
                 
             
