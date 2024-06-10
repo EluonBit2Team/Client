@@ -3,12 +3,15 @@
     <file>images/images/loginmail.png</file>
     <file>images/images/logincall.png</file>
     <file>images/images/loginbackground.jpg</file>
+    <file>images/icons/2cil-chevron-circle-left-alt-transparent.png</file>
+    <file>images/icons/free-icon-back-button-5708793 (1).png</file>
     <file>images/images/PyDracula_vertical.png</file>
     <file>images/images/LUON.png</file>
     <file>images/images/eluonlogo.png</file>
   </qresource>
   <qresource prefix="icons">
     <file>images/icons/cil-3d.png</file>
+    <file>images/icons/cil-chevron-circle-left-alt.png</file>
     <file>images/icons/cil-4k.png</file>
     <file>images/icons/cil-account-logout.png</file>
     <file>images/icons/cil-action-redo.png</file>

@@ -155,8 +155,14 @@ class MainWindow(QMainWindow):
         # SHOW SIGNUP PAGE
         if btnName == "btn_signup":
             widgets.stackedWidget.setCurrentWidget(widgets.signuppage) # SET PAGE
+<<<<<<< HEAD
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
         
+=======
+            #btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
+                
+            
+>>>>>>> main
         if btnName == "btn_save":
             print("Save BTN clicked!")
 
