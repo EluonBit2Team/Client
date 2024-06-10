@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-<<<<<<< HEAD
-## Form generated from reading UI file 'maineNlNfH.ui'
-=======
 ## Form generated from reading UI file 'mainrUierh.ui'
->>>>>>> main
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1948,16 +1944,9 @@ class Ui_MainWindow(object):
         self.signup_combo_position.setItemText(5, QCoreApplication.translate("MainWindow", u"\ub300\ub9ac", None))
         self.signup_combo_position.setItemText(6, QCoreApplication.translate("MainWindow", u"\uc0ac\uc6d0", None))
 
-<<<<<<< HEAD
-        self.comboBox_3.setCurrentText(QCoreApplication.translate("MainWindow", u"Test 1", None))
-        self.signuppush_btn.setText(QCoreApplication.translate("MainWindow", u"Signup", None))
-        self.clear_btn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
-        self.btn_back.setText("")
-=======
         self.signup_combo_position.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
         self.signup_btn_submit.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
         self.signup_btn_back.setText("")
->>>>>>> main
         self.background.setText("")
         self.login_logo.setText(QCoreApplication.translate("MainWindow", u"\u2728 LOGIN", None))
         self.username.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User Name", None))
