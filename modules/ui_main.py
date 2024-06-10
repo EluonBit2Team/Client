@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwJzsiq.ui'
+## Form generated from reading UI file 'maineNlNfH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1464,6 +1464,18 @@ class Ui_MainWindow(object):
         self.clear_btn = QPushButton(self.signuppage)
         self.clear_btn.setObjectName(u"clear_btn")
         self.clear_btn.setGeometry(QRect(540, 320, 181, 31))
+        self.btn_back = QPushButton(self.signuppage)
+        self.btn_back.setObjectName(u"btn_back")
+        self.btn_back.setGeometry(QRect(680, 90, 41, 41))
+        sizePolicy4.setHeightForWidth(self.btn_back.sizePolicy().hasHeightForWidth())
+        self.btn_back.setSizePolicy(sizePolicy4)
+        self.btn_back.setStyleSheet(u"QPushButton {\n"
+"    background-image: url(:/icons/images/icons/cil-arrow-circle-left.png);\n"
+"    background-repeat: no-repeat;\n"
+"    background-position: center;\n"
+"    border: none; /* \ubc84\ud2bc \ud14c\ub450\ub9ac\ub97c \uc81c\uac70\ud558\ub824\uba74 \uc774 \uc904\uc744 \ucd94\uac00\ud558\uc138\uc694 */\n"
+"}\n"
+"")
         self.stackedWidget.addWidget(self.signuppage)
         self.loginpage = QWidget()
         self.loginpage.setObjectName(u"loginpage")
@@ -1787,9 +1799,6 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.styleSheet)
 
         self.retranslateUi(MainWindow)
-        self.username.returnPressed.connect(self.login_btn.click)
-        self.password.returnPressed.connect(self.login_btn.click)
-        self.login_btn.clicked.connect(MainWindow.connectSocket)
 
         self.stackedWidget.setCurrentIndex(2)
 
@@ -1928,6 +1937,7 @@ class Ui_MainWindow(object):
         self.comboBox_3.setCurrentText(QCoreApplication.translate("MainWindow", u"Test 1", None))
         self.signuppush_btn.setText(QCoreApplication.translate("MainWindow", u"Signup", None))
         self.clear_btn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.btn_back.setText("")
         self.background.setText("")
         self.login_logo.setText(QCoreApplication.translate("MainWindow", u"\u2728 LOGIN", None))
         self.username.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User Name", None))

@@ -2946,6 +2946,35 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                         <string>Clear</string>
                        </property>
                       </widget>
+                      <widget class="QPushButton" name="btn_back">
+                       <property name="geometry">
+                        <rect>
+                         <x>680</x>
+                         <y>90</y>
+                         <width>41</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton {
+    background-image: url(:/icons/images/icons/cil-arrow-circle-left.png);
+    background-repeat: no-repeat;
+    background-position: center;
+	background-size: cover;
+    border: none; /* 버튼 테두리를 제거하려면 이 줄을 추가하세요 */
+}
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
                      </widget>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
