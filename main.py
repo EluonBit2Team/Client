@@ -17,6 +17,7 @@
 import sys
 import os
 import platform
+import socket
 
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
@@ -40,6 +41,19 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         global widgets
         widgets = self.ui
+
+        #widgets initialize
+        self.username = self.findChild(QLineEdit, "username")
+        self.password = self.findChild(QLineEdit, "password")
+        self.login_btn = self.findChild(QPushButton, "login_btn")
+        self.btn_home = self.findChild(QPushButton, "btn_home")
+        self.btn_widgets = self.findChild(QPushButton, "btn_widgets")
+        self.btn_save = self.findChild(QPushButton, "btn_save")
+
+        #hide menu
+        self.btn_home.hide()
+        self.btn_widgets.hide()
+        self.btn_save.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -147,14 +161,32 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
                 
             
-
-        
-
         if btnName == "btn_save":
             print("Save BTN clicked!")
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
+
+    def connectSocket(self):
+        self.host = self.username.text()
+        self.port = self.password.text()
+        try:
+            self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.socket.connect((self.host, int(self.port)))
+            self.socket.setblocking(False)
+            #self.start_receiving()
+            self.btn_home.show()
+            self.btn_widgets.show()
+            self.btn_save.show()
+            self.connectionSuccessEvent()
+        except Exception:
+            self.connectionErrorEvent()
+    
+    def connectionErrorEvent(self):
+        QMessageBox.warning(self, "Error", "연결 실패")
+
+    def connectionSuccessEvent(self):
+        QMessageBox.information(self, "Success", "연결 성공")
 
 
     # RESIZE EVENTS
