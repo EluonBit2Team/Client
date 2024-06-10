@@ -1665,6 +1665,9 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.styleSheet)
 
         self.retranslateUi(MainWindow)
+        self.username.returnPressed.connect(self.login_btn.click)
+        self.password.returnPressed.connect(self.login_btn.click)
+        self.login_btn.clicked.connect(MainWindow.connectSocket)
 
         self.stackedWidget.setCurrentIndex(3)
 
