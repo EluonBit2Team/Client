@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwJzsiq.ui'
+## Form generated from reading UI file 'mainpdBjgL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1165,7 +1165,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 274, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1439,6 +1439,8 @@ class Ui_MainWindow(object):
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
         self.comboBox_2.setObjectName(u"comboBox_2")
         self.comboBox_2.setGeometry(QRect(540, 170, 186, 33))
         self.comboBox_2.setFont(font)
@@ -1447,6 +1449,10 @@ class Ui_MainWindow(object):
         self.comboBox_2.setIconSize(QSize(16, 16))
         self.comboBox_2.setFrame(True)
         self.comboBox_3 = QComboBox(self.signuppage)
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
         self.comboBox_3.addItem("")
         self.comboBox_3.addItem("")
         self.comboBox_3.addItem("")
@@ -1914,15 +1920,22 @@ class Ui_MainWindow(object):
         self.lineEdit_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Name", None))
         self.lineEdit_5.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Phone", None))
         self.lineEdit_6.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email", None))
-        self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"Test 1", None))
-        self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"Test 2", None))
-        self.comboBox_2.setItemText(2, QCoreApplication.translate("MainWindow", u"Test 3", None))
+        self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u" 1\ud300", None))
+        self.comboBox_2.setItemText(2, QCoreApplication.translate("MainWindow", u" 2\ud300", None))
+        self.comboBox_2.setItemText(3, QCoreApplication.translate("MainWindow", u" 3\ud300", None))
+        self.comboBox_2.setItemText(4, QCoreApplication.translate("MainWindow", u" \uc194\ub8e8\uc158\ud300", None))
 
-        self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"Test 1", None))
-        self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"Test 2", None))
-        self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"Test 3", None))
+        self.comboBox_2.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"\ud68c\uc7a5", None))
+        self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"\uc0ac\uc7a5", None))
+        self.comboBox_3.setItemText(3, QCoreApplication.translate("MainWindow", u"\ucc28\uc7a5", None))
+        self.comboBox_3.setItemText(4, QCoreApplication.translate("MainWindow", u"\uacfc\uc7a5", None))
+        self.comboBox_3.setItemText(5, QCoreApplication.translate("MainWindow", u"\ub300\ub9ac", None))
+        self.comboBox_3.setItemText(6, QCoreApplication.translate("MainWindow", u"\uc0ac\uc6d0", None))
 
-        self.comboBox_3.setCurrentText(QCoreApplication.translate("MainWindow", u"Test 1", None))
+        self.comboBox_3.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
         self.signuppush_btn.setText(QCoreApplication.translate("MainWindow", u"Signup", None))
         self.clear_btn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
         self.background.setText("")

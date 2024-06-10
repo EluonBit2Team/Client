@@ -2131,7 +2131,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>274</width>
+                                 <width>218</width>
                                  <height>218</height>
                                 </rect>
                                </property>
@@ -2678,7 +2678,7 @@ background-repeat: no-repeat;</string>
                      </widget>
                      <widget class="QWidget" name="signuppage">
                       <property name="styleSheet">
-                       <string notr="true">QPushButton#signuppush_btn {
+                       <string notr="true">QPushButton#signup_btn_submit {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -2686,7 +2686,7 @@ background-repeat: no-repeat;</string>
     padding: 5px 10px;
     color: white;
 }
-QPushButton#clear_btn {
+QPushButton#signup_btn_clear {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -2695,7 +2695,7 @@ QPushButton#clear_btn {
     color: white;
 }</string>
                       </property>
-                      <widget class="QLabel" name="label_2">
+                      <widget class="QLabel" name="signup_label_back">
                        <property name="geometry">
                         <rect>
                          <x>20</x>
@@ -2713,7 +2713,7 @@ border-radius: 20px;
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QLineEdit" name="lineEdit_2">
+                      <widget class="QLineEdit" name="signup_input_id">
                        <property name="geometry">
                         <rect>
                          <x>230</x>
@@ -2734,7 +2734,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                         <string>ID</string>
                        </property>
                       </widget>
-                      <widget class="QLineEdit" name="lineEdit_3">
+                      <widget class="QLineEdit" name="signup_input_pw">
                        <property name="geometry">
                         <rect>
                          <x>230</x>
@@ -2755,7 +2755,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                         <string>Password</string>
                        </property>
                       </widget>
-                      <widget class="QLineEdit" name="lineEdit_4">
+                      <widget class="QLineEdit" name="signup_input_name">
                        <property name="geometry">
                         <rect>
                          <x>230</x>
@@ -2776,7 +2776,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                         <string>Name</string>
                        </property>
                       </widget>
-                      <widget class="QLineEdit" name="lineEdit_5">
+                      <widget class="QLineEdit" name="signup_input_phone">
                        <property name="geometry">
                         <rect>
                          <x>230</x>
@@ -2797,7 +2797,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                         <string>Phone</string>
                        </property>
                       </widget>
-                      <widget class="QLineEdit" name="lineEdit_6">
+                      <widget class="QLineEdit" name="signup_input_email">
                        <property name="geometry">
                         <rect>
                          <x>230</x>
@@ -2818,59 +2818,11 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                         <string>Email</string>
                        </property>
                       </widget>
-                      <widget class="QComboBox" name="comboBox_2">
+                      <widget class="QComboBox" name="signup_combo_dept">
                        <property name="geometry">
                         <rect>
-                         <x>540</x>
-                         <y>170</y>
-                         <width>186</width>
-                         <height>33</height>
-                        </rect>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
-                         <italic>false</italic>
-                         <bold>false</bold>
-                        </font>
-                       </property>
-                       <property name="autoFillBackground">
-                        <bool>false</bool>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);</string>
-                       </property>
-                       <property name="iconSize">
-                        <size>
-                         <width>16</width>
-                         <height>16</height>
-                        </size>
-                       </property>
-                       <property name="frame">
-                        <bool>true</bool>
-                       </property>
-                       <item>
-                        <property name="text">
-                         <string>Test 1</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Test 2</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Test 3</string>
-                        </property>
-                       </item>
-                      </widget>
-                      <widget class="QComboBox" name="comboBox_3">
-                       <property name="geometry">
-                        <rect>
-                         <x>540</x>
-                         <y>230</y>
+                         <x>550</x>
+                         <y>190</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2890,7 +2842,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                         <string notr="true">background-color: rgb(33, 37, 43);</string>
                        </property>
                        <property name="currentText">
-                        <string>Test 1</string>
+                        <string>부서를 선택하세요.</string>
                        </property>
                        <property name="iconSize">
                         <size>
@@ -2903,26 +2855,107 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        </property>
                        <item>
                         <property name="text">
-                         <string>Test 1</string>
+                         <string>부서를 선택하세요.</string>
                         </property>
                        </item>
                        <item>
                         <property name="text">
-                         <string>Test 2</string>
+                         <string> 1팀</string>
                         </property>
                        </item>
                        <item>
                         <property name="text">
-                         <string>Test 3</string>
+                         <string> 2팀</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string> 3팀</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string> 솔루션팀</string>
                         </property>
                        </item>
                       </widget>
-                      <widget class="QPushButton" name="signuppush_btn">
+                      <widget class="QComboBox" name="signup_combo_position">
                        <property name="geometry">
                         <rect>
-                         <x>540</x>
+                         <x>550</x>
                          <y>280</y>
-                         <width>181</width>
+                         <width>186</width>
+                         <height>33</height>
+                        </rect>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>10</pointsize>
+                         <italic>false</italic>
+                         <bold>false</bold>
+                        </font>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                       </property>
+                       <property name="currentText">
+                        <string>직급을 선택하세요.</string>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>16</width>
+                         <height>16</height>
+                        </size>
+                       </property>
+                       <property name="frame">
+                        <bool>true</bool>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>직급을 선택하세요.</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>회장</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>사장</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>차장</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>과장</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>대리</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>사원</string>
+                        </property>
+                       </item>
+                      </widget>
+                      <widget class="QPushButton" name="signup_btn_submit">
+                       <property name="geometry">
+                        <rect>
+                         <x>340</x>
+                         <y>450</y>
+                         <width>331</width>
                          <height>31</height>
                         </rect>
                        </property>
@@ -2930,20 +2963,32 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                         <string notr="true"/>
                        </property>
                        <property name="text">
-                        <string>Signup</string>
+                        <string>Submit</string>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="clear_btn">
+                      <widget class="QLabel" name="signup_btn_back">
                        <property name="geometry">
                         <rect>
-                         <x>540</x>
-                         <y>320</y>
-                         <width>181</width>
-                         <height>31</height>
+                         <x>690</x>
+                         <y>90</y>
+                         <width>41</width>
+                         <height>41</height>
                         </rect>
                        </property>
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);
+background-position: centered;
+background-repeat: no-repeat;
+</string>
+                       </property>
                        <property name="text">
-                        <string>Clear</string>
+                        <string/>
                        </property>
                       </widget>
                      </widget>
