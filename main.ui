@@ -1829,6 +1829,334 @@ li.checked::marker { content: &quot;\2612&quot;; }
                      <property name="currentIndex">
                       <number>3</number>
                      </property>
+                     <widget class="QWidget" name="loginpage">
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton#login_btn_login {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+QPushButton#login_btn_signup {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+QPushButton#login_btn_mail {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+QPushButton#login_btn_call {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+QPushButton#login_btn_login {
+   background-color: rgba(70, 130, 180, 0.25);
+}
+
+QPushButton#login_btn_login:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#login_btn_login:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}
+
+QPushButton#login_btn_signup {
+    background-color: rgba(255, 105, 180, 0.25);
+}
+
+QPushButton#login_btn_signup:hover {
+    background-color: rgba(255, 105, 180, 1);
+}
+
+QPushButton#login_btn_signup:pressed {
+    background-color: rgba(139, 0, 139, 1);
+}
+
+QPushButton#login_btn_mail {
+    background-color: rgba(70, 130, 180, 0.25);
+}
+
+QPushButton#login_btn_mail:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#login_btn_mail:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}
+
+QPushButton#login_btn_call {
+    background-color: rgba(34, 139, 34, 0.25);
+}
+
+QPushButton#login_btn_call:hover {
+    background-color: rgba(34, 139, 34, 1);
+}
+
+QPushButton#login_btn_call:pressed {
+    background-color: rgba(0, 100, 0, 1);
+}
+
+</string>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_20">
+                       <item>
+                        <layout class="QGridLayout" name="gridLayout_3">
+                         <item row="1" column="0">
+                          <widget class="QWidget" name="widget" native="true">
+                           <widget class="QLabel" name="login_label_back">
+                            <property name="geometry">
+                             <rect>
+                              <x>10</x>
+                              <y>10</y>
+                              <width>941</width>
+                              <height>541</height>
+                             </rect>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-image: url(:/images/images/images/loginbackground.jpg);
+border-radius: 20px;
+</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                           </widget>
+                           <widget class="QLabel" name="login_label_logo">
+                            <property name="geometry">
+                             <rect>
+                              <x>380</x>
+                              <y>70</y>
+                              <width>201</width>
+                              <height>61</height>
+                             </rect>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>28</pointsize>
+                              <italic>false</italic>
+                              <fontweight>ExtraLight</fontweight>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">font: 28pt &quot;Segoe UI&quot;;
+font-weight: 200;
+color: rgb(255, 255, 255);</string>
+                            </property>
+                            <property name="text">
+                             <string>✨ LOGIN</string>
+                            </property>
+                           </widget>
+                           <widget class="QLineEdit" name="login_input_id">
+                            <property name="geometry">
+                             <rect>
+                              <x>240</x>
+                              <y>180</y>
+                              <width>491</width>
+                              <height>41</height>
+                             </rect>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>12</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color:rgba(0,0,0,0);
+border:none;
+border-bottom:2px solid rgba(255, 255, 255, 120);
+color:rgba(255, 255, 255, 230);
+padding-bottom:7px;
+font: 12pt &quot;Segoe UI&quot;;</string>
+                            </property>
+                            <property name="placeholderText">
+                             <string>User Name</string>
+                            </property>
+                           </widget>
+                           <widget class="QLineEdit" name="login_input_pw">
+                            <property name="geometry">
+                             <rect>
+                              <x>240</x>
+                              <y>240</y>
+                              <width>491</width>
+                              <height>41</height>
+                             </rect>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>12</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color:rgba(0,0,0,0);
+border:none;
+border-bottom:2px solid rgba(255, 255, 255, 120);
+color:rgba(255, 255, 255, 230);
+padding-bottom:7px;
+font: 12pt &quot;Segoe UI&quot;;</string>
+                            </property>
+                            <property name="echoMode">
+                             <enum>QLineEdit::EchoMode::Password</enum>
+                            </property>
+                            <property name="placeholderText">
+                             <string>Password</string>
+                            </property>
+                           </widget>
+                           <widget class="QLabel" name="login_label_cover">
+                            <property name="geometry">
+                             <rect>
+                              <x>130</x>
+                              <y>10</y>
+                              <width>701</width>
+                              <height>541</height>
+                             </rect>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 30), stop:1 rgba(255, 255, 255, 255));</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                           </widget>
+                           <widget class="QPushButton" name="login_btn_login">
+                            <property name="geometry">
+                             <rect>
+                              <x>330</x>
+                              <y>330</y>
+                              <width>321</width>
+                              <height>41</height>
+                             </rect>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">font: 12pt &quot;Segoe UI&quot;;
+color:rgba(255, 255, 255, 180);
+</string>
+                            </property>
+                            <property name="text">
+                             <string>LOGIN</string>
+                            </property>
+                           </widget>
+                           <widget class="QPushButton" name="login_btn_signup">
+                            <property name="geometry">
+                             <rect>
+                              <x>330</x>
+                              <y>380</y>
+                              <width>321</width>
+                              <height>31</height>
+                             </rect>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Segoe UI</family>
+                              <pointsize>10</pointsize>
+                              <italic>false</italic>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+color:rgba(255, 255, 255, 180);</string>
+                            </property>
+                            <property name="text">
+                             <string>Sign Up</string>
+                            </property>
+                           </widget>
+                           <widget class="QLabel" name="login_label_disc">
+                            <property name="geometry">
+                             <rect>
+                              <x>330</x>
+                              <y>430</y>
+                              <width>351</width>
+                              <height>16</height>
+                             </rect>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+color:rgba(255, 255, 255, 130);</string>
+                            </property>
+                            <property name="text">
+                             <string>forget your password, please contact the administrator.</string>
+                            </property>
+                           </widget>
+                           <widget class="QWidget" name="horizontalLayoutWidget">
+                            <property name="geometry">
+                             <rect>
+                              <x>410</x>
+                              <y>480</y>
+                              <width>156</width>
+                              <height>51</height>
+                             </rect>
+                            </property>
+                            <layout class="QHBoxLayout" name="horizontalLayout_6">
+                             <item>
+                              <widget class="QPushButton" name="login_btn_mail">
+                               <property name="styleSheet">
+                                <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-closed.png);
+background-repeat: no-repeat;
+background-position: center;
+border-radius: 14px;
+margin-right: 10px;
+margin-left:10px;</string>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="login_btn_call">
+                               <property name="styleSheet">
+                                <string notr="true">background-image: url(:/icons/images/icons/cil-phone.png);
+background-repeat: no-repeat;
+background-position: center;
+border-radius: 14px;
+margin-right: 10px;
+margin-left:10px;</string>
+                               </property>
+                               <property name="text">
+                                <string/>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                           <zorder>login_label_back</zorder>
+                           <zorder>login_label_cover</zorder>
+                           <zorder>login_input_id</zorder>
+                           <zorder>login_input_pw</zorder>
+                           <zorder>login_label_logo</zorder>
+                           <zorder>login_btn_login</zorder>
+                           <zorder>login_btn_signup</zorder>
+                           <zorder>login_label_disc</zorder>
+                           <zorder>horizontalLayoutWidget</zorder>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
                        <string notr="true">background-position: center;
@@ -2178,7 +2506,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>218</width>
+                                 <width>274</width>
                                  <height>218</height>
                                 </rect>
                                </property>
@@ -3106,334 +3434,6 @@ border:none;
                        </property>
                       </widget>
                      </widget>
-                     <widget class="QWidget" name="loginpage">
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton#login_btn_login {
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: white;
-}
-QPushButton#login_btn_signup {
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: white;
-}
-QPushButton#login_btn_mail {
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: white;
-}
-QPushButton#login_btn_call {
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: white;
-}
-
-QPushButton#login_btn_login {
-   background-color: rgba(70, 130, 180, 0.25);
-}
-
-QPushButton#login_btn_login:hover {
-    background-color: rgba(70, 130, 180, 1);
-}
-
-QPushButton#login_btn_login:pressed {
-    background-color: rgba(25, 25, 112, 1);
-}
-
-QPushButton#login_btn_signup {
-    background-color: rgba(255, 105, 180, 0.25);
-}
-
-QPushButton#login_btn_signup:hover {
-    background-color: rgba(255, 105, 180, 1);
-}
-
-QPushButton#login_btn_signup:pressed {
-    background-color: rgba(139, 0, 139, 1);
-}
-
-QPushButton#login_btn_mail {
-    background-color: rgba(70, 130, 180, 0.25);
-}
-
-QPushButton#login_btn_mail:hover {
-    background-color: rgba(70, 130, 180, 1);
-}
-
-QPushButton#login_btn_mail:pressed {
-    background-color: rgba(25, 25, 112, 1);
-}
-
-QPushButton#login_btn_call {
-    background-color: rgba(34, 139, 34, 0.25);
-}
-
-QPushButton#login_btn_call:hover {
-    background-color: rgba(34, 139, 34, 1);
-}
-
-QPushButton#login_btn_call:pressed {
-    background-color: rgba(0, 100, 0, 1);
-}
-
-</string>
-                      </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_20">
-                       <item>
-                        <layout class="QGridLayout" name="gridLayout_3">
-                         <item row="1" column="0">
-                          <widget class="QWidget" name="widget" native="true">
-                           <widget class="QLabel" name="login_label_back">
-                            <property name="geometry">
-                             <rect>
-                              <x>10</x>
-                              <y>10</y>
-                              <width>941</width>
-                              <height>541</height>
-                             </rect>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">background-image: url(:/images/images/images/loginbackground.jpg);
-border-radius: 20px;
-</string>
-                            </property>
-                            <property name="text">
-                             <string/>
-                            </property>
-                           </widget>
-                           <widget class="QLabel" name="login_label_logo">
-                            <property name="geometry">
-                             <rect>
-                              <x>380</x>
-                              <y>70</y>
-                              <width>201</width>
-                              <height>61</height>
-                             </rect>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <family>Segoe UI</family>
-                              <pointsize>28</pointsize>
-                              <italic>false</italic>
-                              <fontweight>ExtraLight</fontweight>
-                             </font>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">font: 28pt &quot;Segoe UI&quot;;
-font-weight: 200;
-color: rgb(255, 255, 255);</string>
-                            </property>
-                            <property name="text">
-                             <string>✨ LOGIN</string>
-                            </property>
-                           </widget>
-                           <widget class="QLineEdit" name="login_input_id">
-                            <property name="geometry">
-                             <rect>
-                              <x>240</x>
-                              <y>180</y>
-                              <width>491</width>
-                              <height>41</height>
-                             </rect>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <family>Segoe UI</family>
-                              <pointsize>12</pointsize>
-                              <italic>false</italic>
-                              <bold>false</bold>
-                             </font>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">background-color:rgba(0,0,0,0);
-border:none;
-border-bottom:2px solid rgba(255, 255, 255, 120);
-color:rgba(255, 255, 255, 230);
-padding-bottom:7px;
-font: 12pt &quot;Segoe UI&quot;;</string>
-                            </property>
-                            <property name="placeholderText">
-                             <string>User Name</string>
-                            </property>
-                           </widget>
-                           <widget class="QLineEdit" name="login_input_pw">
-                            <property name="geometry">
-                             <rect>
-                              <x>240</x>
-                              <y>240</y>
-                              <width>491</width>
-                              <height>41</height>
-                             </rect>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <family>Segoe UI</family>
-                              <pointsize>12</pointsize>
-                              <italic>false</italic>
-                              <bold>false</bold>
-                             </font>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">background-color:rgba(0,0,0,0);
-border:none;
-border-bottom:2px solid rgba(255, 255, 255, 120);
-color:rgba(255, 255, 255, 230);
-padding-bottom:7px;
-font: 12pt &quot;Segoe UI&quot;;</string>
-                            </property>
-                            <property name="echoMode">
-                             <enum>QLineEdit::EchoMode::Password</enum>
-                            </property>
-                            <property name="placeholderText">
-                             <string>Password</string>
-                            </property>
-                           </widget>
-                           <widget class="QLabel" name="login_label_cover">
-                            <property name="geometry">
-                             <rect>
-                              <x>130</x>
-                              <y>10</y>
-                              <width>701</width>
-                              <height>541</height>
-                             </rect>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 30), stop:1 rgba(255, 255, 255, 255));</string>
-                            </property>
-                            <property name="text">
-                             <string/>
-                            </property>
-                           </widget>
-                           <widget class="QPushButton" name="login_btn_login">
-                            <property name="geometry">
-                             <rect>
-                              <x>330</x>
-                              <y>330</y>
-                              <width>321</width>
-                              <height>41</height>
-                             </rect>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">font: 12pt &quot;Segoe UI&quot;;
-color:rgba(255, 255, 255, 180);
-</string>
-                            </property>
-                            <property name="text">
-                             <string>LOGIN</string>
-                            </property>
-                           </widget>
-                           <widget class="QPushButton" name="login_btn_signup">
-                            <property name="geometry">
-                             <rect>
-                              <x>330</x>
-                              <y>380</y>
-                              <width>321</width>
-                              <height>31</height>
-                             </rect>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <family>Segoe UI</family>
-                              <pointsize>10</pointsize>
-                              <italic>false</italic>
-                              <bold>false</bold>
-                             </font>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">font: 10pt &quot;Segoe UI&quot;;
-color:rgba(255, 255, 255, 180);</string>
-                            </property>
-                            <property name="text">
-                             <string>Sign Up</string>
-                            </property>
-                           </widget>
-                           <widget class="QLabel" name="login_label_disc">
-                            <property name="geometry">
-                             <rect>
-                              <x>330</x>
-                              <y>430</y>
-                              <width>351</width>
-                              <height>16</height>
-                             </rect>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">font: 10pt &quot;Segoe UI&quot;;
-color:rgba(255, 255, 255, 130);</string>
-                            </property>
-                            <property name="text">
-                             <string>forget your password, please contact the administrator.</string>
-                            </property>
-                           </widget>
-                           <widget class="QWidget" name="horizontalLayoutWidget">
-                            <property name="geometry">
-                             <rect>
-                              <x>410</x>
-                              <y>480</y>
-                              <width>156</width>
-                              <height>51</height>
-                             </rect>
-                            </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_6">
-                             <item>
-                              <widget class="QPushButton" name="login_btn_mail">
-                               <property name="styleSheet">
-                                <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-closed.png);
-background-repeat: no-repeat;
-background-position: center;
-border-radius: 14px;
-margin-right: 10px;
-margin-left:10px;</string>
-                               </property>
-                               <property name="text">
-                                <string/>
-                               </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QPushButton" name="login_btn_call">
-                               <property name="styleSheet">
-                                <string notr="true">background-image: url(:/icons/images/icons/cil-phone.png);
-background-repeat: no-repeat;
-background-position: center;
-border-radius: 14px;
-margin-right: 10px;
-margin-left:10px;</string>
-                               </property>
-                               <property name="text">
-                                <string/>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
-                           </widget>
-                           <zorder>login_label_back</zorder>
-                           <zorder>login_label_cover</zorder>
-                           <zorder>login_input_id</zorder>
-                           <zorder>login_input_pw</zorder>
-                           <zorder>login_label_logo</zorder>
-                           <zorder>login_btn_login</zorder>
-                           <zorder>login_btn_signup</zorder>
-                           <zorder>login_label_disc</zorder>
-                           <zorder>horizontalLayoutWidget</zorder>
-                          </widget>
-                         </item>
-                        </layout>
-                       </item>
-                      </layout>
-                     </widget>
                     </widget>
                    </item>
                   </layout>
@@ -3721,8 +3721,8 @@ margin-left:10px;</string>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>321</x>
-     <y>222</y>
+     <x>402</x>
+     <y>254</y>
     </hint>
     <hint type="destinationlabel">
      <x>439</x>
@@ -3769,8 +3769,8 @@ margin-left:10px;</string>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>356</x>
-     <y>373</y>
+     <x>437</x>
+     <y>404</y>
     </hint>
     <hint type="destinationlabel">
      <x>452</x>
@@ -3795,38 +3795,6 @@ margin-left:10px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>signup_combo_dept</sender>
-   <signal>currentTextChanged(QString)</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>640</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>585</x>
-     <y>548</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>signup_combo_position</sender>
-   <signal>currentTextChanged(QString)</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>636</x>
-     <y>368</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>603</x>
-     <y>537</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>signup_btn_submit</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -3842,8 +3810,74 @@ margin-left:10px;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>login_input_id</sender>
+   <signal>returnPressed()</signal>
+   <receiver>login_btn_login</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>353</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>467</x>
+     <y>436</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>login_input_pw</sender>
+   <signal>returnPressed()</signal>
+   <receiver>login_btn_login</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>373</x>
+     <y>345</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>462</x>
+     <y>427</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>login_btn_login</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>loginRequest()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>684</x>
+     <y>433</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1083</x>
+     <y>90</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>signup_checkbox_agree</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>toggleButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>506</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>698</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>signUpRequest()</slot>
+  <slot>loginRequest()</slot>
+  <slot>toggleButton()</slot>
  </slots>
 </ui>

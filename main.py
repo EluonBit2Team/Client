@@ -54,6 +54,8 @@ class MainWindow(QMainWindow):
         self.signup_combo_dept = self.findChild(QComboBox, "signup_combo_dept")
         self.signup_combo_position = self.findChild(QComboBox, "signup_combo_position")
         self.signup_btn_submit = self.findChild(QPushButton, "signup_btn_submit")
+        self.signup_btn_back = self.findChild(QPushButton, "signup_btn_back")
+        self.signup_checkbox_agree = self.findChild(QCheckBox, "signup_checkbox_agree")
 
 
 
@@ -113,6 +115,7 @@ class MainWindow(QMainWindow):
 
         # LOGIN PAGE
         widgets.login_btn_signup.clicked.connect(self.buttonClick) #회원가입 버튼 이벤트
+        widgets.signup_btn_back.clicked.connect(self.buttonClick)
         
 
 
@@ -142,6 +145,13 @@ class MainWindow(QMainWindow):
     # BUTTONS CLICK
     # Post here your functions for clicked buttons
     # ///////////////////////////////////////////////////////////////
+    def toggleButton(self, state):
+        if state == 2:
+            self.signup_btn_submit.setEnabled(True)
+        else:
+            self.signup_btn_submit.setEnabled(False)
+        
+
 
     def buttonClick(self):
         # GET BUTTON CLICKED
@@ -160,9 +170,9 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW LOGIN PAGE
-        if btnName == "btn_login":
+        if (btnName == "btn_login") or (btnName == "signup_btn_back"):
             widgets.stackedWidget.setCurrentWidget(widgets.loginpage) # SET PAGE
-            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
+            #btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
         # SHOW SIGNUP PAGE
         if btnName == "login_btn_signup":
@@ -224,7 +234,7 @@ class MainWindow(QMainWindow):
     # ///////////////////////////////////////////////////////////////
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
-        self.dragPos = event.pos()
+        self.dragPos = event.globalPos()
 
         # PRINT MOUSE EVENTS
         if event.buttons() == Qt.LeftButton:
