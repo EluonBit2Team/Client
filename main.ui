@@ -1827,7 +1827,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>3</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2693,7 +2693,9 @@ QPushButton#signup_btn_clear {
     border-radius: 5px;
     padding: 5px 10px;
     color: white;
-}</string>
+}
+
+</string>
                       </property>
                       <widget class="QLabel" name="signup_label_back">
                        <property name="geometry">
@@ -2717,7 +2719,7 @@ border-radius: 20px;
                        <property name="geometry">
                         <rect>
                          <x>230</x>
-                         <y>130</y>
+                         <y>150</y>
                          <width>251</width>
                          <height>31</height>
                         </rect>
@@ -2738,7 +2740,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>230</x>
-                         <y>180</y>
+                         <y>200</y>
                          <width>251</width>
                          <height>31</height>
                         </rect>
@@ -2751,6 +2753,9 @@ color:rgba(255, 255, 255, 230);
 padding-bottom:7px;
 font: 12pt &quot;Segoe UI&quot;;</string>
                        </property>
+                       <property name="echoMode">
+                        <enum>QLineEdit::EchoMode::Password</enum>
+                       </property>
                        <property name="placeholderText">
                         <string>Password</string>
                        </property>
@@ -2759,7 +2764,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>230</x>
-                         <y>230</y>
+                         <y>250</y>
                          <width>251</width>
                          <height>31</height>
                         </rect>
@@ -2780,7 +2785,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>230</x>
-                         <y>280</y>
+                         <y>300</y>
                          <width>251</width>
                          <height>31</height>
                         </rect>
@@ -2801,7 +2806,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>230</x>
-                         <y>330</y>
+                         <y>350</y>
                          <width>251</width>
                          <height>31</height>
                         </rect>
@@ -2822,7 +2827,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>550</x>
-                         <y>190</y>
+                         <y>200</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2830,16 +2835,18 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="font">
                         <font>
                          <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
+                         <pointsize>9</pointsize>
                          <italic>false</italic>
-                         <bold>false</bold>
+                         <fontweight>ExtraLight</fontweight>
                         </font>
                        </property>
                        <property name="autoFillBackground">
                         <bool>false</bool>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                        <string notr="true">background-color: rgb(33, 37, 43);
+font: 9pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
                        </property>
                        <property name="currentText">
                         <string>부서를 선택하세요.</string>
@@ -2883,7 +2890,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>550</x>
-                         <y>280</y>
+                         <y>250</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2891,16 +2898,18 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="font">
                         <font>
                          <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
+                         <pointsize>9</pointsize>
                          <italic>false</italic>
-                         <bold>false</bold>
+                         <fontweight>ExtraLight</fontweight>
                         </font>
                        </property>
                        <property name="autoFillBackground">
                         <bool>false</bool>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                        <string notr="true">background-color: rgb(33, 37, 43);
+font: 9pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
                        </property>
                        <property name="currentText">
                         <string>직급을 선택하세요.</string>
@@ -2953,14 +2962,15 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                       <widget class="QPushButton" name="signup_btn_submit">
                        <property name="geometry">
                         <rect>
-                         <x>340</x>
-                         <y>450</y>
+                         <x>330</x>
+                         <y>458</y>
                          <width>331</width>
-                         <height>31</height>
+                         <height>41</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true"/>
+                        <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+</string>
                        </property>
                        <property name="text">
                         <string>Submit</string>
@@ -2969,8 +2979,8 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                       <widget class="QLabel" name="signup_btn_back">
                        <property name="geometry">
                         <rect>
-                         <x>690</x>
-                         <y>90</y>
+                         <x>700</x>
+                         <y>110</y>
                          <width>41</width>
                          <height>41</height>
                         </rect>
@@ -2991,39 +3001,57 @@ background-repeat: no-repeat;
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="btn_back">
+                      <widget class="QCheckBox" name="signup_checkbox_agree">
                        <property name="geometry">
                         <rect>
-                         <x>680</x>
-                         <y>90</y>
-                         <width>41</width>
-                         <height>41</height>
+                         <x>330</x>
+                         <y>420</y>
+                         <width>21</width>
+                         <height>20</height>
                         </rect>
-                       </property>
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton {
-    background-image: url(:/icons/images/icons/cil-arrow-circle-left.png);
-    background-repeat: no-repeat;
-    background-position: center;
-	background-size: cover;
-    border: none; /* 버튼 테두리를 제거하려면 이 줄을 추가하세요 */
-}
-</string>
                        </property>
                        <property name="text">
                         <string/>
                        </property>
                       </widget>
+                      <widget class="QLabel" name="signup_label_useagree">
+                       <property name="geometry">
+                        <rect>
+                         <x>360</x>
+                         <y>422</y>
+                         <width>51</width>
+                         <height>16</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
+                       </property>
+                       <property name="text">
+                        <string>이용약관</string>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="signup_label_infoagree">
+                       <property name="geometry">
+                        <rect>
+                         <x>420</x>
+                         <y>422</y>
+                         <width>251</width>
+                         <height>16</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
+                       </property>
+                       <property name="text">
+                        <string>개인정보 수집 및 이용에 모두 동의합니다.</string>
+                       </property>
+                      </widget>
                      </widget>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
-                       <string notr="true">QPushButton#login_btn {
+                       <string notr="true">QPushButton#login_btn_login {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -3031,7 +3059,7 @@ background-repeat: no-repeat;
     padding: 5px 10px;
     color: white;
 }
-QPushButton#btn_signup {
+QPushButton#login_btn_signup {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -3039,7 +3067,7 @@ QPushButton#btn_signup {
     padding: 5px 10px;
     color: white;
 }
-QPushButton#mail_btn {
+QPushButton#login_btn_mail {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -3047,7 +3075,7 @@ QPushButton#mail_btn {
     padding: 5px 10px;
     color: white;
 }
-QPushButton#call_btn {
+QPushButton#login_btn_call {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -3056,51 +3084,51 @@ QPushButton#call_btn {
     color: white;
 }
 
-QPushButton#login_btn {
+QPushButton#login_btn_login {
    background-color: rgba(70, 130, 180, 0.25);
 }
 
-QPushButton#login_btn:hover {
+QPushButton#login_btn_login:hover {
     background-color: rgba(70, 130, 180, 1);
 }
 
-QPushButton#login_btn:pressed {
+QPushButton#login_btn_login:pressed {
     background-color: rgba(25, 25, 112, 1);
 }
 
-QPushButton#btn_signup {
+QPushButton#login_btn_signup {
     background-color: rgba(255, 105, 180, 0.25);
 }
 
-QPushButton#btn_signup:hover {
+QPushButton#login_btn_signup:hover {
     background-color: rgba(255, 105, 180, 1);
 }
 
-QPushButton#btn_signup:pressed {
+QPushButton#login_btn_signup:pressed {
     background-color: rgba(139, 0, 139, 1);
 }
 
-QPushButton#mail_btn {
+QPushButton#login_btn_mail {
     background-color: rgba(70, 130, 180, 0.25);
 }
 
-QPushButton#mail_btn:hover {
+QPushButton#login_btn_mail:hover {
     background-color: rgba(70, 130, 180, 1);
 }
 
-QPushButton#mail_btn:pressed {
+QPushButton#login_btn_mail:pressed {
     background-color: rgba(25, 25, 112, 1);
 }
 
-QPushButton#call_btn {
+QPushButton#login_btn_call {
     background-color: rgba(34, 139, 34, 0.25);
 }
 
-QPushButton#call_btn:hover {
+QPushButton#login_btn_call:hover {
     background-color: rgba(34, 139, 34, 1);
 }
 
-QPushButton#call_btn:pressed {
+QPushButton#login_btn_call:pressed {
     background-color: rgba(0, 100, 0, 1);
 }
 
@@ -3650,137 +3678,5 @@ margin-left:10px;</string>
  <resources>
   <include location="resources.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>signup_input_id</sender>
-   <signal>returnPressed()</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>321</x>
-     <y>222</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>439</x>
-     <y>552</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>signup_input_pw</sender>
-   <signal>returnPressed()</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>328</x>
-     <y>274</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>480</x>
-     <y>547</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>signup_input_name</sender>
-   <signal>returnPressed()</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>340</x>
-     <y>326</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>444</x>
-     <y>537</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>signup_input_phone</sender>
-   <signal>returnPressed()</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>356</x>
-     <y>373</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>452</x>
-     <y>539</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>signup_input_email</sender>
-   <signal>returnPressed()</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>378</x>
-     <y>425</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>494</x>
-     <y>532</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>signup_combo_dept</sender>
-   <signal>currentTextChanged(QString)</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>640</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>585</x>
-     <y>548</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>signup_combo_position</sender>
-   <signal>currentTextChanged(QString)</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>636</x>
-     <y>368</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>603</x>
-     <y>537</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>signup_btn_submit</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>signUpRequest()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>695</x>
-     <y>539</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>929</x>
-     <y>698</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
- <slots>
-  <slot>signUpRequest()</slot>
- </slots>
+ <connections/>
 </ui>
