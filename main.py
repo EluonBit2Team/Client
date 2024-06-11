@@ -46,7 +46,7 @@ class MainWindow(QMainWindow):
         self.login_input_id = self.findChild(QLineEdit, "login_input_id")
         self.login_input_pw = self.findChild(QLineEdit, "login_input_pw")
         self.login_btn_login = self.findChild(QPushButton, "login_btn_login")
-        self.signup_input_id = self.findChild(QLineEdit, "ignup_input_id")
+        self.signup_input_id = self.findChild(QLineEdit, "signup_input_id")
         self.signup_input_pw = self.findChild(QLineEdit, "signup_input_pw")
         self.signup_input_name = self.findChild(QLineEdit, "signup_input_name")
         self.signup_input_phone = self.findChild(QLineEdit, "signup_input_phone")
