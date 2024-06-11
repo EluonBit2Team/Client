@@ -1827,7 +1827,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>3</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2131,7 +2131,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>218</width>
+                                 <width>274</width>
                                  <height>218</height>
                                 </rect>
                                </property>
@@ -3082,7 +3082,7 @@ QPushButton#call_btn:pressed {
                         <layout class="QGridLayout" name="gridLayout_3">
                          <item row="1" column="0">
                           <widget class="QWidget" name="widget" native="true">
-                           <widget class="QLabel" name="background">
+                           <widget class="QLabel" name="login_label_back">
                             <property name="geometry">
                              <rect>
                               <x>10</x>
@@ -3100,7 +3100,7 @@ border-radius: 20px;
                              <string/>
                             </property>
                            </widget>
-                           <widget class="QLabel" name="login_logo">
+                           <widget class="QLabel" name="login_label_logo">
                             <property name="geometry">
                              <rect>
                               <x>380</x>
@@ -3126,7 +3126,7 @@ color: rgb(255, 255, 255);</string>
                              <string>✨ LOGIN</string>
                             </property>
                            </widget>
-                           <widget class="QLineEdit" name="username">
+                           <widget class="QLineEdit" name="login_input_id">
                             <property name="geometry">
                              <rect>
                               <x>240</x>
@@ -3155,7 +3155,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                              <string>User Name</string>
                             </property>
                            </widget>
-                           <widget class="QLineEdit" name="password">
+                           <widget class="QLineEdit" name="login_input_pw">
                             <property name="geometry">
                              <rect>
                               <x>240</x>
@@ -3187,7 +3187,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                              <string>Password</string>
                             </property>
                            </widget>
-                           <widget class="QLabel" name="login_cover">
+                           <widget class="QLabel" name="login_label_cover">
                             <property name="geometry">
                              <rect>
                               <x>130</x>
@@ -3203,7 +3203,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                              <string/>
                             </property>
                            </widget>
-                           <widget class="QPushButton" name="login_btn">
+                           <widget class="QPushButton" name="login_btn_login">
                             <property name="geometry">
                              <rect>
                               <x>330</x>
@@ -3221,7 +3221,7 @@ color:rgba(255, 255, 255, 180);
                              <string>LOGIN</string>
                             </property>
                            </widget>
-                           <widget class="QPushButton" name="btn_signup">
+                           <widget class="QPushButton" name="login_btn_signup">
                             <property name="geometry">
                              <rect>
                               <x>330</x>
@@ -3246,7 +3246,7 @@ color:rgba(255, 255, 255, 180);</string>
                              <string>Sign Up</string>
                             </property>
                            </widget>
-                           <widget class="QLabel" name="label">
+                           <widget class="QLabel" name="login_label_disc">
                             <property name="geometry">
                              <rect>
                               <x>330</x>
@@ -3274,7 +3274,7 @@ color:rgba(255, 255, 255, 130);</string>
                             </property>
                             <layout class="QHBoxLayout" name="horizontalLayout_6">
                              <item>
-                              <widget class="QPushButton" name="mail_btn">
+                              <widget class="QPushButton" name="login_btn_mail">
                                <property name="styleSheet">
                                 <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-closed.png);
 background-repeat: no-repeat;
@@ -3289,7 +3289,7 @@ margin-left:10px;</string>
                               </widget>
                              </item>
                              <item>
-                              <widget class="QPushButton" name="call_btn">
+                              <widget class="QPushButton" name="login_btn_call">
                                <property name="styleSheet">
                                 <string notr="true">background-image: url(:/icons/images/icons/cil-phone.png);
 background-repeat: no-repeat;
@@ -3305,14 +3305,14 @@ margin-left:10px;</string>
                              </item>
                             </layout>
                            </widget>
-                           <zorder>background</zorder>
-                           <zorder>login_cover</zorder>
-                           <zorder>username</zorder>
-                           <zorder>password</zorder>
-                           <zorder>login_logo</zorder>
-                           <zorder>login_btn</zorder>
-                           <zorder>btn_signup</zorder>
-                           <zorder>label</zorder>
+                           <zorder>login_label_back</zorder>
+                           <zorder>login_label_cover</zorder>
+                           <zorder>login_input_id</zorder>
+                           <zorder>login_input_pw</zorder>
+                           <zorder>login_label_logo</zorder>
+                           <zorder>login_btn_login</zorder>
+                           <zorder>login_btn_signup</zorder>
+                           <zorder>login_label_disc</zorder>
                            <zorder>horizontalLayoutWidget</zorder>
                           </widget>
                          </item>
