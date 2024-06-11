@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainrUierh.ui'
+## Form generated from reading UI file 'mainQfOxVS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1165,7 +1165,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 274, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1802,9 +1802,14 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.styleSheet)
 
         self.retranslateUi(MainWindow)
-        self.username.returnPressed.connect(self.login_btn.click)
-        self.password.returnPressed.connect(self.login_btn.click)
-        self.login_btn.clicked.connect(MainWindow.connectSocket)
+        self.signup_input_id.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_pw.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_name.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_phone.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_email.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_combo_dept.currentTextChanged.connect(self.signup_btn_submit.click)
+        self.signup_combo_position.currentTextChanged.connect(self.signup_btn_submit.click)
+        self.signup_btn_submit.clicked.connect(MainWindow.signUpRequest)
 
         self.stackedWidget.setCurrentIndex(2)
 
