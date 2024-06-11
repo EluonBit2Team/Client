@@ -908,7 +908,7 @@ height: 42px;</string>
                    <enum>Qt::LayoutDirection::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-gamepad.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-closed.png);</string>
                   </property>
                   <property name="text">
                    <string>Widgets</string>
@@ -944,10 +944,10 @@ height: 42px;</string>
                    <enum>Qt::LayoutDirection::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-file.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-lock-locked.png);</string>
                   </property>
                   <property name="text">
-                   <string>New</string>
+                   <string>Login</string>
                   </property>
                  </widget>
                 </item>
@@ -980,7 +980,7 @@ height: 42px;</string>
                    <enum>Qt::LayoutDirection::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-save.png)</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-lightbulb.png);</string>
                   </property>
                   <property name="text">
                    <string>Save</string>
@@ -1827,14 +1827,61 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>3</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
-                       <string notr="true">background-image: url(:/images/images/images/PyDracula_vertical.png);
-background-position: center;
+                       <string notr="true">background-position: center;
 background-repeat: no-repeat;</string>
                       </property>
+                      <widget class="QLabel" name="home_label_chatback">
+                       <property name="geometry">
+                        <rect>
+                         <x>220</x>
+                         <y>20</y>
+                         <width>741</width>
+                         <height>541</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="home_label_left1back">
+                       <property name="geometry">
+                        <rect>
+                         <x>20</x>
+                         <y>20</y>
+                         <width>181</width>
+                         <height>151</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="home_label_left2back">
+                       <property name="geometry">
+                        <rect>
+                         <x>20</x>
+                         <y>190</y>
+                         <width>181</width>
+                         <height>371</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
                      </widget>
                      <widget class="QWidget" name="widgets">
                       <property name="styleSheet">
@@ -2686,13 +2733,30 @@ background-repeat: no-repeat;</string>
     padding: 5px 10px;
     color: white;
 }
-QPushButton#signup_btn_clear {
+
+
+QPushButton#signup_btn_submit:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#signup_btn_submit:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}
+
+QPushButton#signup_btn_back {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 5px 10px;
     color: white;
+}
+QPushButton#signup_btn_back:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#signup_btn_back:pressed {
+    background-color: rgba(25, 25, 112, 1);
 }</string>
                       </property>
                       <widget class="QLabel" name="signup_label_back">
@@ -2717,7 +2781,7 @@ border-radius: 20px;
                        <property name="geometry">
                         <rect>
                          <x>230</x>
-                         <y>130</y>
+                         <y>150</y>
                          <width>251</width>
                          <height>31</height>
                         </rect>
@@ -2738,7 +2802,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>230</x>
-                         <y>180</y>
+                         <y>200</y>
                          <width>251</width>
                          <height>31</height>
                         </rect>
@@ -2751,6 +2815,9 @@ color:rgba(255, 255, 255, 230);
 padding-bottom:7px;
 font: 12pt &quot;Segoe UI&quot;;</string>
                        </property>
+                       <property name="echoMode">
+                        <enum>QLineEdit::EchoMode::Password</enum>
+                       </property>
                        <property name="placeholderText">
                         <string>Password</string>
                        </property>
@@ -2759,7 +2826,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>230</x>
-                         <y>230</y>
+                         <y>250</y>
                          <width>251</width>
                          <height>31</height>
                         </rect>
@@ -2780,7 +2847,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>230</x>
-                         <y>280</y>
+                         <y>300</y>
                          <width>251</width>
                          <height>31</height>
                         </rect>
@@ -2801,7 +2868,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>230</x>
-                         <y>330</y>
+                         <y>350</y>
                          <width>251</width>
                          <height>31</height>
                         </rect>
@@ -2822,7 +2889,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>550</x>
-                         <y>190</y>
+                         <y>200</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2830,16 +2897,18 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="font">
                         <font>
                          <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
+                         <pointsize>9</pointsize>
                          <italic>false</italic>
-                         <bold>false</bold>
+                         <fontweight>ExtraLight</fontweight>
                         </font>
                        </property>
                        <property name="autoFillBackground">
                         <bool>false</bool>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                        <string notr="true">background-color: rgb(33, 37, 43);
+font: 9pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
                        </property>
                        <property name="currentText">
                         <string>부서를 선택하세요.</string>
@@ -2883,7 +2952,7 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="geometry">
                         <rect>
                          <x>550</x>
-                         <y>280</y>
+                         <y>250</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2891,16 +2960,18 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                        <property name="font">
                         <font>
                          <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
+                         <pointsize>9</pointsize>
                          <italic>false</italic>
-                         <bold>false</bold>
+                         <fontweight>ExtraLight</fontweight>
                         </font>
                        </property>
                        <property name="autoFillBackground">
                         <bool>false</bool>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                        <string notr="true">background-color: rgb(33, 37, 43);
+font: 9pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
                        </property>
                        <property name="currentText">
                         <string>직급을 선택하세요.</string>
@@ -2953,38 +3024,81 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                       <widget class="QPushButton" name="signup_btn_submit">
                        <property name="geometry">
                         <rect>
-                         <x>340</x>
+                         <x>330</x>
                          <y>450</y>
                          <width>331</width>
-                         <height>31</height>
+                         <height>41</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true"/>
+                        <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+</string>
                        </property>
                        <property name="text">
                         <string>Submit</string>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="signup_btn_back">
+                      <widget class="QCheckBox" name="signup_checkbox_agree">
                        <property name="geometry">
                         <rect>
-                         <x>690</x>
-                         <y>90</y>
-                         <width>41</width>
-                         <height>41</height>
+                         <x>330</x>
+                         <y>420</y>
+                         <width>21</width>
+                         <height>20</height>
                         </rect>
                        </property>
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="signup_label_useagree">
+                       <property name="geometry">
+                        <rect>
+                         <x>360</x>
+                         <y>422</y>
+                         <width>51</width>
+                         <height>16</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 9pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
+                       </property>
+                       <property name="text">
+                        <string>이용약관</string>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="signup_label_infoagree">
+                       <property name="geometry">
+                        <rect>
+                         <x>412</x>
+                         <y>422</y>
+                         <width>251</width>
+                         <height>16</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 9pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
+                       </property>
+                       <property name="text">
+                        <string>개인정보 수집 및 이용에 모두 동의합니다.</string>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="signup_btn_back">
+                       <property name="geometry">
+                        <rect>
+                         <x>705</x>
+                         <y>100</y>
+                         <width>31</width>
+                         <height>31</height>
+                        </rect>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);
 background-position: centered;
 background-repeat: no-repeat;
+border:none;
 </string>
                        </property>
                        <property name="text">
@@ -2994,7 +3108,7 @@ background-repeat: no-repeat;
                      </widget>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
-                       <string notr="true">QPushButton#login_btn {
+                       <string notr="true">QPushButton#login_btn_login {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -3002,7 +3116,7 @@ background-repeat: no-repeat;
     padding: 5px 10px;
     color: white;
 }
-QPushButton#btn_signup {
+QPushButton#login_btn_signup {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -3010,7 +3124,7 @@ QPushButton#btn_signup {
     padding: 5px 10px;
     color: white;
 }
-QPushButton#mail_btn {
+QPushButton#login_btn_mail {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -3018,7 +3132,7 @@ QPushButton#mail_btn {
     padding: 5px 10px;
     color: white;
 }
-QPushButton#call_btn {
+QPushButton#login_btn_call {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -3027,51 +3141,51 @@ QPushButton#call_btn {
     color: white;
 }
 
-QPushButton#login_btn {
+QPushButton#login_btn_login {
    background-color: rgba(70, 130, 180, 0.25);
 }
 
-QPushButton#login_btn:hover {
+QPushButton#login_btn_login:hover {
     background-color: rgba(70, 130, 180, 1);
 }
 
-QPushButton#login_btn:pressed {
+QPushButton#login_btn_login:pressed {
     background-color: rgba(25, 25, 112, 1);
 }
 
-QPushButton#btn_signup {
+QPushButton#login_btn_signup {
     background-color: rgba(255, 105, 180, 0.25);
 }
 
-QPushButton#btn_signup:hover {
+QPushButton#login_btn_signup:hover {
     background-color: rgba(255, 105, 180, 1);
 }
 
-QPushButton#btn_signup:pressed {
+QPushButton#login_btn_signup:pressed {
     background-color: rgba(139, 0, 139, 1);
 }
 
-QPushButton#mail_btn {
+QPushButton#login_btn_mail {
     background-color: rgba(70, 130, 180, 0.25);
 }
 
-QPushButton#mail_btn:hover {
+QPushButton#login_btn_mail:hover {
     background-color: rgba(70, 130, 180, 1);
 }
 
-QPushButton#mail_btn:pressed {
+QPushButton#login_btn_mail:pressed {
     background-color: rgba(25, 25, 112, 1);
 }
 
-QPushButton#call_btn {
+QPushButton#login_btn_call {
     background-color: rgba(34, 139, 34, 0.25);
 }
 
-QPushButton#call_btn:hover {
+QPushButton#login_btn_call:hover {
     background-color: rgba(34, 139, 34, 1);
 }
 
-QPushButton#call_btn:pressed {
+QPushButton#login_btn_call:pressed {
     background-color: rgba(0, 100, 0, 1);
 }
 
@@ -3581,28 +3695,6 @@ margin-left:10px;</string>
                 <property name="bottomMargin">
                  <number>0</number>
                 </property>
-                <item>
-                 <widget class="QFrame" name="frame_size_grip">
-                  <property name="minimumSize">
-                   <size>
-                    <width>20</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>20</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::Shape::NoFrame</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Shadow::Raised</enum>
-                  </property>
-                 </widget>
-                </item>
                </layout>
               </widget>
              </item>
@@ -3703,6 +3795,38 @@ margin-left:10px;</string>
    </hints>
   </connection>
   <connection>
+   <sender>signup_combo_dept</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>signup_btn_submit</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>640</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>585</x>
+     <y>548</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>signup_combo_position</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>signup_btn_submit</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>636</x>
+     <y>368</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>603</x>
+     <y>537</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>signup_btn_submit</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -3718,57 +3842,8 @@ margin-left:10px;</string>
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>login_input_id</sender>
-   <signal>returnPressed()</signal>
-   <receiver>login_btn_login</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>343</x>
-     <y>287</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>428</x>
-     <y>441</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>login_input_pw</sender>
-   <signal>returnPressed()</signal>
-   <receiver>login_btn_login</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>359</x>
-     <y>353</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>429</x>
-     <y>431</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>login_btn_login</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>loginRequest()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>718</x>
-     <y>434</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1081</x>
-     <y>509</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>signUpRequest()</slot>
-  <slot>loginRequest()</slot>
  </slots>
 </ui>
