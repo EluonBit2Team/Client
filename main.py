@@ -43,9 +43,21 @@ class MainWindow(QMainWindow):
         widgets = self.ui
 
         #widgets initialize
-        self.username = self.findChild(QLineEdit, "username")
-        self.password = self.findChild(QLineEdit, "password")
-        self.login_btn = self.findChild(QPushButton, "login_btn")
+        self.login_input_id = self.findChild(QLineEdit, "login_input_id")
+        self.login_input_pw = self.findChild(QLineEdit, "login_input_pw")
+        self.login_btn_login = self.findChild(QPushButton, "login_btn_login")
+        self.signup_input_id = self.findChild(QLineEdit, "ignup_input_id")
+        self.signup_input_pw = self.findChild(QLineEdit, "signup_input_pw")
+        self.signup_input_name = self.findChild(QLineEdit, "signup_input_name")
+        self.signup_input_phone = self.findChild(QLineEdit, "signup_input_phone")
+        self.signup_input_email = self.findChild(QLineEdit, "signup_input_email")
+        self.signup_combo_dept = self.findChild(QComboBox, "signup_combo_dept")
+        self.signup_combo_position = self.findChild(QComboBox, "signup_combo_position")
+        self.signup_btn_submit = self.findChild(QPushButton, "signup_btn_submit")
+
+
+
+
         self.btn_home = self.findChild(QPushButton, "btn_home")
         self.btn_widgets = self.findChild(QPushButton, "btn_widgets")
         self.btn_save = self.findChild(QPushButton, "btn_save")
@@ -163,9 +175,9 @@ class MainWindow(QMainWindow):
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
 
-    def connectSocket(self):
-        self.host = self.username.text()
-        self.port = self.password.text()
+    def loginRequest(self):
+        self.host = self.login_input_id.text()
+        self.port = self.login_input_pw.text()
         try:
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.socket.connect((self.host, int(self.port)))
@@ -183,6 +195,23 @@ class MainWindow(QMainWindow):
 
     def connectionSuccessEvent(self):
         QMessageBox.information(self, "Success", "연결 성공")
+
+    def signUpRequest(self):
+        self.signupId = self.signup_input_id.text()
+        self.signupPw = self.signup_input_pw.text()
+        self.signupName = self.signup_input_name.text()
+        self.signupPhone = self.signup_input_phone.text()
+        self.signupEmail = self.signup_input_email.text()
+        self.signupDept = self.signup_combo_dept.currentText()
+        self.signupPosition = self.signup_combo_position.currentText()
+
+        QMessageBox.information(self, "SignUp", "id: " + self.signupId + '\n'
+                                                "pw: " + self.signupPw + '\n'
+                                                "name: " + self.signupName + '\n'
+                                                "Phone: " + self.signupPhone + '\n'
+                                                "Email: " + self.signupEmail + '\n'
+                                                "Dept: " + self.signupDept + '\n'
+                                                "Position: " + self.signupPosition + '\n')
 
 
     # RESIZE EVENTS

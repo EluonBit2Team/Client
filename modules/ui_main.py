@@ -1,18 +1,16 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainQfOxVS.ui'
+## Form generated from reading UI file 'mainwVcnOY.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-
 from . resources_rc import *
 
 class Ui_MainWindow(object):
@@ -1166,7 +1164,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 274, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1483,7 +1481,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.signuppage)
         self.loginpage = QWidget()
         self.loginpage.setObjectName(u"loginpage")
-        self.loginpage.setStyleSheet(u"QPushButton#login_btn_login {\n"
+        self.loginpage.setStyleSheet(u"QPushButton#login_btn {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -1491,7 +1489,7 @@ class Ui_MainWindow(object):
 "    padding: 5px 10px;\n"
 "    color: white;\n"
 "}\n"
-"QPushButton#login_btn_signup {\n"
+"QPushButton#btn_signup {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -1499,7 +1497,7 @@ class Ui_MainWindow(object):
 "    padding: 5px 10px;\n"
 "    color: white;\n"
 "}\n"
-"QPushButton#login_btn_mail {\n"
+"QPushButton#mail_btn {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -1507,7 +1505,7 @@ class Ui_MainWindow(object):
 "    padding: 5px 10px;\n"
 "    color: white;\n"
 "}\n"
-"QPushButton#login_btn_call {\n"
+"QPushButton#call_btn {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -1516,52 +1514,52 @@ class Ui_MainWindow(object):
 "    color: white;\n"
 "}\n"
 "\n"
-"QPushButton#login_btn_login {\n"
+"QPushButton#login_btn {\n"
 "   background-color: rgba(70, 130, 180, 0.25);\n"
 "}\n"
 "\n"
-"QPushButton#login_btn_login:hover {\n"
-"    background-color: rgb"
-                        "a(70, 130, 180, 1);\n"
-"}\n"
-"\n"
-"QPushButton#login_btn_login:pressed {\n"
-"    background-color: rgba(25, 25, 112, 1);\n"
-"}\n"
-"\n"
-"QPushButton#login_btn_signup {\n"
-"    background-color: rgba(255, 105, 180, 0.25);\n"
-"}\n"
-"\n"
-"QPushButton#login_btn_signup:hover {\n"
-"    background-color: rgba(255, 105, 180, 1);\n"
-"}\n"
-"\n"
-"QPushButton#login_btn_signup:pressed {\n"
-"    background-color: rgba(139, 0, 139, 1);\n"
-"}\n"
-"\n"
-"QPushButton#login_btn_mail {\n"
-"    background-color: rgba(70, 130, 180, 0.25);\n"
-"}\n"
-"\n"
-"QPushButton#login_btn_mail:hover {\n"
+"QPushButton#login_btn:hover {\n"
 "    background-color: rgba(70, 130, 180, 1);\n"
 "}\n"
 "\n"
-"QPushButton#login_btn_mail:pressed {\n"
+"Q"
+                        "PushButton#login_btn:pressed {\n"
 "    background-color: rgba(25, 25, 112, 1);\n"
 "}\n"
 "\n"
-"QPushButton#login_btn_call {\n"
+"QPushButton#btn_signup {\n"
+"    background-color: rgba(255, 105, 180, 0.25);\n"
+"}\n"
+"\n"
+"QPushButton#btn_signup:hover {\n"
+"    background-color: rgba(255, 105, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#btn_signup:pressed {\n"
+"    background-color: rgba(139, 0, 139, 1);\n"
+"}\n"
+"\n"
+"QPushButton#mail_btn {\n"
+"    background-color: rgba(70, 130, 180, 0.25);\n"
+"}\n"
+"\n"
+"QPushButton#mail_btn:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#mail_btn:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}\n"
+"\n"
+"QPushButton#call_btn {\n"
 "    background-color: rgba(34, 139, 34, 0.25);\n"
 "}\n"
 "\n"
-"QPushButton#login_btn_call:hover {\n"
+"QPushButton#call_btn:hover {\n"
 "    background-color: rgba(34, 139, 34, 1);\n"
 "}\n"
 "\n"
-"QPushButton#login_btn_call:pressed {\n"
+"QPushButton#call_btn:pressed {\n"
 "    background-color: rgba(0, 100, 0, 1);\n"
 "}\n"
 "\n"
@@ -1803,8 +1801,17 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.styleSheet)
 
         self.retranslateUi(MainWindow)
+        self.signup_input_id.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_pw.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_name.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_phone.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_email.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_btn_submit.clicked.connect(MainWindow.signUpRequest)
+        self.login_input_id.returnPressed.connect(self.login_btn_login.click)
+        self.login_input_pw.returnPressed.connect(self.login_btn_login.click)
+        self.login_btn_login.clicked.connect(MainWindow.loginRequest)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

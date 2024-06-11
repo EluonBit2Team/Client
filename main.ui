@@ -1827,7 +1827,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>3</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
@@ -2131,7 +2131,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>274</width>
+                                 <width>218</width>
                                  <height>218</height>
                                 </rect>
                                </property>
@@ -2991,35 +2991,6 @@ background-repeat: no-repeat;
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="btn_back">
-                       <property name="geometry">
-                        <rect>
-                         <x>680</x>
-                         <y>90</y>
-                         <width>41</width>
-                         <height>41</height>
-                        </rect>
-                       </property>
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton {
-    background-image: url(:/icons/images/icons/cil-arrow-circle-left.png);
-    background-repeat: no-repeat;
-    background-position: center;
-	background-size: cover;
-    border: none; /* 버튼 테두리를 제거하려면 이 줄을 추가하세요 */
-}
-</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
                      </widget>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -3732,38 +3703,6 @@ margin-left:10px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>signup_combo_dept</sender>
-   <signal>currentTextChanged(QString)</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>640</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>585</x>
-     <y>548</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>signup_combo_position</sender>
-   <signal>currentTextChanged(QString)</signal>
-   <receiver>signup_btn_submit</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>636</x>
-     <y>368</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>603</x>
-     <y>537</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>signup_btn_submit</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
@@ -3779,8 +3718,57 @@ margin-left:10px;</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>login_input_id</sender>
+   <signal>returnPressed()</signal>
+   <receiver>login_btn_login</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>343</x>
+     <y>287</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>428</x>
+     <y>441</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>login_input_pw</sender>
+   <signal>returnPressed()</signal>
+   <receiver>login_btn_login</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>359</x>
+     <y>353</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>login_btn_login</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>loginRequest()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>718</x>
+     <y>434</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1081</x>
+     <y>509</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>signUpRequest()</slot>
+  <slot>loginRequest()</slot>
  </slots>
 </ui>
