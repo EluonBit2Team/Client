@@ -1835,6 +1835,22 @@ li.checked::marker { content: &quot;\2612&quot;; }
 background-position: center;
 background-repeat: no-repeat;</string>
                       </property>
+                      <widget class="QLabel" name="label">
+                       <property name="geometry">
+                        <rect>
+                         <x>20</x>
+                         <y>20</y>
+                         <width>941</width>
+                         <height>541</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
                      </widget>
                      <widget class="QWidget" name="widgets">
                       <property name="styleSheet">
@@ -2686,16 +2702,31 @@ background-repeat: no-repeat;</string>
     padding: 5px 10px;
     color: white;
 }
-QPushButton#signup_btn_clear {
+
+
+QPushButton#signup_btn_submit:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#signup_btn_submit:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}
+
+QPushButton#signup_btn_back {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 5px 10px;
     color: white;
 }
+QPushButton#signup_btn_back:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
 
-</string>
+QPushButton#signup_btn_back:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}</string>
                       </property>
                       <widget class="QLabel" name="signup_label_back">
                        <property name="geometry">
@@ -2963,7 +2994,7 @@ font-weight: 200;</string>
                        <property name="geometry">
                         <rect>
                          <x>330</x>
-                         <y>458</y>
+                         <y>450</y>
                          <width>331</width>
                          <height>41</height>
                         </rect>
@@ -2974,31 +3005,6 @@ font-weight: 200;</string>
                        </property>
                        <property name="text">
                         <string>Submit</string>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="signup_btn_back">
-                       <property name="geometry">
-                        <rect>
-                         <x>700</x>
-                         <y>110</y>
-                         <width>41</width>
-                         <height>41</height>
-                        </rect>
-                       </property>
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);
-background-position: centered;
-background-repeat: no-repeat;
-</string>
-                       </property>
-                       <property name="text">
-                        <string/>
                        </property>
                       </widget>
                       <widget class="QCheckBox" name="signup_checkbox_agree">
@@ -3024,7 +3030,7 @@ background-repeat: no-repeat;
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+                        <string notr="true">font: 9pt &quot;Segoe UI&quot;;
 font-weight: 200;</string>
                        </property>
                        <property name="text">
@@ -3034,18 +3040,38 @@ font-weight: 200;</string>
                       <widget class="QLabel" name="signup_label_infoagree">
                        <property name="geometry">
                         <rect>
-                         <x>420</x>
+                         <x>412</x>
                          <y>422</y>
                          <width>251</width>
                          <height>16</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+                        <string notr="true">font: 9pt &quot;Segoe UI&quot;;
 font-weight: 200;</string>
                        </property>
                        <property name="text">
                         <string>개인정보 수집 및 이용에 모두 동의합니다.</string>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="signup_btn_back">
+                       <property name="geometry">
+                        <rect>
+                         <x>705</x>
+                         <y>100</y>
+                         <width>31</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);
+background-position: centered;
+background-repeat: no-repeat;
+border:none;
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
                        </property>
                       </widget>
                      </widget>
@@ -3638,28 +3664,6 @@ margin-left:10px;</string>
                 <property name="bottomMargin">
                  <number>0</number>
                 </property>
-                <item>
-                 <widget class="QFrame" name="frame_size_grip">
-                  <property name="minimumSize">
-                   <size>
-                    <width>20</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>20</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::Shape::NoFrame</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Shadow::Raised</enum>
-                  </property>
-                 </widget>
-                </item>
                </layout>
               </widget>
              </item>
