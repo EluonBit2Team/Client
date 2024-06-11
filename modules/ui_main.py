@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainXDafeg.ui'
+## Form generated from reading UI file 'mainkykuyI.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -464,6 +464,8 @@ class Ui_MainWindow(object):
 "	selection-background-color: rgb(39, 44, 54);\n"
 "}\n"
 "\n"
+"\n"
+"\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Sliders */\n"
 "QSlider::groove:horizontal {\n"
@@ -477,9 +479,9 @@ class Ui_MainWindow(object):
 "}\n"
 "QSlider::handle:horizontal {\n"
 "    background-color: rgb(189, 147, 249);\n"
-"    border: none;\n"
-"    h"
-                        "eight: 10px;\n"
+"    border: none;"
+                        "\n"
+"    height: 10px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
 "	border-radius: 5px;\n"
@@ -517,8 +519,8 @@ class Ui_MainWindow(object):
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
-"QCommandLi"
-                        "nkButton {	\n"
+""
+                        "QCommandLinkButton {	\n"
 "	color: rgb(255, 121, 198);\n"
 "	border-radius: 5px;\n"
 "	padding: 5px;\n"
@@ -541,12 +543,11 @@ class Ui_MainWindow(object):
 "	background-color: rgb(52, 59, 72);\n"
 "}\n"
 "#pagesContainer QPushButton:hover {\n"
-"	background-color: rgb(57, 65, 80);\n"
-"	border: 2px solid rgb(61, 70, 86);\n"
+"    background-color: rgba(57, 65, 80, 0.8); /* \uc0b4\uc9dd \ud750\ub9ac\uac8c \ubc30\uacbd \uc0c9\uc0c1 */\n"
 "}\n"
-"#pagesContainer QPushButton:pressed {	\n"
-"	background-color: rgb(35, 40, 49);\n"
-"	border: 2px solid rgb(43, 50, 61);\n"
+"\n"
+"#pagesContainer QPushButton:pressed {\n"
+"    background-color: rgba(255, 255, 255, 0.5); /* \ubc30\uacbd\uc744 \ud22c\uba85\ud558\uac8c \uc124\uc815 */\n"
 "}\n"
 "\n"
 "")
@@ -665,7 +666,7 @@ class Ui_MainWindow(object):
         self.btn_home.setFont(font)
         self.btn_home.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_home.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_home.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-home.png);")
+        self.btn_home.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-speech.png);")
 
         self.verticalLayout_8.addWidget(self.btn_home)
 
@@ -933,7 +934,13 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.titleRightInfo.sizePolicy().hasHeightForWidth())
         self.titleRightInfo.setSizePolicy(sizePolicy3)
         self.titleRightInfo.setMaximumSize(QSize(16777215, 45))
-        self.titleRightInfo.setFont(font)
+        font2 = QFont()
+        font2.setFamilies([u"Segoe UI Variable Small Semibol"])
+        font2.setPointSize(9)
+        font2.setWeight(QFont.DemiBold)
+        font2.setItalic(False)
+        self.titleRightInfo.setFont(font2)
+        self.titleRightInfo.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
         self.titleRightInfo.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.horizontalLayout_3.addWidget(self.titleRightInfo)
@@ -1021,19 +1028,97 @@ class Ui_MainWindow(object):
         self.home = QWidget()
         self.home.setObjectName(u"home")
         self.home.setStyleSheet(u"background-position: center;\n"
-"background-repeat: no-repeat;")
+"background-repeat: no-repeat;\n"
+"\n"
+"QPushButton#home_btn_chatlist_send {\n"
+"    background-color: #3498db;\n"
+"    color: white;\n"
+"    border: 2px solid #2980b9;\n"
+"    border-radius: 20px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton#home_btn_chatlist_send:pressed {\n"
+"    background-color: rgba(52, 152, 219, 0.5);\n"
+"    border: 2px solid rgba(41, 128, 185, 0.5);\n"
+"}\n"
+"")
         self.home_label_chatback = QLabel(self.home)
         self.home_label_chatback.setObjectName(u"home_label_chatback")
-        self.home_label_chatback.setGeometry(QRect(220, 20, 741, 541))
-        self.home_label_chatback.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.home_label_chatback.setGeometry(QRect(190, 20, 771, 491))
+        self.home_label_chatback.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;")
         self.home_label_left1back = QLabel(self.home)
         self.home_label_left1back.setObjectName(u"home_label_left1back")
-        self.home_label_left1back.setGeometry(QRect(20, 20, 181, 151))
-        self.home_label_left1back.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.home_label_left1back.setGeometry(QRect(20, 20, 151, 181))
+        self.home_label_left1back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;")
         self.home_label_left2back = QLabel(self.home)
         self.home_label_left2back.setObjectName(u"home_label_left2back")
-        self.home_label_left2back.setGeometry(QRect(20, 190, 181, 371))
-        self.home_label_left2back.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.home_label_left2back.setGeometry(QRect(20, 220, 151, 341))
+        self.home_label_left2back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;")
+        self.home_label_chatgroup = QLabel(self.home)
+        self.home_label_chatgroup.setObjectName(u"home_label_chatgroup")
+        self.home_label_chatgroup.setGeometry(QRect(64, 39, 91, 16))
+        self.home_label_chatgroup.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
+        self.home_label_chatgroup_pic = QLabel(self.home)
+        self.home_label_chatgroup_pic.setObjectName(u"home_label_chatgroup_pic")
+        self.home_label_chatgroup_pic.setGeometry(QRect(31, 37, 31, 21))
+        self.home_label_chatgroup_pic.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-chat-bubble.png);")
+        self.home_label_userstate = QLabel(self.home)
+        self.home_label_userstate.setObjectName(u"home_label_userstate")
+        self.home_label_userstate.setGeometry(QRect(64, 240, 91, 16))
+        self.home_label_userstate.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
+        self.home_label_userstate_pic = QLabel(self.home)
+        self.home_label_userstate_pic.setObjectName(u"home_label_userstate_pic")
+        self.home_label_userstate_pic.setGeometry(QRect(31, 238, 31, 21))
+        self.home_label_userstate_pic.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-people.png);")
+        self.home_listview_chatgroup = QListView(self.home)
+        self.home_listview_chatgroup.setObjectName(u"home_listview_chatgroup")
+        self.home_listview_chatgroup.setGeometry(QRect(30, 70, 131, 91))
+        self.home_listview_chatgroup.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.home_btn_chatgroup = QPushButton(self.home)
+        self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
+        self.home_btn_chatgroup.setGeometry(QRect(80, 170, 31, 24))
+        self.home_btn_chatgroup.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
+"border:none;\n"
+"")
+        self.home_label_chatlist_title = QLabel(self.home)
+        self.home_label_chatlist_title.setObjectName(u"home_label_chatlist_title")
+        self.home_label_chatlist_title.setGeometry(QRect(220, 39, 91, 16))
+        self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
+        self.home_listview_status = QListView(self.home)
+        self.home_listview_status.setObjectName(u"home_listview_status")
+        self.home_listview_status.setGeometry(QRect(30, 270, 131, 281))
+        self.home_listview_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.home_lineedit_chatlist_send = QLineEdit(self.home)
+        self.home_lineedit_chatlist_send.setObjectName(u"home_lineedit_chatlist_send")
+        self.home_lineedit_chatlist_send.setGeometry(QRect(190, 521, 711, 41))
+        self.home_lineedit_chatlist_send.setStyleSheet(u"border: 1.5px solid #3498db;\n"
+"border-radius: 10px;\n"
+"padding-left: 30px; /* \uc67c\ucabd \uacf5\ubc31 */\n"
+"\n"
+"font: 600 \"Segoe UI Variable Small Semibol\";\n"
+"font-size: 13px; /* \ud3f0\ud2b8 \ud06c\uae30 */\n"
+"color: rgb(255, 255, 255); /* \ud14d\uc2a4\ud2b8 \uc0c9\uc0c1 */")
+        self.home_listview_chatlist = QListView(self.home)
+        self.home_listview_chatlist.setObjectName(u"home_listview_chatlist")
+        self.home_listview_chatlist.setGeometry(QRect(220, 70, 711, 421))
+        self.home_listview_chatlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.home_btn_chatlist_send = QPushButton(self.home)
+        self.home_btn_chatlist_send.setObjectName(u"home_btn_chatlist_send")
+        self.home_btn_chatlist_send.setGeometry(QRect(914, 520, 41, 41))
+        self.home_btn_chatlist_send.setStyleSheet(u"background-image: url(:/images/images/images/free-icon-send-button-12439334.png);\n"
+"\n"
+"\n"
+"border: none;")
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1176,7 +1261,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 274, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
         self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
 "	border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1265,10 +1350,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         if (self.tableWidget.rowCount() < 16):
             self.tableWidget.setRowCount(16)
-        font2 = QFont()
-        font2.setFamilies([u"Segoe UI"])
+        font3 = QFont()
+        font3.setFamilies([u"Segoe UI"])
         __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setFont(font2);
+        __qtablewidgetitem4.setFont(font3);
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(1, __qtablewidgetitem5)
@@ -1472,16 +1557,18 @@ class Ui_MainWindow(object):
         self.signup_combo_dept.addItem("")
         self.signup_combo_dept.setObjectName(u"signup_combo_dept")
         self.signup_combo_dept.setGeometry(QRect(550, 200, 186, 33))
-        font3 = QFont()
-        font3.setFamilies([u"Segoe UI"])
-        font3.setPointSize(9)
-        font3.setWeight(QFont.ExtraLight)
-        font3.setItalic(False)
-        self.signup_combo_dept.setFont(font3)
+        font4 = QFont()
+        font4.setFamilies([u"Segoe UI"])
+        font4.setPointSize(8)
+        font4.setWeight(QFont.ExtraLight)
+        font4.setItalic(False)
+        self.signup_combo_dept.setFont(font4)
         self.signup_combo_dept.setAutoFillBackground(False)
-        self.signup_combo_dept.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"font: 9pt \"Segoe UI\";\n"
-"font-weight: 200;")
+        self.signup_combo_dept.setStyleSheet(u"\n"
+"font: 8pt \"Segoe UI\";\n"
+"font-weight: 200;\n"
+"background-color: rgb(27, 29, 35);\n"
+"")
         self.signup_combo_dept.setIconSize(QSize(16, 16))
         self.signup_combo_dept.setFrame(True)
         self.signup_combo_position = QComboBox(self.signuppage)
@@ -1494,10 +1581,11 @@ class Ui_MainWindow(object):
         self.signup_combo_position.addItem("")
         self.signup_combo_position.setObjectName(u"signup_combo_position")
         self.signup_combo_position.setGeometry(QRect(550, 250, 186, 33))
-        self.signup_combo_position.setFont(font3)
+        self.signup_combo_position.setFont(font4)
         self.signup_combo_position.setAutoFillBackground(False)
-        self.signup_combo_position.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"font: 9pt \"Segoe UI\";\n"
+        self.signup_combo_position.setStyleSheet(u"background-color: rgb(27, 29, 35);\n"
+"\n"
+"font: 8pt \"Segoe UI\";\n"
 "font-weight: 200;")
         self.signup_combo_position.setIconSize(QSize(16, 16))
         self.signup_combo_position.setFrame(True)
@@ -1508,15 +1596,15 @@ class Ui_MainWindow(object):
 "")
         self.signup_checkbox_agree = QCheckBox(self.signuppage)
         self.signup_checkbox_agree.setObjectName(u"signup_checkbox_agree")
-        self.signup_checkbox_agree.setGeometry(QRect(330, 420, 21, 20))
+        self.signup_checkbox_agree.setGeometry(QRect(340, 420, 21, 20))
         self.signup_label_useagree = QLabel(self.signuppage)
         self.signup_label_useagree.setObjectName(u"signup_label_useagree")
-        self.signup_label_useagree.setGeometry(QRect(360, 422, 51, 16))
+        self.signup_label_useagree.setGeometry(QRect(370, 422, 51, 16))
         self.signup_label_useagree.setStyleSheet(u"font: 9pt \"Segoe UI\";\n"
 "font-weight: 200;")
         self.signup_label_infoagree = QLabel(self.signuppage)
         self.signup_label_infoagree.setObjectName(u"signup_label_infoagree")
-        self.signup_label_infoagree.setGeometry(QRect(412, 422, 251, 16))
+        self.signup_label_infoagree.setGeometry(QRect(424, 422, 241, 16))
         self.signup_label_infoagree.setStyleSheet(u"font: 9pt \"Segoe UI\";\n"
 "font-weight: 200;")
         self.signup_btn_back = QPushButton(self.signuppage)
@@ -1628,24 +1716,24 @@ class Ui_MainWindow(object):
         self.login_label_logo = QLabel(self.widget)
         self.login_label_logo.setObjectName(u"login_label_logo")
         self.login_label_logo.setGeometry(QRect(380, 70, 201, 61))
-        font4 = QFont()
-        font4.setFamilies([u"Segoe UI"])
-        font4.setPointSize(28)
-        font4.setWeight(QFont.ExtraLight)
-        font4.setItalic(False)
-        self.login_label_logo.setFont(font4)
+        font5 = QFont()
+        font5.setFamilies([u"Segoe UI"])
+        font5.setPointSize(28)
+        font5.setWeight(QFont.ExtraLight)
+        font5.setItalic(False)
+        self.login_label_logo.setFont(font5)
         self.login_label_logo.setStyleSheet(u"font: 28pt \"Segoe UI\";\n"
 "font-weight: 200;\n"
 "color: rgb(255, 255, 255);")
         self.login_input_id = QLineEdit(self.widget)
         self.login_input_id.setObjectName(u"login_input_id")
         self.login_input_id.setGeometry(QRect(240, 180, 491, 41))
-        font5 = QFont()
-        font5.setFamilies([u"Segoe UI"])
-        font5.setPointSize(12)
-        font5.setBold(False)
-        font5.setItalic(False)
-        self.login_input_id.setFont(font5)
+        font6 = QFont()
+        font6.setFamilies([u"Segoe UI"])
+        font6.setPointSize(12)
+        font6.setBold(False)
+        font6.setItalic(False)
+        self.login_input_id.setFont(font6)
         self.login_input_id.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
@@ -1655,7 +1743,7 @@ class Ui_MainWindow(object):
         self.login_input_pw = QLineEdit(self.widget)
         self.login_input_pw.setObjectName(u"login_input_pw")
         self.login_input_pw.setGeometry(QRect(240, 240, 491, 41))
-        self.login_input_pw.setFont(font5)
+        self.login_input_pw.setFont(font6)
         self.login_input_pw.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
@@ -1899,6 +1987,13 @@ class Ui_MainWindow(object):
         self.home_label_chatback.setText("")
         self.home_label_left1back.setText("")
         self.home_label_left2back.setText("")
+        self.home_label_chatgroup.setText(QCoreApplication.translate("MainWindow", u"\ucc44\ud305 \uadf8\ub8f9 \ubaa9\ub85d", None))
+        self.home_label_chatgroup_pic.setText("")
+        self.home_label_userstate.setText(QCoreApplication.translate("MainWindow", u"\uc720\uc800 \uc0c1\ud0dc \ubaa9\ub85d", None))
+        self.home_label_userstate_pic.setText("")
+        self.home_btn_chatgroup.setText("")
+        self.home_label_chatlist_title.setText(QCoreApplication.translate("MainWindow", u"\ucc44\ud305 \uadf8\ub8f9 \uba85", None))
+        self.home_btn_chatlist_send.setText("")
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
