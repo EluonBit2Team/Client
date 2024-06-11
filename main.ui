@@ -2131,7 +2131,7 @@ background-repeat: no-repeat;</string>
                                 <rect>
                                  <x>0</x>
                                  <y>0</y>
-                                 <width>218</width>
+                                 <width>274</width>
                                  <height>218</height>
                                 </rect>
                                </property>
@@ -3650,5 +3650,137 @@ margin-left:10px;</string>
  <resources>
   <include location="resources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>signup_input_id</sender>
+   <signal>returnPressed()</signal>
+   <receiver>signup_btn_submit</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>321</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>439</x>
+     <y>552</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>signup_input_pw</sender>
+   <signal>returnPressed()</signal>
+   <receiver>signup_btn_submit</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>328</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>547</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>signup_input_name</sender>
+   <signal>returnPressed()</signal>
+   <receiver>signup_btn_submit</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>326</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>444</x>
+     <y>537</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>signup_input_phone</sender>
+   <signal>returnPressed()</signal>
+   <receiver>signup_btn_submit</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>356</x>
+     <y>373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>452</x>
+     <y>539</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>signup_input_email</sender>
+   <signal>returnPressed()</signal>
+   <receiver>signup_btn_submit</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>378</x>
+     <y>425</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>494</x>
+     <y>532</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>signup_combo_dept</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>signup_btn_submit</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>640</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>585</x>
+     <y>548</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>signup_combo_position</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>signup_btn_submit</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>636</x>
+     <y>368</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>603</x>
+     <y>537</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>signup_btn_submit</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>signUpRequest()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>695</x>
+     <y>539</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>929</x>
+     <y>698</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>signUpRequest()</slot>
+ </slots>
 </ui>
