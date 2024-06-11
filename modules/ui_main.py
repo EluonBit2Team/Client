@@ -8,6 +8,7 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
@@ -1482,7 +1483,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.signuppage)
         self.loginpage = QWidget()
         self.loginpage.setObjectName(u"loginpage")
-        self.loginpage.setStyleSheet(u"QPushButton#login_btn {\n"
+        self.loginpage.setStyleSheet(u"QPushButton#login_btn_login {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -1490,7 +1491,7 @@ class Ui_MainWindow(object):
 "    padding: 5px 10px;\n"
 "    color: white;\n"
 "}\n"
-"QPushButton#btn_signup {\n"
+"QPushButton#login_btn_signup {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -1498,7 +1499,7 @@ class Ui_MainWindow(object):
 "    padding: 5px 10px;\n"
 "    color: white;\n"
 "}\n"
-"QPushButton#mail_btn {\n"
+"QPushButton#login_btn_mail {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -1506,7 +1507,7 @@ class Ui_MainWindow(object):
 "    padding: 5px 10px;\n"
 "    color: white;\n"
 "}\n"
-"QPushButton#call_btn {\n"
+"QPushButton#login_btn_call {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -1515,52 +1516,52 @@ class Ui_MainWindow(object):
 "    color: white;\n"
 "}\n"
 "\n"
-"QPushButton#login_btn {\n"
+"QPushButton#login_btn_login {\n"
 "   background-color: rgba(70, 130, 180, 0.25);\n"
 "}\n"
 "\n"
-"QPushButton#login_btn:hover {\n"
-"    background-color: rgba(70, 130, 180, 1);\n"
+"QPushButton#login_btn_login:hover {\n"
+"    background-color: rgb"
+                        "a(70, 130, 180, 1);\n"
 "}\n"
 "\n"
-"Q"
-                        "PushButton#login_btn:pressed {\n"
+"QPushButton#login_btn_login:pressed {\n"
 "    background-color: rgba(25, 25, 112, 1);\n"
 "}\n"
 "\n"
-"QPushButton#btn_signup {\n"
+"QPushButton#login_btn_signup {\n"
 "    background-color: rgba(255, 105, 180, 0.25);\n"
 "}\n"
 "\n"
-"QPushButton#btn_signup:hover {\n"
+"QPushButton#login_btn_signup:hover {\n"
 "    background-color: rgba(255, 105, 180, 1);\n"
 "}\n"
 "\n"
-"QPushButton#btn_signup:pressed {\n"
+"QPushButton#login_btn_signup:pressed {\n"
 "    background-color: rgba(139, 0, 139, 1);\n"
 "}\n"
 "\n"
-"QPushButton#mail_btn {\n"
+"QPushButton#login_btn_mail {\n"
 "    background-color: rgba(70, 130, 180, 0.25);\n"
 "}\n"
 "\n"
-"QPushButton#mail_btn:hover {\n"
+"QPushButton#login_btn_mail:hover {\n"
 "    background-color: rgba(70, 130, 180, 1);\n"
 "}\n"
 "\n"
-"QPushButton#mail_btn:pressed {\n"
+"QPushButton#login_btn_mail:pressed {\n"
 "    background-color: rgba(25, 25, 112, 1);\n"
 "}\n"
 "\n"
-"QPushButton#call_btn {\n"
+"QPushButton#login_btn_call {\n"
 "    background-color: rgba(34, 139, 34, 0.25);\n"
 "}\n"
 "\n"
-"QPushButton#call_btn:hover {\n"
+"QPushButton#login_btn_call:hover {\n"
 "    background-color: rgba(34, 139, 34, 1);\n"
 "}\n"
 "\n"
-"QPushButton#call_btn:pressed {\n"
+"QPushButton#login_btn_call:pressed {\n"
 "    background-color: rgba(0, 100, 0, 1);\n"
 "}\n"
 "\n"
@@ -1571,70 +1572,70 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.widget = QWidget(self.loginpage)
         self.widget.setObjectName(u"widget")
-        self.background = QLabel(self.widget)
-        self.background.setObjectName(u"background")
-        self.background.setGeometry(QRect(10, 10, 941, 541))
-        self.background.setStyleSheet(u"background-image: url(:/images/images/images/loginbackground.jpg);\n"
+        self.login_label_back = QLabel(self.widget)
+        self.login_label_back.setObjectName(u"login_label_back")
+        self.login_label_back.setGeometry(QRect(10, 10, 941, 541))
+        self.login_label_back.setStyleSheet(u"background-image: url(:/images/images/images/loginbackground.jpg);\n"
 "border-radius: 20px;\n"
 "")
-        self.login_logo = QLabel(self.widget)
-        self.login_logo.setObjectName(u"login_logo")
-        self.login_logo.setGeometry(QRect(380, 70, 201, 61))
+        self.login_label_logo = QLabel(self.widget)
+        self.login_label_logo.setObjectName(u"login_label_logo")
+        self.login_label_logo.setGeometry(QRect(380, 70, 201, 61))
         font3 = QFont()
         font3.setFamilies([u"Segoe UI"])
         font3.setPointSize(28)
         font3.setWeight(QFont.ExtraLight)
         font3.setItalic(False)
-        self.login_logo.setFont(font3)
-        self.login_logo.setStyleSheet(u"font: 28pt \"Segoe UI\";\n"
+        self.login_label_logo.setFont(font3)
+        self.login_label_logo.setStyleSheet(u"font: 28pt \"Segoe UI\";\n"
 "font-weight: 200;\n"
 "color: rgb(255, 255, 255);")
-        self.username = QLineEdit(self.widget)
-        self.username.setObjectName(u"username")
-        self.username.setGeometry(QRect(240, 180, 491, 41))
+        self.login_input_id = QLineEdit(self.widget)
+        self.login_input_id.setObjectName(u"login_input_id")
+        self.login_input_id.setGeometry(QRect(240, 180, 491, 41))
         font4 = QFont()
         font4.setFamilies([u"Segoe UI"])
         font4.setPointSize(12)
         font4.setBold(False)
         font4.setItalic(False)
-        self.username.setFont(font4)
-        self.username.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+        self.login_input_id.setFont(font4)
+        self.login_input_id.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
 "font: 12pt \"Segoe UI\";")
-        self.password = QLineEdit(self.widget)
-        self.password.setObjectName(u"password")
-        self.password.setGeometry(QRect(240, 240, 491, 41))
-        self.password.setFont(font4)
-        self.password.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+        self.login_input_pw = QLineEdit(self.widget)
+        self.login_input_pw.setObjectName(u"login_input_pw")
+        self.login_input_pw.setGeometry(QRect(240, 240, 491, 41))
+        self.login_input_pw.setFont(font4)
+        self.login_input_pw.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
 "font: 12pt \"Segoe UI\";")
-        self.password.setEchoMode(QLineEdit.EchoMode.Password)
-        self.login_cover = QLabel(self.widget)
-        self.login_cover.setObjectName(u"login_cover")
-        self.login_cover.setGeometry(QRect(130, 10, 701, 541))
-        self.login_cover.setStyleSheet(u"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 30), stop:1 rgba(255, 255, 255, 255));")
-        self.login_btn = QPushButton(self.widget)
-        self.login_btn.setObjectName(u"login_btn")
-        self.login_btn.setGeometry(QRect(330, 330, 321, 41))
-        self.login_btn.setStyleSheet(u"font: 12pt \"Segoe UI\";\n"
+        self.login_input_pw.setEchoMode(QLineEdit.EchoMode.Password)
+        self.login_label_cover = QLabel(self.widget)
+        self.login_label_cover.setObjectName(u"login_label_cover")
+        self.login_label_cover.setGeometry(QRect(130, 10, 701, 541))
+        self.login_label_cover.setStyleSheet(u"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:1, stop:0 rgba(0, 0, 0, 30), stop:1 rgba(255, 255, 255, 255));")
+        self.login_btn_login = QPushButton(self.widget)
+        self.login_btn_login.setObjectName(u"login_btn_login")
+        self.login_btn_login.setGeometry(QRect(330, 330, 321, 41))
+        self.login_btn_login.setStyleSheet(u"font: 12pt \"Segoe UI\";\n"
 "color:rgba(255, 255, 255, 180);\n"
 "")
-        self.btn_signup = QPushButton(self.widget)
-        self.btn_signup.setObjectName(u"btn_signup")
-        self.btn_signup.setGeometry(QRect(330, 380, 321, 31))
-        self.btn_signup.setFont(font)
-        self.btn_signup.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+        self.login_btn_signup = QPushButton(self.widget)
+        self.login_btn_signup.setObjectName(u"login_btn_signup")
+        self.login_btn_signup.setGeometry(QRect(330, 380, 321, 31))
+        self.login_btn_signup.setFont(font)
+        self.login_btn_signup.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "color:rgba(255, 255, 255, 180);")
-        self.label = QLabel(self.widget)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(330, 430, 351, 16))
-        self.label.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+        self.login_label_disc = QLabel(self.widget)
+        self.login_label_disc.setObjectName(u"login_label_disc")
+        self.login_label_disc.setGeometry(QRect(330, 430, 351, 16))
+        self.login_label_disc.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "color:rgba(255, 255, 255, 130);")
         self.horizontalLayoutWidget = QWidget(self.widget)
         self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
@@ -1642,36 +1643,36 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6 = QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.mail_btn = QPushButton(self.horizontalLayoutWidget)
-        self.mail_btn.setObjectName(u"mail_btn")
-        self.mail_btn.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-closed.png);\n"
+        self.login_btn_mail = QPushButton(self.horizontalLayoutWidget)
+        self.login_btn_mail.setObjectName(u"login_btn_mail")
+        self.login_btn_mail.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-closed.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
 "margin-left:10px;")
 
-        self.horizontalLayout_6.addWidget(self.mail_btn)
+        self.horizontalLayout_6.addWidget(self.login_btn_mail)
 
-        self.call_btn = QPushButton(self.horizontalLayoutWidget)
-        self.call_btn.setObjectName(u"call_btn")
-        self.call_btn.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-phone.png);\n"
+        self.login_btn_call = QPushButton(self.horizontalLayoutWidget)
+        self.login_btn_call.setObjectName(u"login_btn_call")
+        self.login_btn_call.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-phone.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
 "margin-left:10px;")
 
-        self.horizontalLayout_6.addWidget(self.call_btn)
+        self.horizontalLayout_6.addWidget(self.login_btn_call)
 
-        self.background.raise_()
-        self.login_cover.raise_()
-        self.username.raise_()
-        self.password.raise_()
-        self.login_logo.raise_()
-        self.login_btn.raise_()
-        self.btn_signup.raise_()
-        self.label.raise_()
+        self.login_label_back.raise_()
+        self.login_label_cover.raise_()
+        self.login_input_id.raise_()
+        self.login_input_pw.raise_()
+        self.login_label_logo.raise_()
+        self.login_btn_login.raise_()
+        self.login_btn_signup.raise_()
+        self.login_label_disc.raise_()
         self.horizontalLayoutWidget.raise_()
 
         self.gridLayout_3.addWidget(self.widget, 1, 0, 1, 1)
@@ -1803,7 +1804,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1947,16 +1948,16 @@ class Ui_MainWindow(object):
         self.signup_combo_position.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
         self.signup_btn_submit.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
         self.signup_btn_back.setText("")
-        self.background.setText("")
-        self.login_logo.setText(QCoreApplication.translate("MainWindow", u"\u2728 LOGIN", None))
-        self.username.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User Name", None))
-        self.password.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
-        self.login_cover.setText("")
-        self.login_btn.setText(QCoreApplication.translate("MainWindow", u"LOGIN", None))
-        self.btn_signup.setText(QCoreApplication.translate("MainWindow", u"Sign Up", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"forget your password, please contact the administrator.", None))
-        self.mail_btn.setText("")
-        self.call_btn.setText("")
+        self.login_label_back.setText("")
+        self.login_label_logo.setText(QCoreApplication.translate("MainWindow", u"\u2728 LOGIN", None))
+        self.login_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User Name", None))
+        self.login_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
+        self.login_label_cover.setText("")
+        self.login_btn_login.setText(QCoreApplication.translate("MainWindow", u"LOGIN", None))
+        self.login_btn_signup.setText(QCoreApplication.translate("MainWindow", u"Sign Up", None))
+        self.login_label_disc.setText(QCoreApplication.translate("MainWindow", u"forget your password, please contact the administrator.", None))
+        self.login_btn_mail.setText("")
+        self.login_btn_call.setText("")
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

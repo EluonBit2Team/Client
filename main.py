@@ -100,7 +100,7 @@ class MainWindow(QMainWindow):
         widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
 
         # LOGIN PAGE
-        widgets.btn_signup.clicked.connect(self.buttonClick) #회원가입 버튼 이벤트
+        widgets.login_btn_signup.clicked.connect(self.buttonClick) #회원가입 버튼 이벤트
         
 
 
@@ -153,7 +153,7 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
         # SHOW SIGNUP PAGE
-        if btnName == "btn_signup":
+        if btnName == "login_btn_signup":
             widgets.stackedWidget.setCurrentWidget(widgets.signuppage) # SET PAGE
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
         
