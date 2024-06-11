@@ -908,7 +908,7 @@ height: 42px;</string>
                    <enum>Qt::LayoutDirection::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-gamepad.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-closed.png);</string>
                   </property>
                   <property name="text">
                    <string>Widgets</string>
@@ -944,10 +944,10 @@ height: 42px;</string>
                    <enum>Qt::LayoutDirection::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-file.png);</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-lock-locked.png);</string>
                   </property>
                   <property name="text">
-                   <string>New</string>
+                   <string>Login</string>
                   </property>
                  </widget>
                 </item>
@@ -980,7 +980,7 @@ height: 42px;</string>
                    <enum>Qt::LayoutDirection::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-save.png)</string>
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-lightbulb.png);</string>
                   </property>
                   <property name="text">
                    <string>Save</string>
@@ -1827,21 +1827,52 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="home">
                       <property name="styleSheet">
-                       <string notr="true">background-image: url(:/images/images/images/PyDracula_vertical.png);
-background-position: center;
+                       <string notr="true">background-position: center;
 background-repeat: no-repeat;</string>
                       </property>
-                      <widget class="QLabel" name="label">
+                      <widget class="QLabel" name="home_label_chatback">
+                       <property name="geometry">
+                        <rect>
+                         <x>220</x>
+                         <y>20</y>
+                         <width>741</width>
+                         <height>541</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="home_label_left1back">
                        <property name="geometry">
                         <rect>
                          <x>20</x>
                          <y>20</y>
-                         <width>941</width>
-                         <height>541</height>
+                         <width>181</width>
+                         <height>151</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="home_label_left2back">
+                       <property name="geometry">
+                        <rect>
+                         <x>20</x>
+                         <y>190</y>
+                         <width>181</width>
+                         <height>371</height>
                         </rect>
                        </property>
                        <property name="styleSheet">

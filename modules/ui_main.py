@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainJpFgWg.ui'
+## Form generated from reading UI file 'mainXDafeg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -677,7 +677,7 @@ class Ui_MainWindow(object):
         self.btn_widgets.setFont(font)
         self.btn_widgets.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_widgets.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-gamepad.png);")
+        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-closed.png);")
 
         self.verticalLayout_8.addWidget(self.btn_widgets)
 
@@ -689,7 +689,7 @@ class Ui_MainWindow(object):
         self.btn_login.setFont(font)
         self.btn_login.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_login.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_login.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
+        self.btn_login.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lock-locked.png);")
 
         self.verticalLayout_8.addWidget(self.btn_login)
 
@@ -701,7 +701,7 @@ class Ui_MainWindow(object):
         self.btn_save.setFont(font)
         self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_save.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-save.png)")
+        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lightbulb.png);")
 
         self.verticalLayout_8.addWidget(self.btn_save)
 
@@ -1020,9 +1020,20 @@ class Ui_MainWindow(object):
         self.stackedWidget.setStyleSheet(u"background: transparent;")
         self.home = QWidget()
         self.home.setObjectName(u"home")
-        self.home.setStyleSheet(u"background-image: url(:/images/images/images/PyDracula_vertical.png);\n"
-"background-position: center;\n"
+        self.home.setStyleSheet(u"background-position: center;\n"
 "background-repeat: no-repeat;")
+        self.home_label_chatback = QLabel(self.home)
+        self.home_label_chatback.setObjectName(u"home_label_chatback")
+        self.home_label_chatback.setGeometry(QRect(220, 20, 741, 541))
+        self.home_label_chatback.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.home_label_left1back = QLabel(self.home)
+        self.home_label_left1back.setObjectName(u"home_label_left1back")
+        self.home_label_left1back.setGeometry(QRect(20, 20, 181, 151))
+        self.home_label_left1back.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.home_label_left2back = QLabel(self.home)
+        self.home_label_left2back.setObjectName(u"home_label_left2back")
+        self.home_label_left2back.setGeometry(QRect(20, 190, 181, 371))
+        self.home_label_left2back.setStyleSheet(u"background-color: rgb(33, 37, 43);")
         self.stackedWidget.addWidget(self.home)
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
@@ -1376,16 +1387,31 @@ class Ui_MainWindow(object):
 "    padding: 5px 10px;\n"
 "    color: white;\n"
 "}\n"
-"QPushButton#signup_btn_clear {\n"
+"\n"
+"\n"
+"QPushButton#signup_btn_submit:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#signup_btn_submit:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}\n"
+"\n"
+"QPushButton#signup_btn_back {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
-"    border-radius: 5px;\n"
+"    border-radius: 15px;\n"
 "    padding: 5px 10px;\n"
 "    color: white;\n"
 "}\n"
+"QPushButton#signup_btn_back:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
 "\n"
-"")
+"QPushButton#signup_btn_back:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}")
         self.signup_label_back = QLabel(self.signuppage)
         self.signup_label_back.setObjectName(u"signup_label_back")
         self.signup_label_back.setGeometry(QRect(20, 20, 941, 541))
@@ -1477,20 +1503,8 @@ class Ui_MainWindow(object):
         self.signup_combo_position.setFrame(True)
         self.signup_btn_submit = QPushButton(self.signuppage)
         self.signup_btn_submit.setObjectName(u"signup_btn_submit")
-        self.signup_btn_submit.setGeometry(QRect(330, 458, 331, 41))
+        self.signup_btn_submit.setGeometry(QRect(330, 450, 331, 41))
         self.signup_btn_submit.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
-"")
-        self.signup_btn_back = QLabel(self.signuppage)
-        self.signup_btn_back.setObjectName(u"signup_btn_back")
-        self.signup_btn_back.setGeometry(QRect(700, 110, 41, 41))
-        sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.signup_btn_back.sizePolicy().hasHeightForWidth())
-        self.signup_btn_back.setSizePolicy(sizePolicy5)
-        self.signup_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
-"background-position: centered;\n"
-"background-repeat: no-repeat;\n"
 "")
         self.signup_checkbox_agree = QCheckBox(self.signuppage)
         self.signup_checkbox_agree.setObjectName(u"signup_checkbox_agree")
@@ -1498,13 +1512,21 @@ class Ui_MainWindow(object):
         self.signup_label_useagree = QLabel(self.signuppage)
         self.signup_label_useagree.setObjectName(u"signup_label_useagree")
         self.signup_label_useagree.setGeometry(QRect(360, 422, 51, 16))
-        self.signup_label_useagree.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+        self.signup_label_useagree.setStyleSheet(u"font: 9pt \"Segoe UI\";\n"
 "font-weight: 200;")
         self.signup_label_infoagree = QLabel(self.signuppage)
         self.signup_label_infoagree.setObjectName(u"signup_label_infoagree")
-        self.signup_label_infoagree.setGeometry(QRect(420, 422, 251, 16))
-        self.signup_label_infoagree.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+        self.signup_label_infoagree.setGeometry(QRect(412, 422, 251, 16))
+        self.signup_label_infoagree.setStyleSheet(u"font: 9pt \"Segoe UI\";\n"
 "font-weight: 200;")
+        self.signup_btn_back = QPushButton(self.signuppage)
+        self.signup_btn_back.setObjectName(u"signup_btn_back")
+        self.signup_btn_back.setGeometry(QRect(705, 100, 31, 31))
+        self.signup_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
+"border:none;\n"
+"")
         self.stackedWidget.addWidget(self.signuppage)
         self.loginpage = QWidget()
         self.loginpage.setObjectName(u"loginpage")
@@ -1832,7 +1854,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
-        self.btn_login.setText(QCoreApplication.translate("MainWindow", u"New", None))
+        self.btn_login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
         self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
@@ -1874,6 +1896,9 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
+        self.home_label_chatback.setText("")
+        self.home_label_left1back.setText("")
+        self.home_label_left2back.setText("")
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
@@ -1963,10 +1988,10 @@ class Ui_MainWindow(object):
 
         self.signup_combo_position.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
         self.signup_btn_submit.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
-        self.signup_btn_back.setText("")
         self.signup_checkbox_agree.setText("")
         self.signup_label_useagree.setText(QCoreApplication.translate("MainWindow", u"\uc774\uc6a9\uc57d\uad00", None))
         self.signup_label_infoagree.setText(QCoreApplication.translate("MainWindow", u"\uac1c\uc778\uc815\ubcf4 \uc218\uc9d1 \ubc0f \uc774\uc6a9\uc5d0 \ubaa8\ub450 \ub3d9\uc758\ud569\ub2c8\ub2e4.", None))
+        self.signup_btn_back.setText("")
         self.login_label_back.setText("")
         self.login_label_logo.setText(QCoreApplication.translate("MainWindow", u"\u2728 LOGIN", None))
         self.login_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"User Name", None))
