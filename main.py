@@ -76,9 +76,9 @@ class MainWindow(QMainWindow):
         self.btn_save = self.findChild(QPushButton, "btn_save")
 
         #hide menu
-        # self.btn_home.hide()
-        # self.btn_admin.hide()
-        # self.btn_save.hide()
+        self.btn_home.hide()
+        self.btn_admin.hide()
+        self.btn_save.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
