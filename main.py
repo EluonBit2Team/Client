@@ -25,11 +25,37 @@ from modules import *
 from widgets import *
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
 
+
 # SET AS GLOBAL WIDGETS
 # ///////////////////////////////////////////////////////////////
 widgets = None
 
+# 알림 버튼 클릭시 표출 다이얼로그
+class CustomDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("알림 보기")
+        self.setGeometry(100, 100, 600, 400)
 
+        # Dialog layout and widgets
+        layout = QVBoxLayout()
+        
+        self.label = QLabel("This is a custom notice dialog.")
+        layout.addWidget(self.label)
+        
+        self.okButton = QPushButton("나가기")
+        self.okButton.clicked.connect(self.accept)
+        layout.addWidget(self.okButton)
+        
+        self.setLayout(layout)
+        
+        # window 바로 앞에 위치 시킴
+        if parent:
+            parent_rect = parent.geometry()
+            self_rect = self.geometry()
+            x = parent_rect.x() + (parent_rect.width() - self_rect.width()) // 2
+            y = parent_rect.y() + (parent_rect.height() - self_rect.height()) // 2
+            self.move(x, y)
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -63,12 +89,12 @@ class MainWindow(QMainWindow):
 
         self.btn_home = self.findChild(QPushButton, "btn_home")
         self.btn_admin = self.findChild(QPushButton, "btn_admin")
-        self.btn_save = self.findChild(QPushButton, "btn_save")
+        self.btn_notice = self.findChild(QPushButton, "btn_notice")
 
         #hide menu
         # self.btn_home.hide()
         # self.btn_admin.hide()
-        # self.btn_save.hide()
+        # self.btn_notice.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -101,7 +127,7 @@ class MainWindow(QMainWindow):
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_admin.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
-        widgets.btn_save.clicked.connect(self.buttonClick)
+        widgets.btn_notice.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -180,8 +206,9 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.signuppage) # SET PAGE
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
         
-        if btnName == "btn_save":
-            print("Save BTN clicked!")
+        if btnName == "btn_notice":
+            dialog = CustomDialog(self)
+            dialog.exec_()
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
@@ -196,7 +223,7 @@ class MainWindow(QMainWindow):
             #self.start_receiving()
             self.btn_home.show()
             self.btn_admin.show()
-            self.btn_save.show()
+            self.btn_notice.show()
             self.connectionSuccessEvent()
         except Exception:
             self.connectionErrorEvent()

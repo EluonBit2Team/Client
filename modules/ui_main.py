@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainbDjTvz.ui'
+## Form generated from reading UI file 'mainmFVvtn.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -694,17 +694,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_login)
 
-        self.btn_save = QPushButton(self.topMenu)
-        self.btn_save.setObjectName(u"btn_save")
-        sizePolicy1.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
-        self.btn_save.setSizePolicy(sizePolicy1)
-        self.btn_save.setMinimumSize(QSize(0, 45))
-        self.btn_save.setFont(font)
-        self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_save.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lightbulb.png);")
+        self.btn_notice = QPushButton(self.topMenu)
+        self.btn_notice.setObjectName(u"btn_notice")
+        sizePolicy1.setHeightForWidth(self.btn_notice.sizePolicy().hasHeightForWidth())
+        self.btn_notice.setSizePolicy(sizePolicy1)
+        self.btn_notice.setMinimumSize(QSize(0, 45))
+        self.btn_notice.setFont(font)
+        self.btn_notice.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_notice.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.btn_notice.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lightbulb.png);")
 
-        self.verticalLayout_8.addWidget(self.btn_save)
+        self.verticalLayout_8.addWidget(self.btn_notice)
 
         self.btn_exit = QPushButton(self.topMenu)
         self.btn_exit.setObjectName(u"btn_exit")
@@ -1448,7 +1448,7 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;")
         self.admin_label_food = QLabel(self.adminpage)
         self.admin_label_food.setObjectName(u"admin_label_food")
-        self.admin_label_food.setGeometry(QRect(850, 560, 111, 21))
+        self.admin_label_food.setGeometry(QRect(850, 566, 111, 21))
         self.admin_label_food.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.stackedWidget.addWidget(self.adminpage)
         self.signuppage = QWidget()
@@ -1583,7 +1583,6 @@ class Ui_MainWindow(object):
         self.signup_btn_submit.setGeometry(QRect(330, 450, 331, 41))
         self.signup_btn_submit.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "")
-        self.signup_btn_submit.setEnabled(False)
         self.signup_checkbox_agree = QCheckBox(self.signuppage)
         self.signup_checkbox_agree.setObjectName(u"signup_checkbox_agree")
         self.signup_checkbox_agree.setGeometry(QRect(340, 420, 21, 20))
@@ -1730,7 +1729,7 @@ class Ui_MainWindow(object):
         self.login_btn_login.clicked.connect(MainWindow.loginRequest)
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1740,11 +1739,11 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.titleLeftApp.setText("")
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
-        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.btn_admin.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
-        self.btn_login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
-        self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
-        self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
+        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"채팅하기", None))
+        self.btn_admin.setText(QCoreApplication.translate("MainWindow", u"관리자", None))
+        self.btn_login.setText(QCoreApplication.translate("MainWindow", u"로그인", None))
+        self.btn_notice.setText(QCoreApplication.translate("MainWindow", u"알림", None))
+        self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"나가기", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
 #if QT_CONFIG(tooltip)
