@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainkykuyI.ui'
+## Form generated from reading UI file 'mainbDjTvz.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -670,17 +670,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_home)
 
-        self.btn_widgets = QPushButton(self.topMenu)
-        self.btn_widgets.setObjectName(u"btn_widgets")
-        sizePolicy1.setHeightForWidth(self.btn_widgets.sizePolicy().hasHeightForWidth())
-        self.btn_widgets.setSizePolicy(sizePolicy1)
-        self.btn_widgets.setMinimumSize(QSize(0, 45))
-        self.btn_widgets.setFont(font)
-        self.btn_widgets.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_widgets.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-closed.png);")
+        self.btn_admin = QPushButton(self.topMenu)
+        self.btn_admin.setObjectName(u"btn_admin")
+        sizePolicy1.setHeightForWidth(self.btn_admin.sizePolicy().hasHeightForWidth())
+        self.btn_admin.setSizePolicy(sizePolicy1)
+        self.btn_admin.setMinimumSize(QSize(0, 45))
+        self.btn_admin.setFont(font)
+        self.btn_admin.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_admin.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.btn_admin.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-female.png);")
 
-        self.verticalLayout_8.addWidget(self.btn_widgets)
+        self.verticalLayout_8.addWidget(self.btn_admin)
 
         self.btn_login = QPushButton(self.topMenu)
         self.btn_login.setObjectName(u"btn_login")
@@ -1025,597 +1025,6 @@ class Ui_MainWindow(object):
         self.stackedWidget = QStackedWidget(self.pagesContainer)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setStyleSheet(u"background: transparent;")
-        self.home = QWidget()
-        self.home.setObjectName(u"home")
-        self.home.setStyleSheet(u"background-position: center;\n"
-"background-repeat: no-repeat;\n"
-"\n"
-"QPushButton#home_btn_chatlist_send {\n"
-"    background-color: #3498db;\n"
-"    color: white;\n"
-"    border: 2px solid #2980b9;\n"
-"    border-radius: 20px;\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QPushButton#home_btn_chatlist_send:pressed {\n"
-"    background-color: rgba(52, 152, 219, 0.5);\n"
-"    border: 2px solid rgba(41, 128, 185, 0.5);\n"
-"}\n"
-"")
-        self.home_label_chatback = QLabel(self.home)
-        self.home_label_chatback.setObjectName(u"home_label_chatback")
-        self.home_label_chatback.setGeometry(QRect(190, 20, 771, 491))
-        self.home_label_chatback.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-radius: 10px;")
-        self.home_label_left1back = QLabel(self.home)
-        self.home_label_left1back.setObjectName(u"home_label_left1back")
-        self.home_label_left1back.setGeometry(QRect(20, 20, 151, 181))
-        self.home_label_left1back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-radius: 10px;")
-        self.home_label_left2back = QLabel(self.home)
-        self.home_label_left2back.setObjectName(u"home_label_left2back")
-        self.home_label_left2back.setGeometry(QRect(20, 220, 151, 341))
-        self.home_label_left2back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-radius: 10px;")
-        self.home_label_chatgroup = QLabel(self.home)
-        self.home_label_chatgroup.setObjectName(u"home_label_chatgroup")
-        self.home_label_chatgroup.setGeometry(QRect(64, 39, 91, 16))
-        self.home_label_chatgroup.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
-        self.home_label_chatgroup_pic = QLabel(self.home)
-        self.home_label_chatgroup_pic.setObjectName(u"home_label_chatgroup_pic")
-        self.home_label_chatgroup_pic.setGeometry(QRect(31, 37, 31, 21))
-        self.home_label_chatgroup_pic.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-chat-bubble.png);")
-        self.home_label_userstate = QLabel(self.home)
-        self.home_label_userstate.setObjectName(u"home_label_userstate")
-        self.home_label_userstate.setGeometry(QRect(64, 240, 91, 16))
-        self.home_label_userstate.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
-        self.home_label_userstate_pic = QLabel(self.home)
-        self.home_label_userstate_pic.setObjectName(u"home_label_userstate_pic")
-        self.home_label_userstate_pic.setGeometry(QRect(31, 238, 31, 21))
-        self.home_label_userstate_pic.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-people.png);")
-        self.home_listview_chatgroup = QListView(self.home)
-        self.home_listview_chatgroup.setObjectName(u"home_listview_chatgroup")
-        self.home_listview_chatgroup.setGeometry(QRect(30, 70, 131, 91))
-        self.home_listview_chatgroup.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.home_btn_chatgroup = QPushButton(self.home)
-        self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
-        self.home_btn_chatgroup.setGeometry(QRect(80, 170, 31, 24))
-        self.home_btn_chatgroup.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
-"border:none;\n"
-"")
-        self.home_label_chatlist_title = QLabel(self.home)
-        self.home_label_chatlist_title.setObjectName(u"home_label_chatlist_title")
-        self.home_label_chatlist_title.setGeometry(QRect(220, 39, 91, 16))
-        self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
-        self.home_listview_status = QListView(self.home)
-        self.home_listview_status.setObjectName(u"home_listview_status")
-        self.home_listview_status.setGeometry(QRect(30, 270, 131, 281))
-        self.home_listview_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.home_lineedit_chatlist_send = QLineEdit(self.home)
-        self.home_lineedit_chatlist_send.setObjectName(u"home_lineedit_chatlist_send")
-        self.home_lineedit_chatlist_send.setGeometry(QRect(190, 521, 711, 41))
-        self.home_lineedit_chatlist_send.setStyleSheet(u"border: 1.5px solid #3498db;\n"
-"border-radius: 10px;\n"
-"padding-left: 30px; /* \uc67c\ucabd \uacf5\ubc31 */\n"
-"\n"
-"font: 600 \"Segoe UI Variable Small Semibol\";\n"
-"font-size: 13px; /* \ud3f0\ud2b8 \ud06c\uae30 */\n"
-"color: rgb(255, 255, 255); /* \ud14d\uc2a4\ud2b8 \uc0c9\uc0c1 */")
-        self.home_listview_chatlist = QListView(self.home)
-        self.home_listview_chatlist.setObjectName(u"home_listview_chatlist")
-        self.home_listview_chatlist.setGeometry(QRect(220, 70, 711, 421))
-        self.home_listview_chatlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.home_btn_chatlist_send = QPushButton(self.home)
-        self.home_btn_chatlist_send.setObjectName(u"home_btn_chatlist_send")
-        self.home_btn_chatlist_send.setGeometry(QRect(914, 520, 41, 41))
-        self.home_btn_chatlist_send.setStyleSheet(u"background-image: url(:/images/images/images/free-icon-send-button-12439334.png);\n"
-"\n"
-"\n"
-"border: none;")
-        self.stackedWidget.addWidget(self.home)
-        self.widgets = QWidget()
-        self.widgets.setObjectName(u"widgets")
-        self.widgets.setStyleSheet(u"b")
-        self.verticalLayout = QVBoxLayout(self.widgets)
-        self.verticalLayout.setSpacing(10)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(10, 10, 10, 10)
-        self.row_1 = QFrame(self.widgets)
-        self.row_1.setObjectName(u"row_1")
-        self.row_1.setFrameShape(QFrame.Shape.StyledPanel)
-        self.row_1.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_16 = QVBoxLayout(self.row_1)
-        self.verticalLayout_16.setSpacing(0)
-        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
-        self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
-        self.frame_div_content_1 = QFrame(self.row_1)
-        self.frame_div_content_1.setObjectName(u"frame_div_content_1")
-        self.frame_div_content_1.setMinimumSize(QSize(0, 110))
-        self.frame_div_content_1.setMaximumSize(QSize(16777215, 110))
-        self.frame_div_content_1.setFrameShape(QFrame.Shape.NoFrame)
-        self.frame_div_content_1.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_17 = QVBoxLayout(self.frame_div_content_1)
-        self.verticalLayout_17.setSpacing(0)
-        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
-        self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
-        self.frame_title_wid_1 = QFrame(self.frame_div_content_1)
-        self.frame_title_wid_1.setObjectName(u"frame_title_wid_1")
-        self.frame_title_wid_1.setMaximumSize(QSize(16777215, 35))
-        self.frame_title_wid_1.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_title_wid_1.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_18 = QVBoxLayout(self.frame_title_wid_1)
-        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.labelBoxBlenderInstalation = QLabel(self.frame_title_wid_1)
-        self.labelBoxBlenderInstalation.setObjectName(u"labelBoxBlenderInstalation")
-        self.labelBoxBlenderInstalation.setFont(font)
-        self.labelBoxBlenderInstalation.setStyleSheet(u"")
-
-        self.verticalLayout_18.addWidget(self.labelBoxBlenderInstalation)
-
-
-        self.verticalLayout_17.addWidget(self.frame_title_wid_1)
-
-        self.frame_content_wid_1 = QFrame(self.frame_div_content_1)
-        self.frame_content_wid_1.setObjectName(u"frame_content_wid_1")
-        self.frame_content_wid_1.setFrameShape(QFrame.Shape.NoFrame)
-        self.frame_content_wid_1.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_9 = QHBoxLayout(self.frame_content_wid_1)
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.gridLayout = QGridLayout()
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(-1, -1, -1, 0)
-        self.lineEdit = QLineEdit(self.frame_content_wid_1)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setMinimumSize(QSize(0, 30))
-        self.lineEdit.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-
-        self.gridLayout.addWidget(self.lineEdit, 0, 0, 1, 1)
-
-        self.pushButton = QPushButton(self.frame_content_wid_1)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(150, 30))
-        self.pushButton.setFont(font)
-        self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
-        icon3 = QIcon()
-        icon3.addFile(u":/icons/images/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon3)
-
-        self.gridLayout.addWidget(self.pushButton, 0, 1, 1, 1)
-
-        self.labelVersion_3 = QLabel(self.frame_content_wid_1)
-        self.labelVersion_3.setObjectName(u"labelVersion_3")
-        self.labelVersion_3.setStyleSheet(u"color: rgb(113, 126, 149);")
-        self.labelVersion_3.setLineWidth(1)
-        self.labelVersion_3.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
-
-        self.gridLayout.addWidget(self.labelVersion_3, 1, 0, 1, 2)
-
-
-        self.horizontalLayout_9.addLayout(self.gridLayout)
-
-
-        self.verticalLayout_17.addWidget(self.frame_content_wid_1)
-
-
-        self.verticalLayout_16.addWidget(self.frame_div_content_1)
-
-
-        self.verticalLayout.addWidget(self.row_1)
-
-        self.row_2 = QFrame(self.widgets)
-        self.row_2.setObjectName(u"row_2")
-        self.row_2.setMinimumSize(QSize(0, 150))
-        self.row_2.setFrameShape(QFrame.Shape.StyledPanel)
-        self.row_2.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_19 = QVBoxLayout(self.row_2)
-        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
-        self.gridLayout_2 = QGridLayout()
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.checkBox = QCheckBox(self.row_2)
-        self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setAutoFillBackground(False)
-        self.checkBox.setStyleSheet(u"")
-
-        self.gridLayout_2.addWidget(self.checkBox, 0, 0, 1, 1)
-
-        self.radioButton = QRadioButton(self.row_2)
-        self.radioButton.setObjectName(u"radioButton")
-        self.radioButton.setStyleSheet(u"")
-
-        self.gridLayout_2.addWidget(self.radioButton, 0, 1, 1, 1)
-
-        self.verticalSlider = QSlider(self.row_2)
-        self.verticalSlider.setObjectName(u"verticalSlider")
-        self.verticalSlider.setStyleSheet(u"")
-        self.verticalSlider.setOrientation(Qt.Orientation.Vertical)
-
-        self.gridLayout_2.addWidget(self.verticalSlider, 0, 2, 3, 1)
-
-        self.verticalScrollBar = QScrollBar(self.row_2)
-        self.verticalScrollBar.setObjectName(u"verticalScrollBar")
-        self.verticalScrollBar.setStyleSheet(u" QScrollBar:vertical { background: rgb(52, 59, 72); }\n"
-" QScrollBar:horizontal { background: rgb(52, 59, 72); }")
-        self.verticalScrollBar.setOrientation(Qt.Orientation.Vertical)
-
-        self.gridLayout_2.addWidget(self.verticalScrollBar, 0, 4, 3, 1)
-
-        self.scrollArea = QScrollArea(self.row_2)
-        self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setStyleSheet(u" QScrollBar:vertical {\n"
-"    background: rgb(52, 59, 72);\n"
-" }\n"
-" QScrollBar:horizontal {\n"
-"    background: rgb(52, 59, 72);\n"
-" }")
-        self.scrollArea.setFrameShape(QFrame.Shape.NoFrame)
-        self.scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
-        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
-        self.scrollAreaWidgetContents.setStyleSheet(u" QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
-"    width: 14px;\n"
-"    margin: 21px 0 21px 0;\n"
-"	border-radius: 0px;\n"
-" }")
-        self.horizontalLayout_11 = QHBoxLayout(self.scrollAreaWidgetContents)
-        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.plainTextEdit = QPlainTextEdit(self.scrollAreaWidgetContents)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setMinimumSize(QSize(200, 200))
-        self.plainTextEdit.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-
-        self.horizontalLayout_11.addWidget(self.plainTextEdit)
-
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-
-        self.gridLayout_2.addWidget(self.scrollArea, 0, 5, 3, 1)
-
-        self.comboBox = QComboBox(self.row_2)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setFont(font)
-        self.comboBox.setAutoFillBackground(False)
-        self.comboBox.setStyleSheet(u"background-color: rgb(33, 37, 43);")
-        self.comboBox.setIconSize(QSize(16, 16))
-        self.comboBox.setFrame(True)
-
-        self.gridLayout_2.addWidget(self.comboBox, 1, 0, 1, 2)
-
-        self.horizontalScrollBar = QScrollBar(self.row_2)
-        self.horizontalScrollBar.setObjectName(u"horizontalScrollBar")
-        sizePolicy1.setHeightForWidth(self.horizontalScrollBar.sizePolicy().hasHeightForWidth())
-        self.horizontalScrollBar.setSizePolicy(sizePolicy1)
-        self.horizontalScrollBar.setStyleSheet(u" QScrollBar:vertical { background: rgb(52, 59, 72); }\n"
-" QScrollBar:horizontal { background: rgb(52, 59, 72); }")
-        self.horizontalScrollBar.setOrientation(Qt.Orientation.Horizontal)
-
-        self.gridLayout_2.addWidget(self.horizontalScrollBar, 1, 3, 1, 1)
-
-        self.commandLinkButton = QCommandLinkButton(self.row_2)
-        self.commandLinkButton.setObjectName(u"commandLinkButton")
-        self.commandLinkButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.commandLinkButton.setStyleSheet(u"")
-        icon4 = QIcon()
-        icon4.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.commandLinkButton.setIcon(icon4)
-
-        self.gridLayout_2.addWidget(self.commandLinkButton, 1, 6, 1, 1)
-
-        self.horizontalSlider = QSlider(self.row_2)
-        self.horizontalSlider.setObjectName(u"horizontalSlider")
-        self.horizontalSlider.setStyleSheet(u"")
-        self.horizontalSlider.setOrientation(Qt.Orientation.Horizontal)
-
-        self.gridLayout_2.addWidget(self.horizontalSlider, 2, 0, 1, 2)
-
-
-        self.verticalLayout_19.addLayout(self.gridLayout_2)
-
-
-        self.verticalLayout.addWidget(self.row_2)
-
-        self.row_3 = QFrame(self.widgets)
-        self.row_3.setObjectName(u"row_3")
-        self.row_3.setMinimumSize(QSize(0, 150))
-        self.row_3.setFrameShape(QFrame.Shape.StyledPanel)
-        self.row_3.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_12 = QHBoxLayout(self.row_3)
-        self.horizontalLayout_12.setSpacing(0)
-        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.horizontalLayout_12.setContentsMargins(0, 0, 0, 0)
-        self.tableWidget = QTableWidget(self.row_3)
-        if (self.tableWidget.columnCount() < 4):
-            self.tableWidget.setColumnCount(4)
-        __qtablewidgetitem = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
-        __qtablewidgetitem1 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        __qtablewidgetitem2 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        if (self.tableWidget.rowCount() < 16):
-            self.tableWidget.setRowCount(16)
-        font3 = QFont()
-        font3.setFamilies([u"Segoe UI"])
-        __qtablewidgetitem4 = QTableWidgetItem()
-        __qtablewidgetitem4.setFont(font3);
-        self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem4)
-        __qtablewidgetitem5 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(1, __qtablewidgetitem5)
-        __qtablewidgetitem6 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(2, __qtablewidgetitem6)
-        __qtablewidgetitem7 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(3, __qtablewidgetitem7)
-        __qtablewidgetitem8 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(4, __qtablewidgetitem8)
-        __qtablewidgetitem9 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(5, __qtablewidgetitem9)
-        __qtablewidgetitem10 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(6, __qtablewidgetitem10)
-        __qtablewidgetitem11 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(7, __qtablewidgetitem11)
-        __qtablewidgetitem12 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(8, __qtablewidgetitem12)
-        __qtablewidgetitem13 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(9, __qtablewidgetitem13)
-        __qtablewidgetitem14 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(10, __qtablewidgetitem14)
-        __qtablewidgetitem15 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(11, __qtablewidgetitem15)
-        __qtablewidgetitem16 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(12, __qtablewidgetitem16)
-        __qtablewidgetitem17 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(13, __qtablewidgetitem17)
-        __qtablewidgetitem18 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(14, __qtablewidgetitem18)
-        __qtablewidgetitem19 = QTableWidgetItem()
-        self.tableWidget.setVerticalHeaderItem(15, __qtablewidgetitem19)
-        __qtablewidgetitem20 = QTableWidgetItem()
-        self.tableWidget.setItem(0, 0, __qtablewidgetitem20)
-        __qtablewidgetitem21 = QTableWidgetItem()
-        self.tableWidget.setItem(0, 1, __qtablewidgetitem21)
-        __qtablewidgetitem22 = QTableWidgetItem()
-        self.tableWidget.setItem(0, 2, __qtablewidgetitem22)
-        __qtablewidgetitem23 = QTableWidgetItem()
-        self.tableWidget.setItem(0, 3, __qtablewidgetitem23)
-        self.tableWidget.setObjectName(u"tableWidget")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
-        self.tableWidget.setSizePolicy(sizePolicy4)
-        palette = QPalette()
-        brush = QBrush(QColor(221, 221, 221, 255))
-        brush.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.WindowText, brush)
-        brush1 = QBrush(QColor(0, 0, 0, 0))
-        brush1.setStyle(Qt.SolidPattern)
-        palette.setBrush(QPalette.Active, QPalette.Button, brush1)
-        palette.setBrush(QPalette.Active, QPalette.Text, brush)
-        palette.setBrush(QPalette.Active, QPalette.ButtonText, brush)
-        brush2 = QBrush(QColor(0, 0, 0, 255))
-        brush2.setStyle(Qt.NoBrush)
-        palette.setBrush(QPalette.Active, QPalette.Base, brush2)
-        palette.setBrush(QPalette.Active, QPalette.Window, brush1)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush)
-#endif
-        palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
-        palette.setBrush(QPalette.Inactive, QPalette.Button, brush1)
-        palette.setBrush(QPalette.Inactive, QPalette.Text, brush)
-        palette.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
-        brush3 = QBrush(QColor(0, 0, 0, 255))
-        brush3.setStyle(Qt.NoBrush)
-        palette.setBrush(QPalette.Inactive, QPalette.Base, brush3)
-        palette.setBrush(QPalette.Inactive, QPalette.Window, brush1)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush)
-#endif
-        palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
-        palette.setBrush(QPalette.Disabled, QPalette.Button, brush1)
-        palette.setBrush(QPalette.Disabled, QPalette.Text, brush)
-        palette.setBrush(QPalette.Disabled, QPalette.ButtonText, brush)
-        brush4 = QBrush(QColor(0, 0, 0, 255))
-        brush4.setStyle(Qt.NoBrush)
-        palette.setBrush(QPalette.Disabled, QPalette.Base, brush4)
-        palette.setBrush(QPalette.Disabled, QPalette.Window, brush1)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush)
-#endif
-        self.tableWidget.setPalette(palette)
-        self.tableWidget.setFrameShape(QFrame.Shape.NoFrame)
-        self.tableWidget.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
-        self.tableWidget.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustToContents)
-        self.tableWidget.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.tableWidget.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
-        self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
-        self.tableWidget.setShowGrid(True)
-        self.tableWidget.setGridStyle(Qt.PenStyle.SolidLine)
-        self.tableWidget.setSortingEnabled(False)
-        self.tableWidget.horizontalHeader().setVisible(False)
-        self.tableWidget.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableWidget.horizontalHeader().setDefaultSectionSize(200)
-        self.tableWidget.horizontalHeader().setStretchLastSection(True)
-        self.tableWidget.verticalHeader().setVisible(False)
-        self.tableWidget.verticalHeader().setCascadingSectionResizes(False)
-        self.tableWidget.verticalHeader().setHighlightSections(False)
-        self.tableWidget.verticalHeader().setStretchLastSection(True)
-
-        self.horizontalLayout_12.addWidget(self.tableWidget)
-
-
-        self.verticalLayout.addWidget(self.row_3)
-
-        self.stackedWidget.addWidget(self.widgets)
-        self.signuppage = QWidget()
-        self.signuppage.setObjectName(u"signuppage")
-        self.signuppage.setStyleSheet(u"QPushButton#signup_btn_submit {\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"    border-color: rgb(255, 255, 255);\n"
-"    border-radius: 5px;\n"
-"    padding: 5px 10px;\n"
-"    color: white;\n"
-"}\n"
-"\n"
-"\n"
-"QPushButton#signup_btn_submit:hover {\n"
-"    background-color: rgba(70, 130, 180, 1);\n"
-"}\n"
-"\n"
-"QPushButton#signup_btn_submit:pressed {\n"
-"    background-color: rgba(25, 25, 112, 1);\n"
-"}\n"
-"\n"
-"QPushButton#signup_btn_back {\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"    border-color: rgb(255, 255, 255);\n"
-"    border-radius: 15px;\n"
-"    padding: 5px 10px;\n"
-"    color: white;\n"
-"}\n"
-"QPushButton#signup_btn_back:hover {\n"
-"    background-color: rgba(70, 130, 180, 1);\n"
-"}\n"
-"\n"
-"QPushButton#signup_btn_back:pressed {\n"
-"    background-color: rgba(25, 25, 112, 1);\n"
-"}")
-        self.signup_label_back = QLabel(self.signuppage)
-        self.signup_label_back.setObjectName(u"signup_label_back")
-        self.signup_label_back.setGeometry(QRect(20, 20, 941, 541))
-        self.signup_label_back.setStyleSheet(u"background-image: url(:/images/images/images/loginbackground.jpg);\n"
-"border-radius: 20px;\n"
-"")
-        self.signup_input_id = QLineEdit(self.signuppage)
-        self.signup_input_id.setObjectName(u"signup_input_id")
-        self.signup_input_id.setGeometry(QRect(230, 150, 251, 31))
-        self.signup_input_id.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(255, 255, 255, 120);\n"
-"color:rgba(255, 255, 255, 230);\n"
-"padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
-        self.signup_input_pw = QLineEdit(self.signuppage)
-        self.signup_input_pw.setObjectName(u"signup_input_pw")
-        self.signup_input_pw.setGeometry(QRect(230, 200, 251, 31))
-        self.signup_input_pw.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(255, 255, 255, 120);\n"
-"color:rgba(255, 255, 255, 230);\n"
-"padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
-        self.signup_input_pw.setEchoMode(QLineEdit.EchoMode.Password)
-        self.signup_input_name = QLineEdit(self.signuppage)
-        self.signup_input_name.setObjectName(u"signup_input_name")
-        self.signup_input_name.setGeometry(QRect(230, 250, 251, 31))
-        self.signup_input_name.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(255, 255, 255, 120);\n"
-"color:rgba(255, 255, 255, 230);\n"
-"padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
-        self.signup_input_phone = QLineEdit(self.signuppage)
-        self.signup_input_phone.setObjectName(u"signup_input_phone")
-        self.signup_input_phone.setGeometry(QRect(230, 300, 251, 31))
-        self.signup_input_phone.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(255, 255, 255, 120);\n"
-"color:rgba(255, 255, 255, 230);\n"
-"padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
-        self.signup_input_email = QLineEdit(self.signuppage)
-        self.signup_input_email.setObjectName(u"signup_input_email")
-        self.signup_input_email.setGeometry(QRect(230, 350, 251, 31))
-        self.signup_input_email.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(255, 255, 255, 120);\n"
-"color:rgba(255, 255, 255, 230);\n"
-"padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
-        self.signup_combo_dept = QComboBox(self.signuppage)
-        self.signup_combo_dept.addItem("")
-        self.signup_combo_dept.addItem("")
-        self.signup_combo_dept.addItem("")
-        self.signup_combo_dept.addItem("")
-        self.signup_combo_dept.addItem("")
-        self.signup_combo_dept.setObjectName(u"signup_combo_dept")
-        self.signup_combo_dept.setGeometry(QRect(550, 200, 186, 33))
-        font4 = QFont()
-        font4.setFamilies([u"Segoe UI"])
-        font4.setPointSize(8)
-        font4.setWeight(QFont.ExtraLight)
-        font4.setItalic(False)
-        self.signup_combo_dept.setFont(font4)
-        self.signup_combo_dept.setAutoFillBackground(False)
-        self.signup_combo_dept.setStyleSheet(u"\n"
-"font: 8pt \"Segoe UI\";\n"
-"font-weight: 200;\n"
-"background-color: rgb(27, 29, 35);\n"
-"")
-        self.signup_combo_dept.setIconSize(QSize(16, 16))
-        self.signup_combo_dept.setFrame(True)
-        self.signup_combo_position = QComboBox(self.signuppage)
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.setObjectName(u"signup_combo_position")
-        self.signup_combo_position.setGeometry(QRect(550, 250, 186, 33))
-        self.signup_combo_position.setFont(font4)
-        self.signup_combo_position.setAutoFillBackground(False)
-        self.signup_combo_position.setStyleSheet(u"background-color: rgb(27, 29, 35);\n"
-"\n"
-"font: 8pt \"Segoe UI\";\n"
-"font-weight: 200;")
-        self.signup_combo_position.setIconSize(QSize(16, 16))
-        self.signup_combo_position.setFrame(True)
-        self.signup_btn_submit = QPushButton(self.signuppage)
-        self.signup_btn_submit.setObjectName(u"signup_btn_submit")
-        self.signup_btn_submit.setGeometry(QRect(330, 450, 331, 41))
-        self.signup_btn_submit.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
-"")
-        self.signup_checkbox_agree = QCheckBox(self.signuppage)
-        self.signup_checkbox_agree.setObjectName(u"signup_checkbox_agree")
-        self.signup_checkbox_agree.setGeometry(QRect(340, 420, 21, 20))
-        self.signup_label_useagree = QLabel(self.signuppage)
-        self.signup_label_useagree.setObjectName(u"signup_label_useagree")
-        self.signup_label_useagree.setGeometry(QRect(370, 422, 51, 16))
-        self.signup_label_useagree.setStyleSheet(u"font: 9pt \"Segoe UI\";\n"
-"font-weight: 200;")
-        self.signup_label_infoagree = QLabel(self.signuppage)
-        self.signup_label_infoagree.setObjectName(u"signup_label_infoagree")
-        self.signup_label_infoagree.setGeometry(QRect(424, 422, 241, 16))
-        self.signup_label_infoagree.setStyleSheet(u"font: 9pt \"Segoe UI\";\n"
-"font-weight: 200;")
-        self.signup_btn_back = QPushButton(self.signuppage)
-        self.signup_btn_back.setObjectName(u"signup_btn_back")
-        self.signup_btn_back.setGeometry(QRect(705, 100, 31, 31))
-        self.signup_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
-"background-position: centered;\n"
-"background-repeat: no-repeat;\n"
-"border:none;\n"
-"")
-        self.stackedWidget.addWidget(self.signuppage)
         self.loginpage = QWidget()
         self.loginpage.setObjectName(u"loginpage")
         self.loginpage.setStyleSheet(u"QPushButton#login_btn_login {\n"
@@ -1716,24 +1125,24 @@ class Ui_MainWindow(object):
         self.login_label_logo = QLabel(self.widget)
         self.login_label_logo.setObjectName(u"login_label_logo")
         self.login_label_logo.setGeometry(QRect(380, 70, 201, 61))
-        font5 = QFont()
-        font5.setFamilies([u"Segoe UI"])
-        font5.setPointSize(28)
-        font5.setWeight(QFont.ExtraLight)
-        font5.setItalic(False)
-        self.login_label_logo.setFont(font5)
+        font3 = QFont()
+        font3.setFamilies([u"Segoe UI"])
+        font3.setPointSize(28)
+        font3.setWeight(QFont.ExtraLight)
+        font3.setItalic(False)
+        self.login_label_logo.setFont(font3)
         self.login_label_logo.setStyleSheet(u"font: 28pt \"Segoe UI\";\n"
 "font-weight: 200;\n"
 "color: rgb(255, 255, 255);")
         self.login_input_id = QLineEdit(self.widget)
         self.login_input_id.setObjectName(u"login_input_id")
         self.login_input_id.setGeometry(QRect(240, 180, 491, 41))
-        font6 = QFont()
-        font6.setFamilies([u"Segoe UI"])
-        font6.setPointSize(12)
-        font6.setBold(False)
-        font6.setItalic(False)
-        self.login_input_id.setFont(font6)
+        font4 = QFont()
+        font4.setFamilies([u"Segoe UI"])
+        font4.setPointSize(12)
+        font4.setBold(False)
+        font4.setItalic(False)
+        self.login_input_id.setFont(font4)
         self.login_input_id.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
@@ -1743,7 +1152,7 @@ class Ui_MainWindow(object):
         self.login_input_pw = QLineEdit(self.widget)
         self.login_input_pw.setObjectName(u"login_input_pw")
         self.login_input_pw.setGeometry(QRect(240, 240, 491, 41))
-        self.login_input_pw.setFont(font6)
+        self.login_input_pw.setFont(font4)
         self.login_input_pw.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
@@ -1816,6 +1225,386 @@ class Ui_MainWindow(object):
         self.verticalLayout_20.addLayout(self.gridLayout_3)
 
         self.stackedWidget.addWidget(self.loginpage)
+        self.home = QWidget()
+        self.home.setObjectName(u"home")
+        self.home.setStyleSheet(u"background-position: center;\n"
+"background-repeat: no-repeat;\n"
+"\n"
+"QPushButton#home_btn_chatlist_send {\n"
+"    background-color: #3498db;\n"
+"    color: white;\n"
+"    border: 2px solid #2980b9;\n"
+"    border-radius: 20px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton#home_btn_chatlist_send:pressed {\n"
+"    background-color: rgba(52, 152, 219, 0.5);\n"
+"    border: 2px solid rgba(41, 128, 185, 0.5);\n"
+"}\n"
+"")
+        self.home_label_chatback = QLabel(self.home)
+        self.home_label_chatback.setObjectName(u"home_label_chatback")
+        self.home_label_chatback.setGeometry(QRect(190, 20, 771, 491))
+        self.home_label_chatback.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;\n"
+"border: 1px solid #3498db;")
+        self.home_label_left1back = QLabel(self.home)
+        self.home_label_left1back.setObjectName(u"home_label_left1back")
+        self.home_label_left1back.setGeometry(QRect(20, 20, 151, 181))
+        self.home_label_left1back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;")
+        self.home_label_left2back = QLabel(self.home)
+        self.home_label_left2back.setObjectName(u"home_label_left2back")
+        self.home_label_left2back.setGeometry(QRect(20, 220, 151, 341))
+        self.home_label_left2back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;")
+        self.home_label_chatgroup = QLabel(self.home)
+        self.home_label_chatgroup.setObjectName(u"home_label_chatgroup")
+        self.home_label_chatgroup.setGeometry(QRect(64, 39, 91, 16))
+        self.home_label_chatgroup.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
+        self.home_label_chatgroup_pic = QLabel(self.home)
+        self.home_label_chatgroup_pic.setObjectName(u"home_label_chatgroup_pic")
+        self.home_label_chatgroup_pic.setGeometry(QRect(31, 37, 31, 21))
+        self.home_label_chatgroup_pic.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-chat-bubble.png);")
+        self.home_label_userstate = QLabel(self.home)
+        self.home_label_userstate.setObjectName(u"home_label_userstate")
+        self.home_label_userstate.setGeometry(QRect(64, 240, 91, 16))
+        self.home_label_userstate.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
+        self.home_label_userstate_pic = QLabel(self.home)
+        self.home_label_userstate_pic.setObjectName(u"home_label_userstate_pic")
+        self.home_label_userstate_pic.setGeometry(QRect(31, 238, 31, 21))
+        self.home_label_userstate_pic.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-people.png);")
+        self.home_listview_chatgroup = QListView(self.home)
+        self.home_listview_chatgroup.setObjectName(u"home_listview_chatgroup")
+        self.home_listview_chatgroup.setGeometry(QRect(30, 70, 131, 91))
+        self.home_listview_chatgroup.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.home_btn_chatgroup = QPushButton(self.home)
+        self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
+        self.home_btn_chatgroup.setGeometry(QRect(80, 170, 31, 24))
+        self.home_btn_chatgroup.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
+"border:none;\n"
+"")
+        self.home_label_chatlist_title = QLabel(self.home)
+        self.home_label_chatlist_title.setObjectName(u"home_label_chatlist_title")
+        self.home_label_chatlist_title.setGeometry(QRect(220, 39, 91, 16))
+        self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
+        self.home_listview_status = QListView(self.home)
+        self.home_listview_status.setObjectName(u"home_listview_status")
+        self.home_listview_status.setGeometry(QRect(30, 270, 131, 281))
+        self.home_listview_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.home_lineedit_chatlist_send = QLineEdit(self.home)
+        self.home_lineedit_chatlist_send.setObjectName(u"home_lineedit_chatlist_send")
+        self.home_lineedit_chatlist_send.setGeometry(QRect(190, 521, 711, 41))
+        self.home_lineedit_chatlist_send.setStyleSheet(u"border: 1px solid #FFFF00;\n"
+"border-radius: 10px;\n"
+"padding-left: 30px; /* \uc67c\ucabd \uacf5\ubc31 */\n"
+"\n"
+"font: 600 \"Segoe UI Variable Small Semibol\";\n"
+"font-size: 13px; /* \ud3f0\ud2b8 \ud06c\uae30 */\n"
+"color: rgb(255, 255, 255); /* \ud14d\uc2a4\ud2b8 \uc0c9\uc0c1 */")
+        self.home_listview_chatlist = QListView(self.home)
+        self.home_listview_chatlist.setObjectName(u"home_listview_chatlist")
+        self.home_listview_chatlist.setGeometry(QRect(220, 70, 711, 421))
+        self.home_listview_chatlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.home_btn_chatlist_send = QPushButton(self.home)
+        self.home_btn_chatlist_send.setObjectName(u"home_btn_chatlist_send")
+        self.home_btn_chatlist_send.setGeometry(QRect(914, 520, 41, 41))
+        self.home_btn_chatlist_send.setStyleSheet(u"background-image: url(:/images/images/images/free-icon-send-button-12439334.png);\n"
+"\n"
+"\n"
+"border: none;")
+        self.stackedWidget.addWidget(self.home)
+        self.adminpage = QWidget()
+        self.adminpage.setObjectName(u"adminpage")
+        self.adminpage.setStyleSheet(u"QPushButton#admin_btn_accept {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 5px;\n"
+"    padding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton#admin_btn_accept:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#admin_btn_accept:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}\n"
+"\n"
+"QPushButton#admin_btn_reject {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 5px;\n"
+"    padding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton#admin_btn_reject:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#admin_btn_reject:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}")
+        self.admin_label_leftback = QLabel(self.adminpage)
+        self.admin_label_leftback.setObjectName(u"admin_label_leftback")
+        self.admin_label_leftback.setGeometry(QRect(20, 20, 381, 541))
+        self.admin_label_leftback.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;\n"
+"border: 1px solid #3498db;\n"
+"")
+        self.admin_label_rightback1 = QLabel(self.adminpage)
+        self.admin_label_rightback1.setObjectName(u"admin_label_rightback1")
+        self.admin_label_rightback1.setGeometry(QRect(420, 20, 261, 261))
+        self.admin_label_rightback1.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;")
+        self.admin_label_rightback2 = QLabel(self.adminpage)
+        self.admin_label_rightback2.setObjectName(u"admin_label_rightback2")
+        self.admin_label_rightback2.setGeometry(QRect(700, 20, 261, 261))
+        self.admin_label_rightback2.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;")
+        self.admin_label_rightback3 = QLabel(self.adminpage)
+        self.admin_label_rightback3.setObjectName(u"admin_label_rightback3")
+        self.admin_label_rightback3.setGeometry(QRect(420, 300, 261, 261))
+        self.admin_label_rightback3.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;")
+        self.admin_label_rightback4 = QLabel(self.adminpage)
+        self.admin_label_rightback4.setObjectName(u"admin_label_rightback4")
+        self.admin_label_rightback4.setGeometry(QRect(700, 300, 261, 261))
+        self.admin_label_rightback4.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;")
+        self.admin_listView_status = QListView(self.adminpage)
+        self.admin_listView_status.setObjectName(u"admin_listView_status")
+        self.admin_listView_status.setGeometry(QRect(40, 70, 341, 431))
+        self.admin_listView_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.admin_label_status = QLabel(self.adminpage)
+        self.admin_label_status.setObjectName(u"admin_label_status")
+        self.admin_label_status.setGeometry(QRect(40, 40, 141, 21))
+        self.admin_label_status.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.admin_label_memnum = QLabel(self.adminpage)
+        self.admin_label_memnum.setObjectName(u"admin_label_memnum")
+        self.admin_label_memnum.setGeometry(QRect(440, 40, 61, 21))
+        self.admin_label_memnum.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.admin_label_memstatus = QLabel(self.adminpage)
+        self.admin_label_memstatus.setObjectName(u"admin_label_memstatus")
+        self.admin_label_memstatus.setGeometry(QRect(720, 40, 71, 21))
+        self.admin_label_memstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.admin_label_diskstatus = QLabel(self.adminpage)
+        self.admin_label_diskstatus.setObjectName(u"admin_label_diskstatus")
+        self.admin_label_diskstatus.setGeometry(QRect(440, 320, 71, 21))
+        self.admin_label_diskstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.admin_label_tpsstatus = QLabel(self.adminpage)
+        self.admin_label_tpsstatus.setObjectName(u"admin_label_tpsstatus")
+        self.admin_label_tpsstatus.setGeometry(QRect(720, 320, 71, 21))
+        self.admin_label_tpsstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.admin_btn_accept = QPushButton(self.adminpage)
+        self.admin_btn_accept.setObjectName(u"admin_btn_accept")
+        self.admin_btn_accept.setGeometry(QRect(205, 516, 81, 31))
+        self.admin_btn_accept.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
+"border: 1px solid yellow;")
+        self.admin_btn_reject = QPushButton(self.adminpage)
+        self.admin_btn_reject.setObjectName(u"admin_btn_reject")
+        self.admin_btn_reject.setGeometry(QRect(300, 516, 81, 31))
+        self.admin_btn_reject.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
+"border: 1px solid white;\n"
+"")
+        self.admin_label_rightback1_1 = QLabel(self.adminpage)
+        self.admin_label_rightback1_1.setObjectName(u"admin_label_rightback1_1")
+        self.admin_label_rightback1_1.setGeometry(QRect(440, 80, 221, 181))
+        self.admin_label_rightback1_1.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.admin_label_rightback2_2 = QLabel(self.adminpage)
+        self.admin_label_rightback2_2.setObjectName(u"admin_label_rightback2_2")
+        self.admin_label_rightback2_2.setGeometry(QRect(720, 80, 221, 181))
+        self.admin_label_rightback2_2.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.admin_label_rightback3_3 = QLabel(self.adminpage)
+        self.admin_label_rightback3_3.setObjectName(u"admin_label_rightback3_3")
+        self.admin_label_rightback3_3.setGeometry(QRect(440, 360, 221, 181))
+        self.admin_label_rightback3_3.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.admin_label_rightback4_4 = QLabel(self.adminpage)
+        self.admin_label_rightback4_4.setObjectName(u"admin_label_rightback4_4")
+        self.admin_label_rightback4_4.setGeometry(QRect(720, 360, 221, 181))
+        self.admin_label_rightback4_4.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.admin_label_food = QLabel(self.adminpage)
+        self.admin_label_food.setObjectName(u"admin_label_food")
+        self.admin_label_food.setGeometry(QRect(850, 560, 111, 21))
+        self.admin_label_food.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.stackedWidget.addWidget(self.adminpage)
+        self.signuppage = QWidget()
+        self.signuppage.setObjectName(u"signuppage")
+        self.signuppage.setStyleSheet(u"QPushButton#signup_btn_submit {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 5px;\n"
+"    padding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton#signup_btn_submit:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#signup_btn_submit:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}\n"
+"\n"
+"QPushButton#signup_btn_back {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 15px;\n"
+"    padding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"QPushButton#signup_btn_back:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#signup_btn_back:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}")
+        self.signup_label_back = QLabel(self.signuppage)
+        self.signup_label_back.setObjectName(u"signup_label_back")
+        self.signup_label_back.setGeometry(QRect(20, 20, 941, 541))
+        self.signup_label_back.setStyleSheet(u"background-image: url(:/images/images/images/loginbackground.jpg);\n"
+"border-radius: 20px;\n"
+"")
+        self.signup_input_id = QLineEdit(self.signuppage)
+        self.signup_input_id.setObjectName(u"signup_input_id")
+        self.signup_input_id.setGeometry(QRect(230, 150, 251, 31))
+        self.signup_input_id.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+"border:none;\n"
+"border-bottom:2px solid rgba(255, 255, 255, 120);\n"
+"color:rgba(255, 255, 255, 230);\n"
+"padding-bottom:7px;\n"
+"font: 12pt \"Segoe UI\";")
+        self.signup_input_pw = QLineEdit(self.signuppage)
+        self.signup_input_pw.setObjectName(u"signup_input_pw")
+        self.signup_input_pw.setGeometry(QRect(230, 200, 251, 31))
+        self.signup_input_pw.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+"border:none;\n"
+"border-bottom:2px solid rgba(255, 255, 255, 120);\n"
+"color:rgba(255, 255, 255, 230);\n"
+"padding-bottom:7px;\n"
+"font: 12pt \"Segoe UI\";")
+        self.signup_input_pw.setEchoMode(QLineEdit.EchoMode.Password)
+        self.signup_input_name = QLineEdit(self.signuppage)
+        self.signup_input_name.setObjectName(u"signup_input_name")
+        self.signup_input_name.setGeometry(QRect(230, 250, 251, 31))
+        self.signup_input_name.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+"border:none;\n"
+"border-bottom:2px solid rgba(255, 255, 255, 120);\n"
+"color:rgba(255, 255, 255, 230);\n"
+"padding-bottom:7px;\n"
+"font: 12pt \"Segoe UI\";")
+        self.signup_input_phone = QLineEdit(self.signuppage)
+        self.signup_input_phone.setObjectName(u"signup_input_phone")
+        self.signup_input_phone.setGeometry(QRect(230, 300, 251, 31))
+        self.signup_input_phone.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+"border:none;\n"
+"border-bottom:2px solid rgba(255, 255, 255, 120);\n"
+"color:rgba(255, 255, 255, 230);\n"
+"padding-bottom:7px;\n"
+"font: 12pt \"Segoe UI\";")
+        self.signup_input_email = QLineEdit(self.signuppage)
+        self.signup_input_email.setObjectName(u"signup_input_email")
+        self.signup_input_email.setGeometry(QRect(230, 350, 251, 31))
+        self.signup_input_email.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
+"border:none;\n"
+"border-bottom:2px solid rgba(255, 255, 255, 120);\n"
+"color:rgba(255, 255, 255, 230);\n"
+"padding-bottom:7px;\n"
+"font: 12pt \"Segoe UI\";")
+        self.signup_combo_dept = QComboBox(self.signuppage)
+        self.signup_combo_dept.addItem("")
+        self.signup_combo_dept.addItem("")
+        self.signup_combo_dept.addItem("")
+        self.signup_combo_dept.addItem("")
+        self.signup_combo_dept.addItem("")
+        self.signup_combo_dept.setObjectName(u"signup_combo_dept")
+        self.signup_combo_dept.setGeometry(QRect(550, 200, 186, 33))
+        font5 = QFont()
+        font5.setFamilies([u"Segoe UI"])
+        font5.setPointSize(8)
+        font5.setWeight(QFont.ExtraLight)
+        font5.setItalic(False)
+        self.signup_combo_dept.setFont(font5)
+        self.signup_combo_dept.setAutoFillBackground(False)
+        self.signup_combo_dept.setStyleSheet(u"\n"
+"font: 8pt \"Segoe UI\";\n"
+"font-weight: 200;\n"
+"background-color: rgb(27, 29, 35);\n"
+"")
+        self.signup_combo_dept.setIconSize(QSize(16, 16))
+        self.signup_combo_dept.setFrame(True)
+        self.signup_combo_position = QComboBox(self.signuppage)
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.addItem("")
+        self.signup_combo_position.setObjectName(u"signup_combo_position")
+        self.signup_combo_position.setGeometry(QRect(550, 250, 186, 33))
+        self.signup_combo_position.setFont(font5)
+        self.signup_combo_position.setAutoFillBackground(False)
+        self.signup_combo_position.setStyleSheet(u"background-color: rgb(27, 29, 35);\n"
+"\n"
+"font: 8pt \"Segoe UI\";\n"
+"font-weight: 200;")
+        self.signup_combo_position.setIconSize(QSize(16, 16))
+        self.signup_combo_position.setFrame(True)
+        self.signup_btn_submit = QPushButton(self.signuppage)
+        self.signup_btn_submit.setObjectName(u"signup_btn_submit")
+        self.signup_btn_submit.setGeometry(QRect(330, 450, 331, 41))
+        self.signup_btn_submit.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"")
+        self.signup_checkbox_agree = QCheckBox(self.signuppage)
+        self.signup_checkbox_agree.setObjectName(u"signup_checkbox_agree")
+        self.signup_checkbox_agree.setGeometry(QRect(340, 420, 21, 20))
+        self.signup_label_useagree = QLabel(self.signuppage)
+        self.signup_label_useagree.setObjectName(u"signup_label_useagree")
+        self.signup_label_useagree.setGeometry(QRect(370, 422, 51, 16))
+        self.signup_label_useagree.setStyleSheet(u"font: 9pt \"Segoe UI\";\n"
+"font-weight: 200;")
+        self.signup_label_infoagree = QLabel(self.signuppage)
+        self.signup_label_infoagree.setObjectName(u"signup_label_infoagree")
+        self.signup_label_infoagree.setGeometry(QRect(424, 422, 241, 16))
+        self.signup_label_infoagree.setStyleSheet(u"font: 9pt \"Segoe UI\";\n"
+"font-weight: 200;")
+        self.signup_btn_back = QPushButton(self.signuppage)
+        self.signup_btn_back.setObjectName(u"signup_btn_back")
+        self.signup_btn_back.setGeometry(QRect(705, 100, 31, 31))
+        self.signup_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
+"border:none;\n"
+"")
+        self.stackedWidget.addWidget(self.signuppage)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -1929,8 +1718,18 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.styleSheet)
 
         self.retranslateUi(MainWindow)
+        self.signup_input_id.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_pw.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_name.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_phone.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_input_email.returnPressed.connect(self.signup_btn_submit.click)
+        self.signup_btn_submit.clicked.connect(MainWindow.signUpRequest)
+        self.login_input_id.returnPressed.connect(self.login_btn_login.click)
+        self.login_input_pw.returnPressed.connect(self.login_btn_login.click)
+        self.login_btn_login.clicked.connect(MainWindow.loginRequest)
+        self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1941,7 +1740,7 @@ class Ui_MainWindow(object):
         self.titleLeftApp.setText("")
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
+        self.btn_admin.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
         self.btn_login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
         self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
         self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
@@ -1994,72 +1793,23 @@ class Ui_MainWindow(object):
         self.home_btn_chatgroup.setText("")
         self.home_label_chatlist_title.setText(QCoreApplication.translate("MainWindow", u"\ucc44\ud305 \uadf8\ub8f9 \uba85", None))
         self.home_btn_chatlist_send.setText("")
-        self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
-        self.lineEdit.setText("")
-        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
-        self.labelVersion_3.setText(QCoreApplication.translate("MainWindow", u"Label description", None))
-        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"CheckBox", None))
-        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"RadioButton", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Test 1", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Test 2", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"Test 3", None))
-
-        self.commandLinkButton.setText(QCoreApplication.translate("MainWindow", u"Link Button", None))
-        self.commandLinkButton.setDescription(QCoreApplication.translate("MainWindow", u"Link description", None))
-        ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"0", None));
-        ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"1", None));
-        ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"2", None));
-        ___qtablewidgetitem3 = self.tableWidget.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"3", None));
-        ___qtablewidgetitem4 = self.tableWidget.verticalHeaderItem(0)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem5 = self.tableWidget.verticalHeaderItem(1)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem6 = self.tableWidget.verticalHeaderItem(2)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem7 = self.tableWidget.verticalHeaderItem(3)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem8 = self.tableWidget.verticalHeaderItem(4)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem9 = self.tableWidget.verticalHeaderItem(5)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem10 = self.tableWidget.verticalHeaderItem(6)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem11 = self.tableWidget.verticalHeaderItem(7)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem12 = self.tableWidget.verticalHeaderItem(8)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem13 = self.tableWidget.verticalHeaderItem(9)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem14 = self.tableWidget.verticalHeaderItem(10)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem15 = self.tableWidget.verticalHeaderItem(11)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem16 = self.tableWidget.verticalHeaderItem(12)
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem17 = self.tableWidget.verticalHeaderItem(13)
-        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem18 = self.tableWidget.verticalHeaderItem(14)
-        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-        ___qtablewidgetitem19 = self.tableWidget.verticalHeaderItem(15)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"New Row", None));
-
-        __sortingEnabled = self.tableWidget.isSortingEnabled()
-        self.tableWidget.setSortingEnabled(False)
-        ___qtablewidgetitem20 = self.tableWidget.item(0, 0)
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"Test", None));
-        ___qtablewidgetitem21 = self.tableWidget.item(0, 1)
-        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"Text", None));
-        ___qtablewidgetitem22 = self.tableWidget.item(0, 2)
-        ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"Cell", None));
-        ___qtablewidgetitem23 = self.tableWidget.item(0, 3)
-        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
-        self.tableWidget.setSortingEnabled(__sortingEnabled)
-
+        self.admin_label_leftback.setText("")
+        self.admin_label_rightback1.setText("")
+        self.admin_label_rightback2.setText("")
+        self.admin_label_rightback3.setText("")
+        self.admin_label_rightback4.setText("")
+        self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))
+        self.admin_label_memnum.setText(QCoreApplication.translate("MainWindow", u"\uc811\uc18d\uc790 \uc218", None))
+        self.admin_label_memstatus.setText(QCoreApplication.translate("MainWindow", u"MEM \uc0c1\ud0dc", None))
+        self.admin_label_diskstatus.setText(QCoreApplication.translate("MainWindow", u"DISK \uc0c1\ud0dc", None))
+        self.admin_label_tpsstatus.setText(QCoreApplication.translate("MainWindow", u"TPS \uc0c1\ud0dc", None))
+        self.admin_btn_accept.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub77d", None))
+        self.admin_btn_reject.setText(QCoreApplication.translate("MainWindow", u"\uac70\uc808", None))
+        self.admin_label_rightback1_1.setText("")
+        self.admin_label_rightback2_2.setText("")
+        self.admin_label_rightback3_3.setText("")
+        self.admin_label_rightback4_4.setText("")
+        self.admin_label_food.setText(QCoreApplication.translate("MainWindow", u"\uc624\ub298\uc758 \uc2dd\ub2e8 \ubcf4\uae30", None))
         self.signup_label_back.setText("")
         self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.signup_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))

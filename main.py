@@ -43,17 +43,32 @@ class MainWindow(QMainWindow):
         widgets = self.ui
 
         #widgets initialize
-        self.username = self.findChild(QLineEdit, "username")
-        self.password = self.findChild(QLineEdit, "password")
-        self.login_btn = self.findChild(QPushButton, "login_btn")
+        self.login_input_id = self.findChild(QLineEdit, "login_input_id")
+        self.login_input_pw = self.findChild(QLineEdit, "login_input_pw")
+        self.login_btn_login = self.findChild(QPushButton, "login_btn_login")
+        self.signup_input_id = self.findChild(QLineEdit, "signup_input_id")
+        self.signup_input_pw = self.findChild(QLineEdit, "signup_input_pw")
+        self.signup_input_name = self.findChild(QLineEdit, "signup_input_name")
+        self.signup_input_phone = self.findChild(QLineEdit, "signup_input_phone")
+        self.signup_input_email = self.findChild(QLineEdit, "signup_input_email")
+        self.signup_combo_dept = self.findChild(QComboBox, "signup_combo_dept")
+        self.signup_combo_position = self.findChild(QComboBox, "signup_combo_position")
+        self.signup_btn_submit = self.findChild(QPushButton, "signup_btn_submit")
+        self.signup_btn_back = self.findChild(QPushButton, "signup_btn_back")
+        self.signup_checkbox_agree = self.findChild(QCheckBox, "signup_checkbox_agree")
+
+        self.admin_btn_accept = self.findChild(QPushButton, "admin_btn_accept")
+        self.admin_btn_reject = self.findChild(QPushButton, "admin_btn_reject")
+
+
         self.btn_home = self.findChild(QPushButton, "btn_home")
-        self.btn_widgets = self.findChild(QPushButton, "btn_widgets")
+        self.btn_admin = self.findChild(QPushButton, "btn_admin")
         self.btn_save = self.findChild(QPushButton, "btn_save")
 
         #hide menu
-        self.btn_home.hide()
-        self.btn_widgets.hide()
-        self.btn_save.hide()
+        # self.btn_home.hide()
+        # self.btn_admin.hide()
+        # self.btn_save.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -77,14 +92,14 @@ class MainWindow(QMainWindow):
 
         # QTableWidget PARAMETERS
         # ///////////////////////////////////////////////////////////////
-        widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        #widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
         # BUTTONS CLICK
         # ///////////////////////////////////////////////////////////////
 
         # LEFT MENUS
         widgets.btn_home.clicked.connect(self.buttonClick)
-        widgets.btn_widgets.clicked.connect(self.buttonClick)
+        widgets.btn_admin.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
         widgets.btn_save.clicked.connect(self.buttonClick)
 
@@ -143,8 +158,8 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW WIDGETS PAGE
-        if btnName == "btn_widgets":
-            widgets.stackedWidget.setCurrentWidget(widgets.widgets)
+        if btnName == "btn_admin":
+            widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
         # SHOW LOGIN PAGE
@@ -172,7 +187,7 @@ class MainWindow(QMainWindow):
             self.socket.setblocking(False)
             #self.start_receiving()
             self.btn_home.show()
-            self.btn_widgets.show()
+            self.btn_admin.show()
             self.btn_save.show()
             self.connectionSuccessEvent()
         except Exception:
