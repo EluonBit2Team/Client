@@ -18,12 +18,22 @@ import sys
 import os
 import platform
 import socket
+import json
+import struct
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules.util import *
 from modules import *
 from widgets import *
+
+SERVER_ADDR = "192.168.0.253"
+SERVER_PORT = 3335
+
+
+
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
+
+
 
 # SET AS GLOBAL WIDGETS
 # ///////////////////////////////////////////////////////////////
@@ -140,6 +150,9 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+        
+        self.connectSocket(SERVER_ADDR, SERVER_PORT)
+    
 
 
     # BUTTONS CLICK
@@ -184,28 +197,48 @@ class MainWindow(QMainWindow):
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
+    
+    def connectSocket(self, addr, port):
+        try:
+            print(addr)
+            print(port)
+            self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.socket.connect((addr, port))
+            self.socket.setblocking(False)
+            print("Socket connected")
+            connectionSuccessEvent()
+        except Exception:
+            connectionErrorEvent()
 
     def loginRequest(self):
-        self.host = self.login_input_id.text()
-        self.port = self.login_input_pw.text()
+        self.loginId = self.login_input_id.text()
+        self.loginPw = self.login_input_pw.text()
         try:
-            self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.socket.connect((self.host, int(self.port)))
-            self.socket.setblocking(False)
+            loginReq = {"type": 2,
+                        "id": self.loginId, 
+                        "pw": self.loginPw}
+            json_msg = json.dumps(loginReq)
+            msg_length = len(json_msg)
+            total_length = msg_length + 4
+            header = struct.pack('<I', total_length)
+        
+            if self.socket and loginReq:
+                self.socket.sendall(header + json_msg.encode('utf-8'))
+            print(total_length)
+            print(json_msg)
+            
+            QMessageBox.information(self, "보낸정보", "id: " + self.loginId + '\n'
+                                                    "pw: " + self.loginPw + '\n')
+
             #self.start_receiving()
+            
             self.btn_home.show()
             self.btn_widgets.show()
             self.btn_save.show()
-            self.connectionSuccessEvent()
+            connectionSuccessEvent()
         except Exception:
-            self.connectionErrorEvent()
+            connectionErrorEvent()
     
-    def connectionErrorEvent(self):
-        QMessageBox.warning(self, "Error", "연결 실패")
-
-    def connectionSuccessEvent(self):
-        QMessageBox.information(self, "Success", "연결 성공")
-
     def signUpRequest(self):
         self.signupId = self.signup_input_id.text()
         self.signupPw = self.signup_input_pw.text()
@@ -214,14 +247,69 @@ class MainWindow(QMainWindow):
         self.signupEmail = self.signup_input_email.text()
         self.signupDept = self.signup_combo_dept.currentText()
         self.signupPosition = self.signup_combo_position.currentText()
+        
+        try:
+            loginReq = {"type": 1,
+                        "id": self.signupId, 
+                        "pw": self.signupPw,
+                        "name": self.signupName,
+                        "phone": self.signupPhone,
+                        "email": self.signupEmail,
+                        "dept": self.signupDept,
+                        "pos": self.signupPosition}
+            json_msg = json.dumps(loginReq)
+            msg_length = len(json_msg)
+            total_length = msg_length + 4
+            header = struct.pack('<I', total_length)
+        
+            if self.socket and loginReq:
+                self.socket.sendall(header + json_msg.encode('utf-8'))
+            
+            print("dept: " + self.signupDept)
+            print("pos: " + self.signupPosition)
+            print(total_length)
+            print(json_msg)
 
-        QMessageBox.information(self, "SignUp", "id: " + self.signupId + '\n'
+            QMessageBox.information(self, "SignUp", "id: " + self.signupId + '\n'
                                                 "pw: " + self.signupPw + '\n'
                                                 "name: " + self.signupName + '\n'
                                                 "Phone: " + self.signupPhone + '\n'
                                                 "Email: " + self.signupEmail + '\n'
                                                 "Dept: " + self.signupDept + '\n'
                                                 "Position: " + self.signupPosition + '\n')
+            connectionSuccessEvent()
+        except Exception:
+            connectionErrorEvent()
+            
+    def sendMsg(self):
+        # self.userId = self.loginId
+        # self.groupName = self.group_name.text()
+        # self.msgText = self.home_input_msg.text()
+        self.loginId = "eluon"
+        self.groupName = "채팅방 1"
+        self.msgText = "안녕하세요 hi hi"
+        try:
+            msg = {"type": 0,
+                   "id": self.loginId,
+                   "groupname": self.groupName,
+                   "text": self.msgText}
+        
+            json_msg = json.dumps(msg)
+            msg_length = len(json_msg)
+            total_length = msg_length + 4
+            header = struct.pack('<I', total_length)
+        
+            if self.socket and msg:
+                self.socket.sendall(header + json_msg.encode('utf-8'))
+            
+            print(total_length)
+            print(json_msg)
+            connectionSuccessEvent()
+        
+        except Exception:
+            connectionErrorEvent()
+        
+        
 
 
     # RESIZE EVENTS
