@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainmFVvtn.ui'
+## Form generated from reading UI file 'mainZvbkrC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1739,11 +1739,11 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.titleLeftApp.setText("")
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
-        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"채팅하기", None))
-        self.btn_admin.setText(QCoreApplication.translate("MainWindow", u"관리자", None))
-        self.btn_login.setText(QCoreApplication.translate("MainWindow", u"로그인", None))
-        self.btn_notice.setText(QCoreApplication.translate("MainWindow", u"알림", None))
-        self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"나가기", None))
+        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
+        self.btn_admin.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
+        self.btn_login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
+        self.btn_notice.setText(QCoreApplication.translate("MainWindow", u"Save", None))
+        self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
 #if QT_CONFIG(tooltip)
