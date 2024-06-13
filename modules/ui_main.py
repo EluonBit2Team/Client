@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainQMCgKX.ui'
+## Form generated from reading UI file 'mainoUSBQW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1276,7 +1276,7 @@ class Ui_MainWindow(object):
         self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
         self.home_listview_status = QListView(self.home)
         self.home_listview_status.setObjectName(u"home_listview_status")
-        self.home_listview_status.setGeometry(QRect(30, 270, 131, 231))
+        self.home_listview_status.setGeometry(QRect(30, 270, 131, 241))
         self.home_listview_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
 "border-bottom-right-radius: 10px;")
@@ -1303,12 +1303,12 @@ class Ui_MainWindow(object):
 "border: none;")
         self.home_btn_left = QPushButton(self.home)
         self.home_btn_left.setObjectName(u"home_btn_left")
-        self.home_btn_left.setGeometry(QRect(30, 516, 31, 31))
+        self.home_btn_left.setGeometry(QRect(30, 522, 31, 31))
         self.home_btn_left.setStyleSheet(u"background-image: url(:/images/images/images/left.png);\n"
 "")
         self.home_btn_right = QPushButton(self.home)
         self.home_btn_right.setObjectName(u"home_btn_right")
-        self.home_btn_right.setGeometry(QRect(130, 516, 31, 31))
+        self.home_btn_right.setGeometry(QRect(130, 522, 31, 31))
         self.home_btn_right.setStyleSheet(u"background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "background-image: url(:/images/images/images/right.png);\n"
@@ -1725,7 +1725,7 @@ class Ui_MainWindow(object):
         self.login_btn_login.clicked.connect(MainWindow.loginRequest)
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
