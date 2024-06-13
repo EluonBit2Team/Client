@@ -22,40 +22,16 @@ import socket
 # ///////////////////////////////////////////////////////////////
 from modules.util import *
 from modules import *
+from modules.ui_notice_dlg import *
 from widgets import *
+
+
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
 
 
 # SET AS GLOBAL WIDGETS
 # ///////////////////////////////////////////////////////////////
 widgets = None
-
-# 알림 버튼 클릭시 표출 다이얼로그
-class CustomDialog(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setWindowTitle("알림 보기")
-        self.setGeometry(100, 100, 600, 400)
-
-        # Dialog layout and widgets
-        layout = QVBoxLayout()
-        
-        self.label = QLabel("This is a custom notice dialog.")
-        layout.addWidget(self.label)
-        
-        self.okButton = QPushButton("나가기")
-        self.okButton.clicked.connect(self.accept)
-        layout.addWidget(self.okButton)
-        
-        self.setLayout(layout)
-        
-        # window 바로 앞에 위치 시킴
-        if parent:
-            parent_rect = parent.geometry()
-            self_rect = self.geometry()
-            x = parent_rect.x() + (parent_rect.width() - self_rect.width()) // 2
-            y = parent_rect.y() + (parent_rect.height() - self_rect.height()) // 2
-            self.move(x, y)
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -178,7 +154,9 @@ class MainWindow(QMainWindow):
         else:
             self.signup_btn_submit.setEnabled(False)
         
-
+    def show_notice_dialog(self):
+        dialog = CustomDialog(self)
+        dialog.exec()
 
     def buttonClick(self):
         # GET BUTTON CLICKED
@@ -207,8 +185,9 @@ class MainWindow(QMainWindow):
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
         
         if btnName == "btn_notice":
-            dialog = CustomDialog(self)
-            dialog.exec_()
+            # 버튼 클릭 시 다이얼로그 호출
+            self.show_notice_dialog()
+            
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainZvbkrC.ui'
+## Form generated from reading UI file 'mainQMCgKX.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -37,6 +37,7 @@ class Ui_MainWindow(object):
 "\n"
 "///////////////////////////////////////////////////////////////////////////////////////////////// */\n"
 "\n"
+"\n"
 "QWidget{\n"
 "	color: rgb(221, 221, 221);\n"
 "	font: 10pt \"Segoe UI\";\n"
@@ -61,8 +62,8 @@ class Ui_MainWindow(object):
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Bg App */\n"
 "#bgApp {	\n"
-"	background"
-                        "-color: rgb(40, 44, 52);\n"
+"	backg"
+                        "round-color: rgb(40, 44, 52);\n"
 "	border: 1px solid rgb(44, 49, 58);\n"
 "}\n"
 "\n"
@@ -81,6 +82,7 @@ class Ui_MainWindow(object):
 "#titleLeftDescription { font: 8pt \"Segoe UI\"; color: rgb(189, 147, 249); }\n"
 "\n"
 "/* MENUS */\n"
+"/*\uc67c\ucabd \ubc84\ud2bc*/\n"
 "#topMenu .QPushButton {	\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
@@ -93,11 +95,13 @@ class Ui_MainWindow(object):
 "#topMenu .QPushButton:hover {\n"
 "	background-color: rgb(40, 44, 52);\n"
 "}\n"
-"#topMenu .QPushButton:pressed {	\n"
-"	background-color: rgb(18"
-                        "9, 147, 249);\n"
+"#topMenu .QPushButton:p"
+                        "ressed {	\n"
+"	background-color: rgb(189, 147, 249);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
+"\n"
+"/*\uc124\uc815 \ubc84\ud2bc*/\n"
 "#bottomMenu .QPushButton {	\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
@@ -114,11 +118,12 @@ class Ui_MainWindow(object):
 "	background-color: rgb(189, 147, 249);\n"
 "	color: rgb(255, 255, 255);\n"
 "}\n"
+"\n"
 "#leftMenuFrame{\n"
 "	border-top: 3px solid rgb(44, 49, 58);\n"
 "}\n"
 "\n"
-"/* Toggle Button */\n"
+"/* Toggle Button \uba54\ub274 \ubc84\ud2bc */\n"
 "#toggleButton {\n"
 "	background-position: left center;\n"
 "    background-repeat: no-repeat;\n"
@@ -129,12 +134,12 @@ class Ui_MainWindow(object):
 "	padding-left: 44px;\n"
 "	color: rgb(113, 126, 149);\n"
 "}\n"
-"#toggleButton:hover {\n"
+"#toggleButton:"
+                        "hover {\n"
 "	background-color: rgb(40, 44, 52);\n"
 "}\n"
 "#toggleButton:pressed {\n"
-"	background-color: rgb("
-                        "189, 147, 249);\n"
+"	background-color: rgb(189, 147, 249);\n"
 "}\n"
 "\n"
 "/* Title Menu */\n"
@@ -163,12 +168,12 @@ class Ui_MainWindow(object):
 "/* Btn Close */\n"
 "#extraCloseColumnBtn { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
 "#extraCloseColumnBtn:hover { background-color: rgb(196, 161, 249); border-style: solid; border-radius: 4px; }\n"
-"#extraCloseColumnBtn:pressed { background-color: rgb(180, 141, 238); border-style: solid; border-radius: 4px; }\n"
+"#extraCloseColumnBtn:pressed { background-color: rgb(180, 141,"
+                        " 238); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Extra Content */\n"
 "#extraContent{\n"
-"	border"
-                        "-top: 3px solid rgb(40, 44, 52);\n"
+"	border-top: 3px solid rgb(40, 44, 52);\n"
 "}\n"
 "\n"
 "/* Extra Top Menus */\n"
@@ -199,9 +204,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "/* Top Buttons */\n"
-"#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none;  border-radius: 5px; }\n"
-"#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-sty"
-                        "le: solid; border-radius: 4px; }\n"
+"#rightButtons .QPushButton { background-color: rgba(255, 255, 255, 0); border: none"
+                        ";  border-radius: 5px; }\n"
+"#rightButtons .QPushButton:hover { background-color: rgb(44, 49, 57); border-style: solid; border-radius: 4px; }\n"
 "#rightButtons .QPushButton:pressed { background-color: rgb(23, 26, 30); border-style: solid; border-radius: 4px; }\n"
 "\n"
 "/* Theme Settings */\n"
@@ -225,11 +230,11 @@ class Ui_MainWindow(object):
 "}\n"
 "#contentSettings .QPushButton:hover {\n"
 "	background-color: rgb(40, 44, 52);\n"
-"}\n"
+""
+                        "}\n"
 "#contentSettings .QPushButton:pressed {	\n"
 "	background-color: rgb(189, 147, 249);\n"
-"	color: rgb"
-                        "(255, 255, 255);\n"
+"	color: rgb(255, 255, 255);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -260,12 +265,12 @@ class Ui_MainWindow(object):
 "}\n"
 "QTableWidget::horizontalHeader {	\n"
 "	background-color: rgb(33, 37, 43);\n"
-"}\n"
+""
+                        "}\n"
 "QHeaderView::section:horizontal\n"
 "{\n"
 "    border: 1px solid rgb(33, 37, 43);\n"
-"	background-co"
-                        "lor: rgb(33, 37, 43);\n"
+"	background-color: rgb(33, 37, 43);\n"
 "	padding: 3px;\n"
 "	border-top-left-radius: 7px;\n"
 "    border-top-right-radius: 7px;\n"
@@ -296,11 +301,11 @@ class Ui_MainWindow(object):
 "PlainTextEdit */\n"
 "QPlainTextEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
-"	border-radius: 5px;\n"
+"	bord"
+                        "er-radius: 5px;\n"
 "	padding: 10px;\n"
 "	selection-color: rgb(255, 255, 255);\n"
-"	selection-background-c"
-                        "olor: rgb(255, 121, 198);\n"
+"	selection-background-color: rgb(255, 121, 198);\n"
 "}\n"
 "QPlainTextEdit  QScrollBar:vertical {\n"
 "    width: 8px;\n"
@@ -334,12 +339,12 @@ class Ui_MainWindow(object):
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
 "	border-top-right-radius: 4px;\n"
-"    border-bottom-right-radius: 4px;\n"
+"    border-"
+                        "bottom-right-radius: 4px;\n"
 "    subcontrol-position: right;\n"
 "    subcontrol-origin: margin;\n"
 "}\n"
-""
-                        "QScrollBar::sub-line:horizontal {\n"
+"QScrollBar::sub-line:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "    width: 20px;\n"
@@ -372,11 +377,11 @@ class Ui_MainWindow(object):
 "     border: none;\n"
 "    background: rgb(55, 63, 77);\n"
 "     height: 20px;\n"
-"	border-bottom-left-radius: 4px;\n"
+"	border-bottom-l"
+                        "eft-radius: 4px;\n"
 "    border-bottom-right-radius: 4px;\n"
 "     subcontrol-position: bottom;\n"
-"     su"
-                        "bcontrol-origin: margin;\n"
+"     subcontrol-origin: margin;\n"
 " }\n"
 " QScrollBar::sub-line:vertical {\n"
 "	border: none;\n"
@@ -407,11 +412,11 @@ class Ui_MainWindow(object):
 "QCheckBox::indicator:hover {\n"
 "    border: 3px solid rgb(58, 66, 81);\n"
 "}\n"
-"QCheckBox::indicator:checked {\n"
+"QCheckBox::indicator:"
+                        "checked {\n"
 "    background: 3px solid rgb(52, 59, 72);\n"
 "	border: 3px solid rgb(52, 59, 72);	\n"
-"	back"
-                        "ground-image: url(:/icons/images/icons/cil-check-alt.png);\n"
+"	background-image: url(:/icons/images/icons/cil-check-alt.png);\n"
 "}\n"
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
@@ -441,12 +446,12 @@ class Ui_MainWindow(object):
 "	padding-left: 10px;\n"
 "}\n"
 "QComboBox:hover{\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
+"	bord"
+                        "er: 2px solid rgb(64, 71, 88);\n"
 "}\n"
 "QComboBox::drop-down {\n"
 "	subcontrol-origin: padding;\n"
-"	subco"
-                        "ntrol-position: top right;\n"
+"	subcontrol-position: top right;\n"
 "	width: 25px; \n"
 "	border-left-width: 3px;\n"
 "	border-left-color: rgba(39, 44, 54, 150);\n"
@@ -475,12 +480,12 @@ class Ui_MainWindow(object):
 "	background-color: rgb(52, 59, 72);\n"
 "}\n"
 "QSlider::groove:horizontal:hover {\n"
-"	background-color: rgb(55, 62, 76);\n"
+"	background-color: rgb(55, 62, 76);"
+                        "\n"
 "}\n"
 "QSlider::handle:horizontal {\n"
 "    background-color: rgb(189, 147, 249);\n"
-"    border: none;"
-                        "\n"
+"    border: none;\n"
 "    height: 10px;\n"
 "    width: 10px;\n"
 "    margin: 0px;\n"
@@ -517,10 +522,10 @@ class Ui_MainWindow(object):
 "    background-color: rgb(255, 121, 198);\n"
 "}\n"
 "\n"
-"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
+"/* ////////////////////"
+                        "/////////////////////////////////////////////////////////////////////////////\n"
 "CommandLinkButton */\n"
-""
-                        "QCommandLinkButton {	\n"
+"QCommandLinkButton {	\n"
 "	color: rgb(255, 121, 198);\n"
 "	border-radius: 5px;\n"
 "	padding: 5px;\n"
@@ -537,19 +542,6 @@ class Ui_MainWindow(object):
 "\n"
 "/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "Button */\n"
-"#pagesContainer QPushButton {\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"#pagesContainer QPushButton:hover {\n"
-"    background-color: rgba(57, 65, 80, 0.8); /* \uc0b4\uc9dd \ud750\ub9ac\uac8c \ubc30\uacbd \uc0c9\uc0c1 */\n"
-"}\n"
-"\n"
-"#pagesContainer QPushButton:pressed {\n"
-"    background-color: rgba(255, 255, 255, 0.5); /* \ubc30\uacbd\uc744 \ud22c\uba85\ud558\uac8c \uc124\uc815 */\n"
-"}\n"
-"\n"
 "")
         self.appMargins = QVBoxLayout(self.styleSheet)
         self.appMargins.setSpacing(0)
@@ -1007,6 +999,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.content = QFrame(self.contentBottom)
         self.content.setObjectName(u"content")
+        self.content.setStyleSheet(u"")
         self.content.setFrameShape(QFrame.Shape.NoFrame)
         self.content.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.content)
@@ -1024,7 +1017,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_15.setContentsMargins(10, 10, 10, 10)
         self.stackedWidget = QStackedWidget(self.pagesContainer)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setStyleSheet(u"background: transparent;")
+        self.stackedWidget.setStyleSheet(u"background: transparent;\n"
+"\n"
+"")
         self.loginpage = QWidget()
         self.loginpage.setObjectName(u"loginpage")
         self.loginpage.setStyleSheet(u"QPushButton#login_btn_login {\n"
@@ -1230,18 +1225,6 @@ class Ui_MainWindow(object):
         self.home.setStyleSheet(u"background-position: center;\n"
 "background-repeat: no-repeat;\n"
 "\n"
-"QPushButton#home_btn_chatlist_send {\n"
-"    background-color: #3498db;\n"
-"    color: white;\n"
-"    border: 2px solid #2980b9;\n"
-"    border-radius: 20px;\n"
-"    padding: 5px;\n"
-"}\n"
-"\n"
-"QPushButton#home_btn_chatlist_send:pressed {\n"
-"    background-color: rgba(52, 152, 219, 0.5);\n"
-"    border: 2px solid rgba(41, 128, 185, 0.5);\n"
-"}\n"
 "")
         self.home_label_chatback = QLabel(self.home)
         self.home_label_chatback.setObjectName(u"home_label_chatback")
@@ -1293,7 +1276,7 @@ class Ui_MainWindow(object):
         self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
         self.home_listview_status = QListView(self.home)
         self.home_listview_status.setObjectName(u"home_listview_status")
-        self.home_listview_status.setGeometry(QRect(30, 270, 131, 281))
+        self.home_listview_status.setGeometry(QRect(30, 270, 131, 231))
         self.home_listview_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
 "border-bottom-right-radius: 10px;")
@@ -1317,9 +1300,19 @@ class Ui_MainWindow(object):
         self.home_btn_chatlist_send.setObjectName(u"home_btn_chatlist_send")
         self.home_btn_chatlist_send.setGeometry(QRect(914, 520, 41, 41))
         self.home_btn_chatlist_send.setStyleSheet(u"background-image: url(:/images/images/images/free-icon-send-button-12439334.png);\n"
-"\n"
-"\n"
 "border: none;")
+        self.home_btn_left = QPushButton(self.home)
+        self.home_btn_left.setObjectName(u"home_btn_left")
+        self.home_btn_left.setGeometry(QRect(30, 516, 31, 31))
+        self.home_btn_left.setStyleSheet(u"background-image: url(:/images/images/images/left.png);\n"
+"")
+        self.home_btn_right = QPushButton(self.home)
+        self.home_btn_right.setObjectName(u"home_btn_right")
+        self.home_btn_right.setGeometry(QRect(130, 516, 31, 31))
+        self.home_btn_right.setStyleSheet(u"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+"background-image: url(:/images/images/images/right.png);\n"
+"")
         self.stackedWidget.addWidget(self.home)
         self.adminpage = QWidget()
         self.adminpage.setObjectName(u"adminpage")
@@ -1451,6 +1444,9 @@ class Ui_MainWindow(object):
         self.admin_label_food.setGeometry(QRect(850, 566, 111, 21))
         self.admin_label_food.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.stackedWidget.addWidget(self.adminpage)
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.stackedWidget.addWidget(self.page)
         self.signuppage = QWidget()
         self.signuppage.setObjectName(u"signuppage")
         self.signuppage.setStyleSheet(u"QPushButton#signup_btn_submit {\n"
@@ -1803,6 +1799,8 @@ class Ui_MainWindow(object):
         self.home_btn_chatgroup.setText("")
         self.home_label_chatlist_title.setText(QCoreApplication.translate("MainWindow", u"\ucc44\ud305 \uadf8\ub8f9 \uba85", None))
         self.home_btn_chatlist_send.setText("")
+        self.home_btn_left.setText("")
+        self.home_btn_right.setText("")
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
         self.admin_label_rightback2.setText("")

@@ -49,6 +49,7 @@ DARK THEME - DRACULA COLOR BASED
 
 ///////////////////////////////////////////////////////////////////////////////////////////////// */
 
+
 QWidget{
 	color: rgb(221, 221, 221);
 	font: 10pt &quot;Segoe UI&quot;;
@@ -92,6 +93,7 @@ Left Menu */
 #titleLeftDescription { font: 8pt &quot;Segoe UI&quot;; color: rgb(189, 147, 249); }
 
 /* MENUS */
+/*왼쪽 버튼*/
 #topMenu .QPushButton {	
 	background-position: left center;
     background-repeat: no-repeat;
@@ -108,6 +110,8 @@ Left Menu */
 	background-color: rgb(189, 147, 249);
 	color: rgb(255, 255, 255);
 }
+
+/*설정 버튼*/
 #bottomMenu .QPushButton {	
 	background-position: left center;
     background-repeat: no-repeat;
@@ -124,11 +128,12 @@ Left Menu */
 	background-color: rgb(189, 147, 249);
 	color: rgb(255, 255, 255);
 }
+
 #leftMenuFrame{
 	border-top: 3px solid rgb(44, 49, 58);
 }
 
-/* Toggle Button */
+/* Toggle Button 메뉴 버튼 */
 #toggleButton {
 	background-position: left center;
     background-repeat: no-repeat;
@@ -535,19 +540,6 @@ QCommandLinkButton:pressed {
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
 Button */
-#pagesContainer QPushButton {
-	border: 2px solid rgb(52, 59, 72);
-	border-radius: 5px;	
-	background-color: rgb(52, 59, 72);
-}
-#pagesContainer QPushButton:hover {
-    background-color: rgba(57, 65, 80, 0.8); /* 살짝 흐리게 배경 색상 */
-}
-
-#pagesContainer QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.5); /* 배경을 투명하게 설정 */
-}
-
 </string>
    </property>
    <layout class="QVBoxLayout" name="appMargins">
@@ -1776,6 +1768,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
              </property>
              <item>
               <widget class="QFrame" name="content">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
                <property name="frameShape">
                 <enum>QFrame::Shape::NoFrame</enum>
                </property>
@@ -1828,10 +1823,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget">
                      <property name="styleSheet">
-                      <string notr="true">background: transparent;</string>
+                      <string notr="true">background: transparent;
+
+</string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -2166,18 +2163,6 @@ margin-left:10px;</string>
                        <string notr="true">background-position: center;
 background-repeat: no-repeat;
 
-QPushButton#home_btn_chatlist_send {
-    background-color: #3498db;
-    color: white;
-    border: 2px solid #2980b9;
-    border-radius: 20px;
-    padding: 5px;
-}
-
-QPushButton#home_btn_chatlist_send:pressed {
-    background-color: rgba(52, 152, 219, 0.5);
-    border: 2px solid rgba(41, 128, 185, 0.5);
-}
 </string>
                       </property>
                       <widget class="QLabel" name="home_label_chatback">
@@ -2351,7 +2336,7 @@ border:none;
                          <x>30</x>
                          <y>270</y>
                          <width>131</width>
-                         <height>281</height>
+                         <height>241</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2405,9 +2390,43 @@ border-bottom-right-radius: 10px;</string>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background-image: url(:/images/images/images/free-icon-send-button-12439334.png);
-
-
 border: none;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="home_btn_left">
+                       <property name="geometry">
+                        <rect>
+                         <x>30</x>
+                         <y>522</y>
+                         <width>31</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/images/left.png);
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="home_btn_right">
+                       <property name="geometry">
+                        <rect>
+                         <x>130</x>
+                         <y>522</y>
+                         <width>31</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-repeat: no-repeat;
+background-position: center;
+background-image: url(:/images/images/images/right.png);
+</string>
                        </property>
                        <property name="text">
                         <string/>
@@ -2758,6 +2777,7 @@ border-bottom-right-radius: 10px;</string>
                        </property>
                       </widget>
                      </widget>
+                     <widget class="QWidget" name="page"/>
                      <widget class="QWidget" name="signuppage">
                       <property name="styleSheet">
                        <string notr="true">QPushButton#signup_btn_submit {
