@@ -2050,6 +2050,9 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                               <height>41</height>
                              </rect>
                             </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
                             <property name="styleSheet">
                              <string notr="true">font: 12pt &quot;Segoe UI&quot;;
 color:rgba(255, 255, 255, 180);
@@ -2075,6 +2078,9 @@ color:rgba(255, 255, 255, 180);
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
                             </property>
                             <property name="styleSheet">
                              <string notr="true">font: 10pt &quot;Segoe UI&quot;;
@@ -2113,6 +2119,9 @@ color:rgba(255, 255, 255, 130);</string>
                             <layout class="QHBoxLayout" name="horizontalLayout_6">
                              <item>
                               <widget class="QPushButton" name="login_btn_mail">
+                               <property name="cursor">
+                                <cursorShape>PointingHandCursor</cursorShape>
+                               </property>
                                <property name="styleSheet">
                                 <string notr="true">background-image: url(:/icons/images/icons/cil-envelope-closed.png);
 background-repeat: no-repeat;
@@ -2128,6 +2137,9 @@ margin-left:10px;</string>
                              </item>
                              <item>
                               <widget class="QPushButton" name="login_btn_call">
+                               <property name="cursor">
+                                <cursorShape>PointingHandCursor</cursorShape>
+                               </property>
                                <property name="styleSheet">
                                 <string notr="true">background-image: url(:/icons/images/icons/cil-phone.png);
 background-repeat: no-repeat;
@@ -2305,6 +2317,9 @@ border-bottom-right-radius: 10px;</string>
                          <height>24</height>
                         </rect>
                        </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">background-image: url(:/icons/images/icons/cil-plus.png);
 border:none;
@@ -2388,6 +2403,9 @@ border-bottom-right-radius: 10px;</string>
                          <height>41</height>
                         </rect>
                        </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">background-image: url(:/images/images/images/free-icon-send-button-12439334.png);
 border: none;</string>
@@ -2405,6 +2423,9 @@ border: none;</string>
                          <height>31</height>
                         </rect>
                        </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">background-image: url(:/images/images/images/left.png);
 </string>
@@ -2421,6 +2442,9 @@ border: none;</string>
                          <width>31</width>
                          <height>31</height>
                         </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background-repeat: no-repeat;
@@ -2662,6 +2686,9 @@ border-bottom-right-radius: 10px;</string>
                          <height>31</height>
                         </rect>
                        </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
 border: 1px solid yellow;</string>
@@ -2678,6 +2705,9 @@ border: 1px solid yellow;</string>
                          <width>81</width>
                          <height>31</height>
                         </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
@@ -2768,6 +2798,9 @@ border-bottom-right-radius: 10px;</string>
                          <width>111</width>
                          <height>21</height>
                         </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
@@ -2957,6 +2990,9 @@ font: 12pt &quot;Segoe UI&quot;;</string>
                          <fontweight>ExtraLight</fontweight>
                         </font>
                        </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="autoFillBackground">
                         <bool>false</bool>
                        </property>
@@ -3021,6 +3057,9 @@ background-color: rgb(27, 29, 35);
                          <italic>false</italic>
                          <fontweight>ExtraLight</fontweight>
                         </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="autoFillBackground">
                         <bool>false</bool>
@@ -3088,6 +3127,9 @@ font-weight: 200;</string>
                          <height>41</height>
                         </rect>
                        </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">font: 10pt &quot;Segoe UI&quot;;
 </string>
@@ -3104,6 +3146,9 @@ font-weight: 200;</string>
                          <width>21</width>
                          <height>20</height>
                         </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="text">
                         <string/>
@@ -3151,6 +3196,9 @@ font-weight: 200;</string>
                          <width>31</width>
                          <height>31</height>
                         </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);
@@ -3604,43 +3652,10 @@ border:none;
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>home_lineedit_chatlist_send</sender>
-   <signal>returnPressed()</signal>
-   <receiver>home_btn_chatlist_send</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>960</x>
-     <y>623</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1024</x>
-     <y>617</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>home_btn_chatlist_send</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>sendMsg()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1005</x>
-     <y>630</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1046</x>
-     <y>695</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>signUpRequest()</slot>
   <slot>loginRequest()</slot>
   <slot>toggleButton()</slot>
-  <slot>sendMsg()</slot>
  </slots>
 </ui>

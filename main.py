@@ -60,9 +60,9 @@ class MainWindow(QMainWindow):
         initialize_widgets(self)
 
         #hide menu
-        self.btn_home.hide()
-        self.btn_admin.hide()
-        self.btn_notice.hide()
+        # self.btn_home.hide()
+        # self.btn_admin.hide()
+        # self.btn_notice.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -96,6 +96,9 @@ class MainWindow(QMainWindow):
         widgets.btn_admin.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
         widgets.btn_notice.clicked.connect(self.buttonClick)
+        widgets.home_btn_chatlist_send.clicked.connect(self.handleSendButtonClick) # 전송 버튼
+        
+
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -193,8 +196,8 @@ class MainWindow(QMainWindow):
         if btnName == "btn_notice":
             # 버튼 클릭 시 다이얼로그 호출
             self.show_notice_dialog()
-            
 
+        
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
     
@@ -286,35 +289,49 @@ class MainWindow(QMainWindow):
             connectionSuccessEvent()
         except Exception:
             connectionErrorEvent()
-            
+
+    def handleSendButtonClick(self):
+        # 클릭 시 아이콘 변경
+        self.home_btn_chatlist_send.setIcon(QIcon(':/images/images/images/free-icon-send-button-12439334 - 복사본.png'))
+        self.home_btn_chatlist_send.setIconSize(QSize(41, 41))
+        # 메시지 전송 함수 호출
+        self.sendMsg()
+        
+        # 원래 아이콘으로 복원
+        self.home_btn_chatlist_send.setIcon(QIcon(':/images/images/images/free-icon-send-button-12439334.png'))
+        self.home_btn_chatlist_send.setIconSize(QSize(41, 41))
+
     def sendMsg(self):
-        self.msgText = self.home_lineedit_chatlist_send.text()
-        self.loginId = "eluon"
-        self.groupName = "채팅방 1"
-        try:
-            msg = {"type": 0,
-                   "id": self.loginId,
-                   "groupname": self.groupName,
-                   "text": self.msgText}
+        QCoreApplication.processEvents()  # 프로세스 이벤트를 처리하여 UI 업데이트
+        QThread.msleep(50) # 전송버튼 sleep
+
+        # self.msgText = self.home_lineedit_chatlist_send.text()
+        # self.loginId = "eluon"
+        # self.groupName = "채팅방 1"
+        # try:
+        #     msg = {"type": 0,
+        #            "id": self.loginId,
+        #            "groupname": self.groupName,
+        #            "text": self.msgText}
         
-            json_msg = json.dumps(msg, ensure_ascii=False)
-            msg_length = len(json_msg)
-            total_length = msg_length + 4
-            header = struct.pack('<I', total_length)
+        #     json_msg = json.dumps(msg, ensure_ascii=False)
+        #     msg_length = len(json_msg)
+        #     total_length = msg_length + 4
+        #     header = struct.pack('<I', total_length)
         
-            if self.socket and msg:
-                self.socket.sendall(header + json_msg.encode('utf-8'))
+        #     if self.socket and msg:
+        #         self.socket.sendall(header + json_msg.encode('utf-8'))
             
-            print(total_length)
-            print(json_msg)
-            self.updateMsgDisplay(self.msgText, "sent")
+        #     print(total_length)
+        #     print(json_msg)
+        #     self.updateMsgDisplay(self.msgText, "sent")
             
         
-        except BlockingIOError:
-            connectionErrorEvent()
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            self.running = False
+        # except BlockingIOError:
+        #     connectionErrorEvent()
+        # except Exception as e:
+        #     print(f"An error occurred: {e}")
+        #     self.running = False
     
     def receive_message(self):
         buffer = b""
@@ -369,7 +386,6 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
