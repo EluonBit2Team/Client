@@ -28,6 +28,7 @@ from modules.util import *
 from modules.ui_initialization import *
 from modules import *
 from modules.ui_notice_dlg import *
+from modules.ui_food_dlg import *
 from widgets import *
 
 SERVER_ADDR = "192.168.0.253"
@@ -97,7 +98,7 @@ class MainWindow(QMainWindow):
         widgets.btn_login.clicked.connect(self.buttonClick)
         widgets.btn_notice.clicked.connect(self.buttonClick)
         widgets.home_btn_chatlist_send.clicked.connect(self.handleSendButtonClick) # 전송 버튼
-        
+        widgets.admin_btn_food.clicked.connect(self.show_food_dialog) # 오늘의 식단 버튼
 
 
         # EXTRA LEFT BOX
@@ -162,9 +163,15 @@ class MainWindow(QMainWindow):
             self.signup_btn_submit.setEnabled(True)
         else:
             self.signup_btn_submit.setEnabled(False)
-        
+    
+    # 알람 다이얼로그 함수
     def show_notice_dialog(self):
         dialog = CustomDialog(self)
+        dialog.exec()
+
+    # 오늘의 식단 보기 다이얼로그 함수
+    def show_food_dialog(self):
+        dialog = CustomDialog_food(self)
         dialog.exec()
 
     def buttonClick(self):
@@ -290,6 +297,7 @@ class MainWindow(QMainWindow):
         except Exception:
             connectionErrorEvent()
 
+    # 전송 버튼 클릭 함수
     def handleSendButtonClick(self):
         # 클릭 시 아이콘 변경
         self.home_btn_chatlist_send.setIcon(QIcon(':/images/images/images/free-icon-send-button-12439334 - 복사본.png'))
@@ -300,6 +308,10 @@ class MainWindow(QMainWindow):
         # 원래 아이콘으로 복원
         self.home_btn_chatlist_send.setIcon(QIcon(':/images/images/images/free-icon-send-button-12439334.png'))
         self.home_btn_chatlist_send.setIconSize(QSize(41, 41))
+
+    # 오늘의 식단 보기 함수
+    def todaylunch(self):
+        self.show_notice_dialog()
 
     def sendMsg(self):
         QCoreApplication.processEvents()  # 프로세스 이벤트를 처리하여 UI 업데이트

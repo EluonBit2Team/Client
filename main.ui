@@ -1828,7 +1828,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -2790,20 +2790,17 @@ border-bottom-right-radius: 10px;</string>
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="admin_label_food">
+                      <widget class="QPushButton" name="admin_btn_food">
                        <property name="geometry">
                         <rect>
-                         <x>850</x>
-                         <y>566</y>
-                         <width>111</width>
-                         <height>21</height>
+                         <x>860</x>
+                         <y>563</y>
+                         <width>101</width>
+                         <height>24</height>
                         </rect>
                        </property>
                        <property name="cursor">
                         <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
                        </property>
                        <property name="text">
                         <string>오늘의 식단 보기</string>

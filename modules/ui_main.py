@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainROnLql.ui'
+## Form generated from reading UI file 'mainMQQIEP.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1449,11 +1449,10 @@ class Ui_MainWindow(object):
         self.admin_label_rightback4_4.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
 "border-bottom-right-radius: 10px;")
-        self.admin_label_food = QLabel(self.adminpage)
-        self.admin_label_food.setObjectName(u"admin_label_food")
-        self.admin_label_food.setGeometry(QRect(850, 566, 111, 21))
-        self.admin_label_food.setCursor(QCursor(Qt.PointingHandCursor))
-        self.admin_label_food.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.admin_btn_food = QPushButton(self.adminpage)
+        self.admin_btn_food.setObjectName(u"admin_btn_food")
+        self.admin_btn_food.setGeometry(QRect(860, 563, 101, 24))
+        self.admin_btn_food.setCursor(QCursor(Qt.PointingHandCursor))
         self.stackedWidget.addWidget(self.adminpage)
         self.page = QWidget()
         self.page.setObjectName(u"page")
@@ -1833,7 +1832,7 @@ class Ui_MainWindow(object):
         self.admin_label_rightback2_2.setText("")
         self.admin_label_rightback3_3.setText("")
         self.admin_label_rightback4_4.setText("")
-        self.admin_label_food.setText(QCoreApplication.translate("MainWindow", u"\uc624\ub298\uc758 \uc2dd\ub2e8 \ubcf4\uae30", None))
+        self.admin_btn_food.setText(QCoreApplication.translate("MainWindow", u"\uc624\ub298\uc758 \uc2dd\ub2e8 \ubcf4\uae30", None))
         self.signup_label_back.setText("")
         self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.signup_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
