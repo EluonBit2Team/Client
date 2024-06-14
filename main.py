@@ -27,6 +27,7 @@ import struct
 from modules.util import *
 from modules.ui_initialization import *
 from modules import *
+from modules.ui_notice_dlg import *
 from widgets import *
 
 SERVER_ADDR = "192.168.0.253"
@@ -43,8 +44,6 @@ os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
 # SET AS GLOBAL WIDGETS
 # ///////////////////////////////////////////////////////////////
 widgets = None
-
-
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -96,7 +95,7 @@ class MainWindow(QMainWindow):
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_admin.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
-        widgets.btn_save.clicked.connect(self.buttonClick)
+        widgets.btn_notice.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -160,7 +159,11 @@ class MainWindow(QMainWindow):
             self.signup_btn_submit.setEnabled(True)
         else:
             self.signup_btn_submit.setEnabled(False)
-    
+        
+    def show_notice_dialog(self):
+        dialog = CustomDialog(self)
+        dialog.exec()
+
     def buttonClick(self):
         # GET BUTTON CLICKED
         btn = self.sender()
@@ -187,9 +190,9 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.signuppage) # SET PAGE
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
         
-        if btnName == "btn_save":
-            print("Save BTN clicked!")
-            self.show_dialog()
+        if btnName == "btn_notice":
+            # 버튼 클릭 시 다이얼로그 호출
+            self.show_notice_dialog()
             
 
         # PRINT BTN NAME
@@ -231,8 +234,8 @@ class MainWindow(QMainWindow):
             
             self.btn_home.show()
             self.btn_admin.show()
-            self.btn_save.show()
-            connectionSuccessEvent()
+            self.btn_notice.show()
+            self.connectionSuccessEvent()
         except Exception:
             connectionErrorEvent()
     
