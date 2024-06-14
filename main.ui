@@ -1831,7 +1831,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
                       <string notr="true">background: transparent;</string>
                      </property>
                      <property name="currentIndex">
-                      <number>3</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -3575,12 +3575,44 @@ border:none;
    <slot>toggleButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>420</x>
-     <y>506</y>
+     <x>441</x>
+     <y>513</y>
     </hint>
     <hint type="destinationlabel">
      <x>449</x>
      <y>698</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home_lineedit_chatlist_send</sender>
+   <signal>returnPressed()</signal>
+   <receiver>home_btn_chatlist_send</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>960</x>
+     <y>623</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1024</x>
+     <y>617</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home_btn_chatlist_send</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>sendMsg()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1005</x>
+     <y>630</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1046</x>
+     <y>695</y>
     </hint>
    </hints>
   </connection>
@@ -3589,5 +3621,6 @@ border:none;
   <slot>signUpRequest()</slot>
   <slot>loginRequest()</slot>
   <slot>toggleButton()</slot>
+  <slot>sendMsg()</slot>
  </slots>
 </ui>

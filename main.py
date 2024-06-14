@@ -18,17 +18,22 @@ import sys
 import os
 import platform
 import socket
+import select
+import threading
 import json
 import struct
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules.util import *
+from modules.ui_initialization import *
 from modules import *
 from widgets import *
 
 SERVER_ADDR = "192.168.0.253"
 SERVER_PORT = 3335
 
+# SERVER_ADDR = "127.0.0.1"
+# SERVER_PORT = 40112
 
 
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
@@ -53,27 +58,7 @@ class MainWindow(QMainWindow):
         widgets = self.ui
 
         #widgets initialize
-        self.login_input_id = self.findChild(QLineEdit, "login_input_id")
-        self.login_input_pw = self.findChild(QLineEdit, "login_input_pw")
-        self.login_btn_login = self.findChild(QPushButton, "login_btn_login")
-        self.signup_input_id = self.findChild(QLineEdit, "signup_input_id")
-        self.signup_input_pw = self.findChild(QLineEdit, "signup_input_pw")
-        self.signup_input_name = self.findChild(QLineEdit, "signup_input_name")
-        self.signup_input_phone = self.findChild(QLineEdit, "signup_input_phone")
-        self.signup_input_email = self.findChild(QLineEdit, "signup_input_email")
-        self.signup_combo_dept = self.findChild(QComboBox, "signup_combo_dept")
-        self.signup_combo_position = self.findChild(QComboBox, "signup_combo_position")
-        self.signup_btn_submit = self.findChild(QPushButton, "signup_btn_submit")
-        self.signup_btn_back = self.findChild(QPushButton, "signup_btn_back")
-        self.signup_checkbox_agree = self.findChild(QCheckBox, "signup_checkbox_agree")
-
-        self.admin_btn_accept = self.findChild(QPushButton, "admin_btn_accept")
-        self.admin_btn_reject = self.findChild(QPushButton, "admin_btn_reject")
-
-
-        self.btn_home = self.findChild(QPushButton, "btn_home")
-        self.btn_admin = self.findChild(QPushButton, "btn_admin")
-        self.btn_save = self.findChild(QPushButton, "btn_save")
+        initialize_widgets(self)
 
         #hide menu
         self.btn_home.hide()
@@ -152,7 +137,18 @@ class MainWindow(QMainWindow):
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
         
-        self.connectSocket(SERVER_ADDR, SERVER_PORT)
+        try:
+            self.connectSocket(SERVER_ADDR, SERVER_PORT)
+        except socket.error as e:
+            print(f"Socket connection error: {e}")
+            connectionErrorEvent()
+            
+        delegate = CustomDelegate(self.home_listview_chatlist)
+        self.home_listview_chatlist.setItemDelegate(delegate)
+        
+        self.chatList = []
+        self.chatListModel = QStandardItemModel(self.home_listview_chatlist)
+        self.home_listview_chatlist.setModel(self.chatListModel)
     
 
 
@@ -164,9 +160,7 @@ class MainWindow(QMainWindow):
             self.signup_btn_submit.setEnabled(True)
         else:
             self.signup_btn_submit.setEnabled(False)
-        
-
-
+    
     def buttonClick(self):
         # GET BUTTON CLICKED
         btn = self.sender()
@@ -195,35 +189,37 @@ class MainWindow(QMainWindow):
         
         if btnName == "btn_save":
             print("Save BTN clicked!")
+            self.show_dialog()
+            
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
     
     def connectSocket(self, addr, port):
         try:
-            print(addr)
-            print(port)
+            print(f"Connecting to {addr}:{port}")
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.socket.settimeout(5)
             self.socket.connect((addr, port))
             self.socket.setblocking(False)
-            print("Socket connected")
             connectionSuccessEvent()
-        except Exception:
+        except socket.error as e:
+            print(f"Socket connection error: {e}")
             connectionErrorEvent()
 
     def loginRequest(self):
         self.loginId = self.login_input_id.text()
         self.loginPw = self.login_input_pw.text()
         try:
-            loginReq = {"type": 2,
+            msg = {"type": 2,
                         "id": self.loginId, 
                         "pw": self.loginPw}
-            json_msg = json.dumps(loginReq)
+            json_msg = json.dumps(msg, ensure_ascii=False)
             msg_length = len(json_msg)
             total_length = msg_length + 4
             header = struct.pack('<I', total_length)
         
-            if self.socket and loginReq:
+            if self.socket and msg:
                 self.socket.sendall(header + json_msg.encode('utf-8'))
             print(total_length)
             print(json_msg)
@@ -231,7 +227,7 @@ class MainWindow(QMainWindow):
             QMessageBox.information(self, "보낸정보", "id: " + self.loginId + '\n'
                                                     "pw: " + self.loginPw + '\n')
 
-            #self.start_receiving()
+            self.start_receiving()
             
             self.btn_home.show()
             self.btn_admin.show()
@@ -250,24 +246,30 @@ class MainWindow(QMainWindow):
         self.signupPosition = self.signup_combo_position.currentText()
         
         try:
-            loginReq = {"type": 1,
-                        "id": self.signupId, 
-                        "pw": self.signupPw,
-                        "name": self.signupName,
-                        "phone": self.signupPhone,
-                        "email": self.signupEmail,
-                        "dept": self.signupDept,
-                        "pos": self.signupPosition}
-            json_msg = json.dumps(loginReq)
-            msg_length = len(json_msg)
+            # msg = {"type": 1,
+            #             "id": self.signupId, 
+            #             "pw": self.signupPw,
+            #             "name": self.signupName,
+            #             "phone": self.signupPhone,
+            #             "email": self.signupEmail,
+            #             "dept": self.signupDept,
+            #             "pos": self.signupPosition}
+            msg = {"type": 1,
+                        "id": "아이디", 
+                        "pw": "비번",
+                        "name": "이름",
+                        "phone": "폰번",
+                        "email": "이메일",
+                        "dept": "부서",
+                        "pos": "직급"}
+            json_msg = json.dumps(msg, ensure_ascii=False)
+            byte_json_msg = bytes(json_msg, 'utf-8')
+            msg_length = len(byte_json_msg)
             total_length = msg_length + 4
             header = struct.pack('<I', total_length)
         
-            if self.socket and loginReq:
+            if self.socket and msg:
                 self.socket.sendall(header + json_msg.encode('utf-8'))
-            
-            print("dept: " + self.signupDept)
-            print("pos: " + self.signupPosition)
             print(total_length)
             print(json_msg)
 
@@ -283,19 +285,16 @@ class MainWindow(QMainWindow):
             connectionErrorEvent()
             
     def sendMsg(self):
-        # self.userId = self.loginId
-        # self.groupName = self.group_name.text()
-        # self.msgText = self.home_input_msg.text()
+        self.msgText = self.home_lineedit_chatlist_send.text()
         self.loginId = "eluon"
         self.groupName = "채팅방 1"
-        self.msgText = "안녕하세요 hi hi"
         try:
             msg = {"type": 0,
                    "id": self.loginId,
                    "groupname": self.groupName,
                    "text": self.msgText}
         
-            json_msg = json.dumps(msg)
+            json_msg = json.dumps(msg, ensure_ascii=False)
             msg_length = len(json_msg)
             total_length = msg_length + 4
             header = struct.pack('<I', total_length)
@@ -305,12 +304,55 @@ class MainWindow(QMainWindow):
             
             print(total_length)
             print(json_msg)
-            connectionSuccessEvent()
+            self.updateMsgDisplay(self.msgText, "sent")
+            
         
-        except Exception:
+        except BlockingIOError:
             connectionErrorEvent()
-        
-        
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            self.running = False
+    
+    def receive_message(self):
+        buffer = b""
+        while self.running:
+            try:
+                if self.socket:
+                    readable, _, _ = select.select([self.socket], [], [], 0.5)
+                    if readable:
+                        data = self.socket.recv(4096)
+                        if data:
+                            buffer += data
+                            while len(buffer) >= 4:
+                                msg_length = struct.unpack('<I', buffer[:4])[0]
+                                if len(buffer) >= msg_length - 4:
+                                    json_msg = buffer[4:4 + msg_length]
+                                    buffer = buffer[4 + msg_length:]
+                                    message = json.loads(json_msg.decode('utf-8')).get("text")
+                                    self.updateMsgDisplay(message, "received")
+                                
+                                else:
+                                    break
+            except BlockingIOError:
+                continue
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                self.running = False
+            
+
+    def start_receiving(self):
+        self.running = True
+        receive_thread = threading.Thread(target=self.receive_message)
+        receive_thread.daemon = True
+        receive_thread.start()
+    
+    def updateMsgDisplay(self, message, messageType):
+        item=QStandardItem(message)
+        item.setData(messageType, Qt.ItemDataRole.UserRole + 1)
+        self.chatListModel.appendRow(item)
+        # self.chatList.append(message)
+        # self.chatListModel.setStringList(self.chatList)
+        self.home_listview_chatlist.scrollToBottom()
 
 
     # RESIZE EVENTS
@@ -324,7 +366,6 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
-
 
 
 if __name__ == "__main__":

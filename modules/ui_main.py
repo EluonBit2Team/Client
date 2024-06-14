@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainbDjTvz.ui'
+## Form generated from reading UI file 'mainoNPUiX.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,7 +13,6 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
 from . resources_rc import *
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -1570,7 +1569,7 @@ class Ui_MainWindow(object):
         self.signup_combo_position.addItem("")
         self.signup_combo_position.setObjectName(u"signup_combo_position")
         self.signup_combo_position.setGeometry(QRect(550, 250, 186, 33))
-        self.signup_combo_position.setFont(font4)
+        self.signup_combo_position.setFont(font5)
         self.signup_combo_position.setAutoFillBackground(False)
         self.signup_combo_position.setStyleSheet(u"background-color: rgb(27, 29, 35);\n"
 "\n"

@@ -1,0 +1,37 @@
+from PySide6.QtWidgets import QMainWindow
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtWidgets import *
+
+def initialize_widgets(mainWindow: QMainWindow):
+    mainWindow.login_input_id = mainWindow.findChild(QLineEdit, "login_input_id")
+    mainWindow.login_input_pw = mainWindow.findChild(QLineEdit, "login_input_pw")
+    mainWindow.login_btn_login = mainWindow.findChild(QPushButton, "login_btn_login")
+    mainWindow.signup_input_id = mainWindow.findChild(QLineEdit, "signup_input_id")
+    mainWindow.signup_input_pw = mainWindow.findChild(QLineEdit, "signup_input_pw")
+    mainWindow.signup_input_name = mainWindow.findChild(QLineEdit, "signup_input_name")
+    mainWindow.signup_input_phone = mainWindow.findChild(
+        QLineEdit, "signup_input_phone")
+    mainWindow.signup_input_email = mainWindow.findChild(
+        QLineEdit, "signup_input_email")
+    mainWindow.signup_combo_dept = mainWindow.findChild(QComboBox, "signup_combo_dept")
+    mainWindow.signup_combo_position = mainWindow.findChild(
+        QComboBox, "signup_combo_position")
+    mainWindow.signup_btn_submit = mainWindow.findChild(
+        QPushButton, "signup_btn_submit")
+    mainWindow.signup_btn_back = mainWindow.findChild(QPushButton, "signup_btn_back")
+    mainWindow.signup_checkbox_agree = mainWindow.findChild(
+        QCheckBox, "signup_checkbox_agree")
+    mainWindow.home_lineedit_chatlist_send = mainWindow.findChild(
+        QLineEdit, "home_lineedit_chatlist_send")
+    mainWindow.home_btn_chatlist_send = mainWindow.findChild(
+        QPushButton, "home_btn_chatlist_send")
+    mainWindow.home_listview_chatlist = mainWindow.findChild(
+        QListView, "home_listview_chatlist")
+
+    mainWindow.admin_btn_accept = mainWindow.findChild(QPushButton, "admin_btn_accept")
+    mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")
+
+    mainWindow.btn_home = mainWindow.findChild(QPushButton, "btn_home")
+    mainWindow.btn_admin = mainWindow.findChild(QPushButton, "btn_admin")
+    mainWindow.btn_save = mainWindow.findChild(QPushButton, "btn_save")
