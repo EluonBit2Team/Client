@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
         #hide menu
         self.btn_home.hide()
         self.btn_admin.hide()
-        self.btn_save.hide()
+        self.btn_notice.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
