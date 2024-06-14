@@ -35,3 +35,5 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.btn_home = mainWindow.findChild(QPushButton, "btn_home")
     mainWindow.btn_admin = mainWindow.findChild(QPushButton, "btn_admin")
     mainWindow.btn_save = mainWindow.findChild(QPushButton, "btn_save")
+    
+    mainWindow.btn_notice = mainWindow.findChild(QPushButton, "btn_notice")
