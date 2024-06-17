@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'groupadddlgkDNJju.ui'
+## Form generated from reading UI file 'groupadddlgQYgpWH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -12,12 +12,9 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
-from .resources_rc import *
+from . resources_rc import *
 
-class GroupAddDialog(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setupUi(self)
+class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
@@ -38,6 +35,24 @@ class GroupAddDialog(QDialog):
 "\n"
 "QPushButton#dialog_btn_submit:pressed {\n"
 "    background-color: rgba(25, 25, 112, 1);\n"
+"}\n"
+"\n"
+"QPushButton#dialog_btn_exit {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 5px;\n"
+"    padding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton#dialog_btn_exit:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#dialog_btn_exit:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
 "}")
         self.dialog_label_back = QLabel(Dialog)
         self.dialog_label_back.setObjectName(u"dialog_label_back")
@@ -55,9 +70,9 @@ class GroupAddDialog(QDialog):
 "color: rgb(232, 232, 232);")
         self.dialog_btn_submit = QPushButton(Dialog)
         self.dialog_btn_submit.setObjectName(u"dialog_btn_submit")
-        self.dialog_btn_submit.setGeometry(QRect(5, 243, 381, 31))
+        self.dialog_btn_submit.setGeometry(QRect(9, 243, 191, 31))
         self.dialog_btn_submit.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
-"border: 1px solid yellow;\n"
+"border: 1px solid lightgreen;\n"
 "color: rgb(232, 232, 232);\n"
 "\n"
 "")
@@ -73,6 +88,13 @@ class GroupAddDialog(QDialog):
         self.dialog_label_chattitle.setGeometry(QRect(28, 103, 81, 20))
         self.dialog_label_chattitle.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";\n"
 "color: rgb(232, 232, 232);")
+        self.dialog_btn_exit = QPushButton(Dialog)
+        self.dialog_btn_exit.setObjectName(u"dialog_btn_exit")
+        self.dialog_btn_exit.setGeometry(QRect(210, 244, 171, 31))
+        self.dialog_btn_exit.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
+"border: 1px solid white;\n"
+"color: rgb(232, 232, 232);\n"
+"")
 
         self.retranslateUi(Dialog)
         self.dialog_edit_chattitle.returnPressed.connect(self.dialog_btn_submit.click)
@@ -88,30 +110,6 @@ class GroupAddDialog(QDialog):
         self.dialog_label_title.setText(QCoreApplication.translate("Dialog", u"\u2705 \ucc44\ud305 \uadf8\ub8f9 \ucd94\uac00", None))
         self.dialog_btn_submit.setText(QCoreApplication.translate("Dialog", u"\uc2e0\uccad \ud558\uae30", None))
         self.dialog_label_chattitle.setText(QCoreApplication.translate("Dialog", u"\ucc44\ud305\ubc29 \uc81c\ubaa9", None))
+        self.dialog_btn_exit.setText(QCoreApplication.translate("Dialog", u"\uc885\ub8cc \ud558\uae30", None))
     # retranslateUi
-    
-    # def sendGroupReq(self, socket):
-    #     self.sock = socket
-    #     self.msgText = self.main_window.home_lineedit_chatlist_send.text()
-    #     self.loginId = "eluon"
-    #     self.groupName = "채팅방 1"
-    #     try:
-    #         msg = {"type": 0,
-    #                "id": self.loginId,
-    #                "groupname": self.groupName,
-    #                "text": self.msgText}
-            
-    #         packet = jsonParser(msg)
-        
-    #         if self.sock and msg:
-    #             self.sock.sendall(packet)
-                
-    #         self.main_window.updateMsgDisplay(self.msgText, "sent")
-            
-    #         return True
-    #     except Exception as e:
-    #         print(f"An error occurred: {e}")
-    #         return False
-        
-        
 

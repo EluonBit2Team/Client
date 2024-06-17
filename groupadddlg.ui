@@ -30,6 +30,24 @@ QPushButton#dialog_btn_submit:hover {
 
 QPushButton#dialog_btn_submit:pressed {
     background-color: rgba(25, 25, 112, 1);
+}
+
+QPushButton#dialog_btn_exit {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+
+QPushButton#dialog_btn_exit:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#dialog_btn_exit:pressed {
+    background-color: rgba(25, 25, 112, 1);
 }</string>
   </property>
   <widget class="QLabel" name="dialog_label_back">
@@ -85,15 +103,15 @@ color: rgb(232, 232, 232);</string>
   <widget class="QPushButton" name="dialog_btn_submit">
    <property name="geometry">
     <rect>
-     <x>5</x>
+     <x>9</x>
      <y>243</y>
-     <width>381</width>
+     <width>191</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
-border: 1px solid yellow;
+border: 1px solid lightgreen;
 color: rgb(232, 232, 232);
 
 </string>
@@ -133,6 +151,25 @@ color: rgb(232, 232, 232);</string>
    </property>
    <property name="text">
     <string>채팅방 제목</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dialog_btn_exit">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>244</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
+border: 1px solid white;
+color: rgb(232, 232, 232);
+</string>
+   </property>
+   <property name="text">
+    <string>종료 하기</string>
    </property>
   </widget>
  </widget>
