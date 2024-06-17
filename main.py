@@ -28,7 +28,7 @@ from modules.util import *
 from modules.ui_initialization import *
 from modules import *
 from modules.ui_notice_dlg import *
-from modules.ui_food_dlg import *
+from modules.ui_fooddlg_function import *
 from widgets import *
 
 SERVER_ADDR = "192.168.0.253"
