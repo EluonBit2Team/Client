@@ -31,8 +31,8 @@ class ReceivePacket():
                                 if len(buffer) >= msg_length - 4:
                                     json_msg = buffer[4:4 + msg_length]
                                     buffer = buffer[4 + msg_length:]
-                                    message = json.loads(json_msg.decode('utf-8')).get("text")
-                                    self.updateMsgDisplay(message, "received")
+                                    self.message = json.loads(json_msg.decode('utf-8')).get("text")
+                                    self.main_window.updateMsgDisplay(self.message, "received")
                                 
                                 else:
                                     break

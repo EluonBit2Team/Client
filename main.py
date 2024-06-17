@@ -31,12 +31,11 @@ from modules.receive_socket import *
 from modules import *
 from modules.ui_notice_dlg import *
 from modules.ui_fooddlg_function import *
+from modules.ui_groupadddlg import *
 from widgets import *
 
-# SERVER_ADDR = "192.168.0.253"
-# SERVER_PORT = 3335
-
-SERVER_ADDR = "127.0.0.1"
+SERVER_ADDR = "192.168.0.253"
+# SERVER_ADDR = "127.0.0.1"
 SERVER_PORT = 3335
 
 
@@ -160,9 +159,7 @@ class MainWindow(QMainWindow):
         
         self.start_receiving()
 
-    # BUTTONS CLICK
-    # Post here your functions for clicked buttons
-    # ///////////////////////////////////////////////////////////////
+    # 약관체크버튼
     def toggleButton(self, state):
         if state == 2:
             self.signup_btn_submit.setEnabled(True)
@@ -178,6 +175,29 @@ class MainWindow(QMainWindow):
     def show_food_dialog(self):
         dialog = CustomDialog_food(self)
         dialog.exec()
+        
+    def openDialog(self, dialogName):
+        if dialogName == "GroupAddDialog":
+            dialog = GroupAddDialog(self)
+        dialog.exec()
+    
+    def handleSendButtonClick(self):
+        # 클릭 시 아이콘 변경
+        self.home_btn_chatlist_send.setIcon(QIcon(':/images/images/images/free-icon-send-button-12439334 - 복사본.png'))
+        self.home_btn_chatlist_send.setIconSize(QSize(41, 41))
+        QTimer.singleShot(50, self.restoreSendButtonIcon)
+    
+    def restoreSendButtonIcon(self):
+        # 원래 아이콘으로 복원
+        self.home_btn_chatlist_send.setIcon(QIcon(':/images/images/images/free-icon-send-button-12439334.png'))
+        self.home_btn_chatlist_send.setIconSize(QSize(41, 41))
+        
+    
+    
+
+    # 오늘의 식단 보기 함수
+    def todaylunch(self):
+        self.show_notice_dialog()
 
     def buttonClick(self):
         # GET BUTTON CLICKED
@@ -212,6 +232,14 @@ class MainWindow(QMainWindow):
         
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
+    
+    def updateMsgDisplay(self, message, messageType):
+        item=QStandardItem(message)
+        item.setData(messageType, Qt.ItemDataRole.UserRole + 1)
+        self.chatListModel.appendRow(item)
+        # self.chatList.append(message)
+        # self.chatListModel.setStringList(self.chatList)
+        self.home_listview_chatlist.scrollToBottom()
 
     def loginRequest(self):
         sock = self.socket
@@ -224,6 +252,7 @@ class MainWindow(QMainWindow):
     def sendMsg(self):
         sock = self.socket
         self.packetSender.sendMsg(sock)
+        self.home_lineedit_chatlist_send.clear()
         
     def receiveMessage(self):
         sock = self.socket
@@ -234,15 +263,6 @@ class MainWindow(QMainWindow):
         receive_thread = threading.Thread(target=self.receiveMessage)
         receive_thread.daemon = True
         receive_thread.start()
-    
-    def updateMsgDisplay(self, message, messageType):
-        item=QStandardItem(message)
-        item.setData(messageType, Qt.ItemDataRole.UserRole + 1)
-        self.chatListModel.appendRow(item)
-        # self.chatList.append(message)
-        # self.chatListModel.setStringList(self.chatList)
-        self.home_listview_chatlist.scrollToBottom()
-
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////

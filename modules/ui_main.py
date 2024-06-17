@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainMQQIEP.ui'
+## Form generated from reading UI file 'mainidEgDr.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1739,8 +1739,11 @@ class Ui_MainWindow(object):
         self.login_input_pw.returnPressed.connect(self.login_btn_login.click)
         self.login_btn_login.clicked.connect(MainWindow.loginRequest)
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
+        self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
+        self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
+        self.home_btn_chatgroup.clicked.connect(lambda: MainWindow.openDialog("GroupAddDialog"))
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

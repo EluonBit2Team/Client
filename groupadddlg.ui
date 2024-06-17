@@ -137,5 +137,41 @@ color: rgb(232, 232, 232);</string>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>dialog_edit_chattitle</sender>
+   <signal>returnPressed()</signal>
+   <receiver>dialog_btn_submit</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>151</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dialog_btn_submit</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>sendGroupReq()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>50</x>
+     <y>263</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>69</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>sendGroupReq()</slot>
+ </slots>
 </ui>

@@ -32,6 +32,19 @@ def connectSocket(QMainWindow, addr, port):
             print(f"Socket connection error: {e}")
             connectionErrorEvent()
 
+def handleSendButtonClick(self):
+    QCoreApplication.processEvents()  # 프로세스 이벤트를 처리하여 UI 업데이트
+        
+    # 클릭 시 아이콘 변경
+    self.home_btn_chatlist_send.setIcon(QIcon(':/images/images/images/free-icon-send-button-12439334 - 복사본.png'))
+    self.home_btn_chatlist_send.setIconSize(QSize(41, 41))
+    QThread.msleep(50) # 전송버튼 sleep
+        
+    # 원래 아이콘으로 복원
+    self.home_btn_chatlist_send.setIcon(QIcon(':/images/images/images/free-icon-send-button-12439334.png'))
+    self.home_btn_chatlist_send.setIconSize(QSize(41, 41))
+
+
 def connectionErrorEvent():
     QMessageBox.warning(None, "Error", "연결 실패")
 

@@ -2,8 +2,8 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
-from .resources_rc import *
-from .ui_dialog import Ui_Dialog  # 변환된 UI 파일을 임포트합니다.
+from . resources_rc import *
+from modules.ui_dialog import Ui_Dialog  # 변환된 UI 파일을 임포트합니다.
 
 # 빈 다이얼로그
 class CustomDialog(QDialog):
