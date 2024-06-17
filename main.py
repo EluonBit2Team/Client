@@ -30,6 +30,7 @@ from modules.send_packet import *
 from modules.receive_socket import *
 from modules import *
 from modules.ui_notice_dlg import *
+from modules.ui_fooddlg_function import *
 from widgets import *
 
 # SERVER_ADDR = "192.168.0.253"
@@ -62,9 +63,9 @@ class MainWindow(QMainWindow):
         initialize_widgets(self)
         
         #hide menu
-        self.btn_home.hide()
-        self.btn_admin.hide()
-        self.btn_notice.hide()
+        # self.btn_home.hide()
+        # self.btn_admin.hide()
+        # self.btn_notice.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -94,6 +95,9 @@ class MainWindow(QMainWindow):
         widgets.btn_admin.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
         widgets.btn_notice.clicked.connect(self.buttonClick)
+        widgets.home_btn_chatlist_send.clicked.connect(self.handleSendButtonClick) # 전송 버튼
+        widgets.admin_btn_food.clicked.connect(self.show_food_dialog) # 오늘의 식단 버튼
+
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
@@ -164,9 +168,15 @@ class MainWindow(QMainWindow):
             self.signup_btn_submit.setEnabled(True)
         else:
             self.signup_btn_submit.setEnabled(False)
-        
+    
+    # 알람 다이얼로그 함수
     def show_notice_dialog(self):
         dialog = CustomDialog(self)
+        dialog.exec()
+
+    # 오늘의 식단 보기 다이얼로그 함수
+    def show_food_dialog(self):
+        dialog = CustomDialog_food(self)
         dialog.exec()
 
     def buttonClick(self):
@@ -198,8 +208,8 @@ class MainWindow(QMainWindow):
         if btnName == "btn_notice":
             # 버튼 클릭 시 다이얼로그 호출
             self.show_notice_dialog()
-            
 
+        
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
 
@@ -245,7 +255,6 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
