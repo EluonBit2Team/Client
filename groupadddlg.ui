@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton#dialog_btn_submit {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+
+QPushButton#dialog_btn_submit:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#dialog_btn_submit:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}</string>
+  </property>
+  <widget class="QLabel" name="dialog_label_back">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>391</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(33, 37, 43);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dialog_label_top_line">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>391</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 10px;
+border-bottom: 1px solid #3498db;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dialog_label_title">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>10</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;
+color: rgb(232, 232, 232);</string>
+   </property>
+   <property name="text">
+    <string>✅ 채팅 그룹 추가</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dialog_btn_submit">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>243</y>
+     <width>381</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
+border: 1px solid yellow;
+color: rgb(232, 232, 232);
+
+</string>
+   </property>
+   <property name="text">
+    <string>신청 하기</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="dialog_edit_chattitle">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>130</y>
+     <width>331</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+border-bottom: 2px solid #3498db;
+background: transparent;
+color: white;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dialog_label_chattitle">
+   <property name="geometry">
+    <rect>
+     <x>28</x>
+     <y>103</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;
+color: rgb(232, 232, 232);</string>
+   </property>
+   <property name="text">
+    <string>채팅방 제목</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
