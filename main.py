@@ -31,11 +31,11 @@ from modules.receive_socket import *
 from modules import *
 from modules.ui_notice_dlg import *
 from modules.ui_fooddlg_function import *
-from modules.ui_groupadddlg import *
+from modules.ui_groupadddlg_function import *
 from widgets import *
 
-SERVER_ADDR = "192.168.0.253"
-# SERVER_ADDR = "127.0.0.1"
+# SERVER_ADDR = "192.168.0.253"
+SERVER_ADDR = "127.0.0.1"
 SERVER_PORT = 3335
 
 
@@ -149,6 +149,7 @@ class MainWindow(QMainWindow):
         self.socket = None
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
+        self.groupDialog = GroupAddDialog(self)
         
         #connect socket
         try:    
@@ -243,7 +244,11 @@ class MainWindow(QMainWindow):
 
     def loginRequest(self):
         sock = self.socket
-        self.packetSender.loginRequest(sock)
+        username = self.packetSender.loginRequest(sock)
+        if username:
+            self.username = username
+        
+        print(self.username)
     
     def signUpRequest(self):
         sock = self.socket

@@ -21,15 +21,49 @@ class SendPacket:
             print(f"Socket connection error: {e}")
             connectionErrorEvent()
 
+    def loginRequest(self, socket):
+        self.sock = socket
+        self.loginId = self.main_window.login_input_id.text()
+        loginPw = self.main_window.login_input_pw.text()
+        try:
+            msg = {
+                "type": 2,
+                "id": self.loginId,
+                "pw": loginPw
+            }
+            json_msg = json.dumps(msg, ensure_ascii=False)
+            byte_json_msg = bytes(json_msg, 'utf-8')
+            msg_length = len(byte_json_msg)
+            total_length = msg_length + 4
+            header = struct.pack('<I', total_length)
+
+            if self.sock and msg:
+                self.sock.sendall(header + json_msg.encode('utf-8'))
+            print(total_length)
+            print(json_msg)
+
+            # QMessageBox.information(
+            #     self.main_window, "보낸정보", f"id: {loginId}\n pw: {loginPw}\n")
+
+            # self.main_window.start_receiving()
+
+            self.main_window.btn_home.show()
+            self.main_window.btn_admin.show()
+            self.main_window.btn_notice.show()
+            return self.loginId
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
     # def loginRequest(self, socket):
     #     self.sock = socket
     #     loginId = self.main_window.login_input_id.text()
     #     loginPw = self.main_window.login_input_pw.text()
     #     try:
     #         msg = {
-    #             "type": 2,
-    #             "id": loginId,
-    #             "pw": loginPw
+    #             "type": 4,
+    #             "id": "idid2",
+    #             "groupname": "그룹이름",
+    #             "message": "이러저러한 이유로 이러저러한 방을 요청합니다."
     #         }
     #         json_msg = json.dumps(msg, ensure_ascii=False)
     #         byte_json_msg = bytes(json_msg, 'utf-8')
@@ -54,40 +88,6 @@ class SendPacket:
     #     except Exception as e:
     #         print(f"An error occurred: {e}")
     #         return False
-    def loginRequest(self, socket):
-        self.sock = socket
-        loginId = self.main_window.login_input_id.text()
-        loginPw = self.main_window.login_input_pw.text()
-        try:
-            msg = {
-                "type": 4,
-                "id": "idid2",
-                "groupname": "그룹이름",
-                "message": "이러저러한 이유로 이러저러한 방을 요청합니다."
-            }
-            json_msg = json.dumps(msg, ensure_ascii=False)
-            byte_json_msg = bytes(json_msg, 'utf-8')
-            msg_length = len(byte_json_msg)
-            total_length = msg_length + 4
-            header = struct.pack('<I', total_length)
-
-            if self.sock and msg:
-                self.sock.sendall(header + json_msg.encode('utf-8'))
-            print(total_length)
-            print(json_msg)
-
-            # QMessageBox.information(
-            #     self.main_window, "보낸정보", f"id: {loginId}\n pw: {loginPw}\n")
-
-            # self.main_window.start_receiving()
-
-            self.main_window.btn_home.show()
-            self.main_window.btn_admin.show()
-            self.main_window.btn_notice.show()
-            return True
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return False
         
     
     def signUpRequest(self, socket):
