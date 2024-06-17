@@ -26,15 +26,17 @@ import struct
 # ///////////////////////////////////////////////////////////////
 from modules.util import *
 from modules.ui_initialization import *
+from modules.send_packet import *
+from modules.receive_socket import *
 from modules import *
 from modules.ui_notice_dlg import *
 from widgets import *
 
-SERVER_ADDR = "192.168.0.253"
-SERVER_PORT = 3335
+# SERVER_ADDR = "192.168.0.253"
+# SERVER_PORT = 3335
 
-# SERVER_ADDR = "127.0.0.1"
-# SERVER_PORT = 40112
+SERVER_ADDR = "127.0.0.1"
+SERVER_PORT = 3335
 
 
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
@@ -58,7 +60,7 @@ class MainWindow(QMainWindow):
 
         #widgets initialize
         initialize_widgets(self)
-
+        
         #hide menu
         self.btn_home.hide()
         self.btn_admin.hide()
@@ -83,11 +85,7 @@ class MainWindow(QMainWindow):
         # SET UI DEFINITIONS
         # ///////////////////////////////////////////////////////////////
         UIFunctions.uiDefinitions(self)
-
-        # QTableWidget PARAMETERS
-        # ///////////////////////////////////////////////////////////////
-        #widgets.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-
+        
         # BUTTONS CLICK
         # ///////////////////////////////////////////////////////////////
 
@@ -136,20 +134,27 @@ class MainWindow(QMainWindow):
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
         
-        try:
-            self.connectSocket(SERVER_ADDR, SERVER_PORT)
-        except socket.error as e:
-            print(f"Socket connection error: {e}")
-            connectionErrorEvent()
-            
+        
         delegate = CustomDelegate(self.home_listview_chatlist)
         self.home_listview_chatlist.setItemDelegate(delegate)
         
         self.chatList = []
         self.chatListModel = QStandardItemModel(self.home_listview_chatlist)
         self.home_listview_chatlist.setModel(self.chatListModel)
-    
-
+        
+        
+        self.socket = None
+        self.packetSender = SendPacket(self)
+        self.packetReceiver = ReceivePacket(self)
+        
+        #connect socket
+        try:    
+            self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
+        except socket.error as e:
+            print(f"Socket connection error: {e}")
+            connectionErrorEvent()
+        
+        self.start_receiving()
 
     # BUTTONS CLICK
     # Post here your functions for clicked buttons
@@ -197,155 +202,26 @@ class MainWindow(QMainWindow):
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
-    
-    def connectSocket(self, addr, port):
-        try:
-            print(f"Connecting to {addr}:{port}")
-            self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.socket.settimeout(5)
-            self.socket.connect((addr, port))
-            self.socket.setblocking(False)
-            connectionSuccessEvent()
-        except socket.error as e:
-            print(f"Socket connection error: {e}")
-            connectionErrorEvent()
 
     def loginRequest(self):
-        self.loginId = self.login_input_id.text()
-        self.loginPw = self.login_input_pw.text()
-        try:
-            msg = {"type": 2,
-                        "id": self.loginId, 
-                        "pw": self.loginPw}
-            json_msg = json.dumps(msg, ensure_ascii=False)
-            msg_length = len(json_msg)
-            total_length = msg_length + 4
-            header = struct.pack('<I', total_length)
-        
-            if self.socket and msg:
-                self.socket.sendall(header + json_msg.encode('utf-8'))
-            print(total_length)
-            print(json_msg)
-            
-            QMessageBox.information(self, "보낸정보", "id: " + self.loginId + '\n'
-                                                    "pw: " + self.loginPw + '\n')
-
-            self.start_receiving()
-            
-            self.btn_home.show()
-            self.btn_admin.show()
-            self.btn_notice.show()
-            self.connectionSuccessEvent()
-        except Exception:
-            connectionErrorEvent()
+        sock = self.socket
+        self.packetSender.loginRequest(sock)
     
     def signUpRequest(self):
-        self.signupId = self.signup_input_id.text()
-        self.signupPw = self.signup_input_pw.text()
-        self.signupName = self.signup_input_name.text()
-        self.signupPhone = self.signup_input_phone.text()
-        self.signupEmail = self.signup_input_email.text()
-        self.signupDept = self.signup_combo_dept.currentText()
-        self.signupPosition = self.signup_combo_position.currentText()
-        
-        try:
-            # msg = {"type": 1,
-            #             "id": self.signupId, 
-            #             "pw": self.signupPw,
-            #             "name": self.signupName,
-            #             "phone": self.signupPhone,
-            #             "email": self.signupEmail,
-            #             "dept": self.signupDept,
-            #             "pos": self.signupPosition}
-            msg = {"type": 1,
-                        "id": "아이디", 
-                        "pw": "비번",
-                        "name": "이름",
-                        "phone": "폰번",
-                        "email": "이메일",
-                        "dept": "부서",
-                        "pos": "직급"}
-            json_msg = json.dumps(msg, ensure_ascii=False)
-            byte_json_msg = bytes(json_msg, 'utf-8')
-            msg_length = len(byte_json_msg)
-            total_length = msg_length + 4
-            header = struct.pack('<I', total_length)
-        
-            if self.socket and msg:
-                self.socket.sendall(header + json_msg.encode('utf-8'))
-            print(total_length)
-            print(json_msg)
-
-            QMessageBox.information(self, "SignUp", "id: " + self.signupId + '\n'
-                                                "pw: " + self.signupPw + '\n'
-                                                "name: " + self.signupName + '\n'
-                                                "Phone: " + self.signupPhone + '\n'
-                                                "Email: " + self.signupEmail + '\n'
-                                                "Dept: " + self.signupDept + '\n'
-                                                "Position: " + self.signupPosition + '\n')
-            connectionSuccessEvent()
-        except Exception:
-            connectionErrorEvent()
+        sock = self.socket
+        self.packetSender.signUpRequest(sock)
             
     def sendMsg(self):
-        self.msgText = self.home_lineedit_chatlist_send.text()
-        self.loginId = "eluon"
-        self.groupName = "채팅방 1"
-        try:
-            msg = {"type": 0,
-                   "id": self.loginId,
-                   "groupname": self.groupName,
-                   "text": self.msgText}
+        sock = self.socket
+        self.packetSender.sendMsg(sock)
         
-            json_msg = json.dumps(msg, ensure_ascii=False)
-            msg_length = len(json_msg)
-            total_length = msg_length + 4
-            header = struct.pack('<I', total_length)
-        
-            if self.socket and msg:
-                self.socket.sendall(header + json_msg.encode('utf-8'))
-            
-            print(total_length)
-            print(json_msg)
-            self.updateMsgDisplay(self.msgText, "sent")
-            
-        
-        except BlockingIOError:
-            connectionErrorEvent()
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            self.running = False
-    
-    def receive_message(self):
-        buffer = b""
-        while self.running:
-            try:
-                if self.socket:
-                    readable, _, _ = select.select([self.socket], [], [], 0.5)
-                    if readable:
-                        data = self.socket.recv(4096)
-                        if data:
-                            buffer += data
-                            while len(buffer) >= 4:
-                                msg_length = struct.unpack('<I', buffer[:4])[0]
-                                if len(buffer) >= msg_length - 4:
-                                    json_msg = buffer[4:4 + msg_length]
-                                    buffer = buffer[4 + msg_length:]
-                                    message = json.loads(json_msg.decode('utf-8')).get("text")
-                                    self.updateMsgDisplay(message, "received")
-                                
-                                else:
-                                    break
-            except BlockingIOError:
-                continue
-            except Exception as e:
-                print(f"An error occurred: {e}")
-                self.running = False
-            
+    def receiveMessage(self):
+        sock = self.socket
+        self.packetReceiver.receiveMessage(sock)
 
     def start_receiving(self):
         self.running = True
-        receive_thread = threading.Thread(target=self.receive_message)
+        receive_thread = threading.Thread(target=self.receiveMessage)
         receive_thread.daemon = True
         receive_thread.start()
     

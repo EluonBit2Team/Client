@@ -1828,7 +1828,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -3636,11 +3636,28 @@ border:none;
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>home_btn_chatgroup</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openDialog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>253</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>5</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>signUpRequest()</slot>
   <slot>loginRequest()</slot>
   <slot>toggleButton()</slot>
   <slot>sendMsg()</slot>
+  <slot>openDialog()</slot>
  </slots>
 </ui>
