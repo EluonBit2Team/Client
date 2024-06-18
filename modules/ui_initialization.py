@@ -26,7 +26,6 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_right = mainWindow.findChild(QPushButton, "home_btn_right")
     mainWindow.home_btn_left = mainWindow.findChild(QPushButton, "home_btn_left")
 
-    mainWindow.admin_btn_accept = mainWindow.findChild(QPushButton, "admin_btn_accept")
     mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")
 
     mainWindow.btn_home = mainWindow.findChild(QPushButton, "btn_home")
