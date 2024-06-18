@@ -55,8 +55,8 @@ QPushButton#dialog_btn_exit:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>391</width>
-     <height>291</height>
+     <width>401</width>
+     <height>301</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -71,12 +71,12 @@ QPushButton#dialog_btn_exit:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>391</width>
+     <width>401</width>
      <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-radius: 10px;
+    <string notr="true">border-radius: 0px;
 border-bottom: 1px solid #3498db;</string>
    </property>
    <property name="text">
@@ -103,9 +103,9 @@ color: rgb(232, 232, 232);</string>
   <widget class="QPushButton" name="dialog_btn_submit">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>243</y>
-     <width>191</width>
+     <x>286</x>
+     <y>254</y>
+     <width>81</width>
      <height>31</height>
     </rect>
    </property>
@@ -123,15 +123,15 @@ color: rgb(232, 232, 232);
   <widget class="QLineEdit" name="dialog_edit_chattitle">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>130</y>
+     <x>35</x>
+     <y>100</y>
      <width>331</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">border: none;
-border-bottom: 2px solid #3498db;
+border-bottom: 1px solid #FFFFFF;
 background: transparent;
 color: white;</string>
    </property>
@@ -139,8 +139,8 @@ color: white;</string>
   <widget class="QLabel" name="dialog_label_chattitle">
    <property name="geometry">
     <rect>
-     <x>28</x>
-     <y>103</y>
+     <x>33</x>
+     <y>70</y>
      <width>81</width>
      <height>20</height>
     </rect>
@@ -156,9 +156,9 @@ color: rgb(232, 232, 232);</string>
   <widget class="QPushButton" name="dialog_btn_exit">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>244</y>
-     <width>171</width>
+     <x>196</x>
+     <y>254</y>
+     <width>81</width>
      <height>31</height>
     </rect>
    </property>
@@ -170,6 +170,39 @@ color: rgb(232, 232, 232);
    </property>
    <property name="text">
     <string>종료 하기</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dialog_label_issue">
+   <property name="geometry">
+    <rect>
+     <x>33</x>
+     <y>160</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;
+color: rgb(232, 232, 232);</string>
+   </property>
+   <property name="text">
+    <string>개설 사유</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="dialog_edit_issue">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>190</y>
+     <width>331</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+border-bottom: 1px solid #FFFFFF;
+background: transparent;
+color: white;</string>
    </property>
   </widget>
  </widget>
