@@ -294,4 +294,11 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
+
+    api_url = 'https://your-grafana-instance.com'
+    api_key = 'your_grafana_api_key'
+
+    grafana_window = GrafanaDataWindow(main_window, api_url, api_key)
+    grafana_window.show()
+    
     sys.exit(app.exec())
