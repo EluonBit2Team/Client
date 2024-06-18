@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'groupadddlgdbDBGM.ui'
+## Form generated from reading UI file 'groupadddlgjbUZWL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
+
 
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -61,7 +62,7 @@ class Ui_Dialog(object):
         self.dialog_label_top_line = QLabel(Dialog)
         self.dialog_label_top_line.setObjectName(u"dialog_label_top_line")
         self.dialog_label_top_line.setGeometry(QRect(0, 0, 401, 41))
-        self.dialog_label_top_line.setStyleSheet(u"border-radius: 10px;\n"
+        self.dialog_label_top_line.setStyleSheet(u"border-radius: 0px;\n"
 "border-bottom: 1px solid #3498db;")
         self.dialog_label_title = QLabel(Dialog)
         self.dialog_label_title.setObjectName(u"dialog_label_title")
