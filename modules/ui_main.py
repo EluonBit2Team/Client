@@ -1741,7 +1741,7 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
-        self.home_btn_chatgroup.clicked.connect(lambda: MainWindow.openDialog("GroupAddDialog"))
+        # self.home_btn_chatgroup.clicked.connect(lambda: MainWindow.openDialog("GroupAddDialog"))
 
         self.stackedWidget.setCurrentIndex(1)
 
