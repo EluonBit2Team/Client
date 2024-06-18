@@ -34,8 +34,8 @@ from modules.ui_fooddlg_function import *
 from modules.ui_groupadddlg_function import *
 from widgets import *
 
-# SERVER_ADDR = "192.168.0.253"
-SERVER_ADDR = "127.0.0.1"
+SERVER_ADDR = "192.168.0.253"
+# SERVER_ADDR = "127.0.0.1"
 SERVER_PORT = 3335
 
 
@@ -141,11 +141,10 @@ class MainWindow(QMainWindow):
         delegate = CustomDelegate(self.home_listview_chatlist)
         self.home_listview_chatlist.setItemDelegate(delegate)
         
-        self.chatList = []
         self.chatListModel = QStandardItemModel(self.home_listview_chatlist)
         self.home_listview_chatlist.setModel(self.chatListModel)
         
-        
+        self.username = None
         self.socket = None
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
@@ -159,6 +158,8 @@ class MainWindow(QMainWindow):
             connectionErrorEvent()
         
         self.start_receiving()
+        
+        #self.packetSender.reqUserList(self.socket)
 
     # 약관체크버튼
     def toggleButton(self, state):
@@ -180,6 +181,8 @@ class MainWindow(QMainWindow):
     def openDialog(self, dialogName):
         if dialogName == "GroupAddDialog":
             dialog = GroupAddDialog(self)
+        elif dialogName == "CustomDialog_food":
+            dialog = CustomDialog_food(self)
         dialog.exec()
     
     def handleSendButtonClick(self):
@@ -192,9 +195,6 @@ class MainWindow(QMainWindow):
         # 원래 아이콘으로 복원
         self.home_btn_chatlist_send.setIcon(QIcon(':/images/images/images/free-icon-send-button-12439334.png'))
         self.home_btn_chatlist_send.setIconSize(QSize(41, 41))
-        
-    
-    
 
     # 오늘의 식단 보기 함수
     def todaylunch(self):
@@ -243,29 +243,21 @@ class MainWindow(QMainWindow):
         self.home_listview_chatlist.scrollToBottom()
 
     def loginRequest(self):
-        sock = self.socket
-        username = self.packetSender.loginRequest(sock)
-        if username:
-            self.username = username
-        
-        print(self.username)
+        self.packetSender.loginRequest(self.socket)
     
     def signUpRequest(self):
-        sock = self.socket
-        self.packetSender.signUpRequest(sock)
+        self.packetSender.signUpRequest(self.socket)
             
     def sendMsg(self):
-        sock = self.socket
-        self.packetSender.sendMsg(sock)
+        self.packetSender.sendMsg(self.socket)
         self.home_lineedit_chatlist_send.clear()
         
-    def receiveMessage(self):
-        sock = self.socket
-        self.packetReceiver.receiveMessage(sock)
+    def receiveData(self):
+        self.packetReceiver.receiveData(self.socket)
 
     def start_receiving(self):
         self.running = True
-        receive_thread = threading.Thread(target=self.receiveMessage)
+        receive_thread = threading.Thread(target=self.receiveData)
         receive_thread.daemon = True
         receive_thread.start()
 

@@ -1828,7 +1828,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -3019,22 +3019,22 @@ background-color: rgb(27, 29, 35);
                        </item>
                        <item>
                         <property name="text">
-                         <string> 1팀</string>
+                         <string>인사</string>
                         </property>
                        </item>
                        <item>
                         <property name="text">
-                         <string> 2팀</string>
+                         <string>네트워크</string>
                         </property>
                        </item>
                        <item>
                         <property name="text">
-                         <string> 3팀</string>
+                         <string>경영지원</string>
                         </property>
                        </item>
                        <item>
                         <property name="text">
-                         <string> 솔루션팀</string>
+                         <string>연구개발</string>
                         </property>
                        </item>
                       </widget>
@@ -3697,11 +3697,44 @@ border:none;
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>home_btn_left</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>clickUserList()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>129</x>
+     <y>610</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>138</x>
+     <y>695</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>home_btn_right</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>clickUserList()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>613</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>698</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>signUpRequest()</slot>
   <slot>loginRequest()</slot>
   <slot>toggleButton()</slot>
   <slot>sendMsg()</slot>
+  <slot>clickUserList()</slot>
  </slots>
 </ui>
