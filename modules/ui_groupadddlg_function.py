@@ -16,7 +16,9 @@ class GroupAddDialog(QDialog, Ui_Dialog):
         self.ui.setupUi(self)
         self.main_window = main_window
         self.dialog_edit_chattitle = self.findChild(QLineEdit, "dialog_edit_chattitle")
-        
+         # dialog_btn_exit 버튼을 눌렀을 때 다이얼로그를 닫도록 연결
+        self.ui.dialog_btn_exit.clicked.connect(self.close_dialog)
+
     def sendGroupReq(self):
         self.sock = self.main_window.socket
         self.userid = self.main_window.username
@@ -43,4 +45,7 @@ class GroupAddDialog(QDialog, Ui_Dialog):
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
+        
+    def close_dialog(self):
+        self.accept()  # 다이얼로그 닫기    
 

@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainHmnFXn.ui'
+## Form generated from reading UI file 'mainaHCYJM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
+
 
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -1451,8 +1452,9 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;")
         self.admin_btn_food = QPushButton(self.adminpage)
         self.admin_btn_food.setObjectName(u"admin_btn_food")
-        self.admin_btn_food.setGeometry(QRect(860, 563, 101, 24))
+        self.admin_btn_food.setGeometry(QRect(850, 563, 111, 24))
         self.admin_btn_food.setCursor(QCursor(Qt.PointingHandCursor))
+        self.admin_btn_food.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.stackedWidget.addWidget(self.adminpage)
         self.page = QWidget()
         self.page.setObjectName(u"page")
@@ -1741,9 +1743,9 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
-        # self.home_btn_chatgroup.clicked.connect(lambda: MainWindow.openDialog("GroupAddDialog"))
+        self.home_btn_chatgroup.clicked.connect(MainWindow.openDialog)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1843,10 +1845,10 @@ class Ui_MainWindow(object):
         self.signup_input_phone.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Phone", None))
         self.signup_input_email.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email", None))
         self.signup_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.signup_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u"\uc778\uc0ac", None))
-        self.signup_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u"\ub124\ud2b8\uc6cc\ud06c", None))
-        self.signup_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u"\uacbd\uc601\uc9c0\uc6d0", None))
-        self.signup_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u"\uc5f0\uad6c\uac1c\ubc1c", None))
+        self.signup_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u" 1\ud300", None))
+        self.signup_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u" 2\ud300", None))
+        self.signup_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u" 3\ud300", None))
+        self.signup_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u" \uc194\ub8e8\uc158\ud300", None))
 
         self.signup_combo_dept.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
         self.signup_combo_position.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
