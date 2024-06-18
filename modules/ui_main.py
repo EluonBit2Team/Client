@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainidEgDr.ui'
+## Form generated from reading UI file 'mainHmnFXn.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1235,7 +1235,7 @@ class Ui_MainWindow(object):
         self.home_label_chatback.setGeometry(QRect(190, 20, 771, 491))
         self.home_label_chatback.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
 "border-radius: 10px;\n"
-"border: 1px solid #3498db;")
+"")
         self.home_label_left1back = QLabel(self.home)
         self.home_label_left1back.setObjectName(u"home_label_left1back")
         self.home_label_left1back.setGeometry(QRect(20, 20, 151, 181))
@@ -1287,11 +1287,11 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;")
         self.home_lineedit_chatlist_send = QLineEdit(self.home)
         self.home_lineedit_chatlist_send.setObjectName(u"home_lineedit_chatlist_send")
-        self.home_lineedit_chatlist_send.setGeometry(QRect(190, 521, 711, 41))
-        self.home_lineedit_chatlist_send.setStyleSheet(u"border: 1px solid #FFFF00;\n"
+        self.home_lineedit_chatlist_send.setGeometry(QRect(190, 519, 711, 41))
+        self.home_lineedit_chatlist_send.setStyleSheet(u"border: 1px solid #497AA3;\n"
 "border-radius: 10px;\n"
 "padding-left: 30px; /* \uc67c\ucabd \uacf5\ubc31 */\n"
-"\n"
+"background-color: rgb(33, 37, 43);\n"
 "font: 600 \"Segoe UI Variable Small Semibol\";\n"
 "font-size: 13px; /* \ud3f0\ud2b8 \ud06c\uae30 */\n"
 "color: rgb(255, 255, 255); /* \ud14d\uc2a4\ud2b8 \uc0c9\uc0c1 */")
@@ -1741,7 +1741,7 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
-        self.home_btn_chatgroup.clicked.connect(lambda: MainWindow.openDialog("GroupAddDialog"))
+        self.home_btn_chatgroup.clicked.connect(MainWindow.openDialog)
 
         self.stackedWidget.setCurrentIndex(1)
 
