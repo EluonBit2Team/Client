@@ -76,7 +76,7 @@ QPushButton#dialog_btn_exit:pressed {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-radius: 10px;
+    <string notr="true">border-radius: 0px;
 border-bottom: 1px solid #3498db;</string>
    </property>
    <property name="text">

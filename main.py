@@ -29,7 +29,7 @@ from modules.ui_initialization import *
 from modules.send_packet import *
 from modules.receive_socket import *
 from modules import *
-from modules.ui_notice_dlg import *
+from modules.ui_noticedlg_function import *
 from modules.ui_fooddlg_function import *
 from modules.ui_groupadddlg_function import *
 from modules.calldlg_function import *
@@ -100,7 +100,6 @@ class MainWindow(QMainWindow):
         widgets.admin_btn_food.clicked.connect(self.show_food_dialog) # 오늘의 식단 버튼
         widgets.login_btn_call.clicked.connect(self.show_call_dialog) # 로그인 페이지의 전화 버튼
         widgets.login_btn_mail.clicked.connect(self.send_mail_btn) # 로그인 페이지의 메일 버튼
-
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():

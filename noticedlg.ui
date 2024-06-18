@@ -30,6 +30,24 @@ QPushButton#dialog_btn_exit:hover {
 
 QPushButton#dialog_btn_exit:pressed {
     background-color: rgba(25, 25, 112, 1);
+}
+
+QPushButton#dialog_btn_reset {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+
+QPushButton#dialog_btn_reset:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#dialog_btn_reset:pressed {
+    background-color: rgba(25, 25, 112, 1);
 }</string>
   </property>
   <widget class="QLabel" name="dialog_label_top_line">
@@ -42,7 +60,7 @@ QPushButton#dialog_btn_exit:pressed {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-radius: 10px;
+    <string notr="true">border-radius: 0px;
 border-bottom: 1px solid #3498db;</string>
    </property>
    <property name="text">
@@ -85,9 +103,9 @@ color: rgb(232, 232, 232);</string>
   <widget class="QPushButton" name="dialog_btn_exit">
    <property name="geometry">
     <rect>
-     <x>4</x>
+     <x>534</x>
      <y>430</y>
-     <width>631</width>
+     <width>101</width>
      <height>31</height>
     </rect>
    </property>
@@ -119,11 +137,32 @@ color: rgb(231, 231, 231);
 font: 600 15pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="dialog_btn_reset">
+   <property name="geometry">
+    <rect>
+     <x>424</x>
+     <y>430</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
+border: 1px solid white;
+color: rgb(232, 232, 232);
+
+</string>
+   </property>
+   <property name="text">
+    <string>초기화</string>
+   </property>
+  </widget>
   <zorder>dialog_label_back</zorder>
   <zorder>dialog_label_top_line</zorder>
   <zorder>dialog_label_title</zorder>
   <zorder>dialog_btn_exit</zorder>
   <zorder>dialog_listview_notice</zorder>
+  <zorder>dialog_btn_reset</zorder>
  </widget>
  <resources/>
  <connections/>
