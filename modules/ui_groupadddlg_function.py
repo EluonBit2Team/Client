@@ -16,17 +16,16 @@ class GroupAddDialog(QDialog, Ui_Dialog):
         self.ui.setupUi(self)
         self.main_window = main_window
         self.dialog_edit_chattitle = self.findChild(QLineEdit, "dialog_edit_chattitle")
-        self.ui.dialog_btn_submit.clicked.connect(self.sendGroupReq)
         
     def sendGroupReq(self):
-        self.sock = SendPacket(self.main_window.socket)
+        self.sock = self.main_window.socket
         self.userid = self.main_window.username
         self.groupname = self.dialog_edit_chattitle.text()
         try:
             msg = {
                 "type": 4,
-                "id": "idid2",
-                "groupname": "그룹이름",
+                "id": self.main_window.username,
+                "groupname": self.groupname,
                 "message": "이러저러한 이유로 이러저러한 방을 요청합니다."
             }
             json_msg = json.dumps(msg, ensure_ascii=False)
