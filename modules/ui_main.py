@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainbRsCcf.ui'
+## Form generated from reading UI file 'mainYXXvgW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-
+from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1370,23 +1368,8 @@ class Ui_MainWindow(object):
 "")
         self.admin_label_rightback1 = QLabel(self.adminpage)
         self.admin_label_rightback1.setObjectName(u"admin_label_rightback1")
-        self.admin_label_rightback1.setGeometry(QRect(420, 20, 261, 261))
+        self.admin_label_rightback1.setGeometry(QRect(420, 20, 541, 541))
         self.admin_label_rightback1.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-radius: 10px;")
-        self.admin_label_rightback2 = QLabel(self.adminpage)
-        self.admin_label_rightback2.setObjectName(u"admin_label_rightback2")
-        self.admin_label_rightback2.setGeometry(QRect(700, 20, 261, 261))
-        self.admin_label_rightback2.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-radius: 10px;")
-        self.admin_label_rightback3 = QLabel(self.adminpage)
-        self.admin_label_rightback3.setObjectName(u"admin_label_rightback3")
-        self.admin_label_rightback3.setGeometry(QRect(420, 300, 261, 261))
-        self.admin_label_rightback3.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-radius: 10px;")
-        self.admin_label_rightback4 = QLabel(self.adminpage)
-        self.admin_label_rightback4.setObjectName(u"admin_label_rightback4")
-        self.admin_label_rightback4.setGeometry(QRect(700, 300, 261, 261))
-        self.admin_label_rightback4.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
 "border-radius: 10px;")
         self.admin_listView_status = QListView(self.adminpage)
         self.admin_listView_status.setObjectName(u"admin_listView_status")
@@ -1404,15 +1387,15 @@ class Ui_MainWindow(object):
         self.admin_label_memnum.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_memstatus = QLabel(self.adminpage)
         self.admin_label_memstatus.setObjectName(u"admin_label_memstatus")
-        self.admin_label_memstatus.setGeometry(QRect(720, 40, 71, 21))
+        self.admin_label_memstatus.setGeometry(QRect(620, 40, 71, 21))
         self.admin_label_memstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_diskstatus = QLabel(self.adminpage)
         self.admin_label_diskstatus.setObjectName(u"admin_label_diskstatus")
-        self.admin_label_diskstatus.setGeometry(QRect(440, 320, 71, 21))
+        self.admin_label_diskstatus.setGeometry(QRect(530, 40, 71, 21))
         self.admin_label_diskstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_tpsstatus = QLabel(self.adminpage)
         self.admin_label_tpsstatus.setObjectName(u"admin_label_tpsstatus")
-        self.admin_label_tpsstatus.setGeometry(QRect(720, 320, 71, 21))
+        self.admin_label_tpsstatus.setGeometry(QRect(710, 40, 71, 21))
         self.admin_label_tpsstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_btn_accept = QPushButton(self.adminpage)
         self.admin_btn_accept.setObjectName(u"admin_btn_accept")
@@ -1427,35 +1410,18 @@ class Ui_MainWindow(object):
         self.admin_btn_reject.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
 "border: 1px solid white;\n"
 "")
-        self.admin_label_rightback1_1 = QLabel(self.adminpage)
-        self.admin_label_rightback1_1.setObjectName(u"admin_label_rightback1_1")
-        self.admin_label_rightback1_1.setGeometry(QRect(440, 80, 221, 181))
-        self.admin_label_rightback1_1.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.admin_label_rightback2_2 = QLabel(self.adminpage)
-        self.admin_label_rightback2_2.setObjectName(u"admin_label_rightback2_2")
-        self.admin_label_rightback2_2.setGeometry(QRect(720, 80, 221, 181))
-        self.admin_label_rightback2_2.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.admin_label_rightback3_3 = QLabel(self.adminpage)
-        self.admin_label_rightback3_3.setObjectName(u"admin_label_rightback3_3")
-        self.admin_label_rightback3_3.setGeometry(QRect(440, 360, 221, 181))
-        self.admin_label_rightback3_3.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.admin_label_rightback4_4 = QLabel(self.adminpage)
-        self.admin_label_rightback4_4.setObjectName(u"admin_label_rightback4_4")
-        self.admin_label_rightback4_4.setGeometry(QRect(720, 360, 221, 181))
-        self.admin_label_rightback4_4.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
         self.admin_btn_food = QPushButton(self.adminpage)
         self.admin_btn_food.setObjectName(u"admin_btn_food")
         self.admin_btn_food.setGeometry(QRect(850, 563, 111, 24))
         self.admin_btn_food.setCursor(QCursor(Qt.PointingHandCursor))
         self.admin_btn_food.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.admin_webEn_acmember = QWebEngineView(self.adminpage)
+        self.admin_webEn_acmember.setObjectName(u"admin_webEn_acmember")
+        self.admin_webEn_acmember.setGeometry(QRect(440, 70, 501, 471))
+        self.admin_webEn_acmember.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.admin_webEn_acmember.setUrl(QUrl(u"about:blank"))
         self.stackedWidget.addWidget(self.adminpage)
         self.page = QWidget()
         self.page.setObjectName(u"page")
@@ -1824,9 +1790,6 @@ class Ui_MainWindow(object):
         self.home_btn_right.setText("")
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
-        self.admin_label_rightback2.setText("")
-        self.admin_label_rightback3.setText("")
-        self.admin_label_rightback4.setText("")
         self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))
         self.admin_label_memnum.setText(QCoreApplication.translate("MainWindow", u"\uc811\uc18d\uc790 \uc218", None))
         self.admin_label_memstatus.setText(QCoreApplication.translate("MainWindow", u"MEM \uc0c1\ud0dc", None))
@@ -1834,10 +1797,6 @@ class Ui_MainWindow(object):
         self.admin_label_tpsstatus.setText(QCoreApplication.translate("MainWindow", u"TPS \uc0c1\ud0dc", None))
         self.admin_btn_accept.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub77d", None))
         self.admin_btn_reject.setText(QCoreApplication.translate("MainWindow", u"\uac70\uc808", None))
-        self.admin_label_rightback1_1.setText("")
-        self.admin_label_rightback2_2.setText("")
-        self.admin_label_rightback3_3.setText("")
-        self.admin_label_rightback4_4.setText("")
         self.admin_btn_food.setText(QCoreApplication.translate("MainWindow", u"\uc624\ub298\uc758 \uc2dd\ub2e8 \ubcf4\uae30", None))
         self.signup_label_back.setText("")
         self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))

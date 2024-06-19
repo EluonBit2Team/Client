@@ -37,6 +37,7 @@ from modules.mail_function import *
 from modules.ui_adminpage_function import *
 from widgets import *
 
+
 SERVER_ADDR = "192.168.0.253"
 # SERVER_ADDR = "127.0.0.1"
 SERVER_PORT = 3335
@@ -233,10 +234,13 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.home)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW WIDGETS PAGE
+        # SHOW ADMIN PAGE
         if btnName == "btn_admin":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+            # GrafanaDashboard 설정
+            grafana_dashboard = GrafanaDashboard(self)
+            grafana_dashboard.setup_dashboard()
 
         # SHOW LOGIN PAGE
         if (btnName == "btn_login") or (btnName == "signup_btn_back"):
@@ -296,13 +300,16 @@ class MainWindow(QMainWindow):
         
     def receiveData(self):
         self.packetReceiver.receiveData(self.socket)
-    
 
     def start_receiving(self):
         self.running = True
         receive_thread = threading.Thread(target=self.receiveData)
         receive_thread.daemon = True
         receive_thread.start()
+    
+
+
+
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
@@ -319,5 +326,5 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
-    
+
     sys.exit(app.exec())
