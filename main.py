@@ -157,7 +157,6 @@ class MainWindow(QMainWindow):
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
         self.groupDialog = GroupAddDialog(self)
-        self.adminpage2 = MailFunctionWindow(self)
         
         #connect socket
         try:    
