@@ -19,8 +19,3 @@ class MailFunctionWindow(QMainWindow):
         QDesktopServices.openUrl(QUrl(mailto_link))
 
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    mainWindow = MailFunctionWindow()
-    mainWindow.show()
-    sys.exit(app.exec_())

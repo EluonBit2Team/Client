@@ -2519,59 +2519,8 @@ border: 1px solid #3498db;
                         <rect>
                          <x>420</x>
                          <y>20</y>
-                         <width>261</width>
-                         <height>261</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);
-border-radius: 10px;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="admin_label_rightback2">
-                       <property name="geometry">
-                        <rect>
-                         <x>700</x>
-                         <y>20</y>
-                         <width>261</width>
-                         <height>261</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);
-border-radius: 10px;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="admin_label_rightback3">
-                       <property name="geometry">
-                        <rect>
-                         <x>420</x>
-                         <y>300</y>
-                         <width>261</width>
-                         <height>261</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(33, 37, 43);
-border-radius: 10px;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="admin_label_rightback4">
-                       <property name="geometry">
-                        <rect>
-                         <x>700</x>
-                         <y>300</y>
-                         <width>261</width>
-                         <height>261</height>
+                         <width>541</width>
+                         <height>541</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2632,7 +2581,7 @@ border-bottom-right-radius: 10px;</string>
                       <widget class="QLabel" name="admin_label_memstatus">
                        <property name="geometry">
                         <rect>
-                         <x>720</x>
+                         <x>620</x>
                          <y>40</y>
                          <width>71</width>
                          <height>21</height>
@@ -2648,8 +2597,8 @@ border-bottom-right-radius: 10px;</string>
                       <widget class="QLabel" name="admin_label_diskstatus">
                        <property name="geometry">
                         <rect>
-                         <x>440</x>
-                         <y>320</y>
+                         <x>530</x>
+                         <y>40</y>
                          <width>71</width>
                          <height>21</height>
                         </rect>
@@ -2664,8 +2613,8 @@ border-bottom-right-radius: 10px;</string>
                       <widget class="QLabel" name="admin_label_tpsstatus">
                        <property name="geometry">
                         <rect>
-                         <x>720</x>
-                         <y>320</y>
+                         <x>710</x>
+                         <y>40</y>
                          <width>71</width>
                          <height>21</height>
                         </rect>
@@ -2718,78 +2667,6 @@ border: 1px solid white;
                         <string>거절</string>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="admin_label_rightback1_1">
-                       <property name="geometry">
-                        <rect>
-                         <x>440</x>
-                         <y>80</y>
-                         <width>221</width>
-                         <height>181</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="admin_label_rightback2_2">
-                       <property name="geometry">
-                        <rect>
-                         <x>720</x>
-                         <y>80</y>
-                         <width>221</width>
-                         <height>181</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="admin_label_rightback3_3">
-                       <property name="geometry">
-                        <rect>
-                         <x>440</x>
-                         <y>360</y>
-                         <width>221</width>
-                         <height>181</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="admin_label_rightback4_4">
-                       <property name="geometry">
-                        <rect>
-                         <x>720</x>
-                         <y>360</y>
-                         <width>221</width>
-                         <height>181</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
                       <widget class="QPushButton" name="admin_btn_food">
                        <property name="geometry">
                         <rect>
@@ -2807,6 +2684,26 @@ border-bottom-right-radius: 10px;</string>
                        </property>
                        <property name="text">
                         <string>오늘의 식단 보기</string>
+                       </property>
+                      </widget>
+                      <widget class="QWebEngineView" name="admin_webEn_acmember">
+                       <property name="geometry">
+                        <rect>
+                         <x>440</x>
+                         <y>70</y>
+                         <width>501</width>
+                         <height>471</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(31, 35, 41);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;</string>
+                       </property>
+                       <property name="url">
+                        <url>
+                         <string>about:blank</string>
+                        </url>
                        </property>
                       </widget>
                      </widget>
@@ -3488,6 +3385,13 @@ border:none;
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="resources.qrc"/>
  </resources>

@@ -11,7 +11,7 @@
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-
+from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
 
 class Ui_MainWindow(object):
