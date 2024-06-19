@@ -62,6 +62,7 @@ class MainWindow(QMainWindow):
 
         #widgets initialize
         initialize_widgets(self)
+        initialize_variable(self)
         
         #hide menu
         # self.btn_home.hide()
@@ -135,11 +136,8 @@ class MainWindow(QMainWindow):
             # SET HACKS
             AppFunctions.setThemeHack(self)
 
-        # SET HOME PAGE AND SELECT MENU
-        # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
-        
         
         delegate = CustomDelegate(self.home_listview_chatlist)
         self.home_listview_chatlist.setItemDelegate(delegate)
@@ -147,7 +145,13 @@ class MainWindow(QMainWindow):
         self.chatListModel = QStandardItemModel(self.home_listview_chatlist)
         self.home_listview_chatlist.setModel(self.chatListModel)
         
-        self.username = None
+        self.groupListModel = QStandardItemModel(self.home_listview_chatgroup)
+        self.home_listview_chatgroup.setModel(self.groupListModel)
+        
+        self.userListModel = QStandardItemModel(self.home_listview_status)
+        self.home_listview_status.setModel(self.userListModel)
+        
+        self.userId = None
         self.socket = None
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
@@ -162,7 +166,8 @@ class MainWindow(QMainWindow):
         
         self.start_receiving()
         
-        #self.packetSender.reqUserList(self.socket)
+        # self.packetSender.reqUserList(self.socket)
+        # self.packetSender.reqGroupList(self.socket)
 
     # 약관체크버튼
     def toggleButton(self, state):
@@ -212,6 +217,9 @@ class MainWindow(QMainWindow):
     # 오늘의 식단 보기 함수
     def todaylunch(self):
         self.show_notice_dialog()
+        
+    # SET HOME PAGE AND SELECT MENU
+    # ///////////////////////////////////////////////////////////////
 
     def buttonClick(self):
         # GET BUTTON CLICKED
@@ -251,9 +259,29 @@ class MainWindow(QMainWindow):
         item=QStandardItem(message)
         item.setData(messageType, Qt.ItemDataRole.UserRole + 1)
         self.chatListModel.appendRow(item)
-        # self.chatList.append(message)
-        # self.chatListModel.setStringList(self.chatList)
         self.home_listview_chatlist.scrollToBottom()
+    
+    def updateDisplay(self, list, model):
+        print("updateGroupDisplay 진입함")
+        print(list)
+        if model == "grouplist":
+            for i in list:
+                item=QStandardItem(i)
+                self.groupListModel.appendRow(item)
+        elif model == "userlist":
+            # names = []
+            # positions = []
+            # departments = []
+            # for item in list:
+            #     names.append(item['name'])
+            #     positions.append(item['position'])
+            #     departments.append(item['dept_name'])
+            
+            for item in list:
+                makeRow = item['dept_name'] + ' ' + item['position'] + ' ' + item['name']
+                userRow = QStandardItem(makeRow)
+                self.userListModel.appendRow(userRow)
+            
 
     def loginRequest(self):
         self.packetSender.loginRequest(self.socket)
@@ -267,6 +295,7 @@ class MainWindow(QMainWindow):
         
     def receiveData(self):
         self.packetReceiver.receiveData(self.socket)
+    
 
     def start_receiving(self):
         self.running = True

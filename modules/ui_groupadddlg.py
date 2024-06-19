@@ -111,6 +111,7 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
         self.dialog_edit_chattitle.returnPressed.connect(self.dialog_btn_submit.click)
+        self.dialog_edit_issue
         self.dialog_btn_submit.clicked.connect(Dialog.sendGroupReq)
 
         QMetaObject.connectSlotsByName(Dialog)

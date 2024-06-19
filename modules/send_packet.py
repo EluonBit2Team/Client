@@ -17,41 +17,36 @@ class SendPacket:
             self.main_window.socket.settimeout(5)
             self.main_window.socket.connect((addr, port))
             self.main_window.socket.setblocking(False)
-            connectionSuccessEvent()
-        except socket.error as e:
-            print(f"Socket connection error: {e}")
-            connectionErrorEvent()
+            return True
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
 
     def loginRequest(self, socket):
-        self.sock = socket
-        self.loginId = self.main_window.login_input_id.text()
-        loginPw = self.main_window.login_input_pw.text()
+        # self.loginId = self.main_window.login_input_id.text()
+        # loginPw = self.main_window.login_input_pw.text()
+        self.loginId = "login_id1"
+        loginPw = "password1"
         try:
-            # msg = {
-            #     "type": 2,
-            #     "id": self.loginId,
-            #     "pw": loginPw
-            # }
             msg = {
                 "type": 2,
-                "id": "login_id1",
-                "pw": "password1"
+                "id": self.loginId,
+                "pw": loginPw
             }
             packet = jsonParser(msg)
 
-            if self.sock and msg:
-                self.sock.sendall(packet)
+            if socket and msg:
+                socket.sendall(packet)
 
             self.main_window.btn_home.show()
             self.main_window.btn_admin.show()
             self.main_window.btn_notice.show()
-            return self.loginId
+            return True
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
         
     def signUpRequest(self, socket):
-        self.sock = socket
         self.signupId = self.main_window.signup_input_id.text()
         self.signupPw = self.main_window.signup_input_pw.text()
         self.signupName = self.main_window.signup_input_name.text()
@@ -70,9 +65,9 @@ class SendPacket:
             #             "dept": self.signupDept,
             #             "pos": self.signupPosition}
             msg = {"type": 1,
-                        "id": "idid10", 
+                        "id": "idid14", 
                         "pw": "pwpw6",
-                        "name": "아이디십",
+                        "name": "아이디십삼",
                         "phone": "폰번",
                         "email": "이메일팔",
                         "dept": 1,
@@ -81,8 +76,8 @@ class SendPacket:
             
             print(packet)
         
-            if self.sock and msg:
-                self.sock.sendall(packet)
+            if socket and msg:
+                socket.sendall(packet)
             
             QMessageBox.information(self.main_window, "SignUp", "id: " + self.signupId + '\n'
                                                 "pw: " + self.signupPw + '\n'
@@ -97,7 +92,6 @@ class SendPacket:
             return False
     
     def sendMsg(self, socket):
-        self.sock = socket
         self.msgText = self.main_window.home_lineedit_chatlist_send.text()
         self.loginId = "eluon"
         self.groupName = "채팅방 1"
@@ -109,8 +103,8 @@ class SendPacket:
             
             packet = jsonParser(msg)
         
-            if self.sock and msg:
-                self.sock.sendall(packet)
+            if socket and msg:
+                socket.sendall(packet)
                 
             self.main_window.updateMsgDisplay(self.msgText, "sent")
             
@@ -120,8 +114,6 @@ class SendPacket:
             return False
     
     def reqUserList(self, socket):
-        print("유저요청메소드 실행")
-        self.sock = socket
         try:
             msg = {"type": 5,
                     "page": self.page}
@@ -129,9 +121,29 @@ class SendPacket:
             print(self.page)
             packet = jsonParser(msg)
         
-            if self.sock and msg:
-                self.sock.sendall(packet)
+            if socket and msg:
+                socket.sendall(packet)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
+    
+    def reqGroupList(self, socket):
+        try:
+            msg = {"type": 6}
+            packet = jsonParser(msg)
+            if socket and msg:
+                socket.sendall(packet)
             print("메세지 보냄")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
+    
+    def reqAddMember(self, socket):
+        try:
+            msg = {
+	                "type": 7,
+	                "groupname": "groupname1",
+	                "username" : "초대할 유저 이름(일반유저)"}
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
@@ -145,9 +157,6 @@ class SendPacket:
         self.reqUserList(socket)
             
         
-        
-        
-
 def jsonParser(msg):
     json_msg = json.dumps(msg, ensure_ascii=False)
     byte_json_msg = bytes(json_msg, 'utf-8')

@@ -19,12 +19,12 @@ class GroupAddDialog(QDialog, Ui_Dialog):
         
     def sendGroupReq(self):
         self.sock = self.main_window.socket
-        self.userid = self.main_window.username
+        self.userId = self.main_window.userId
         self.groupname = self.dialog_edit_chattitle.text()
         try:
             msg = {
                 "type": 4,
-                "id": self.main_window.username,
+                "id": self.userId,
                 "groupname": self.groupname,
                 "message": "이러저러한 이유로 이러저러한 방을 요청합니다."
             }

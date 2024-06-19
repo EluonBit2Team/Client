@@ -3,11 +3,14 @@ import struct
 import select
 from PySide6.QtWidgets import QMessageBox
 from modules.util import *
+from modules.send_packet import *
 
-TYPE_LOGIN = 101
+TYPE_LOGIN = 2
 TYPE_MESSAGE = 0
 TYPE_USERLIST = 5
+TYPE_GROUPLIST = 6
 TYPE_ERROR = 100
+
 
 class ReceivePacket():
     def __init__(self, main_window):
@@ -26,23 +29,16 @@ class ReceivePacket():
                         data = self.sock.recv(4096)
                         if data:
                             buffer += data
+                            print("--------- RAW DATA ---------")
                             print(data)
+                            print("----------------------------")
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
                                 if len(buffer) >= msg_length - 4:
                                     json_msg = buffer[4:4 + msg_length]
                                     buffer = buffer[4 + msg_length:]
-                                    # self.message = json.loads(json_msg.decode('utf-8')).get("text")
-                                    # self.main_window.updateMsgDisplay(self.message, "received")
-                                    message_dict = json.loads(json_msg.decode('utf-8'))
-                                    type = message_dict.get("type")
-                                
-                                    if type is not None:
-                                        print("타입: " + str(type))
-                                        self.receivedType(type, json_msg)
-                                        print(json_msg)
-                                    else:
-                                        print("타입이 없습니다.")
+                                    json_type = json.loads(json_msg).get("type")
+                                    self.receivedType(json_type, json_msg)
                                 else:
                                     break
             except BlockingIOError:
@@ -50,6 +46,15 @@ class ReceivePacket():
             except Exception as e:
                 print(f"An error occurred: {e}")
                 self.running = False
+    
+    def loginSuccess(self, msg):
+        successMsg = json.loads(msg.decode('utf-8')).get("msg")
+        userId = json.loads(msg.decode('utf-8')).get("id")
+        print(successMsg)
+        print("id: " + userId)
+        self.main_window.userId = userId
+        self.main_window.packetSender.reqGroupList(self.main_window.socket)
+        self.main_window.packetSender.reqUserList(self.main_window.socket)
     
     def receiveMassage(self, msg):
         self.receivedMessage = json.loads(msg.decode('utf-8')).get("text")
@@ -60,27 +65,28 @@ class ReceivePacket():
         print(msg)
         userList = json.loads(msg.decode('utf-8')).get("users")
         print(userList)
+        self.main_window.updateDisplay(userList, "userlist")
     
-    def loginSuccess(self, msg):
-        print(msg)
-        successMsg = json.loads(msg.decode('utf-8')).get("msg")
-        print(successMsg)
-    
+    def receiveGroupList(self, msg):
+        self.groupList = json.loads(msg.decode('utf-8')).get("groups")
+        print(self.groupList)
+        self.main_window.updateDisplay(self.groupList, "grouplist")
+        
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
         print(errorMsg)
         
-    def receivedType(self, type, msg):
-        self.type = type
-        type(self.type)
-        print("self.type의 값")
-        print(self.type)
-        if self.type == TYPE_LOGIN:
-            self.receiveMassage(msg)
-        elif self.type == TYPE_USERLIST:
+    def receivedType(self, jsonType, msg):
+        if jsonType == TYPE_LOGIN:
+            self.loginSuccess(msg)
+        elif jsonType == TYPE_USERLIST:
             self.receiveUserList(msg)
-        elif self.type == TYPE_MESSAGE:
+        elif jsonType == TYPE_MESSAGE:
             self.receiveMassage(msg)
+        elif jsonType == TYPE_ERROR:
+            self.receiveError(msg)
+        elif jsonType == TYPE_GROUPLIST:
+            self.receiveGroupList(msg)
         else:
-            print("self.type이 None입니다.")
+            print("jsonType이 None입니다.")
             
