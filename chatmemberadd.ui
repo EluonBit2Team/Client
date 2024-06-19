@@ -13,7 +13,44 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
+  <property name="styleSheet">
+   <string notr="true">QPushButton#dialog_btn_exit {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+
+QPushButton#dialog_btn_exit:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#dialog_btn_exit:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}
+
+QPushButton#dialog_btn_send {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+
+QPushButton#dialog_btn_send:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#dialog_btn_send:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}</string>
+  </property>
+  <widget class="QLabel" name="dialog_label_back">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -29,7 +66,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="dialog_label_titleback">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -46,24 +83,166 @@ border-bottom: 1px solid #3498db;</string>
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="dialog_label_title">
    <property name="geometry">
     <rect>
      <x>241</x>
-     <y>13</y>
-     <width>151</width>
+     <y>14</y>
+     <width>161</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 600 13pt &quot;Segoe UI Variable Small Semibol&quot;;
+    <string notr="true">font: 600 11pt &quot;Segoe UI Variable Small Semibol&quot;;
 color: rgb(232, 232, 232);</string>
    </property>
    <property name="text">
-    <string>대화상대 초대하기</string>
+    <string>✅대화상대 초대하기</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="dialog_listview_left">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>110</y>
+     <width>231</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(40, 44, 52);
+border-radius: 10px;
+
+</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="dialog_listview_right">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>110</y>
+     <width>231</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(40, 44, 52);
+border-radius: 10px;
+
+</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dialog_label_lefttitle">
+   <property name="geometry">
+    <rect>
+     <x>103</x>
+     <y>82</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;
+color: rgb(232, 232, 232);</string>
+   </property>
+   <property name="text">
+    <string>🧑‍💻 유저 상태 목록</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dialog_label_righttitle">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>82</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;
+color: rgb(232, 232, 232);</string>
+   </property>
+   <property name="text">
+    <string>✅ 초대하기</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dialog_label_center">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>140</y>
+     <width>48</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/images/images/right.png);
+background-repeat: no-repeat;
+background-position: center;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dialog_btn_send">
+   <property name="geometry">
+    <rect>
+     <x>505</x>
+     <y>420</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
+border: 1px solid white;
+color: rgb(232, 232, 232);
+</string>
+   </property>
+   <property name="text">
+    <string>전송</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dialog_label_center_2">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>190</y>
+     <width>48</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/images/images/left.png);
+background-repeat: no-repeat;
+background-position: center;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dialog_btn_exit">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>420</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
+border: 1px solid yellow;
+color: rgb(232, 232, 232);
+</string>
+   </property>
+   <property name="text">
+    <string>나가기</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
