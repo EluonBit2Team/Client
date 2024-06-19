@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'groupadddlgjbUZWL.ui'
+## Form generated from reading UI file 'groupadddlgUUpvEc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
 
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -73,7 +72,7 @@ class Ui_Dialog(object):
         self.dialog_btn_submit.setObjectName(u"dialog_btn_submit")
         self.dialog_btn_submit.setGeometry(QRect(286, 254, 81, 31))
         self.dialog_btn_submit.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
-"border: 1px solid lightgreen;\n"
+"border: 1px solid yellow;\n"
 "color: rgb(232, 232, 232);\n"
 "\n"
 "")

@@ -34,6 +34,7 @@ from modules.ui_fooddlg_function import *
 from modules.ui_groupadddlg_function import *
 from modules.calldlg_function import *
 from modules.mail_function import *
+from modules.ui_adminpage_function import *
 from widgets import *
 
 SERVER_ADDR = "192.168.0.253"
@@ -156,6 +157,7 @@ class MainWindow(QMainWindow):
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
         self.groupDialog = GroupAddDialog(self)
+        self.adminpage2 = MailFunctionWindow(self)
         
         #connect socket
         try:    
@@ -302,7 +304,6 @@ class MainWindow(QMainWindow):
         receive_thread = threading.Thread(target=self.receiveData)
         receive_thread.daemon = True
         receive_thread.start()
-
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):
@@ -319,4 +320,11 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
+
+    api_url = 'https://your-grafana-instance.com'
+    api_key = 'your_grafana_api_key'
+
+    grafana_window = GrafanaDataWindow(main_window, api_url, api_key)
+    grafana_window.show()
+    
     sys.exit(app.exec())

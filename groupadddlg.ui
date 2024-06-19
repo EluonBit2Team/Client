@@ -111,7 +111,7 @@ color: rgb(232, 232, 232);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
-border: 1px solid lightgreen;
+border: 1px solid yellow;
 color: rgb(232, 232, 232);
 
 </string>
