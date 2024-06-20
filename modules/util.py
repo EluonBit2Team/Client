@@ -6,6 +6,15 @@ from widgets import *
 from PySide6.QtWidgets import QMainWindow
 
 
+SERVER_ADDR = "192.168.0.253"
+SERVER_PORT = 3335
+TYPE_LOGIN = 2
+TYPE_MESSAGE = 0
+TYPE_USERLIST = 5
+TYPE_GROUPLIST = 6
+TYPE_ERROR = 100
+
+
 class CustomDelegate(QStyledItemDelegate):
     def paint(self, painter, option, index):
         painter.save()

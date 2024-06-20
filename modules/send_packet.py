@@ -4,7 +4,6 @@ import socket
 from PySide6.QtWidgets import QMessageBox
 from modules.util import *
 
-
 class SendPacket:
     def __init__(self, main_window):
         self.main_window = main_window
@@ -25,11 +24,11 @@ class SendPacket:
     def loginRequest(self, socket):
         # self.loginId = self.main_window.login_input_id.text()
         # loginPw = self.main_window.login_input_pw.text()
-        self.loginId = "login_id1"
-        loginPw = "password1"
+        self.loginId = "login_id2"
+        loginPw = "password2"
         try:
             msg = {
-                "type": 2,
+                "type": TYPE_LOGIN,
                 "id": self.loginId,
                 "pw": loginPw
             }
@@ -96,7 +95,7 @@ class SendPacket:
         self.loginId = "eluon"
         self.groupName = "채팅방 1"
         try:
-            msg = {"type": 0,
+            msg = {"type": TYPE_MESSAGE,
                    "id": self.loginId,
                    "groupname": self.groupName,
                    "text": self.msgText}
@@ -115,7 +114,7 @@ class SendPacket:
     
     def reqUserList(self, socket):
         try:
-            msg = {"type": 5,
+            msg = {"type": TYPE_USERLIST,
                     "page": self.page}
             print("요청된 페이지")
             print(self.page)
@@ -129,7 +128,7 @@ class SendPacket:
     
     def reqGroupList(self, socket):
         try:
-            msg = {"type": 6}
+            msg = {"type": TYPE_GROUPLIST}
             packet = jsonParser(msg)
             if socket and msg:
                 socket.sendall(packet)
@@ -155,6 +154,18 @@ class SendPacket:
             self.page - 1
         print(self.page)
         self.reqUserList(socket)
+    
+    def testDataSender(self, socket):
+        print("type: 8 보냄")
+        try:
+            msg = {"type": 8}
+            packet = jsonParser(msg)
+            if socket and msg:
+                socket.sendall(packet)
+            print(msg)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
             
         
 def jsonParser(msg):

@@ -39,11 +39,6 @@ from modules.ui_adminpage_function import *
 from widgets import *
 
 
-SERVER_ADDR = "192.168.0.253"
-# SERVER_ADDR = "127.0.0.1"
-SERVER_PORT = 3335
-
-
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
 
 
@@ -100,6 +95,7 @@ class MainWindow(QMainWindow):
         widgets.btn_admin.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
         widgets.btn_notice.clicked.connect(self.buttonClick)
+        widgets.btn_exit.clicked.connect(self.buttonClick)
         widgets.home_btn_chatlist_send.clicked.connect(self.handleSendButtonClick) # 전송 버튼
         widgets.admin_btn_food.clicked.connect(self.show_food_dialog) # 오늘의 식단 버튼
         widgets.login_btn_call.clicked.connect(self.show_call_dialog) # 로그인 페이지의 전화 버튼
@@ -259,6 +255,10 @@ class MainWindow(QMainWindow):
         if btnName == "btn_notice":
             # 버튼 클릭 시 다이얼로그 호출
             self.show_notice_dialog()
+        
+        if btnName == "btn_exit":
+            self.packetSender.testDataSender(self.socket)
+            
 
         
         # PRINT BTN NAME

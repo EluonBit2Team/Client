@@ -5,13 +5,6 @@ from PySide6.QtWidgets import QMessageBox
 from modules.util import *
 from modules.send_packet import *
 
-TYPE_LOGIN = 2
-TYPE_MESSAGE = 0
-TYPE_USERLIST = 5
-TYPE_GROUPLIST = 6
-TYPE_ERROR = 100
-
-
 class ReceivePacket():
     def __init__(self, main_window):
         self.main_window = main_window
