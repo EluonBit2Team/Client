@@ -31,9 +31,3 @@ class CustomDialog(QDialog):
     def close_dialog(self):
         self.accept()  # 다이얼로그 닫기
 
-if __name__ == '__main__':
-    import sys
-    app = QApplication(sys.argv)
-    dialog = CustomDialog()
-    dialog.show()
-    sys.exit(app.exec_())
