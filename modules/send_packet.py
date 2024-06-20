@@ -137,12 +137,26 @@ class SendPacket:
             print(f"An error occurred: {e}")
             return False
     
-    def reqAddMember(self, socket):
+    def reqAddGroupMember(self, socket, groupname, userlist):
+        
+        # selectedIndexes = self.main_window.home_listview_chatgroup.selectedIndexes()
+        
+        # if selectedIndexes:
+        #     selectedIndex = selectedIndexes[0]
+        #     groupName = self.main_window.groupListModel.data(selectedIndex, Qt.DisplayRole)
+        
+        
+        # userList = self.main_window.listview_right_model.
+        
         try:
             msg = {
 	                "type": 7,
-	                "groupname": "groupname1",
-	                "username" : "초대할 유저 이름(일반유저)"}
+	                "groupname": groupname,
+	                "id" : userlist}
+            packet = jsonParser(msg)
+            if socket and msg:
+                socket.sendall(packet)
+            print(msg)
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
@@ -156,9 +170,11 @@ class SendPacket:
         self.reqUserList(socket)
     
     def testDataSender(self, socket):
-        print("type: 8 보냄")
+        print("type: 11 보냄")
         try:
-            msg = {"type": 8}
+            msg = {"type": 7,
+                   "groupname": "groupname1",
+                   "id":["login_id2", "login_id3", "login_id4"]}
             packet = jsonParser(msg)
             if socket and msg:
                 socket.sendall(packet)

@@ -2347,23 +2347,6 @@ border:none;
                         <string>채팅 그룹 명</string>
                        </property>
                       </widget>
-                      <widget class="QListView" name="home_listview_status">
-                       <property name="geometry">
-                        <rect>
-                         <x>30</x>
-                         <y>270</y>
-                         <width>131</width>
-                         <height>241</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;
-font: 9pt &quot;맑은 고딕&quot;;
-color: rgb(255, 255, 255);</string>
-                       </property>
-                      </widget>
                       <widget class="QLineEdit" name="home_lineedit_chatlist_send">
                        <property name="geometry">
                         <rect>
@@ -2481,6 +2464,23 @@ border:none;
                        </property>
                        <property name="text">
                         <string/>
+                       </property>
+                      </widget>
+                      <widget class="QTreeView" name="home_treeview_userlist">
+                       <property name="geometry">
+                        <rect>
+                         <x>30</x>
+                         <y>270</y>
+                         <width>131</width>
+                         <height>251</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(31, 35, 41);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+font: 9pt &quot;맑은 고딕&quot;;
+color: rgb(255, 255, 255);</string>
                        </property>
                       </widget>
                      </widget>

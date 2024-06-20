@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainGAOuZG.ui'
+## Form generated from reading UI file 'mainHyThqS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
+
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1280,14 +1282,6 @@ class Ui_MainWindow(object):
         self.home_label_chatlist_title.setObjectName(u"home_label_chatlist_title")
         self.home_label_chatlist_title.setGeometry(QRect(220, 39, 91, 16))
         self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
-        self.home_listview_status = QListView(self.home)
-        self.home_listview_status.setObjectName(u"home_listview_status")
-        self.home_listview_status.setGeometry(QRect(30, 270, 131, 241))
-        self.home_listview_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;\n"
-"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
-"color: rgb(255, 255, 255);")
         self.home_lineedit_chatlist_send = QLineEdit(self.home)
         self.home_lineedit_chatlist_send.setObjectName(u"home_lineedit_chatlist_send")
         self.home_lineedit_chatlist_send.setGeometry(QRect(190, 519, 711, 41))
@@ -1328,11 +1322,19 @@ class Ui_MainWindow(object):
 "")
         self.home_btn_add_member = QPushButton(self.home)
         self.home_btn_add_member.setObjectName(u"home_btn_add_member")
-        self.home_btn_add_member.setGeometry(QRect(919, 34, 31, 24))
+        self.home_btn_add_member.setGeometry(QRect(920, 34, 31, 24))
         self.home_btn_add_member.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_add_member.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-follow.png);\n"
+        self.home_btn_add_member.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-library-add.png);\n"
 "border:none;\n"
 "")
+        self.home_treeview_userlist = QTreeView(self.home)
+        self.home_treeview_userlist.setObjectName(u"home_treeview_userlist")
+        self.home_treeview_userlist.setGeometry(QRect(30, 270, 131, 251))
+        self.home_treeview_userlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;\n"
+"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
+"color: rgb(255, 255, 255);")
         self.stackedWidget.addWidget(self.home)
         self.adminpage = QWidget()
         self.adminpage.setObjectName(u"adminpage")

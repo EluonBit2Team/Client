@@ -147,15 +147,16 @@ class MainWindow(QMainWindow):
         self.groupListModel = QStandardItemModel(self.home_listview_chatgroup)
         self.home_listview_chatgroup.setModel(self.groupListModel)
         
-        self.userListModel = QStandardItemModel(self.home_listview_status)
-        self.home_listview_status.setModel(self.userListModel)
+        self.userListModel = QStandardItemModel(self.home_treeview_userlist)
+        self.home_treeview_userlist.setModel(self.userListModel)
+        self.userListModel.setHorizontalHeaderLabels(["이름", "아이디"])
         
         self.userId = None
         self.socket = None
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
         self.groupDialog = GroupAddDialog(self)
-        self.memberAddDialog = MemberAddDialog(self, self.userListModel)
+        self.memberAddDialog = MemberAddDialog(self)
         
         #connect socket
         try:    
@@ -165,9 +166,6 @@ class MainWindow(QMainWindow):
             connectionErrorEvent()
         
         self.start_receiving()
-        
-        # self.packetSender.reqUserList(self.socket)
-        # self.packetSender.reqGroupList(self.socket)
 
     # 약관체크버튼
     def toggleButton(self, state):
@@ -200,7 +198,7 @@ class MainWindow(QMainWindow):
         if dialogName == "GroupAddDialog":
             dialog = GroupAddDialog(self)
         if dialogName == "MemberAddDialog":
-            dialog = MemberAddDialog(self, self.userListModel)
+            dialog = MemberAddDialog(self)
         elif dialogName == "CustomDialog_food":
             dialog = CustomDialog_food(self)
         dialog.exec()
@@ -264,6 +262,10 @@ class MainWindow(QMainWindow):
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
     
+    def on_item_clicked(self, index):
+        item_text = index.data(Qt.DisplayRole)
+        self.groupname = item_text
+    
     def updateMsgDisplay(self, message, messageType):
         item=QStandardItem(message)
         item.setData(messageType, Qt.ItemDataRole.UserRole + 1)
@@ -271,25 +273,18 @@ class MainWindow(QMainWindow):
         self.home_listview_chatlist.scrollToBottom()
     
     def updateDisplay(self, list, model):
-        print("updateGroupDisplay 진입함")
-        print(list)
         if model == "grouplist":
             for i in list:
                 item=QStandardItem(i)
                 self.groupListModel.appendRow(item)
         elif model == "userlist":
-            # names = []
-            # positions = []
-            # departments = []
-            # for item in list:
-            #     names.append(item['name'])
-            #     positions.append(item['position'])
-            #     departments.append(item['dept_name'])
-            
-            for item in list:
-                makeRow = item['dept_name'] + ' ' + item['position'] + ' ' + item['name']
-                userRow = QStandardItem(makeRow)
-                self.userListModel.appendRow(userRow)
+            for json_data in list:
+                makeRow = json_data['dept_name'] + ' ' + json_data['position'] + ' ' + json_data['name']
+                name_column = QStandardItem(makeRow)
+                id_column = QStandardItem(json_data["id"])
+                name_column.setData(json_data, Qt.UserRole)
+                row=[name_column, id_column]
+                self.userListModel.appendRow(row)
             
 
     def loginRequest(self):
@@ -311,8 +306,6 @@ class MainWindow(QMainWindow):
         receive_thread.daemon = True
         receive_thread.start()
     
-
-
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////

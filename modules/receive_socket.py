@@ -22,9 +22,6 @@ class ReceivePacket():
                         data = self.sock.recv(4096)
                         if data:
                             buffer += data
-                            print("--------- RAW DATA ---------")
-                            print(data)
-                            print("----------------------------")
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
                                 if len(buffer) >= msg_length - 4:
@@ -55,14 +52,11 @@ class ReceivePacket():
         self.main_window.updateMsgDisplay(self.receivedMessage, "received")
     
     def receiveUserList(self, msg):
-        print(msg)
         userList = json.loads(msg.decode('utf-8')).get("users")
-        print(userList)
         self.main_window.updateDisplay(userList, "userlist")
     
     def receiveGroupList(self, msg):
         self.groupList = json.loads(msg.decode('utf-8')).get("groups")
-        print(self.groupList)
         self.main_window.updateDisplay(self.groupList, "grouplist")
         
     def receiveError(self, msg):
@@ -82,4 +76,7 @@ class ReceivePacket():
             self.receiveGroupList(msg)
         else:
             print("jsonType이 None입니다.")
+            print("--------- RAW DATA ---------")
+            print(msg)
+            print("----------------------------")
             

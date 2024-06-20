@@ -110,39 +110,6 @@ color: rgb(232, 232, 232);</string>
     <string>✅대화상대 초대하기</string>
    </property>
   </widget>
-  <widget class="QListView" name="dialog_listview_left">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>110</y>
-     <width>231</width>
-     <height>301</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(40, 44, 52);
-border-radius: 10px;
-font: 9pt &quot;맑은 고딕&quot;;
-color: rgb(255, 255, 255);</string>
-   </property>
-  </widget>
-  <widget class="QListView" name="dialog_listview_right">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>110</y>
-     <width>231</width>
-     <height>301</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(40, 44, 52);
-border-radius: 10px;
-
-font: 9pt &quot;맑은 고딕&quot;;
-color: rgb(255, 255, 255);</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="dialog_label_lefttitle">
    <property name="geometry">
     <rect>
@@ -249,6 +216,38 @@ background-position: center;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QTreeView" name="dialog_treeview_left">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>110</y>
+     <width>231</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(40, 44, 52);
+border-radius: 10px;
+font: 9pt &quot;맑은 고딕&quot;;
+color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QTreeView" name="dialog_treeview_right">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>110</y>
+     <width>231</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(40, 44, 52);
+border-radius: 10px;
+font: 9pt &quot;맑은 고딕&quot;;
+color: rgb(255, 255, 255);</string>
    </property>
   </widget>
  </widget>
