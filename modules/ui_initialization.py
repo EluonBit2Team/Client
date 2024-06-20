@@ -25,6 +25,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_listview_chatgroup = mainWindow.findChild(QListView, "home_listview_chatgroup")
     mainWindow.home_listview_status = mainWindow.findChild(QListView, "home_listview_status")
     mainWindow.home_btn_chatgroup = mainWindow.findChild(QPushButton, "home_btn_chatgroup")
+    mainWindow.home_btn_add_member = mainWindow.findChild(QPushButton, "home_btn_add_member")
     mainWindow.home_btn_right = mainWindow.findChild(QPushButton, "home_btn_right")
     mainWindow.home_btn_left = mainWindow.findChild(QPushButton, "home_btn_left")
 
@@ -37,6 +38,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     
     #매개변수를 가진 버튼
     mainWindow.home_btn_chatgroup.clicked.connect(lambda: mainWindow.openDialog("GroupAddDialog"))
+    mainWindow.home_btn_add_member.clicked.connect(lambda: mainWindow.openDialog("MemberAddDialog"))
 
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupList = []

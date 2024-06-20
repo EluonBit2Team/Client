@@ -97,7 +97,7 @@ border-bottom: 1px solid #3498db;</string>
 color: rgb(232, 232, 232);</string>
    </property>
    <property name="text">
-    <string>✅대화상대 초대하기</string>
+    <string>대화상대 초대하기</string>
    </property>
   </widget>
   <widget class="QListView" name="dialog_listview_left">
@@ -146,7 +146,7 @@ border-radius: 10px;
 color: rgb(232, 232, 232);</string>
    </property>
    <property name="text">
-    <string>🧑‍💻 유저 상태 목록</string>
+    <string>유저 상태 목록</string>
    </property>
   </widget>
   <widget class="QLabel" name="dialog_label_righttitle">
@@ -163,7 +163,7 @@ color: rgb(232, 232, 232);</string>
 color: rgb(232, 232, 232);</string>
    </property>
    <property name="text">
-    <string>✅ 초대하기</string>
+    <string>초대하기</string>
    </property>
   </widget>
   <widget class="QLabel" name="dialog_label_center">

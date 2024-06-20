@@ -32,6 +32,7 @@ from modules import *
 from modules.ui_noticedlg_function import *
 from modules.ui_fooddlg_function import *
 from modules.ui_groupadddlg_function import *
+from modules.ui_chatmemberadd_function import *
 from modules.calldlg_function import *
 from modules.mail_function import *
 from modules.ui_adminpage_function import *
@@ -158,6 +159,7 @@ class MainWindow(QMainWindow):
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
         self.groupDialog = GroupAddDialog(self)
+        self.memberAddDialog = MemberAddDialog(self, self.userListModel)
         
         #connect socket
         try:    
@@ -201,6 +203,8 @@ class MainWindow(QMainWindow):
     def openDialog(self, dialogName):
         if dialogName == "GroupAddDialog":
             dialog = GroupAddDialog(self)
+        if dialogName == "MemberAddDialog":
+            dialog = MemberAddDialog(self, self.userListModel)
         elif dialogName == "CustomDialog_food":
             dialog = CustomDialog_food(self)
         dialog.exec()

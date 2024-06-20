@@ -3,11 +3,8 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 
 from .ui_groupadddlg import Ui_Dialog
-
-import socket
 import json
 import struct
-from .send_packet import SendPacket
 
 class GroupAddDialog(QDialog, Ui_Dialog):
     def __init__(self, main_window):

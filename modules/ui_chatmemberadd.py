@@ -1,23 +1,18 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'chatmemberaddQohbrl.ui'
+## Form generated from reading UI file 'chatmemberaddbecynN.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QLabel, QListView,
-    QPushButton, QSizePolicy, QWidget)
-import resources_rc
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtWidgets import *
+
+from . resources_rc import *
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -99,7 +94,7 @@ class Ui_Dialog(object):
 "color: rgb(232, 232, 232);")
         self.dialog_label_center = QLabel(Dialog)
         self.dialog_label_center.setObjectName(u"dialog_label_center")
-        self.dialog_label_center.setGeometry(QRect(290, 190, 48, 16))
+        self.dialog_label_center.setGeometry(QRect(290, 140, 48, 16))
         self.dialog_label_center.setStyleSheet(u"background-image: url(:/images/images/images/right.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;")
@@ -112,7 +107,7 @@ class Ui_Dialog(object):
 "")
         self.dialog_label_center_2 = QLabel(Dialog)
         self.dialog_label_center_2.setObjectName(u"dialog_label_center_2")
-        self.dialog_label_center_2.setGeometry(QRect(290, 140, 48, 16))
+        self.dialog_label_center_2.setGeometry(QRect(290, 190, 48, 16))
         self.dialog_label_center_2.setStyleSheet(u"background-image: url(:/images/images/images/left.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;")
@@ -133,9 +128,9 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.dialog_label_back.setText("")
         self.dialog_label_titleback.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
-        self.dialog_label_title.setText(QCoreApplication.translate("Dialog", u"\u2705\ub300\ud654\uc0c1\ub300 \ucd08\ub300\ud558\uae30", None))
-        self.dialog_label_lefttitle.setText(QCoreApplication.translate("Dialog", u"\ud83e\uddd1\u200d\ud83d\udcbb \uc720\uc800 \uc0c1\ud0dc \ubaa9\ub85d", None))
-        self.dialog_label_righttitle.setText(QCoreApplication.translate("Dialog", u"\u2705 \ucd08\ub300\ud558\uae30", None))
+        self.dialog_label_title.setText(QCoreApplication.translate("Dialog", u"\ub300\ud654\uc0c1\ub300 \ucd08\ub300\ud558\uae30", None))
+        self.dialog_label_lefttitle.setText(QCoreApplication.translate("Dialog", u"\uc720\uc800 \uc0c1\ud0dc \ubaa9\ub85d", None))
+        self.dialog_label_righttitle.setText(QCoreApplication.translate("Dialog", u"\ucd08\ub300\ud558\uae30", None))
         self.dialog_label_center.setText("")
         self.dialog_btn_send.setText(QCoreApplication.translate("Dialog", u"\uc804\uc1a1", None))
         self.dialog_label_center_2.setText("")

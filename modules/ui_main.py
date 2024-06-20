@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainYXXvgW.ui'
+## Form generated from reading UI file 'mainEbKeko.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1321,6 +1321,13 @@ class Ui_MainWindow(object):
 "background-position: center;\n"
 "background-image: url(:/images/images/images/right.png);\n"
 "")
+        self.home_btn_add_member = QPushButton(self.home)
+        self.home_btn_add_member.setObjectName(u"home_btn_add_member")
+        self.home_btn_add_member.setGeometry(QRect(920, 30, 31, 24))
+        self.home_btn_add_member.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_add_member.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
+"border:none;\n"
+"")
         self.stackedWidget.addWidget(self.home)
         self.adminpage = QWidget()
         self.adminpage.setObjectName(u"adminpage")
@@ -1711,8 +1718,9 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
         self.home_btn_chatgroup.clicked.connect(MainWindow.openDialog)
-
-        self.stackedWidget.setCurrentIndex(2)
+        self.home_btn_add_member.clicked.connect(MainWindow.openDialog)
+        
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1788,6 +1796,7 @@ class Ui_MainWindow(object):
         self.home_btn_chatlist_send.setText("")
         self.home_btn_left.setText("")
         self.home_btn_right.setText("")
+        self.home_btn_add_member.setText("")
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
         self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))
