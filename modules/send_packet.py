@@ -24,8 +24,8 @@ class SendPacket:
     def loginRequest(self, socket):
         # self.loginId = self.main_window.login_input_id.text()
         # loginPw = self.main_window.login_input_pw.text()
-        self.loginId = "login_id2"
-        loginPw = "password2"
+        self.loginId = "login_id1"
+        loginPw = "password1"
         try:
             msg = {
                 "type": TYPE_LOGIN,
