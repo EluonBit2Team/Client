@@ -135,7 +135,7 @@ class MainWindow(QMainWindow):
             # SET HACKS
             AppFunctions.setThemeHack(self)
 
-        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
         
         delegate = CustomDelegate(self.home_listview_chatlist)
@@ -243,7 +243,7 @@ class MainWindow(QMainWindow):
         # SHOW LOGIN PAGE
         if (btnName == "btn_login") or (btnName == "signup_btn_back"):
             widgets.stackedWidget.setCurrentWidget(widgets.loginpage) # SET PAGE
-            #btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
         # SHOW SIGNUP PAGE
         if btnName == "login_btn_signup":
