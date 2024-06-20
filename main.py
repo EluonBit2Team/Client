@@ -36,6 +36,7 @@ from modules.ui_chatmemberadd_function import *
 from modules.calldlg_function import *
 from modules.mail_function import *
 from modules.ui_adminpage_function import *
+from modules.ui_userdlg_function import *
 from widgets import *
 
 
@@ -95,17 +96,9 @@ class MainWindow(QMainWindow):
         widgets.btn_admin.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
         widgets.btn_notice.clicked.connect(self.buttonClick)
-        widgets.btn_exit.clicked.connect(self.buttonClick)
-        widgets.home_btn_chatlist_send.clicked.connect(self.handleSendButtonClick) # 전송 버튼
-        widgets.admin_btn_food.clicked.connect(self.show_food_dialog) # 오늘의 식단 버튼
-        widgets.login_btn_call.clicked.connect(self.show_call_dialog) # 로그인 페이지의 전화 버튼
-        widgets.login_btn_mail.clicked.connect(self.send_mail_btn) # 로그인 페이지의 메일 버튼
 
-        # EXTRA LEFT BOX
-        def openCloseLeftBox():
-            UIFunctions.toggleLeftBox(self, True)
-        widgets.toggleLeftBox.clicked.connect(openCloseLeftBox)
-        widgets.extraCloseColumnBtn.clicked.connect(openCloseLeftBox)
+        # Main button
+        widgets.home_btn_chatlist_send.clicked.connect(self.handleSendButtonClick) # 전송 버튼
 
         # EXTRA RIGHT BOX
         def openCloseRightBox():
@@ -115,8 +108,6 @@ class MainWindow(QMainWindow):
         # LOGIN PAGE
         widgets.login_btn_signup.clicked.connect(self.buttonClick) #회원가입 버튼 이벤트
         widgets.signup_btn_back.clicked.connect(self.buttonClick)
-        
-
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
@@ -175,34 +166,31 @@ class MainWindow(QMainWindow):
             self.signup_btn_submit.setEnabled(True)
         else:
             self.signup_btn_submit.setEnabled(False)
-    
-    # 알람 다이얼로그 함수
-    def show_notice_dialog(self):
-        dialog = CustomDialog(self)
-        dialog.exec()
 
-    # 오늘의 식단 보기 다이얼로그 함수
-    def show_food_dialog(self):
-        dialog = CustomDialog_food(self)
-        dialog.exec()
-
-    # 전화 다이얼로그 함수
-    def show_call_dialog(self):
-        dialog = CustomDialog_call(self)
-        dialog.exec()
-
-    # 메일 실행 함수
-    def send_mail_btn(self):
-        mailsend = MailFunctionWindow(self)
-        mailsend.send_mail()
-        
+    # 다이얼로그 호출
     def openDialog(self, dialogName):
+        # 채팅 그룹 추가 다이얼로그
         if dialogName == "GroupAddDialog":
             dialog = GroupAddDialog(self)
-        if dialogName == "MemberAddDialog":
+        # 대화 상대 추가 다이얼로그
+        if dialogName == "home_btn_add_member":
             dialog = MemberAddDialog(self, self.userListModel)
-        elif dialogName == "CustomDialog_food":
+        # 이메일 다이얼로그
+        if dialogName == "send_mail_btn":
+            dialog = MailFunctionWindow(self)
+        # 전화 다이얼로그
+        if dialogName == "show_call_dialog":
+            dialog = CustomDialog_call(self)
+        # 알람 다이얼로그
+        if dialogName == "btn_notice":
+            dialog = CustomDialog_notice(self)
+        # 채팅방 유저 다이얼로그
+        if dialogName == "home_btn_user":
+            dialog = CustomDialog_user(self)
+        # 음식 다이얼로그
+        elif dialogName == "admin_btn_food":
             dialog = CustomDialog_food(self)
+
         dialog.exec()
     
     def handleSendButtonClick(self):
@@ -216,9 +204,6 @@ class MainWindow(QMainWindow):
         self.home_btn_chatlist_send.setIcon(QIcon(':/images/images/images/free-icon-send-button-12439334.png'))
         self.home_btn_chatlist_send.setIconSize(QSize(41, 41))
 
-    # 오늘의 식단 보기 함수
-    def todaylunch(self):
-        self.show_notice_dialog()
         
     # SET HOME PAGE AND SELECT MENU
     # ///////////////////////////////////////////////////////////////
@@ -252,18 +237,11 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.signuppage) # SET PAGE
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
         
+        # SHOW NOTICE
         if btnName == "btn_notice":
             # 버튼 클릭 시 다이얼로그 호출
             self.show_notice_dialog()
-        
-        if btnName == "btn_exit":
-            self.packetSender.testDataSender(self.socket)
-            
 
-        
-        # PRINT BTN NAME
-        print(f'Button "{btnName}" pressed!')
-    
     def updateMsgDisplay(self, message, messageType):
         item=QStandardItem(message)
         item.setData(messageType, Qt.ItemDataRole.UserRole + 1)
@@ -291,7 +269,6 @@ class MainWindow(QMainWindow):
                 userRow = QStandardItem(makeRow)
                 self.userListModel.appendRow(userRow)
             
-
     def loginRequest(self):
         self.packetSender.loginRequest(self.socket)
     
@@ -311,9 +288,6 @@ class MainWindow(QMainWindow):
         receive_thread.daemon = True
         receive_thread.start()
     
-
-
-
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):

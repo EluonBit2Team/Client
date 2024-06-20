@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainGAOuZG.ui'
+## Form generated from reading UI file 'mainYpJTYL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
+
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
@@ -697,18 +698,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_notice)
 
-        self.btn_exit = QPushButton(self.topMenu)
-        self.btn_exit.setObjectName(u"btn_exit")
-        sizePolicy1.setHeightForWidth(self.btn_exit.sizePolicy().hasHeightForWidth())
-        self.btn_exit.setSizePolicy(sizePolicy1)
-        self.btn_exit.setMinimumSize(QSize(0, 45))
-        self.btn_exit.setFont(font)
-        self.btn_exit.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_exit.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.btn_exit.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-x.png);")
-
-        self.verticalLayout_8.addWidget(self.btn_exit)
-
 
         self.verticalMenuLayout.addWidget(self.topMenu, 0, Qt.AlignmentFlag.AlignTop)
 
@@ -720,18 +709,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setSpacing(0)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.toggleLeftBox = QPushButton(self.bottomMenu)
-        self.toggleLeftBox.setObjectName(u"toggleLeftBox")
-        sizePolicy1.setHeightForWidth(self.toggleLeftBox.sizePolicy().hasHeightForWidth())
-        self.toggleLeftBox.setSizePolicy(sizePolicy1)
-        self.toggleLeftBox.setMinimumSize(QSize(0, 45))
-        self.toggleLeftBox.setFont(font)
-        self.toggleLeftBox.setCursor(QCursor(Qt.PointingHandCursor))
-        self.toggleLeftBox.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.toggleLeftBox.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_settings.png);")
-
-        self.verticalLayout_9.addWidget(self.toggleLeftBox)
-
 
         self.verticalMenuLayout.addWidget(self.bottomMenu, 0, Qt.AlignmentFlag.AlignBottom)
 
@@ -1328,9 +1305,16 @@ class Ui_MainWindow(object):
 "")
         self.home_btn_add_member = QPushButton(self.home)
         self.home_btn_add_member.setObjectName(u"home_btn_add_member")
-        self.home_btn_add_member.setGeometry(QRect(919, 34, 31, 24))
+        self.home_btn_add_member.setGeometry(QRect(908, 34, 31, 24))
         self.home_btn_add_member.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_add_member.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-follow.png);\n"
+"border:none;\n"
+"")
+        self.home_btn_user = QPushButton(self.home)
+        self.home_btn_user.setObjectName(u"home_btn_user")
+        self.home_btn_user.setGeometry(QRect(870, 34, 31, 24))
+        self.home_btn_user.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_user.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user.png);\n"
 "border:none;\n"
 "")
         self.stackedWidget.addWidget(self.home)
@@ -1734,12 +1718,10 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.titleLeftApp.setText("")
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
-        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.btn_admin.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
+        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Chat", None))
+        self.btn_admin.setText(QCoreApplication.translate("MainWindow", u"Manager", None))
         self.btn_login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
-        self.btn_notice.setText(QCoreApplication.translate("MainWindow", u"Save", None))
-        self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
-        self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
+        self.btn_notice.setText(QCoreApplication.translate("MainWindow", u"Notice", None))
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
 #if QT_CONFIG(tooltip)
         self.extraCloseColumnBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close left box", None))
@@ -1801,6 +1783,7 @@ class Ui_MainWindow(object):
         self.home_btn_left.setText("")
         self.home_btn_right.setText("")
         self.home_btn_add_member.setText("")
+        self.home_btn_user.setText("")
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
         self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))

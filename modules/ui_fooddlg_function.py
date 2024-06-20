@@ -15,7 +15,8 @@ class RouletteWidget(QWidget):
         self.animation = QPropertyAnimation(self, b"angle")
         self.animation.setDuration(4000)
         self.animation.setEasingCurve(QEasingCurve.OutBounce)
-
+        self.setWindowTitle("음식 룰렛 돌리기")
+        self.setWindowIcon(QIcon(':/images/images/images/logo.png'))
         # 각 섹션에 표시할 텍스트 목록
         self.sections = ["한식", "중식", "일식", "양식", "분식", "편의점"]
 

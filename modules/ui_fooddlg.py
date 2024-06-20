@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'fooddlgBLhtxz.ui'
+## Form generated from reading UI file 'fooddlgRhjNjR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -11,15 +11,15 @@
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-
+from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(640, 480)
-        Dialog.setStyleSheet(u"QPushButton#dialog_btn_exit {\n"
+        Dialog.resize(640, 482)
+        Dialog.setStyleSheet(u"QPushButton#dialog_btn_start {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
@@ -29,11 +29,11 @@ class Ui_Dialog(object):
 "}\n"
 "\n"
 "\n"
-"QPushButton#dialog_btn_exit:hover {\n"
+"QPushButton#dialog_btn_start:hover {\n"
 "    background-color: rgba(70, 130, 180, 1);\n"
 "}\n"
 "\n"
-"QPushButton#dialog_btn_exit:pressed {\n"
+"QPushButton#dialog_btn_start:pressed {\n"
 "    background-color: rgba(25, 25, 112, 1);\n"
 "}")
         self.dialog_label_top_line = QLabel(Dialog)
@@ -43,16 +43,16 @@ class Ui_Dialog(object):
 "border-bottom: 1px solid #3498db;")
         self.dialog_label_title = QLabel(Dialog)
         self.dialog_label_title.setObjectName(u"dialog_label_title")
-        self.dialog_label_title.setGeometry(QRect(249, 14, 151, 31))
+        self.dialog_label_title.setGeometry(QRect(249, 10, 151, 31))
         self.dialog_label_title.setStyleSheet(u"font: 600 13pt \"Segoe UI Variable Small Semibol\";\n"
 "color: rgb(232, 232, 232);")
         self.dialog_label_back = QLabel(Dialog)
         self.dialog_label_back.setObjectName(u"dialog_label_back")
-        self.dialog_label_back.setGeometry(QRect(0, 10, 641, 471))
+        self.dialog_label_back.setGeometry(QRect(0, 0, 641, 491))
         self.dialog_label_back.setStyleSheet(u"background-color: rgb(33, 37, 43);")
         self.dialog_btn_start = QPushButton(Dialog)
         self.dialog_btn_start.setObjectName(u"dialog_btn_start")
-        self.dialog_btn_start.setGeometry(QRect(4, 430, 631, 31))
+        self.dialog_btn_start.setGeometry(QRect(4, 433, 631, 31))
         self.dialog_btn_start.setCursor(QCursor(Qt.PointingHandCursor))
         self.dialog_btn_start.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
 "border: 1px solid yellow;\n"

@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>482</height>
+    <height>479</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton#dialog_btn_start {
+   <string notr="true">QPushButton#dialog_btn_exit {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -24,14 +24,47 @@
 }
 
 
-QPushButton#dialog_btn_start:hover {
+QPushButton#dialog_btn_exit:hover {
     background-color: rgba(70, 130, 180, 1);
 }
 
-QPushButton#dialog_btn_start:pressed {
+QPushButton#dialog_btn_exit:pressed {
     background-color: rgba(25, 25, 112, 1);
 }</string>
   </property>
+  <widget class="QLabel" name="dialog_label_titleback">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>641</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(33, 37, 43);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dialog_label_title">
+   <property name="geometry">
+    <rect>
+     <x>236</x>
+     <y>19</y>
+     <width>141</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 600 11pt &quot;Segoe UI Variable Small Semibol&quot;;
+color: rgb(232, 232, 232);</string>
+   </property>
+   <property name="text">
+    <string>✅ 채팅방 대화 상대</string>
+   </property>
+  </widget>
   <widget class="QLabel" name="dialog_label_top_line">
    <property name="geometry">
     <rect>
@@ -42,57 +75,38 @@ QPushButton#dialog_btn_start:pressed {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-radius: 10px;
+    <string notr="true">border-radius: 0px;
 border-bottom: 1px solid #3498db;</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="dialog_label_title">
+  <widget class="QTreeView" name="dialog_treeview_user">
    <property name="geometry">
     <rect>
-     <x>249</x>
-     <y>10</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 600 13pt &quot;Segoe UI Variable Small Semibol&quot;;
-color: rgb(232, 232, 232);</string>
-   </property>
-   <property name="text">
-    <string>✨오늘의 점심✨</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="dialog_label_back">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
+     <x>-2</x>
+     <y>52</y>
      <width>641</width>
-     <height>491</height>
+     <height>371</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(33, 37, 43);</string>
-   </property>
-   <property name="text">
-    <string/>
+    <string notr="true">background-color: rgb(31, 35, 41);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+color: rgb(231, 231, 231);
+font: 600 15pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="dialog_btn_start">
+  <widget class="QPushButton" name="dialog_btn_exit">
    <property name="geometry">
     <rect>
-     <x>4</x>
+     <x>524</x>
      <y>433</y>
-     <width>631</width>
+     <width>101</width>
      <height>31</height>
     </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
@@ -102,35 +116,15 @@ color: rgb(232, 232, 232);
 </string>
    </property>
    <property name="text">
-    <string>시작하기</string>
+    <string>나가기</string>
    </property>
   </widget>
-  <widget class="QLabel" name="dialog_label_up">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>370</y>
-     <width>61</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/images/images/free-icon-downward-arrow-2268476.png);
-background-repeat: no-repeat;
-background-position: center;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <zorder>dialog_label_back</zorder>
+  <zorder>dialog_label_titleback</zorder>
   <zorder>dialog_label_top_line</zorder>
   <zorder>dialog_label_title</zorder>
-  <zorder>dialog_btn_start</zorder>
-  <zorder>dialog_label_up</zorder>
+  <zorder>dialog_treeview_user</zorder>
+  <zorder>dialog_btn_exit</zorder>
  </widget>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

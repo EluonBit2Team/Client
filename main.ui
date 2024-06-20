@@ -868,7 +868,7 @@ height: 42px;</string>
                    <string notr="true">background-image: url(:/icons/images/icons/cil-speech.png);</string>
                   </property>
                   <property name="text">
-                   <string>Home</string>
+                   <string>Chat</string>
                   </property>
                  </widget>
                 </item>
@@ -904,7 +904,7 @@ height: 42px;</string>
                    <string notr="true">background-image: url(:/icons/images/icons/cil-user-female.png);</string>
                   </property>
                   <property name="text">
-                   <string>Widgets</string>
+                   <string>Manager</string>
                   </property>
                  </widget>
                 </item>
@@ -976,43 +976,7 @@ height: 42px;</string>
                    <string notr="true">background-image: url(:/icons/images/icons/cil-lightbulb.png);</string>
                   </property>
                   <property name="text">
-                   <string>Save</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="btn_exit">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LayoutDirection::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-x.png);</string>
-                  </property>
-                  <property name="text">
-                   <string>Exit</string>
+                   <string>Notice</string>
                   </property>
                  </widget>
                 </item>
@@ -1043,42 +1007,6 @@ height: 42px;</string>
                 <property name="bottomMargin">
                  <number>0</number>
                 </property>
-                <item>
-                 <widget class="QPushButton" name="toggleLeftBox">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LayoutDirection::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/icon_settings.png);</string>
-                  </property>
-                  <property name="text">
-                   <string>Left Box</string>
-                  </property>
-                 </widget>
-                </item>
                </layout>
               </widget>
              </item>
@@ -2465,7 +2393,7 @@ background-image: url(:/images/images/images/right.png);
                       <widget class="QPushButton" name="home_btn_add_member">
                        <property name="geometry">
                         <rect>
-                         <x>920</x>
+                         <x>908</x>
                          <y>34</y>
                          <width>31</width>
                          <height>24</height>
@@ -2475,7 +2403,28 @@ background-image: url(:/images/images/images/right.png);
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-image: url(:/icons/images/icons/cil-library-add.png);
+                        <string notr="true">background-image: url(:/icons/images/icons/cil-user-follow.png);
+border:none;
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="home_btn_user">
+                       <property name="geometry">
+                        <rect>
+                         <x>870</x>
+                         <y>34</y>
+                         <width>31</width>
+                         <height>24</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/icons/images/icons/cil-user.png);
 border:none;
 </string>
                        </property>

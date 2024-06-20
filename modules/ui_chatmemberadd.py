@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'chatmemberaddvnWIpX.ui'
+## Form generated from reading UI file 'chatmemberaddtZVePb.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -76,7 +76,7 @@ class Ui_Dialog(object):
 "border-bottom: 1px solid #3498db;")
         self.dialog_label_title = QLabel(Dialog)
         self.dialog_label_title.setObjectName(u"dialog_label_title")
-        self.dialog_label_title.setGeometry(QRect(240, 14, 151, 21))
+        self.dialog_label_title.setGeometry(QRect(240, 14, 161, 21))
         self.dialog_label_title.setStyleSheet(u"font: 600 11pt \"Segoe UI Variable Small Semibol\";\n"
 "color: rgb(232, 232, 232);")
         self.dialog_listview_left = QListView(Dialog)
@@ -140,7 +140,7 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.dialog_label_back.setText("")
         self.dialog_label_titleback.setText("")
-        self.dialog_label_title.setText(QCoreApplication.translate("Dialog", u"\u2705\ub300\ud654\uc0c1\ub300 \ucd08\ub300\ud558\uae30", None))
+        self.dialog_label_title.setText(QCoreApplication.translate("Dialog", u"\u2705\ub300\ud654 \uc0c1\ub300 \ucd08\ub300\ud558\uae30", None))
         self.dialog_label_lefttitle.setText(QCoreApplication.translate("Dialog", u"\uc720\uc800 \uc0c1\ud0dc \ubaa9\ub85d", None))
         self.dialog_label_righttitle.setText(QCoreApplication.translate("Dialog", u"\uc120\ud0dd \ub41c \uc720\uc800", None))
         self.dialog_btn_send.setText(QCoreApplication.translate("Dialog", u"\uc804\uc1a1", None))

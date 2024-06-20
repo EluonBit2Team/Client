@@ -103,14 +103,14 @@ color: rgb(232, 232, 232);</string>
   <widget class="QPushButton" name="dialog_btn_submit">
    <property name="geometry">
     <rect>
-     <x>286</x>
-     <y>254</y>
-     <width>81</width>
+     <x>296</x>
+     <y>230</y>
+     <width>71</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
+    <string notr="true">font: 600 8pt &quot;Segoe UI Variable Small Semibol&quot;;
 border: 1px solid yellow;
 color: rgb(232, 232, 232);
 
@@ -125,8 +125,8 @@ color: rgb(232, 232, 232);
     <rect>
      <x>35</x>
      <y>100</y>
-     <width>331</width>
-     <height>31</height>
+     <width>161</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -141,12 +141,12 @@ color: white;</string>
     <rect>
      <x>33</x>
      <y>70</y>
-     <width>81</width>
+     <width>61</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;
+    <string notr="true">font: 600 8pt &quot;Segoe UI Variable Small Semibol&quot;;
 color: rgb(232, 232, 232);</string>
    </property>
    <property name="text">
@@ -156,33 +156,33 @@ color: rgb(232, 232, 232);</string>
   <widget class="QPushButton" name="dialog_btn_exit">
    <property name="geometry">
     <rect>
-     <x>196</x>
-     <y>254</y>
-     <width>81</width>
+     <x>216</x>
+     <y>230</y>
+     <width>71</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
+    <string notr="true">font: 600 8pt &quot;Segoe UI Variable Small Semibol&quot;;
 border: 1px solid white;
 color: rgb(232, 232, 232);
 </string>
    </property>
    <property name="text">
-    <string>종료 하기</string>
+    <string>나가기</string>
    </property>
   </widget>
   <widget class="QLabel" name="dialog_label_issue">
    <property name="geometry">
     <rect>
      <x>33</x>
-     <y>160</y>
-     <width>81</width>
+     <y>140</y>
+     <width>51</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;
+    <string notr="true">font: 600 8pt &quot;Segoe UI Variable Small Semibol&quot;;
 color: rgb(232, 232, 232);</string>
    </property>
    <property name="text">
@@ -193,9 +193,9 @@ color: rgb(232, 232, 232);</string>
    <property name="geometry">
     <rect>
      <x>35</x>
-     <y>190</y>
+     <y>170</y>
      <width>331</width>
-     <height>31</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">

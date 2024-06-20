@@ -15,7 +15,8 @@ class GroupAddDialog(QDialog, Ui_Dialog):
         self.dialog_edit_chattitle = self.findChild(QLineEdit, "dialog_edit_chattitle")
          # dialog_btn_exit 버튼을 눌렀을 때 다이얼로그를 닫도록 연결
         self.ui.dialog_btn_exit.clicked.connect(self.close_dialog)
-
+        self.setWindowTitle("채팅 그룹 추가")
+        self.setWindowIcon(QIcon(':/images/images/images/logo.png'))
     def sendGroupReq(self):
         self.sock = self.main_window.socket
         self.userId = self.main_window.userId

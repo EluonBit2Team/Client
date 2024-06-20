@@ -10,6 +10,8 @@ class MemberAddDialog(QDialog, Ui_Dialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.main_window = main_window
+        self.setWindowTitle("대화 상대 초대하기")
+        self.setWindowIcon(QIcon(':/images/images/images/logo.png'))
         # CenterAlignDelegate를 설정하여 아이템 가운데 정렬
         self.delegate = CenterAlignDelegate()
         self.ui.dialog_listview_left.setItemDelegate(self.delegate)
