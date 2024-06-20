@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainEbKeko.ui'
+## Form generated from reading UI file 'mainGAOuZG.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
@@ -1267,7 +1266,9 @@ class Ui_MainWindow(object):
         self.home_listview_chatgroup.setGeometry(QRect(30, 70, 131, 91))
         self.home_listview_chatgroup.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
+"border-bottom-right-radius: 10px;\n"
+"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
+"color: rgb(255, 255, 255);")
         self.home_btn_chatgroup = QPushButton(self.home)
         self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
         self.home_btn_chatgroup.setGeometry(QRect(80, 170, 31, 24))
@@ -1284,7 +1285,9 @@ class Ui_MainWindow(object):
         self.home_listview_status.setGeometry(QRect(30, 270, 131, 241))
         self.home_listview_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
+"border-bottom-right-radius: 10px;\n"
+"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
+"color: rgb(255, 255, 255);")
         self.home_lineedit_chatlist_send = QLineEdit(self.home)
         self.home_lineedit_chatlist_send.setObjectName(u"home_lineedit_chatlist_send")
         self.home_lineedit_chatlist_send.setGeometry(QRect(190, 519, 711, 41))
@@ -1300,7 +1303,9 @@ class Ui_MainWindow(object):
         self.home_listview_chatlist.setGeometry(QRect(220, 70, 711, 421))
         self.home_listview_chatlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
+"border-bottom-right-radius: 10px;\n"
+"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
+"color: rgb(255, 255, 255);")
         self.home_btn_chatlist_send = QPushButton(self.home)
         self.home_btn_chatlist_send.setObjectName(u"home_btn_chatlist_send")
         self.home_btn_chatlist_send.setGeometry(QRect(914, 520, 41, 41))
@@ -1323,9 +1328,9 @@ class Ui_MainWindow(object):
 "")
         self.home_btn_add_member = QPushButton(self.home)
         self.home_btn_add_member.setObjectName(u"home_btn_add_member")
-        self.home_btn_add_member.setGeometry(QRect(920, 30, 31, 24))
+        self.home_btn_add_member.setGeometry(QRect(919, 34, 31, 24))
         self.home_btn_add_member.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_add_member.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
+        self.home_btn_add_member.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-follow.png);\n"
 "border:none;\n"
 "")
         self.stackedWidget.addWidget(self.home)
@@ -1718,8 +1723,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
         self.home_btn_chatgroup.clicked.connect(MainWindow.openDialog)
-        self.home_btn_add_member.clicked.connect(MainWindow.openDialog)
-        
+
         self.stackedWidget.setCurrentIndex(1)
 
 

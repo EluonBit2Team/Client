@@ -14,7 +14,17 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton#dialog_btn_exit {
+   <string notr="true">QPushButton#dialog_btn_insert {
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+}
+
+QPushButton#dialog_btn_delete {
+    border-style: solid;
+	border-color: rgb(255, 255, 255);
+}
+
+QPushButton#dialog_btn_exit {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -55,8 +65,8 @@ QPushButton#dialog_btn_send:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>631</width>
-     <height>471</height>
+     <width>641</width>
+     <height>481</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -71,7 +81,7 @@ QPushButton#dialog_btn_send:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>631</width>
+     <width>641</width>
      <height>51</height>
     </rect>
    </property>
@@ -80,15 +90,15 @@ QPushButton#dialog_btn_send:pressed {
 border-bottom: 1px solid #3498db;</string>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="dialog_label_title">
    <property name="geometry">
     <rect>
-     <x>241</x>
+     <x>240</x>
      <y>14</y>
-     <width>161</width>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
@@ -97,7 +107,7 @@ border-bottom: 1px solid #3498db;</string>
 color: rgb(232, 232, 232);</string>
    </property>
    <property name="text">
-    <string>대화상대 초대하기</string>
+    <string>✅대화상대 초대하기</string>
    </property>
   </widget>
   <widget class="QListView" name="dialog_listview_left">
@@ -106,38 +116,39 @@ color: rgb(232, 232, 232);</string>
      <x>50</x>
      <y>110</y>
      <width>231</width>
-     <height>291</height>
+     <height>301</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(40, 44, 52);
 border-radius: 10px;
-
-</string>
+font: 9pt &quot;맑은 고딕&quot;;
+color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QListView" name="dialog_listview_right">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>360</x>
      <y>110</y>
      <width>231</width>
-     <height>291</height>
+     <height>301</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(40, 44, 52);
 border-radius: 10px;
 
-</string>
+font: 9pt &quot;맑은 고딕&quot;;
+color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QLabel" name="dialog_label_lefttitle">
    <property name="geometry">
     <rect>
-     <x>103</x>
+     <x>118</x>
      <y>82</y>
-     <width>131</width>
+     <width>91</width>
      <height>21</height>
     </rect>
    </property>
@@ -152,7 +163,7 @@ color: rgb(232, 232, 232);</string>
   <widget class="QLabel" name="dialog_label_righttitle">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>436</x>
      <y>82</y>
      <width>81</width>
      <height>21</height>
@@ -163,32 +174,14 @@ color: rgb(232, 232, 232);</string>
 color: rgb(232, 232, 232);</string>
    </property>
    <property name="text">
-    <string>초대하기</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="dialog_label_center">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>140</y>
-     <width>48</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/images/images/right.png);
-background-repeat: no-repeat;
-background-position: center;</string>
-   </property>
-   <property name="text">
-    <string/>
+    <string>선택 된 유저</string>
    </property>
   </widget>
   <widget class="QPushButton" name="dialog_btn_send">
    <property name="geometry">
     <rect>
-     <x>505</x>
-     <y>420</y>
+     <x>516</x>
+     <y>434</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -203,29 +196,11 @@ color: rgb(232, 232, 232);
     <string>전송</string>
    </property>
   </widget>
-  <widget class="QLabel" name="dialog_label_center_2">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>190</y>
-     <width>48</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/images/images/left.png);
-background-repeat: no-repeat;
-background-position: center;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QPushButton" name="dialog_btn_exit">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>420</y>
+     <x>428</x>
+     <y>434</y>
      <width>75</width>
      <height>24</height>
     </rect>
@@ -238,6 +213,42 @@ color: rgb(232, 232, 232);
    </property>
    <property name="text">
     <string>나가기</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dialog_btn_insert">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>170</y>
+     <width>21</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/images/images/right.png);
+background-repeat: no-repeat;
+background-position: center;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dialog_btn_delete">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>220</y>
+     <width>21</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/images/images/images/left.png);
+background-repeat: no-repeat;
+background-position: center;</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
