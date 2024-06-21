@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainYpJTYL.ui'
+## Form generated from reading UI file 'mainpWnHNf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1379,19 +1379,19 @@ class Ui_MainWindow(object):
         self.admin_label_status.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_memnum = QLabel(self.adminpage)
         self.admin_label_memnum.setObjectName(u"admin_label_memnum")
-        self.admin_label_memnum.setGeometry(QRect(440, 40, 61, 21))
+        self.admin_label_memnum.setGeometry(QRect(449, 40, 61, 21))
         self.admin_label_memnum.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_memstatus = QLabel(self.adminpage)
         self.admin_label_memstatus.setObjectName(u"admin_label_memstatus")
-        self.admin_label_memstatus.setGeometry(QRect(620, 40, 71, 21))
+        self.admin_label_memstatus.setGeometry(QRect(707, 300, 71, 21))
         self.admin_label_memstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_diskstatus = QLabel(self.adminpage)
         self.admin_label_diskstatus.setObjectName(u"admin_label_diskstatus")
-        self.admin_label_diskstatus.setGeometry(QRect(530, 40, 71, 21))
+        self.admin_label_diskstatus.setGeometry(QRect(708, 40, 71, 21))
         self.admin_label_diskstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_tpsstatus = QLabel(self.adminpage)
         self.admin_label_tpsstatus.setObjectName(u"admin_label_tpsstatus")
-        self.admin_label_tpsstatus.setGeometry(QRect(710, 40, 71, 21))
+        self.admin_label_tpsstatus.setGeometry(QRect(449, 300, 71, 21))
         self.admin_label_tpsstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_btn_accept = QPushButton(self.adminpage)
         self.admin_btn_accept.setObjectName(u"admin_btn_accept")
@@ -1411,13 +1411,41 @@ class Ui_MainWindow(object):
         self.admin_btn_food.setGeometry(QRect(850, 563, 111, 24))
         self.admin_btn_food.setCursor(QCursor(Qt.PointingHandCursor))
         self.admin_btn_food.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
-        self.admin_webEn_acmember = QWebEngineView(self.adminpage)
-        self.admin_webEn_acmember.setObjectName(u"admin_webEn_acmember")
-        self.admin_webEn_acmember.setGeometry(QRect(440, 70, 501, 471))
-        self.admin_webEn_acmember.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+        self.admin_webEn_acmember_cmem = QWebEngineView(self.adminpage)
+        self.admin_webEn_acmember_cmem.setObjectName(u"admin_webEn_acmember_cmem")
+        self.admin_webEn_acmember_cmem.setGeometry(QRect(451, 70, 221, 201))
+        self.admin_webEn_acmember_cmem.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
 "border-bottom-right-radius: 10px;")
-        self.admin_webEn_acmember.setUrl(QUrl(u"about:blank"))
+        self.admin_webEn_acmember_cmem.setUrl(QUrl(u"about:blank"))
+        self.admin_webEn_acmember_disk = QWebEngineView(self.adminpage)
+        self.admin_webEn_acmember_disk.setObjectName(u"admin_webEn_acmember_disk")
+        self.admin_webEn_acmember_disk.setGeometry(QRect(708, 70, 221, 201))
+        self.admin_webEn_acmember_disk.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.admin_webEn_acmember_disk.setUrl(QUrl(u"about:blank"))
+        self.admin_webEn_acmember_tps = QWebEngineView(self.adminpage)
+        self.admin_webEn_acmember_tps.setObjectName(u"admin_webEn_acmember_tps")
+        self.admin_webEn_acmember_tps.setGeometry(QRect(450, 330, 221, 201))
+        self.admin_webEn_acmember_tps.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.admin_webEn_acmember_tps.setUrl(QUrl(u"about:blank"))
+        self.admin_webEn_acmember_mem = QWebEngineView(self.adminpage)
+        self.admin_webEn_acmember_mem.setObjectName(u"admin_webEn_acmember_mem")
+        self.admin_webEn_acmember_mem.setGeometry(QRect(707, 330, 221, 201))
+        self.admin_webEn_acmember_mem.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-top-right-radius: 10px;\n"
+"border-bottom-right-radius: 10px;")
+        self.admin_webEn_acmember_mem.setUrl(QUrl(u"about:blank"))
+        self.admin_btn_expend = QPushButton(self.adminpage)
+        self.admin_btn_expend.setObjectName(u"admin_btn_expend")
+        self.admin_btn_expend.setGeometry(QRect(920, 35, 21, 21))
+        self.admin_btn_expend.setCursor(QCursor(Qt.PointingHandCursor))
+        self.admin_btn_expend.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
         self.stackedWidget.addWidget(self.adminpage)
         self.page = QWidget()
         self.page.setObjectName(u"page")
@@ -1708,7 +1736,7 @@ class Ui_MainWindow(object):
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
         self.home_btn_chatgroup.clicked.connect(MainWindow.openDialog)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1794,6 +1822,7 @@ class Ui_MainWindow(object):
         self.admin_btn_accept.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub77d", None))
         self.admin_btn_reject.setText(QCoreApplication.translate("MainWindow", u"\uac70\uc808", None))
         self.admin_btn_food.setText(QCoreApplication.translate("MainWindow", u"\uc624\ub298\uc758 \uc2dd\ub2e8 \ubcf4\uae30", None))
+        self.admin_btn_expend.setText("")
         self.signup_label_back.setText("")
         self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.signup_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
