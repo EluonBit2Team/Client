@@ -2411,7 +2411,7 @@ border:none;
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="home_btn_groupuserlist">
+                      <widget class="QPushButton" name="home_btn_groupmemberlist">
                        <property name="geometry">
                         <rect>
                          <x>870</x>

@@ -64,13 +64,11 @@ class SendPacket:
             #             "dept": self.signupDept,
             #             "pos": self.signupPosition}
             msg = {"type": 1,
-                        "id": "idid14", 
-                        "pw": "pwpw6",
-                        "name": "아이디십삼",
-                        "phone": "폰번",
-                        "email": "이메일팔",
-                        "dept": 1,
-                        "pos": 2}
+                        "id": "login_id26", 
+                        "pw": "password26",
+                        "name": "아이디이십육",
+                        "phone": "010-1234-9653",
+                        "email": "eluon@gmail.com"}
             packet = jsonParser(msg)
             
             print(packet)
@@ -138,16 +136,6 @@ class SendPacket:
             return False
     
     def reqAddGroupMember(self, socket, groupname, userlist):
-        
-        # selectedIndexes = self.main_window.home_listview_chatgroup.selectedIndexes()
-        
-        # if selectedIndexes:
-        #     selectedIndex = selectedIndexes[0]
-        #     groupName = self.main_window.groupListModel.data(selectedIndex, Qt.DisplayRole)
-        
-        
-        # userList = self.main_window.listview_right_model.
-        
         try:
             msg = {
 	                "type": 7,
@@ -161,13 +149,19 @@ class SendPacket:
             print(f"An error occurred: {e}")
             return False
         
-    def clickUserList(self, socket, buttonName):
-        if buttonName == "home_btn_right":
-            self.page + 1
-        else:
-            self.page - 1
-        print(self.page)
-        self.reqUserList(socket)
+    def reqGroupMemberList(self, socket, groupname):
+        try:
+            msg = {
+	                "type": 11,
+	                "groupname": groupname
+	        }
+            packet = jsonParser(msg)
+            if socket and msg:
+                socket.sendall(packet)
+            print(msg)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
     
     def testDataSender(self, socket):
         print("type: 11 보냄")

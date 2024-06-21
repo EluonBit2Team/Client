@@ -36,7 +36,7 @@ from modules.ui_chatmemberadd_function import *
 from modules.ui_calldlg_function import *
 from modules.mail_function import *
 from modules.ui_adminpage_function import *
-from modules.ui_groupuserlistdlg_function import *
+from modules.ui_groupmemberlistdlg_function import *
 from widgets import *
 
 
@@ -145,6 +145,7 @@ class MainWindow(QMainWindow):
         self.packetReceiver = ReceivePacket(self)
         self.groupDialog = GroupAddDialog(self)
         self.memberAddDialog = MemberAddDialog(self)
+        self.groupMember = GroupMemberListDialog(self)
         
         #connect socket
         try:    
@@ -183,8 +184,9 @@ class MainWindow(QMainWindow):
         elif dialogName == "NoticeDialog":
             dialog = NoticeDialog(self)
         # 채팅방 유저 다이얼로그
-        elif dialogName == "GroupUserListDialog":
-            dialog = GroupUserListDialog(self)
+        elif dialogName == "GroupMemberListDialog":
+            dialog = GroupMemberListDialog(self)
+            self.packetSender.reqGroupMemberList(self.socket, self.groupname)
         
         dialog.exec()
     
@@ -238,7 +240,7 @@ class MainWindow(QMainWindow):
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
     
-    def on_item_clicked(self, index):
+    def groupClick(self, index):
         item_text = index.data(Qt.DisplayRole)
         self.groupname = item_text
     
@@ -248,19 +250,33 @@ class MainWindow(QMainWindow):
         self.chatListModel.appendRow(item)
         self.home_listview_chatlist.scrollToBottom()
     
-    def updateDisplay(self, list, model):
-        if model == "grouplist":
+    def updateDisplay(self, list, type, model):
+        print("updateDisplay 진입")
+        if type == "grouplist":
             for i in list:
                 item=QStandardItem(i)
-                self.groupListModel.appendRow(item)
-        elif model == "userlist":
+                model.appendRow(item)
+        elif type == "userlist":
             for json_data in list:
                 makeRow = json_data['dept_name'] + ' ' + json_data['position'] + ' ' + json_data['name']
                 name_column = QStandardItem(makeRow)
                 id_column = QStandardItem(json_data["id"])
                 name_column.setData(json_data, Qt.UserRole)
                 row=[name_column, id_column]
-                self.userListModel.appendRow(row)
+                model.appendRow(row)
+        elif type == "groupMemberList":
+            print("groupMemberList 분별 성공")
+            print("리스트")
+            print(list)
+            for json_data in list:
+                makeRow = json_data['dept_name'] + ' ' + json_data['position'] + ' ' + json_data['name']
+                name_column = QStandardItem(makeRow)
+                id_column = QStandardItem(json_data["id"])
+                name_column.setData(json_data, Qt.UserRole)
+                row=[name_column, id_column]
+                model.appendRow(row)
+            
+            
             
 
     def loginRequest(self):

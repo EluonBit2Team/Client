@@ -32,7 +32,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_add_member = mainWindow.findChild(QPushButton, "home_btn_add_member")
     mainWindow.home_btn_right = mainWindow.findChild(QPushButton, "home_btn_right")
     mainWindow.home_btn_left = mainWindow.findChild(QPushButton, "home_btn_left")
-    mainWindow.home_btn_groupuserlist = mainWindow.findChild(QPushButton, "home_btn_groupuserlist")
+    mainWindow.home_btn_groupmemberlist = mainWindow.findChild(QPushButton, "home_btn_groupmemberlist")
 
     mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")
     mainWindow.admin_btn_food = mainWindow.findChild(QPushButton, "admin_btn_food")
@@ -47,10 +47,10 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.login_btn_call.clicked.connect(lambda: mainWindow.openDialog("CallDialog"))
     mainWindow.btn_notice.clicked.connect(lambda: mainWindow.openDialog("NoticeDialog"))
     mainWindow.admin_btn_food.clicked.connect(lambda: mainWindow.openDialog("FoodDialog"))
-    mainWindow.home_btn_groupuserlist.clicked.connect(lambda: mainWindow.openDialog("GroupUserListDialog"))
+    mainWindow.home_btn_groupmemberlist.clicked.connect(lambda: mainWindow.openDialog("GroupMemberListDialog"))
     mainWindow.home_btn_chatgroup.clicked.connect(lambda: mainWindow.openDialog("GroupAddDialog"))
     mainWindow.home_btn_add_member.clicked.connect(lambda: mainWindow.openDialog("MemberAddDialog"))
-    mainWindow.home_listview_chatgroup.clicked.connect(mainWindow.on_item_clicked)
+    mainWindow.home_listview_chatgroup.clicked.connect(mainWindow.groupClick)
 
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupname = None
