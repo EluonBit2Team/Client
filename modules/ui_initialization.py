@@ -56,6 +56,7 @@ def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupname = None
     mainWindow.groupList = []
     mainWindow.userList = []
+    mainWindow.groupMemberList = []
     mainWindow.userId = None
     mainWindow.socket = None
     # mainWindow.chatGroupModel = QStringListModel(mainWindow.home_listview_chatgroup)

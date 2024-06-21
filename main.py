@@ -167,10 +167,10 @@ class MainWindow(QMainWindow):
     def openDialog(self, dialogName):
         # 채팅 그룹 추가 다이얼로그
         if dialogName == "GroupAddDialog":
-            dialog = GroupAddDialog(self)
+            dialog = self.groupDialog
         # 대화 상대 추가 다이얼로그
         elif dialogName == "MemberAddDialog":
-            dialog = MemberAddDialog(self)
+            dialog = self.memberAddDialog
         # 이메일 다이얼로그
         elif dialogName == "MailFunctionWindow":
             dialog = MailFunctionWindow(self)
@@ -185,8 +185,8 @@ class MainWindow(QMainWindow):
             dialog = NoticeDialog(self)
         # 채팅방 유저 다이얼로그
         elif dialogName == "GroupMemberListDialog":
-            dialog = GroupMemberListDialog(self)
             self.packetSender.reqGroupMemberList(self.socket, self.groupname)
+            dialog = self.groupMember
         
         dialog.exec()
     
@@ -264,18 +264,6 @@ class MainWindow(QMainWindow):
                 name_column.setData(json_data, Qt.UserRole)
                 row=[name_column, id_column]
                 model.appendRow(row)
-        elif type == "groupMemberList":
-            print("groupMemberList 분별 성공")
-            print("리스트")
-            print(list)
-            for json_data in list:
-                makeRow = json_data['dept_name'] + ' ' + json_data['position'] + ' ' + json_data['name']
-                name_column = QStandardItem(makeRow)
-                id_column = QStandardItem(json_data["id"])
-                name_column.setData(json_data, Qt.UserRole)
-                row=[name_column, id_column]
-                model.appendRow(row)
-            
             
             
 

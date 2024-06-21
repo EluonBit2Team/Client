@@ -63,7 +63,7 @@ class ReceivePacket():
     def receiveGroupMember(self, msg):
         groupMemberList = json.loads(msg.decode('utf-8')).get("users")
         print(groupMemberList)
-        self.main_window.updateDisplay(groupMemberList, "groupMemberList", self.main_window.groupMember.gruopMemberModel)
+        self.main_window.groupMember.updateDisplay(groupMemberList, "groupMemberList", self.main_window.groupMember.groupMemberModel)
         
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")

@@ -27,9 +27,19 @@ class GroupMemberListDialog(QDialog):
             
         # dialog_btn_exit 버튼을 눌렀을 때 다이얼로그를 닫도록 연결
         self.ui.dialog_btn_exit.clicked.connect(self.close_dialog)
-        self.gruopMemberModel = QStandardItemModel()
-        self.ui.dialog_treeview_groupmemberlist.setModel(self.gruopMemberModel)
         
-
+        self.groupMemberModel = QStandardItemModel(self.ui.dialog_treeview_groupmemberlist)
+        self.ui.dialog_treeview_groupmemberlist.setModel(self.groupMemberModel)
+        self.groupMemberModel.setHorizontalHeaderLabels(["이름", "아이디"])
+        
     def close_dialog(self):
         self.accept()  # 다이얼로그 닫기
+    
+    def updateDisplay(self, list, type, model):
+        for json_data in list:
+            makeRow = json_data['dept_name'] + ' ' + json_data['position'] + ' ' + json_data['name']
+            name_column = QStandardItem(makeRow)
+            id_column = QStandardItem(json_data["id"])
+            name_column.setData(json_data, Qt.UserRole)
+            row=[name_column, id_column]
+            model.appendRow(row)

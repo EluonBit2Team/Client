@@ -3564,22 +3564,6 @@ border:none;
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>home_btn_chatgroup</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>openDialog()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>171</x>
-     <y>253</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>208</x>
-     <y>5</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>signUpRequest()</slot>
