@@ -171,8 +171,8 @@ class MainWindow(QMainWindow):
         if dialogName == "GroupAddDialog":
             dialog = GroupAddDialog(self)
         # 대화 상대 추가 다이얼로그
-        if dialogName == "home_btn_add_member":
-            dialog = MemberAddDialog(self, self.userListModel)
+        if dialogName == "MemberAddDialog":
+            dialog = MemberAddDialog(self)
         # 이메일 다이얼로그
         if dialogName == "send_mail_btn":
             dialog = MailFunctionWindow(self)

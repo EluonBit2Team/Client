@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainPguJYU.ui'
+## Form generated from reading UI file 'mainIifRBM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,7 +13,6 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1258,10 +1257,10 @@ class Ui_MainWindow(object):
         self.home_label_chatlist_title.setObjectName(u"home_label_chatlist_title")
         self.home_label_chatlist_title.setGeometry(QRect(220, 39, 91, 16))
         self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
-        self.home_listview_status = QListView(self.home)
-        self.home_listview_status.setObjectName(u"home_listview_status")
-        self.home_listview_status.setGeometry(QRect(30, 270, 131, 241))
-        self.home_listview_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+        self.home_treeview_userlist = QTreeView(self.home)
+        self.home_treeview_userlist.setObjectName(u"home_treeview_userlist")
+        self.home_treeview_userlist.setGeometry(QRect(30, 270, 131, 251))
+        self.home_treeview_userlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
 "border-bottom-right-radius: 10px;\n"
 "font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
@@ -1582,117 +1581,6 @@ class Ui_MainWindow(object):
 "border:none;\n"
 "")
         self.stackedWidget.addWidget(self.signuppage)
-        self.home = QWidget()
-        self.home.setObjectName(u"home")
-        self.home.setStyleSheet(u"background-position: center;\n"
-"background-repeat: no-repeat;\n"
-"\n"
-"")
-        self.home_label_chatback = QLabel(self.home)
-        self.home_label_chatback.setObjectName(u"home_label_chatback")
-        self.home_label_chatback.setGeometry(QRect(190, 20, 771, 491))
-        self.home_label_chatback.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-radius: 10px;\n"
-"")
-        self.home_label_left1back = QLabel(self.home)
-        self.home_label_left1back.setObjectName(u"home_label_left1back")
-        self.home_label_left1back.setGeometry(QRect(20, 20, 151, 181))
-        self.home_label_left1back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-radius: 10px;")
-        self.home_label_left2back = QLabel(self.home)
-        self.home_label_left2back.setObjectName(u"home_label_left2back")
-        self.home_label_left2back.setGeometry(QRect(20, 220, 151, 341))
-        self.home_label_left2back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-radius: 10px;")
-        self.home_label_chatgroup = QLabel(self.home)
-        self.home_label_chatgroup.setObjectName(u"home_label_chatgroup")
-        self.home_label_chatgroup.setGeometry(QRect(64, 39, 91, 16))
-        self.home_label_chatgroup.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
-        self.home_label_chatgroup_pic = QLabel(self.home)
-        self.home_label_chatgroup_pic.setObjectName(u"home_label_chatgroup_pic")
-        self.home_label_chatgroup_pic.setGeometry(QRect(31, 37, 31, 21))
-        self.home_label_chatgroup_pic.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-chat-bubble.png);")
-        self.home_label_userstate = QLabel(self.home)
-        self.home_label_userstate.setObjectName(u"home_label_userstate")
-        self.home_label_userstate.setGeometry(QRect(64, 240, 91, 16))
-        self.home_label_userstate.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
-        self.home_label_userstate_pic = QLabel(self.home)
-        self.home_label_userstate_pic.setObjectName(u"home_label_userstate_pic")
-        self.home_label_userstate_pic.setGeometry(QRect(31, 238, 31, 21))
-        self.home_label_userstate_pic.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-people.png);")
-        self.home_listview_chatgroup = QListView(self.home)
-        self.home_listview_chatgroup.setObjectName(u"home_listview_chatgroup")
-        self.home_listview_chatgroup.setGeometry(QRect(30, 70, 131, 91))
-        self.home_listview_chatgroup.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;\n"
-"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
-"color: rgb(255, 255, 255);")
-        self.home_btn_chatgroup = QPushButton(self.home)
-        self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
-        self.home_btn_chatgroup.setGeometry(QRect(80, 170, 31, 24))
-        self.home_btn_chatgroup.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_chatgroup.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
-"border:none;\n"
-"")
-        self.home_label_chatlist_title = QLabel(self.home)
-        self.home_label_chatlist_title.setObjectName(u"home_label_chatlist_title")
-        self.home_label_chatlist_title.setGeometry(QRect(220, 39, 91, 16))
-        self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
-        self.home_lineedit_chatlist_send = QLineEdit(self.home)
-        self.home_lineedit_chatlist_send.setObjectName(u"home_lineedit_chatlist_send")
-        self.home_lineedit_chatlist_send.setGeometry(QRect(190, 519, 711, 41))
-        self.home_lineedit_chatlist_send.setStyleSheet(u"border: 1px solid #497AA3;\n"
-"border-radius: 10px;\n"
-"padding-left: 30px; /* \uc67c\ucabd \uacf5\ubc31 */\n"
-"background-color: rgb(33, 37, 43);\n"
-"font: 600 \"Segoe UI Variable Small Semibol\";\n"
-"font-size: 13px; /* \ud3f0\ud2b8 \ud06c\uae30 */\n"
-"color: rgb(255, 255, 255); /* \ud14d\uc2a4\ud2b8 \uc0c9\uc0c1 */")
-        self.home_listview_chatlist = QListView(self.home)
-        self.home_listview_chatlist.setObjectName(u"home_listview_chatlist")
-        self.home_listview_chatlist.setGeometry(QRect(220, 70, 711, 421))
-        self.home_listview_chatlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;\n"
-"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
-"color: rgb(255, 255, 255);")
-        self.home_btn_chatlist_send = QPushButton(self.home)
-        self.home_btn_chatlist_send.setObjectName(u"home_btn_chatlist_send")
-        self.home_btn_chatlist_send.setGeometry(QRect(914, 520, 41, 41))
-        self.home_btn_chatlist_send.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_chatlist_send.setStyleSheet(u"background-image: url(:/images/images/images/free-icon-send-button-12439334.png);\n"
-"border: none;")
-        self.home_btn_left = QPushButton(self.home)
-        self.home_btn_left.setObjectName(u"home_btn_left")
-        self.home_btn_left.setGeometry(QRect(30, 522, 31, 31))
-        self.home_btn_left.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_left.setStyleSheet(u"background-image: url(:/images/images/images/left.png);\n"
-"")
-        self.home_btn_right = QPushButton(self.home)
-        self.home_btn_right.setObjectName(u"home_btn_right")
-        self.home_btn_right.setGeometry(QRect(130, 522, 31, 31))
-        self.home_btn_right.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_right.setStyleSheet(u"background-repeat: no-repeat;\n"
-"background-position: center;\n"
-"background-image: url(:/images/images/images/right.png);\n"
-"")
-        self.home_btn_add_member = QPushButton(self.home)
-        self.home_btn_add_member.setObjectName(u"home_btn_add_member")
-        self.home_btn_add_member.setGeometry(QRect(920, 34, 31, 24))
-        self.home_btn_add_member.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_add_member.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-library-add.png);\n"
-"border:none;\n"
-"")
-        self.home_treeview_userlist = QTreeView(self.home)
-        self.home_treeview_userlist.setObjectName(u"home_treeview_userlist")
-        self.home_treeview_userlist.setGeometry(QRect(30, 270, 131, 251))
-        self.home_treeview_userlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;\n"
-"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
-"color: rgb(255, 255, 255);")
-        self.stackedWidget.addWidget(self.home)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -1820,7 +1708,7 @@ class Ui_MainWindow(object):
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
         self.home_btn_chatgroup.clicked.connect(MainWindow.openDialog)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1933,19 +1821,6 @@ class Ui_MainWindow(object):
         self.signup_label_useagree.setText(QCoreApplication.translate("MainWindow", u"\uc774\uc6a9\uc57d\uad00", None))
         self.signup_label_infoagree.setText(QCoreApplication.translate("MainWindow", u"\uac1c\uc778\uc815\ubcf4 \uc218\uc9d1 \ubc0f \uc774\uc6a9\uc5d0 \ubaa8\ub450 \ub3d9\uc758\ud569\ub2c8\ub2e4.", None))
         self.signup_btn_back.setText("")
-        self.home_label_chatback.setText("")
-        self.home_label_left1back.setText("")
-        self.home_label_left2back.setText("")
-        self.home_label_chatgroup.setText(QCoreApplication.translate("MainWindow", u"\ucc44\ud305 \uadf8\ub8f9 \ubaa9\ub85d", None))
-        self.home_label_chatgroup_pic.setText("")
-        self.home_label_userstate.setText(QCoreApplication.translate("MainWindow", u"\uc720\uc800 \uc0c1\ud0dc \ubaa9\ub85d", None))
-        self.home_label_userstate_pic.setText("")
-        self.home_btn_chatgroup.setText("")
-        self.home_label_chatlist_title.setText(QCoreApplication.translate("MainWindow", u"\ucc44\ud305 \uadf8\ub8f9 \uba85", None))
-        self.home_btn_chatlist_send.setText("")
-        self.home_btn_left.setText("")
-        self.home_btn_right.setText("")
-        self.home_btn_add_member.setText("")
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
