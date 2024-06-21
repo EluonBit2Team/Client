@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainckFkbn.ui'
+## Form generated from reading UI file 'maindAyQuv.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,7 +13,6 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1372,27 +1371,26 @@ class Ui_MainWindow(object):
         self.admin_listView_status.setObjectName(u"admin_listView_status")
         self.admin_listView_status.setGeometry(QRect(40, 70, 341, 431))
         self.admin_listView_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
+"border-radius: 10px;")
         self.admin_label_status = QLabel(self.adminpage)
         self.admin_label_status.setObjectName(u"admin_label_status")
         self.admin_label_status.setGeometry(QRect(40, 40, 141, 21))
         self.admin_label_status.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_memnum = QLabel(self.adminpage)
         self.admin_label_memnum.setObjectName(u"admin_label_memnum")
-        self.admin_label_memnum.setGeometry(QRect(449, 40, 61, 21))
+        self.admin_label_memnum.setGeometry(QRect(451, 40, 61, 21))
         self.admin_label_memnum.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_memstatus = QLabel(self.adminpage)
         self.admin_label_memstatus.setObjectName(u"admin_label_memstatus")
-        self.admin_label_memstatus.setGeometry(QRect(707, 300, 71, 21))
+        self.admin_label_memstatus.setGeometry(QRect(450, 130, 71, 21))
         self.admin_label_memstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_diskstatus = QLabel(self.adminpage)
         self.admin_label_diskstatus.setObjectName(u"admin_label_diskstatus")
-        self.admin_label_diskstatus.setGeometry(QRect(708, 40, 71, 21))
+        self.admin_label_diskstatus.setGeometry(QRect(450, 340, 71, 21))
         self.admin_label_diskstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_label_tpsstatus = QLabel(self.adminpage)
         self.admin_label_tpsstatus.setObjectName(u"admin_label_tpsstatus")
-        self.admin_label_tpsstatus.setGeometry(QRect(449, 300, 71, 21))
+        self.admin_label_tpsstatus.setGeometry(QRect(700, 40, 71, 21))
         self.admin_label_tpsstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_btn_accept = QPushButton(self.adminpage)
         self.admin_btn_accept.setObjectName(u"admin_btn_accept")
@@ -1412,41 +1410,35 @@ class Ui_MainWindow(object):
         self.admin_btn_food.setGeometry(QRect(850, 563, 111, 24))
         self.admin_btn_food.setCursor(QCursor(Qt.PointingHandCursor))
         self.admin_btn_food.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
-        self.admin_webEn_acmember_cmem = QWebEngineView(self.adminpage)
-        self.admin_webEn_acmember_cmem.setObjectName(u"admin_webEn_acmember_cmem")
-        self.admin_webEn_acmember_cmem.setGeometry(QRect(451, 70, 221, 201))
-        self.admin_webEn_acmember_cmem.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.admin_webEn_acmember_cmem.setUrl(QUrl(u"about:blank"))
-        self.admin_webEn_acmember_disk = QWebEngineView(self.adminpage)
-        self.admin_webEn_acmember_disk.setObjectName(u"admin_webEn_acmember_disk")
-        self.admin_webEn_acmember_disk.setGeometry(QRect(708, 70, 221, 201))
-        self.admin_webEn_acmember_disk.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.admin_webEn_acmember_disk.setUrl(QUrl(u"about:blank"))
-        self.admin_webEn_acmember_tps = QWebEngineView(self.adminpage)
-        self.admin_webEn_acmember_tps.setObjectName(u"admin_webEn_acmember_tps")
-        self.admin_webEn_acmember_tps.setGeometry(QRect(450, 330, 221, 201))
-        self.admin_webEn_acmember_tps.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.admin_webEn_acmember_tps.setUrl(QUrl(u"about:blank"))
-        self.admin_webEn_acmember_mem = QWebEngineView(self.adminpage)
-        self.admin_webEn_acmember_mem.setObjectName(u"admin_webEn_acmember_mem")
-        self.admin_webEn_acmember_mem.setGeometry(QRect(707, 330, 221, 201))
-        self.admin_webEn_acmember_mem.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;")
-        self.admin_webEn_acmember_mem.setUrl(QUrl(u"about:blank"))
         self.admin_btn_expend = QPushButton(self.adminpage)
         self.admin_btn_expend.setObjectName(u"admin_btn_expend")
-        self.admin_btn_expend.setGeometry(QRect(920, 35, 21, 21))
+        self.admin_btn_expend.setGeometry(QRect(927, 35, 21, 21))
         self.admin_btn_expend.setCursor(QCursor(Qt.PointingHandCursor))
         self.admin_btn_expend.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
+        self.admin_listView_connect = QListView(self.adminpage)
+        self.admin_listView_connect.setObjectName(u"admin_listView_connect")
+        self.admin_listView_connect.setGeometry(QRect(450, 70, 221, 51))
+        self.admin_listView_connect.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-radius: 10px;\n"
+"")
+        self.admin_listView_disk = QListView(self.adminpage)
+        self.admin_listView_disk.setObjectName(u"admin_listView_disk")
+        self.admin_listView_disk.setGeometry(QRect(700, 70, 221, 51))
+        self.admin_listView_disk.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-radius: 10px;\n"
+"")
+        self.admin_qgraphicsview_mem = QGraphicsView(self.adminpage)
+        self.admin_qgraphicsview_mem.setObjectName(u"admin_qgraphicsview_mem")
+        self.admin_qgraphicsview_mem.setGeometry(QRect(450, 160, 471, 161))
+        self.admin_qgraphicsview_mem.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-radius: 10px;")
+        self.admin_qgraphicsview_disk = QGraphicsView(self.adminpage)
+        self.admin_qgraphicsview_disk.setObjectName(u"admin_qgraphicsview_disk")
+        self.admin_qgraphicsview_disk.setGeometry(QRect(450, 370, 471, 161))
+        self.admin_qgraphicsview_disk.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-radius: 10px;")
         self.stackedWidget.addWidget(self.adminpage)
         self.page = QWidget()
         self.page.setObjectName(u"page")

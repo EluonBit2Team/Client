@@ -43,7 +43,8 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.btn_notice = mainWindow.findChild(QPushButton, "btn_notice")
 
     mainWindow.admin_btn_expend = mainWindow.findChild(QPushButton, "admin_btn_expend")
-    
+
+
     #매개변수를 가진 버튼
     mainWindow.login_btn_mail.clicked.connect(lambda: mainWindow.openDialog("MailFunctionWindow"))
     mainWindow.login_btn_call.clicked.connect(lambda: mainWindow.openDialog("CallDialog"))
@@ -53,6 +54,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_chatgroup.clicked.connect(lambda: mainWindow.openDialog("GroupAddDialog"))
     mainWindow.home_btn_add_member.clicked.connect(lambda: mainWindow.openDialog("MemberAddDialog"))
     mainWindow.home_listview_chatgroup.clicked.connect(mainWindow.on_item_clicked)
+    mainWindow.admin_btn_expend.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
 
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupname = None

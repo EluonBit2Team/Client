@@ -2,8 +2,9 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from modules.ui_grafana import Ui_Dialog
+from modules.ui_adminpage_function import *
 
-class CustomDialog_user(QDialog):
+class GrafanaDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_Dialog()  # UI 클래스 인스턴스를 생성합니다.
@@ -21,9 +22,7 @@ class CustomDialog_user(QDialog):
             x = parent_rect.x() + (parent_rect.width() - self_rect.width()) // 2
             y = parent_rect.y() + (parent_rect.height() - self_rect.height()) // 2
             self.move(x, y)
-            
-        # dialog_btn_exit 버튼을 눌렀을 때 다이얼로그를 닫도록 연결
-        self.ui.dialog_btn_exit.clicked.connect(self.close_dialog)
 
-    def close_dialog(self):
-        self.accept()  # 다이얼로그 닫기
+        grafana_dashboard = GrafanaDashboard(self)
+        grafana_dashboard.setup_dashboard()    
+        

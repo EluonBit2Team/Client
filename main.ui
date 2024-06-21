@@ -2518,8 +2518,7 @@ border-radius: 10px;</string>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background-color: rgb(31, 35, 41);
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;</string>
+border-radius: 10px;</string>
                        </property>
                       </widget>
                       <widget class="QLabel" name="admin_label_status">
@@ -2541,7 +2540,7 @@ border-bottom-right-radius: 10px;</string>
                       <widget class="QLabel" name="admin_label_memnum">
                        <property name="geometry">
                         <rect>
-                         <x>449</x>
+                         <x>451</x>
                          <y>40</y>
                          <width>61</width>
                          <height>21</height>
@@ -2557,8 +2556,8 @@ border-bottom-right-radius: 10px;</string>
                       <widget class="QLabel" name="admin_label_memstatus">
                        <property name="geometry">
                         <rect>
-                         <x>707</x>
-                         <y>300</y>
+                         <x>450</x>
+                         <y>130</y>
                          <width>71</width>
                          <height>21</height>
                         </rect>
@@ -2573,8 +2572,8 @@ border-bottom-right-radius: 10px;</string>
                       <widget class="QLabel" name="admin_label_diskstatus">
                        <property name="geometry">
                         <rect>
-                         <x>708</x>
-                         <y>40</y>
+                         <x>700</x>
+                         <y>130</y>
                          <width>71</width>
                          <height>21</height>
                         </rect>
@@ -2589,8 +2588,8 @@ border-bottom-right-radius: 10px;</string>
                       <widget class="QLabel" name="admin_label_tpsstatus">
                        <property name="geometry">
                         <rect>
-                         <x>449</x>
-                         <y>300</y>
+                         <x>700</x>
+                         <y>40</y>
                          <width>71</width>
                          <height>21</height>
                         </rect>
@@ -2662,86 +2661,6 @@ border: 1px solid white;
                         <string>오늘의 식단 보기</string>
                        </property>
                       </widget>
-                      <widget class="QWebEngineView" name="admin_webEn_acmember_cmem">
-                       <property name="geometry">
-                        <rect>
-                         <x>451</x>
-                         <y>70</y>
-                         <width>221</width>
-                         <height>201</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;</string>
-                       </property>
-                       <property name="url">
-                        <url>
-                         <string>about:blank</string>
-                        </url>
-                       </property>
-                      </widget>
-                      <widget class="QWebEngineView" name="admin_webEn_acmember_disk">
-                       <property name="geometry">
-                        <rect>
-                         <x>708</x>
-                         <y>70</y>
-                         <width>221</width>
-                         <height>201</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;</string>
-                       </property>
-                       <property name="url">
-                        <url>
-                         <string>about:blank</string>
-                        </url>
-                       </property>
-                      </widget>
-                      <widget class="QWebEngineView" name="admin_webEn_acmember_tps">
-                       <property name="geometry">
-                        <rect>
-                         <x>450</x>
-                         <y>330</y>
-                         <width>221</width>
-                         <height>201</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;</string>
-                       </property>
-                       <property name="url">
-                        <url>
-                         <string>about:blank</string>
-                        </url>
-                       </property>
-                      </widget>
-                      <widget class="QWebEngineView" name="admin_webEn_acmember_mem">
-                       <property name="geometry">
-                        <rect>
-                         <x>707</x>
-                         <y>330</y>
-                         <width>221</width>
-                         <height>201</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;</string>
-                       </property>
-                       <property name="url">
-                        <url>
-                         <string>about:blank</string>
-                        </url>
-                       </property>
-                      </widget>
                       <widget class="QPushButton" name="admin_btn_expend">
                        <property name="geometry">
                         <rect>
@@ -2761,6 +2680,64 @@ background-repeat: no-repeat;</string>
                        </property>
                        <property name="text">
                         <string/>
+                       </property>
+                      </widget>
+                      <widget class="QListView" name="admin_listView_connect">
+                       <property name="geometry">
+                        <rect>
+                         <x>450</x>
+                         <y>70</y>
+                         <width>221</width>
+                         <height>51</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(31, 35, 41);
+border-radius: 10px;
+</string>
+                       </property>
+                      </widget>
+                      <widget class="QListView" name="admin_listView_disk">
+                       <property name="geometry">
+                        <rect>
+                         <x>700</x>
+                         <y>70</y>
+                         <width>221</width>
+                         <height>51</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(31, 35, 41);
+border-radius: 10px;
+</string>
+                       </property>
+                      </widget>
+                      <widget class="QGraphicsView" name="admin_qgraphicsview_mem">
+                       <property name="geometry">
+                        <rect>
+                         <x>450</x>
+                         <y>160</y>
+                         <width>221</width>
+                         <height>51</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(31, 35, 41);
+border-radius: 10px;</string>
+                       </property>
+                      </widget>
+                      <widget class="QGraphicsView" name="admin_qgraphicsview_disk">
+                       <property name="geometry">
+                        <rect>
+                         <x>700</x>
+                         <y>160</y>
+                         <width>221</width>
+                         <height>51</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(31, 35, 41);
+border-radius: 10px;</string>
                        </property>
                       </widget>
                      </widget>
@@ -3442,13 +3419,6 @@ border:none;
    </layout>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebEngineView</class>
-   <extends>QWidget</extends>
-   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="resources.qrc"/>
  </resources>

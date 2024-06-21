@@ -13,6 +13,23 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton#admin_btn_reload {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+QPushButton#admin_btn_reload:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#admin_btn_reload:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}</string>
+  </property>
   <widget class="QLabel" name="admin_label_back">
    <property name="geometry">
     <rect>
@@ -33,15 +50,33 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
+     <y>40</y>
      <width>1041</width>
-     <height>661</height>
+     <height>641</height>
     </rect>
    </property>
    <property name="url">
     <url>
      <string>about:blank</string>
     </url>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="admin_btn_reload">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>5</y>
+     <width>41</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/icons/images/icons/cil-reload.png);
+background-repeat: no-repeat;
+background-position: center;</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
@@ -52,6 +87,8 @@
    <header location="global">QtWebEngineWidgets/QWebEngineView</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

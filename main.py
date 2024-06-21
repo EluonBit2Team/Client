@@ -37,6 +37,7 @@ from modules.ui_calldlg_function import *
 from modules.mail_function import *
 from modules.ui_adminpage_function import *
 from modules.ui_groupuserlistdlg_function import *
+from modules.ui_grafana_function import *
 from widgets import *
 
 
@@ -182,6 +183,9 @@ class MainWindow(QMainWindow):
         # 알람 다이얼로그
         elif dialogName == "NoticeDialog":
             dialog = NoticeDialog(self)
+        # 알람 다이얼로그
+        elif dialogName == "GrafanaDialog":
+            dialog = GrafanaDialog(self)  
         # 채팅방 유저 다이얼로그
         elif dialogName == "GroupUserListDialog":
             dialog = GroupUserListDialog(self)
@@ -218,9 +222,11 @@ class MainWindow(QMainWindow):
         if btnName == "btn_admin":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
-            # GrafanaDashboard 설정
-            grafana_dashboard = GrafanaDashboard(self)
-            grafana_dashboard.setup_dashboard()
+            # QGraphicsView 설정
+            self.memoryUsageView = self.findChild(QGraphicsView, 'admin_qgraphicsview_mem')
+            self.scene = QGraphicsScene(self)
+            self.memoryUsageView.setScene(self.scene)
+
 
         # SHOW LOGIN PAGE
         if (btnName == "btn_login") or (btnName == "signup_btn_back"):
