@@ -13,6 +13,7 @@ class GroupAddDialog(QDialog, Ui_Dialog):
         self.ui.setupUi(self)
         self.main_window = main_window
         self.dialog_edit_chattitle = self.findChild(QLineEdit, "dialog_edit_chattitle")
+        self.dialog_edit_issue = self.findChild(QLineEdit, "dialog_edit_issue")
          # dialog_btn_exit 버튼을 눌렀을 때 다이얼로그를 닫도록 연결
         self.ui.dialog_btn_exit.clicked.connect(self.close_dialog)
         self.setWindowTitle("채팅 그룹 추가")
@@ -21,12 +22,13 @@ class GroupAddDialog(QDialog, Ui_Dialog):
         self.sock = self.main_window.socket
         self.userId = self.main_window.userId
         self.groupname = self.dialog_edit_chattitle.text()
+        self.message = self.dialog_edit_issue.text()
         try:
             msg = {
                 "type": 4,
                 "id": self.userId,
                 "groupname": self.groupname,
-                "message": "이러저러한 이유로 이러저러한 방을 요청합니다."
+                "message": self.message
             }
             json_msg = json.dumps(msg, ensure_ascii=False)
             byte_json_msg = bytes(json_msg, 'utf-8')

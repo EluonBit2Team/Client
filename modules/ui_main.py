@@ -2,6 +2,7 @@
 
 ################################################################################
 ## Form generated from reading UI file 'maindAyQuv.ui'
+## Form generated from reading UI file 'mainMWZipG.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1310,11 +1311,11 @@ class Ui_MainWindow(object):
         self.home_btn_add_member.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-follow.png);\n"
 "border:none;\n"
 "")
-        self.home_btn_groupuserlist = QPushButton(self.home)
-        self.home_btn_groupuserlist.setObjectName(u"home_btn_groupuserlist")
-        self.home_btn_groupuserlist.setGeometry(QRect(870, 34, 31, 24))
-        self.home_btn_groupuserlist.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_groupuserlist.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user.png);\n"
+        self.home_btn_groupmemberlist = QPushButton(self.home)
+        self.home_btn_groupmemberlist.setObjectName(u"home_btn_groupmemberlist")
+        self.home_btn_groupmemberlist.setGeometry(QRect(870, 34, 31, 24))
+        self.home_btn_groupmemberlist.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_groupmemberlist.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user.png);\n"
 "border:none;\n"
 "")
         self.stackedWidget.addWidget(self.home)
@@ -1727,7 +1728,6 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
-        self.home_btn_chatgroup.clicked.connect(MainWindow.openDialog)
 
         self.stackedWidget.setCurrentIndex(2)
 
@@ -1804,7 +1804,7 @@ class Ui_MainWindow(object):
         self.home_btn_left.setText("")
         self.home_btn_right.setText("")
         self.home_btn_add_member.setText("")
-        self.home_btn_groupuserlist.setText("")
+        self.home_btn_groupmemberlist.setText("")
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
         self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))

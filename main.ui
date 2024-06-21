@@ -2411,7 +2411,7 @@ border:none;
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="home_btn_groupuserlist">
+                      <widget class="QPushButton" name="home_btn_groupmemberlist">
                        <property name="geometry">
                         <rect>
                          <x>870</x>
@@ -3612,22 +3612,6 @@ border:none;
     <hint type="destinationlabel">
      <x>1046</x>
      <y>695</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>home_btn_chatgroup</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>openDialog()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>171</x>
-     <y>253</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>208</x>
-     <y>5</y>
     </hint>
    </hints>
   </connection>
