@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'userdlgTlHRbO.ui'
+## Form generated from reading UI file 'groupuserlistdlgJvpDDb.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -18,7 +18,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(640, 480)
+        Dialog.resize(640, 479)
         Dialog.setStyleSheet(u"QPushButton#dialog_btn_exit {\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"

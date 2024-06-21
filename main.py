@@ -36,7 +36,7 @@ from modules.ui_chatmemberadd_function import *
 from modules.ui_calldlg_function import *
 from modules.mail_function import *
 from modules.ui_adminpage_function import *
-from modules.ui_userdlg_function import *
+from modules.ui_groupuserlistdlg_function import *
 from widgets import *
 
 
@@ -141,8 +141,6 @@ class MainWindow(QMainWindow):
         self.home_treeview_userlist.setModel(self.userListModel)
         self.userListModel.setHorizontalHeaderLabels(["이름", "아이디"])
         
-        self.userId = None
-        self.socket = None
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
         self.groupDialog = GroupAddDialog(self)
@@ -176,17 +174,17 @@ class MainWindow(QMainWindow):
         elif dialogName == "MailFunctionWindow":
             dialog = MailFunctionWindow(self)
         # 전화 다이얼로그
-        elif dialogName == "CustomDialogCall":
-            dialog = CustomDialogCall(self)
+        elif dialogName == "CallDialog":
+            dialog = CallDialog(self)
         # 음식 다이얼로그
-        elif dialogName == "CustomDialogFood":
-            dialog = CustomDialogFood(self)
+        elif dialogName == "FoodDialog":
+            dialog = FoodDialog(self)
         # 알람 다이얼로그
-        elif dialogName == "CustomDialogNotice":
-            dialog = CustomDialogNotice(self)
+        elif dialogName == "NoticeDialog":
+            dialog = NoticeDialog(self)
         # 채팅방 유저 다이얼로그
-        elif dialogName == "CustomDialogUser":
-            dialog = CustomDialogUser(self)
+        elif dialogName == "GroupUserListDialog":
+            dialog = GroupUserListDialog(self)
         
         dialog.exec()
     

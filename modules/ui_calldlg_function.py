@@ -7,7 +7,7 @@ from .resources_rc import *
 from modules.ui_calldlg import Ui_Dialog  # 변환된 UI 파일을 임포트합니다.
 
 # 빈 다이얼로그
-class CustomDialogCall(QDialog):
+class CallDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_Dialog()  # UI 클래스 인스턴스를 생성합니다.
