@@ -33,7 +33,7 @@ from modules.ui_noticedlg_function import *
 from modules.ui_fooddlg_function import *
 from modules.ui_groupadddlg_function import *
 from modules.ui_chatmemberadd_function import *
-from modules.calldlg_function import *
+from modules.ui_calldlg_function import *
 from modules.mail_function import *
 from modules.ui_adminpage_function import *
 from modules.ui_userdlg_function import *
@@ -95,7 +95,6 @@ class MainWindow(QMainWindow):
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_admin.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
-        widgets.btn_notice.clicked.connect(self.buttonClick)
 
         # Main button
         widgets.home_btn_chatlist_send.clicked.connect(self.handleSendButtonClick) # 전송 버튼
@@ -171,24 +170,24 @@ class MainWindow(QMainWindow):
         if dialogName == "GroupAddDialog":
             dialog = GroupAddDialog(self)
         # 대화 상대 추가 다이얼로그
-        if dialogName == "MemberAddDialog":
+        elif dialogName == "MemberAddDialog":
             dialog = MemberAddDialog(self)
         # 이메일 다이얼로그
-        if dialogName == "send_mail_btn":
+        elif dialogName == "MailFunctionWindow":
             dialog = MailFunctionWindow(self)
         # 전화 다이얼로그
-        if dialogName == "show_call_dialog":
-            dialog = CustomDialog_call(self)
-        # 알람 다이얼로그
-        if dialogName == "btn_notice":
-            dialog = CustomDialog_notice(self)
-        # 채팅방 유저 다이얼로그
-        if dialogName == "home_btn_user":
-            dialog = CustomDialog_user(self)
+        elif dialogName == "CustomDialogCall":
+            dialog = CustomDialogCall(self)
         # 음식 다이얼로그
-        elif dialogName == "admin_btn_food":
-            dialog = CustomDialog_food(self)
-
+        elif dialogName == "CustomDialogFood":
+            dialog = CustomDialogFood(self)
+        # 알람 다이얼로그
+        elif dialogName == "CustomDialogNotice":
+            dialog = CustomDialogNotice(self)
+        # 채팅방 유저 다이얼로그
+        elif dialogName == "CustomDialogUser":
+            dialog = CustomDialogUser(self)
+        
         dialog.exec()
     
     def handleSendButtonClick(self):
@@ -235,15 +234,8 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.signuppage) # SET PAGE
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
         
-        # SHOW NOTICE
-        if btnName == "btn_notice":
-            # 버튼 클릭 시 다이얼로그 호출
-            self.show_notice_dialog()
-        
         if btnName == "btn_exit":
             self.packetSender.testDataSender(self.socket)
-            
-
         
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')

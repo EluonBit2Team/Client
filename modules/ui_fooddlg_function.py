@@ -70,7 +70,7 @@ class RouletteWidget(QWidget):
         self.animation.start()
 
 # 빈 다이얼로그
-class CustomDialog_food(QDialog):
+class CustomDialogFood(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_Dialog()  # UI 클래스 인스턴스를 생성합니다.
@@ -95,11 +95,3 @@ class CustomDialog_food(QDialog):
             x = parent_rect.x() + (parent_rect.width() - self_rect.width()) // 2
             y = parent_rect.y() + (parent_rect.height() - self_rect.height()) // 2
             self.move(x, y)
-
-# 예제 실행 코드
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    dlg = CustomDialog_food()
-    dlg.show()
-    sys.exit(app.exec())

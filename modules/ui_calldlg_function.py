@@ -7,7 +7,7 @@ from .resources_rc import *
 from modules.ui_calldlg import Ui_Dialog  # 변환된 UI 파일을 임포트합니다.
 
 # 빈 다이얼로그
-class CustomDialog_call(QDialog):
+class CustomDialogCall(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.ui = Ui_Dialog()  # UI 클래스 인스턴스를 생성합니다.
@@ -25,10 +25,3 @@ class CustomDialog_call(QDialog):
             x = parent_rect.x() + (parent_rect.width() - self_rect.width()) // 2
             y = parent_rect.y() + (parent_rect.height() - self_rect.height()) // 2
             self.move(x, y)
-
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    mainWindow = CustomDialog_call()
-    mainWindow.show()
-    sys.exit(app.exec_())

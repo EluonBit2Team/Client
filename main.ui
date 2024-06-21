@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -2411,7 +2411,7 @@ border:none;
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="home_btn_user">
+                      <widget class="QPushButton" name="home_btn_groupuserlist">
                        <property name="geometry">
                         <rect>
                          <x>870</x>
