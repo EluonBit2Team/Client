@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainpWnHNf.ui'
+## Form generated from reading UI file 'mainckFkbn.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,6 +13,7 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1257,10 +1258,10 @@ class Ui_MainWindow(object):
         self.home_label_chatlist_title.setObjectName(u"home_label_chatlist_title")
         self.home_label_chatlist_title.setGeometry(QRect(220, 39, 91, 16))
         self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
-        self.home_listview_status = QListView(self.home)
-        self.home_listview_status.setObjectName(u"home_listview_status")
-        self.home_listview_status.setGeometry(QRect(30, 270, 131, 241))
-        self.home_listview_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+        self.home_treeview_userlist = QTreeView(self.home)
+        self.home_treeview_userlist.setObjectName(u"home_treeview_userlist")
+        self.home_treeview_userlist.setGeometry(QRect(30, 270, 131, 251))
+        self.home_treeview_userlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
 "border-bottom-right-radius: 10px;\n"
 "font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
@@ -1310,11 +1311,11 @@ class Ui_MainWindow(object):
         self.home_btn_add_member.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-follow.png);\n"
 "border:none;\n"
 "")
-        self.home_btn_user = QPushButton(self.home)
-        self.home_btn_user.setObjectName(u"home_btn_user")
-        self.home_btn_user.setGeometry(QRect(870, 34, 31, 24))
-        self.home_btn_user.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_user.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user.png);\n"
+        self.home_btn_groupuserlist = QPushButton(self.home)
+        self.home_btn_groupuserlist.setObjectName(u"home_btn_groupuserlist")
+        self.home_btn_groupuserlist.setGeometry(QRect(870, 34, 31, 24))
+        self.home_btn_groupuserlist.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_groupuserlist.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user.png);\n"
 "border:none;\n"
 "")
         self.stackedWidget.addWidget(self.home)
@@ -1811,7 +1812,7 @@ class Ui_MainWindow(object):
         self.home_btn_left.setText("")
         self.home_btn_right.setText("")
         self.home_btn_add_member.setText("")
-        self.home_btn_user.setText("")
+        self.home_btn_groupuserlist.setText("")
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
         self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))

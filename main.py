@@ -33,10 +33,10 @@ from modules.ui_noticedlg_function import *
 from modules.ui_fooddlg_function import *
 from modules.ui_groupadddlg_function import *
 from modules.ui_chatmemberadd_function import *
-from modules.calldlg_function import *
+from modules.ui_calldlg_function import *
 from modules.mail_function import *
 from modules.ui_adminpage_function import *
-from modules.ui_userdlg_function import *
+from modules.ui_groupuserlistdlg_function import *
 from widgets import *
 
 
@@ -95,7 +95,6 @@ class MainWindow(QMainWindow):
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_admin.clicked.connect(self.buttonClick)
         widgets.btn_login.clicked.connect(self.buttonClick)
-        widgets.btn_notice.clicked.connect(self.buttonClick)
 
         # Main button
         widgets.home_btn_chatlist_send.clicked.connect(self.handleSendButtonClick) # 전송 버튼
@@ -126,7 +125,7 @@ class MainWindow(QMainWindow):
             # SET HACKS
             AppFunctions.setThemeHack(self)
 
-        widgets.stackedWidget.setCurrentWidget(widgets.home)
+        widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
         widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
         
         delegate = CustomDelegate(self.home_listview_chatlist)
@@ -138,15 +137,14 @@ class MainWindow(QMainWindow):
         self.groupListModel = QStandardItemModel(self.home_listview_chatgroup)
         self.home_listview_chatgroup.setModel(self.groupListModel)
         
-        self.userListModel = QStandardItemModel(self.home_listview_status)
-        self.home_listview_status.setModel(self.userListModel)
+        self.userListModel = QStandardItemModel(self.home_treeview_userlist)
+        self.home_treeview_userlist.setModel(self.userListModel)
+        self.userListModel.setHorizontalHeaderLabels(["이름", "아이디"])
         
-        self.userId = None
-        self.socket = None
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
         self.groupDialog = GroupAddDialog(self)
-        self.memberAddDialog = MemberAddDialog(self, self.userListModel)
+        self.memberAddDialog = MemberAddDialog(self)
         
         #connect socket
         try:    
@@ -156,9 +154,6 @@ class MainWindow(QMainWindow):
             connectionErrorEvent()
         
         self.start_receiving()
-        
-        # self.packetSender.reqUserList(self.socket)
-        # self.packetSender.reqGroupList(self.socket)
 
     # 약관체크버튼
     def toggleButton(self, state):
@@ -173,24 +168,24 @@ class MainWindow(QMainWindow):
         if dialogName == "GroupAddDialog":
             dialog = GroupAddDialog(self)
         # 대화 상대 추가 다이얼로그
-        if dialogName == "home_btn_add_member":
-            dialog = MemberAddDialog(self, self.userListModel)
+        elif dialogName == "MemberAddDialog":
+            dialog = MemberAddDialog(self)
         # 이메일 다이얼로그
-        if dialogName == "send_mail_btn":
+        elif dialogName == "MailFunctionWindow":
             dialog = MailFunctionWindow(self)
         # 전화 다이얼로그
-        if dialogName == "show_call_dialog":
-            dialog = CustomDialog_call(self)
-        # 알람 다이얼로그
-        if dialogName == "btn_notice":
-            dialog = CustomDialog_notice(self)
-        # 채팅방 유저 다이얼로그
-        if dialogName == "home_btn_user":
-            dialog = CustomDialog_user(self)
+        elif dialogName == "CallDialog":
+            dialog = CallDialog(self)
         # 음식 다이얼로그
-        elif dialogName == "admin_btn_food":
-            dialog = CustomDialog_food(self)
-
+        elif dialogName == "FoodDialog":
+            dialog = FoodDialog(self)
+        # 알람 다이얼로그
+        elif dialogName == "NoticeDialog":
+            dialog = NoticeDialog(self)
+        # 채팅방 유저 다이얼로그
+        elif dialogName == "GroupUserListDialog":
+            dialog = GroupUserListDialog(self)
+        
         dialog.exec()
     
     def handleSendButtonClick(self):
@@ -230,18 +225,23 @@ class MainWindow(QMainWindow):
         # SHOW LOGIN PAGE
         if (btnName == "btn_login") or (btnName == "signup_btn_back"):
             widgets.stackedWidget.setCurrentWidget(widgets.loginpage) # SET PAGE
-            #btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
         # SHOW SIGNUP PAGE
         if btnName == "login_btn_signup":
             widgets.stackedWidget.setCurrentWidget(widgets.signuppage) # SET PAGE
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
         
-        # SHOW NOTICE
-        if btnName == "btn_notice":
-            # 버튼 클릭 시 다이얼로그 호출
-            self.show_notice_dialog()
-
+        if btnName == "btn_exit":
+            self.packetSender.testDataSender(self.socket)
+        
+        # PRINT BTN NAME
+        print(f'Button "{btnName}" pressed!')
+    
+    def on_item_clicked(self, index):
+        item_text = index.data(Qt.DisplayRole)
+        self.groupname = item_text
+    
     def updateMsgDisplay(self, message, messageType):
         item=QStandardItem(message)
         item.setData(messageType, Qt.ItemDataRole.UserRole + 1)
@@ -249,26 +249,20 @@ class MainWindow(QMainWindow):
         self.home_listview_chatlist.scrollToBottom()
     
     def updateDisplay(self, list, model):
-        print("updateGroupDisplay 진입함")
-        print(list)
         if model == "grouplist":
             for i in list:
                 item=QStandardItem(i)
                 self.groupListModel.appendRow(item)
         elif model == "userlist":
-            # names = []
-            # positions = []
-            # departments = []
-            # for item in list:
-            #     names.append(item['name'])
-            #     positions.append(item['position'])
-            #     departments.append(item['dept_name'])
+            for json_data in list:
+                makeRow = json_data['dept_name'] + ' ' + json_data['position'] + ' ' + json_data['name']
+                name_column = QStandardItem(makeRow)
+                id_column = QStandardItem(json_data["id"])
+                name_column.setData(json_data, Qt.UserRole)
+                row=[name_column, id_column]
+                self.userListModel.appendRow(row)
             
-            for item in list:
-                makeRow = item['dept_name'] + ' ' + item['position'] + ' ' + item['name']
-                userRow = QStandardItem(makeRow)
-                self.userListModel.appendRow(userRow)
-            
+
     def loginRequest(self):
         self.packetSender.loginRequest(self.socket)
     
@@ -288,6 +282,9 @@ class MainWindow(QMainWindow):
         receive_thread.daemon = True
         receive_thread.start()
     
+
+
+
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):

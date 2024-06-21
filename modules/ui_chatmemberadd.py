@@ -79,21 +79,6 @@ class Ui_Dialog(object):
         self.dialog_label_title.setGeometry(QRect(240, 14, 161, 21))
         self.dialog_label_title.setStyleSheet(u"font: 600 11pt \"Segoe UI Variable Small Semibol\";\n"
 "color: rgb(232, 232, 232);")
-        self.dialog_listview_left = QListView(Dialog)
-        self.dialog_listview_left.setObjectName(u"dialog_listview_left")
-        self.dialog_listview_left.setGeometry(QRect(50, 110, 231, 301))
-        self.dialog_listview_left.setStyleSheet(u"background-color: rgb(40, 44, 52);\n"
-"border-radius: 10px;\n"
-"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
-"color: rgb(255, 255, 255);")
-        self.dialog_listview_right = QListView(Dialog)
-        self.dialog_listview_right.setObjectName(u"dialog_listview_right")
-        self.dialog_listview_right.setGeometry(QRect(360, 110, 231, 301))
-        self.dialog_listview_right.setStyleSheet(u"background-color: rgb(40, 44, 52);\n"
-"border-radius: 10px;\n"
-"\n"
-"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
-"color: rgb(255, 255, 255);")
         self.dialog_label_lefttitle = QLabel(Dialog)
         self.dialog_label_lefttitle.setObjectName(u"dialog_label_lefttitle")
         self.dialog_label_lefttitle.setGeometry(QRect(118, 82, 91, 21))
@@ -130,6 +115,20 @@ class Ui_Dialog(object):
         self.dialog_btn_delete.setStyleSheet(u"background-image: url(:/images/images/images/left.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;")
+        self.dialog_treeview_left = QTreeView(Dialog)
+        self.dialog_treeview_left.setObjectName(u"dialog_treeview_left")
+        self.dialog_treeview_left.setGeometry(QRect(50, 110, 231, 301))
+        self.dialog_treeview_left.setStyleSheet(u"background-color: rgb(40, 44, 52);\n"
+"border-radius: 10px;\n"
+"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
+"color: rgb(255, 255, 255);")
+        self.dialog_treeview_right = QTreeView(Dialog)
+        self.dialog_treeview_right.setObjectName(u"dialog_treeview_right")
+        self.dialog_treeview_right.setGeometry(QRect(370, 110, 231, 301))
+        self.dialog_treeview_right.setStyleSheet(u"background-color: rgb(40, 44, 52);\n"
+"border-radius: 10px;\n"
+"font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
+"color: rgb(255, 255, 255);")
 
         self.retranslateUi(Dialog)
 
