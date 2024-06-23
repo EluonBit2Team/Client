@@ -46,6 +46,7 @@ class ReceivePacket():
         self.main_window.userId = userId
         self.main_window.packetSender.reqGroupList(self.main_window.socket)
         self.main_window.packetSender.reqUserList(self.main_window.socket)
+        self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
     
     def receiveMassage(self, msg):
         self.receivedMessage = json.loads(msg.decode('utf-8')).get("text")

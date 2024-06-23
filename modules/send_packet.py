@@ -44,6 +44,22 @@ class SendPacket:
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
+    
+    def qrLoginRequest(self, socket, msg):
+        try:
+            packet = jsonParser(msg)
+
+            if socket and msg:
+                socket.sendall(packet)
+
+            self.main_window.btn_home.show()
+            self.main_window.btn_admin.show()
+            self.main_window.btn_notice.show()
+            return True
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
+
         
     def signUpRequest(self, socket):
         self.signupId = self.main_window.signup_input_id.text()
@@ -176,6 +192,9 @@ class SendPacket:
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
+    
+    def printSendClass(self):
+        print("어쨌든 SendPacketClass 불러냈음")
             
         
 def jsonParser(msg):
