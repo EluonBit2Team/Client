@@ -50,7 +50,7 @@ class Qrcode:
                 if qr_data:
                     print(f"QR 코드 데이터: {qr_data}")
                     self.main_window.packetSender.printSendClass()
-                    self.main_window.packetSender.loginRequest(self.socket, qr_data)
+                    self.main_window.packetSender.qrLoginRequest(self.socket, qr_data)
                     break  # 데이터를 추출하면 반복문 종료
                 
                 # 'q' 키를 누르면 종료
