@@ -150,18 +150,17 @@ class SendPacket:
             return False
         
     def reqGroupMemberList(self, socket, groupname):
-        try:
-            msg = {
-	                "type": 11,
-	                "groupname": groupname
-	        }
-            packet = jsonParser(msg)
-            if socket and msg:
-                socket.sendall(packet)
-            print(msg)
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return False
+        msg = {
+                "type": 11,
+                "groupname": groupname
+        }
+        if msg["groupname"]==None:
+            QMessageBox.warning(self.main_window, 'Warning', '그룹을 선택해주세요')
+            raise Exception('그룹을 선택해주세요')
+        packet = jsonParser(msg)
+        if socket and msg:
+            socket.sendall(packet)
+        print(msg)
     
     def testDataSender(self, socket):
         print("type: 11 보냄")
