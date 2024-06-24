@@ -29,7 +29,7 @@ class SendPacket:
         try:
             msg = {
                 "type": TYPE_LOGIN,
-                "id": self.loginId,
+                "login_id": self.loginId,
                 "pw": loginPw
             }
             packet = jsonParser(msg)

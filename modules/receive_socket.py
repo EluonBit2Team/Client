@@ -40,7 +40,7 @@ class ReceivePacket():
     
     def loginSuccess(self, msg):
         print(msg)
-        userId = json.loads(msg.decode('utf-8')).get("id")
+        userId = json.loads(msg.decode('utf-8')).get("login_id")
         print("로그인 성공")
         print("id: " + userId)
         self.main_window.userId = userId

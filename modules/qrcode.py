@@ -1,4 +1,5 @@
 import cv2
+import json
 from pyzbar import pyzbar
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -16,7 +17,7 @@ class Qrcode:
     
         # 첫 번째로 발견된 QR 코드의 데이터 추출
         if decoded_objects:
-            qr_data = decoded_objects[0].data.decode("utf-8")
+            qr_data = decoded_objects[0].data
             return qr_data
     
         return None
@@ -48,10 +49,10 @@ class Qrcode:
                 
                 # 추출된 QR 코드 데이터 출력
                 if qr_data:
-                    print(f"QR 코드 데이터: {qr_data}")
-                    self.main_window.packetSender.printSendClass()
-                    self.main_window.packetSender.qrLoginRequest(self.socket, qr_data)
-                    break  # 데이터를 추출하면 반복문 종료
+                    str_qr_data = qr_data.decode()
+                    jsondata = eval(str_qr_data)
+                    self.main_window.packetSender.qrLoginRequest(self.main_window.socket, jsondata)
+                    break
                 
                 # 'q' 키를 누르면 종료
                 if cv2.waitKey(1) & 0xFF == ord('q'):

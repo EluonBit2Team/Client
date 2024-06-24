@@ -184,7 +184,7 @@ class MainWindow(QMainWindow):
         # 음식 다이얼로그
         elif dialogName == "FoodDialog":
             dialog = FoodDialog(self)
-        # 알람 다이얼로그
+        # 알람 다이얼로그5
         elif dialogName == "NoticeDialog":
             dialog = NoticeDialog(self)
         # 채팅방 유저 다이얼로그
