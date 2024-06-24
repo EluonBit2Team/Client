@@ -42,7 +42,11 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")
     mainWindow.admin_btn_food = mainWindow.findChild(QPushButton, "admin_btn_food")
     mainWindow.admin_listView_status = mainWindow.findChild(QListView, "admin_listView_status")
-
+    mainWindow.admin_combo_dept = mainWindow.findChild(QComboBox, "admin_combo_dept")
+    mainWindow.admin_combo_position = mainWindow.findChild(QComboBox, "admin_combo_position")
+    mainWindow.admin_combo_role = mainWindow.findChild(QComboBox, "admin_combo_role")
+    mainWindow.admin_combo_tps = mainWindow.findChild(QComboBox, "admin_combo_tps")
+    
     mainWindow.btn_home = mainWindow.findChild(QPushButton, "btn_home")
     mainWindow.btn_admin = mainWindow.findChild(QPushButton, "btn_admin")
     mainWindow.btn_save = mainWindow.findChild(QPushButton, "btn_save")
@@ -55,12 +59,14 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.btn_notice.clicked.connect(lambda: mainWindow.openDialog("NoticeDialog"))
 
     mainWindow.admin_btn_food.clicked.connect(lambda: mainWindow.openDialog("FoodDialog"))
-    # mainWindow.admin_btn_accept.clicked.connect()
+    mainWindow.admin_btn_accept.clicked.connect(lambda: mainWindow.packetSender.acceptReq(mainWindow.socket))
+    mainWindow.admin_btn_reject.clicked.connect(lambda: mainWindow.packetSender.rejectReq(mainWindow.socket))
 
     mainWindow.home_btn_groupmemberlist.clicked.connect(lambda: mainWindow.openDialog("GroupMemberListDialog"))
     mainWindow.home_btn_chatgroup.clicked.connect(lambda: mainWindow.openDialog("GroupAddDialog"))
     mainWindow.home_btn_add_member.clicked.connect(lambda: mainWindow.openDialog("MemberAddDialog"))
-    mainWindow.home_listview_chatgroup.clicked.connect(mainWindow.groupClick)
+    mainWindow.home_listview_chatgroup.clicked.connect(lambda index: mainWindow.groupClick(index, mainWindow.groupname))
+
 
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupname = None

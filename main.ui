@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -2529,7 +2529,7 @@ border: 1px solid #3498db;
                          <x>420</x>
                          <y>20</y>
                          <width>541</width>
-                         <height>541</height>
+                         <height>291</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2701,7 +2701,7 @@ border: 1px solid white;
                          <x>440</x>
                          <y>70</y>
                          <width>501</width>
-                         <height>471</height>
+                         <height>221</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2714,6 +2714,277 @@ border-bottom-right-radius: 10px;</string>
                          <string>about:blank</string>
                         </url>
                        </property>
+                      </widget>
+                      <widget class="QComboBox" name="admin_combo_dept">
+                       <property name="geometry">
+                        <rect>
+                         <x>420</x>
+                         <y>330</y>
+                         <width>186</width>
+                         <height>33</height>
+                        </rect>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>8</pointsize>
+                         <italic>false</italic>
+                         <fontweight>ExtraLight</fontweight>
+                        </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">
+font: 8pt &quot;Segoe UI&quot;;
+font-weight: 200;
+background-color: rgb(27, 29, 35);
+</string>
+                       </property>
+                       <property name="currentText">
+                        <string>부서를 선택하세요.</string>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>16</width>
+                         <height>16</height>
+                        </size>
+                       </property>
+                       <property name="frame">
+                        <bool>true</bool>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>부서를 선택하세요.</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string> 1팀</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string> 2팀</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string> 3팀</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string> 솔루션팀</string>
+                        </property>
+                       </item>
+                      </widget>
+                      <widget class="QComboBox" name="admin_combo_position">
+                       <property name="geometry">
+                        <rect>
+                         <x>420</x>
+                         <y>380</y>
+                         <width>186</width>
+                         <height>33</height>
+                        </rect>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>8</pointsize>
+                         <italic>false</italic>
+                         <fontweight>ExtraLight</fontweight>
+                        </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(27, 29, 35);
+
+font: 8pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
+                       </property>
+                       <property name="currentText">
+                        <string>직급을 선택하세요.</string>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>16</width>
+                         <height>16</height>
+                        </size>
+                       </property>
+                       <property name="frame">
+                        <bool>true</bool>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>직급을 선택하세요.</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>회장</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>사장</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>차장</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>과장</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>대리</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>사원</string>
+                        </property>
+                       </item>
+                      </widget>
+                      <widget class="QComboBox" name="admin_combo_role">
+                       <property name="geometry">
+                        <rect>
+                         <x>420</x>
+                         <y>430</y>
+                         <width>186</width>
+                         <height>33</height>
+                        </rect>
+                       </property>
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>8</pointsize>
+                         <italic>false</italic>
+                         <fontweight>ExtraLight</fontweight>
+                        </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(27, 29, 35);
+
+font: 8pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
+                       </property>
+                       <property name="currentText">
+                        <string>역할을 선택하세요</string>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>16</width>
+                         <height>16</height>
+                        </size>
+                       </property>
+                       <property name="frame">
+                        <bool>true</bool>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>역할을 선택하세요</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>1</string>
+                        </property>
+                       </item>
+                      </widget>
+                      <widget class="QComboBox" name="admin_combo_tps">
+                       <property name="geometry">
+                        <rect>
+                         <x>420</x>
+                         <y>480</y>
+                         <width>186</width>
+                         <height>33</height>
+                        </rect>
+                       </property>
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>8</pointsize>
+                         <italic>false</italic>
+                         <fontweight>ExtraLight</fontweight>
+                        </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="autoFillBackground">
+                        <bool>false</bool>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(27, 29, 35);
+
+font: 8pt &quot;Segoe UI&quot;;
+font-weight: 200;</string>
+                       </property>
+                       <property name="currentText">
+                        <string>역할을 선택하세요</string>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>16</width>
+                         <height>16</height>
+                        </size>
+                       </property>
+                       <property name="frame">
+                        <bool>true</bool>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>역할을 선택하세요</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>0</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>1</string>
+                        </property>
+                       </item>
                       </widget>
                      </widget>
                      <widget class="QWidget" name="qrlogin">
