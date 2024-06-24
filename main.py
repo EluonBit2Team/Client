@@ -283,7 +283,7 @@ class MainWindow(QMainWindow):
         print("updateDisplay 진입")
         if type == "grouplist":
             for i in list:
-                item = QStandardItem(i)
+                item = QStandardItem(i['groupname'])
                 model.appendRow(item)
         elif type == "userlist":
             for json_data in list:
