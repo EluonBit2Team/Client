@@ -46,10 +46,12 @@ class ReceivePacket():
         self.main_window.userId = userId
         self.main_window.packetSender.reqGroupList(self.main_window.socket)
         self.main_window.packetSender.reqUserList(self.main_window.socket)
-    
+        #ishost
+        self.main_window.packetSender.reqAcceptList(self.main_window.socket)
+        # self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
+        
     def receiveMassage(self, msg):
         self.receivedMessage = json.loads(msg.decode('utf-8')).get("text")
-        print("receivedMessage = " + self.receivedMessage)
         self.main_window.updateMsgDisplay(self.receivedMessage, "received")
     
     def receiveUserList(self, msg):
@@ -58,14 +60,23 @@ class ReceivePacket():
     
     def receiveGroupList(self, msg):
         self.groupList = json.loads(msg.decode('utf-8')).get("groups")
-        print(msg)
-        print(self.groupList)
         self.main_window.updateDisplay(self.groupList, "grouplist", self.main_window.groupListModel)
     
     def receiveGroupMember(self, msg):
         groupMemberList = json.loads(msg.decode('utf-8')).get("users")
-        print(groupMemberList)
         self.main_window.groupMember.updateDisplay(groupMemberList, self.main_window.groupMember.groupMemberModel)
+    
+    def receiveAcceptList(self, msg):
+        print("receiveAcceptList 호출")
+        signupList = json.loads(msg.decode('utf-8')).get("signup_req_list")
+        print(signupList)
+        groupReqList = json.loads(msg.decode('utf-8')).get("group_req_list")
+        if signupList:
+            self.main_window.updateDisplay(signupList, "signupList", self.main_window.adminReqListModel)
+        if groupReqList:
+            self.main_window.updateDisplay(groupReqList, "groupReqList", self.main_window.adminReqListModel)
+            
+        
         
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
@@ -83,8 +94,9 @@ class ReceivePacket():
         elif jsonType == TYPE_GROUPLIST:
             self.receiveGroupList(msg)
         elif jsonType == TYPE_GROUPMEMBER:
-            print(msg)
             self.receiveGroupMember(msg)
+        elif jsonType == TYPE_ACCEPT_LIST:
+            self.receiveAcceptList(msg)
         else:
             print("jsonType이 None입니다.")
             print("--------- RAW DATA ---------")

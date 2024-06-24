@@ -144,6 +144,9 @@ class MainWindow(QMainWindow):
 
         self.groupListModel = QStandardItemModel(self.home_listview_chatgroup)
         self.home_listview_chatgroup.setModel(self.groupListModel)
+        
+        self.adminReqListModel = QStandardItemModel(self.admin_listView_status)
+        self.admin_listView_status.setModel(self.adminReqListModel)
 
         self.userListModel = QStandardItemModel(self.home_treeview_userlist)
         self.home_treeview_userlist.setModel(self.userListModel)
@@ -300,6 +303,18 @@ class MainWindow(QMainWindow):
                 name_column.setData(json_data, Qt.UserRole)
                 row = [name_column, id_column]
                 model.appendRow(row)
+        elif type == "signupList":
+            for json_data in list:
+                makeRow = json_data['login_id'] + ' ' + \
+                    json_data['name'] + ' ' + json_data['phone'] + ' ' + json_data['email']
+                item = QStandardItem(makeRow)
+                model.appendRow(item)
+        elif type == "groupReqList":
+            for json_data in list:
+                makeRow = json_data['group_name'] + ' ' + json_data['memo']
+                item = QStandardItem(makeRow)
+                model.appendRow(item)
+        
 
     def loginRequest(self):
         self.packetSender.loginRequest(self.socket)
