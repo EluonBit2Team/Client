@@ -192,52 +192,71 @@ class SendPacket:
             item = self.main_window.adminReqListModel.itemFromIndex(index)
             json_data = item.data(Qt.UserRole)
         
-        login_id = json_data["login_id"]
-        dept = self.main_window.admin_combo_dept.currentText()
-        pos = self.main_window.admin_combo_position.currentText()
-        role = self.main_window.admin_combo_role.currentText()
-        tps = self.main_window.admin_combo_tps.currentText()
+        signup_type = 'login_id'
+        group_type = 'group_name'
         
-        if dept == "1팀":
-            dept = 1
-        elif dept == "2팀":
-            dept = 2
-        elif dept == "3팀":
-            dept = 3
-        else:
-            dept = 4
+        if signup_type in json_data:
+            login_id = json_data["login_id"]
+            dept = self.main_window.admin_combo_dept.currentText()
+            pos = self.main_window.admin_combo_position.currentText()
+            role = self.main_window.admin_combo_role.currentText()
+            tps = self.main_window.admin_combo_tps.currentText()
+            
+            if dept == "1팀":
+                dept = 1
+            elif dept == "2팀":
+                dept = 2
+            elif dept == "3팀":
+                dept = 3
+            else:
+                dept = 4
+            
+            if pos == "회장":
+                pos = 1
+            elif pos == "사장":
+                pos = 2
+            elif pos == "차장":
+                pos = 3
+            elif pos == "과장":
+                pos = 4
+            elif pos == "대리":
+                pos = 5
+            elif pos == "사원":
+                pos = 6
+            
+            try:
+                msg = {
+                        "type": TYPE_ACCEPT_SIGNUP,
+                        "is_ok": 1,
+                        "login_id": login_id,
+                        "dept": dept, 
+                        "pos": pos, 
+                        "role": int(role),
+                        "max_tps": int(tps)
+                    }
+                packet = jsonParser(msg)
+                print(msg)
+                if socket and msg:
+                    socket.sendall(packet)
+                print(packet)
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
         
-        if pos == "회장":
-            pos = 1
-        elif pos == "사장":
-            pos = 2
-        elif pos == "차장":
-            pos = 3
-        elif pos == "과장":
-            pos = 4
-        elif pos == "대리":
-            pos = 5
-        elif pos == "사원":
-            pos = 6
-        
-        try:
-            msg = {
-                    "type": TYPE_ACCEPT_SIGNUP,
-                    "is_ok": 1,
-                    "login_id": login_id,
-                    "dept": dept, 
-                    "pos": pos, 
-                    "role": int(role),
-                    "max_tps": int(tps)
-                }
-            packet = jsonParser(msg)
-            print(msg)
-            if socket and msg:
-                socket.sendall(packet)
-            print(packet)
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return False
+        if group_type in json_data:
+            groupname = json_data["group_name"]
+            try:
+                msg = {"type": TYPE_ACCEPT_GROUP,
+                       "is_ok": 1,
+                       "groupname": groupname}
+                packet = jsonParser(msg)
+                print(msg)
+                if socket and msg:
+                    socket.sendall(packet)
+                print(packet)
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
     
     def rejectReq(self, socket):
         selected_indexes = self.main_window.admin_listView_status.selectedIndexes()

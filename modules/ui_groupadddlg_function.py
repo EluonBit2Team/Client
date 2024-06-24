@@ -26,9 +26,9 @@ class GroupAddDialog(QDialog, Ui_Dialog):
         try:
             msg = {
                 "type": 4,
-                "id": self.userId,
+                "login_id": self.userId,
                 "groupname": self.groupname,
-                "message": self.message
+                "message": self.userId + ' ' + self.message
             }
             json_msg = json.dumps(msg, ensure_ascii=False)
             byte_json_msg = bytes(json_msg, 'utf-8')

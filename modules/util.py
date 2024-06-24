@@ -9,6 +9,8 @@ from PySide6.QtWidgets import QMainWindow
 SERVER_ADDR = "192.168.0.253"
 # SERVER_ADDR = "127.0.0.1"
 SERVER_PORT = 3335
+
+#json type 4번은 ui_groupadddlg_function으로
 TYPE_LOGIN = 2
 TYPE_MESSAGE = 0
 TYPE_USERLIST = 5
@@ -18,6 +20,8 @@ TYPE_GROUPMEMBER = 11
 TYPE_CHATLIST = 12
 TYPE_ACCEPT_LIST = 8
 TYPE_ACCEPT_SIGNUP = 9
+TYPE_ACCEPT_GROUP = 10
+
 
 
 
