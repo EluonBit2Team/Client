@@ -277,10 +277,10 @@ class MainWindow(QMainWindow):
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
 
-    def groupClick(self, index):
+    def groupClick(self, index, selectedrow):
         item_text = index.data(Qt.DisplayRole)
-        self.groupname = item_text
-        print(self.groupname)
+        selectedrow = item_text
+        print(selectedrow)
 
     def updateMsgDisplay(self, message, messageType):
         item = QStandardItem(message)
@@ -308,11 +308,13 @@ class MainWindow(QMainWindow):
                 makeRow = json_data['login_id'] + ' ' + \
                     json_data['name'] + ' ' + json_data['phone'] + ' ' + json_data['email']
                 item = QStandardItem(makeRow)
+                item.setData(json_data, Qt.UserRole)
                 model.appendRow(item)
         elif type == "groupReqList":
             for json_data in list:
                 makeRow = json_data['group_name'] + ' ' + json_data['memo']
                 item = QStandardItem(makeRow)
+                item.setData(json_data, Qt.UserRole)
                 model.appendRow(item)
         
 

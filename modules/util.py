@@ -17,6 +17,7 @@ TYPE_ERROR = 100
 TYPE_GROUPMEMBER = 11
 TYPE_CHATLIST = 12
 TYPE_ACCEPT_LIST = 8
+TYPE_ACCEPT_SIGNUP = 9
 
 
 
@@ -64,6 +65,5 @@ def connectionErrorEvent():
 
 def connectionSuccessEvent():
     QMessageBox.information(None, "Success", "연결 성공")
-
 
     
