@@ -36,10 +36,14 @@ class GroupMemberListDialog(QDialog):
         self.accept()  # 다이얼로그 닫기
     
     def updateDisplay(self, list, type, model):
+
         for json_data in list:
-            makeRow = json_data['dept_name'] + ' ' + json_data['position'] + ' ' + json_data['name']
+            print(list)
+
+            makeRow = json_data['dept_name'] + ' ' + json_data['position_name'] + ' ' + json_data['name']
             name_column = QStandardItem(makeRow)
-            id_column = QStandardItem(json_data["id"])
+            id_column = QStandardItem(json_data["login_id"])
             name_column.setData(json_data, Qt.UserRole)
             row=[name_column, id_column]
+                
             model.appendRow(row)

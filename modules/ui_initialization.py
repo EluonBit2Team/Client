@@ -54,6 +54,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_chatgroup.clicked.connect(lambda: mainWindow.openDialog("GroupAddDialog"))
     mainWindow.home_btn_add_member.clicked.connect(lambda: mainWindow.openDialog("MemberAddDialog"))
     mainWindow.home_listview_chatgroup.clicked.connect(mainWindow.groupClick)
+    mainWindow.admin_btn_expend.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
 
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupname = None
