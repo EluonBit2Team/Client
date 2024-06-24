@@ -37,6 +37,7 @@ from modules.ui_calldlg_function import *
 from modules.mail_function import *
 from modules.ui_adminpage_function import *
 from modules.ui_groupmemberlistdlg_function import *
+from modules.qrcode import *
 from widgets import *
 
 
@@ -108,9 +109,10 @@ class MainWindow(QMainWindow):
         widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
 
         # LOGIN PAGE
-        widgets.login_btn_signup.clicked.connect(
-            self.buttonClick)  # 회원가입 버튼 이벤트
+        widgets.login_btn_signup.clicked.connect(self.buttonClick) #회원가입 버튼 이벤트
+        widgets.login_btn_qrlogin.clicked.connect(self.buttonClick)
         widgets.signup_btn_back.clicked.connect(self.buttonClick)
+        widgets.qrlogin_btn_back.clicked.connect(self.buttonClick)
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
@@ -150,6 +152,7 @@ class MainWindow(QMainWindow):
 
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
+        self.qrcode = Qrcode(self)
         self.groupDialog = GroupAddDialog(self)
         self.memberAddDialog = MemberAddDialog(self)
         self.groupMember = GroupMemberListDialog(self)
@@ -237,11 +240,21 @@ class MainWindow(QMainWindow):
             grafana_dashboard.setup_dashboard()
 
         # SHOW LOGIN PAGE
-        if (btnName == "btn_login") or (btnName == "signup_btn_back"):
-            widgets.stackedWidget.setCurrentWidget(
-                widgets.loginpage)  # SET PAGE
-            btn.setStyleSheet(UIFunctions.selectMenu(
-                btn.styleSheet()))  # SELECT MENU
+        if btnName == "btn_login":
+            widgets.stackedWidget.setCurrentWidget(widgets.loginpage) # SET PAGE
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
+        
+        if btnName == "signup_btn_back":
+            widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
+        
+        if btnName == "qrlogin_btn_back":
+            widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
+            self.qrcode.stop_qrcode()
+        
+        # SHOW QRLOGIN PAGE
+        if btnName == "login_btn_qrlogin":
+            widgets.stackedWidget.setCurrentWidget(widgets.qrlogin)
+            self.qrcode.wait_qrcode()
 
         # SHOW SIGNUP PAGE
         if btnName == "login_btn_signup":
