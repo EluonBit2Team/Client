@@ -33,13 +33,13 @@ class GroupMemberListDialog(QDialog):
         self.groupMemberModel.setHorizontalHeaderLabels(["이름", "아이디"])
         
     def close_dialog(self):
+        self.groupMemberModel.clear()
         self.accept()  # 다이얼로그 닫기
     
-    def updateDisplay(self, list, type, model):
-
+    def updateDisplay(self, list, model):
+        model.setHorizontalHeaderLabels(["이름", "아이디"])
+        # for 
         for json_data in list:
-            print(list)
-
             makeRow = json_data['dept_name'] + ' ' + json_data['position_name'] + ' ' + json_data['name']
             name_column = QStandardItem(makeRow)
             id_column = QStandardItem(json_data["login_id"])

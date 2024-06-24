@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maindAyQuv.ui'
-## Form generated from reading UI file 'mainMWZipG.ui'
+## Form generated from reading UI file 'mainvCfkAW.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.1
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -634,7 +633,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setSizePolicy(sizePolicy1)
         self.toggleButton.setMinimumSize(QSize(0, 45))
         self.toggleButton.setFont(font)
-        self.toggleButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.toggleButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.toggleButton.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.toggleButton.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_menu.png);")
 
@@ -657,7 +656,7 @@ class Ui_MainWindow(object):
         self.btn_home.setSizePolicy(sizePolicy1)
         self.btn_home.setMinimumSize(QSize(0, 45))
         self.btn_home.setFont(font)
-        self.btn_home.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_home.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_home.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_home.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-speech.png);")
 
@@ -669,7 +668,7 @@ class Ui_MainWindow(object):
         self.btn_admin.setSizePolicy(sizePolicy1)
         self.btn_admin.setMinimumSize(QSize(0, 45))
         self.btn_admin.setFont(font)
-        self.btn_admin.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_admin.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_admin.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_admin.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-female.png);")
 
@@ -681,7 +680,7 @@ class Ui_MainWindow(object):
         self.btn_login.setSizePolicy(sizePolicy1)
         self.btn_login.setMinimumSize(QSize(0, 45))
         self.btn_login.setFont(font)
-        self.btn_login.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_login.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_login.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_login.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lock-locked.png);")
 
@@ -693,7 +692,7 @@ class Ui_MainWindow(object):
         self.btn_notice.setSizePolicy(sizePolicy1)
         self.btn_notice.setMinimumSize(QSize(0, 45))
         self.btn_notice.setFont(font)
-        self.btn_notice.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_notice.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_notice.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_notice.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-lightbulb.png);")
 
@@ -764,9 +763,9 @@ class Ui_MainWindow(object):
         self.extraCloseColumnBtn.setObjectName(u"extraCloseColumnBtn")
         self.extraCloseColumnBtn.setMinimumSize(QSize(28, 28))
         self.extraCloseColumnBtn.setMaximumSize(QSize(28, 28))
-        self.extraCloseColumnBtn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.extraCloseColumnBtn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
-        icon.addFile(u":/icons/images/icons/icon_close.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icons/images/icons/icon_close.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.extraCloseColumnBtn.setIcon(icon)
         self.extraCloseColumnBtn.setIconSize(QSize(20, 20))
 
@@ -800,7 +799,7 @@ class Ui_MainWindow(object):
         self.btn_share.setSizePolicy(sizePolicy1)
         self.btn_share.setMinimumSize(QSize(0, 45))
         self.btn_share.setFont(font)
-        self.btn_share.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_share.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_share.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_share.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-share-boxed.png);")
 
@@ -812,7 +811,7 @@ class Ui_MainWindow(object):
         self.btn_adjustments.setSizePolicy(sizePolicy1)
         self.btn_adjustments.setMinimumSize(QSize(0, 45))
         self.btn_adjustments.setFont(font)
-        self.btn_adjustments.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_adjustments.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_adjustments.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_adjustments.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-equalizer.png);")
 
@@ -824,7 +823,7 @@ class Ui_MainWindow(object):
         self.btn_more.setSizePolicy(sizePolicy1)
         self.btn_more.setMinimumSize(QSize(0, 45))
         self.btn_more.setFont(font)
-        self.btn_more.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_more.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_more.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_more.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-layers.png);")
 
@@ -930,9 +929,9 @@ class Ui_MainWindow(object):
         self.settingsTopBtn.setObjectName(u"settingsTopBtn")
         self.settingsTopBtn.setMinimumSize(QSize(28, 28))
         self.settingsTopBtn.setMaximumSize(QSize(28, 28))
-        self.settingsTopBtn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.settingsTopBtn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon1 = QIcon()
-        icon1.addFile(u":/icons/images/icons/icon_settings.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u":/icons/images/icons/icon_settings.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.settingsTopBtn.setIcon(icon1)
         self.settingsTopBtn.setIconSize(QSize(20, 20))
 
@@ -942,9 +941,9 @@ class Ui_MainWindow(object):
         self.minimizeAppBtn.setObjectName(u"minimizeAppBtn")
         self.minimizeAppBtn.setMinimumSize(QSize(28, 28))
         self.minimizeAppBtn.setMaximumSize(QSize(28, 28))
-        self.minimizeAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.minimizeAppBtn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon2 = QIcon()
-        icon2.addFile(u":/icons/images/icons/icon_minimize.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u":/icons/images/icons/icon_minimize.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.minimizeAppBtn.setIcon(icon2)
         self.minimizeAppBtn.setIconSize(QSize(20, 20))
 
@@ -954,7 +953,7 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setObjectName(u"closeAppBtn")
         self.closeAppBtn.setMinimumSize(QSize(28, 28))
         self.closeAppBtn.setMaximumSize(QSize(28, 28))
-        self.closeAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.closeAppBtn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.closeAppBtn.setIcon(icon)
         self.closeAppBtn.setIconSize(QSize(20, 20))
 
@@ -1032,13 +1031,22 @@ class Ui_MainWindow(object):
 "    color: white;\n"
 "}\n"
 "\n"
+"QPushButton#login_btn_qrlogin {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 5px;\n"
+""
+                        "    padding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
 "QPushButton#login_btn_login {\n"
 "   background-color: rgba(70, 130, 180, 0.25);\n"
 "}\n"
 "\n"
 "QPushButton#login_btn_login:hover {\n"
-"    background-color: rgb"
-                        "a(70, 130, 180, 1);\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
 "}\n"
 "\n"
 "QPushButton#login_btn_login:pressed {\n"
@@ -1070,7 +1078,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QPushButton#login_btn_call {\n"
-"    background-color: rgba(34, 139, 34, 0.25);\n"
+"    background-color: rgba(34, 139, 3"
+                        "4, 0.25);\n"
 "}\n"
 "\n"
 "QPushButton#login_btn_call:hover {\n"
@@ -1139,7 +1148,7 @@ class Ui_MainWindow(object):
         self.login_btn_login = QPushButton(self.widget)
         self.login_btn_login.setObjectName(u"login_btn_login")
         self.login_btn_login.setGeometry(QRect(330, 330, 321, 41))
-        self.login_btn_login.setCursor(QCursor(Qt.PointingHandCursor))
+        self.login_btn_login.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.login_btn_login.setStyleSheet(u"font: 12pt \"Segoe UI\";\n"
 "color:rgba(255, 255, 255, 180);\n"
 "")
@@ -1147,7 +1156,7 @@ class Ui_MainWindow(object):
         self.login_btn_signup.setObjectName(u"login_btn_signup")
         self.login_btn_signup.setGeometry(QRect(330, 380, 321, 31))
         self.login_btn_signup.setFont(font)
-        self.login_btn_signup.setCursor(QCursor(Qt.PointingHandCursor))
+        self.login_btn_signup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.login_btn_signup.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "color:rgba(255, 255, 255, 180);")
         self.login_label_disc = QLabel(self.widget)
@@ -1163,7 +1172,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.login_btn_mail = QPushButton(self.horizontalLayoutWidget)
         self.login_btn_mail.setObjectName(u"login_btn_mail")
-        self.login_btn_mail.setCursor(QCursor(Qt.PointingHandCursor))
+        self.login_btn_mail.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.login_btn_mail.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-closed.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
@@ -1175,7 +1184,7 @@ class Ui_MainWindow(object):
 
         self.login_btn_call = QPushButton(self.horizontalLayoutWidget)
         self.login_btn_call.setObjectName(u"login_btn_call")
-        self.login_btn_call.setCursor(QCursor(Qt.PointingHandCursor))
+        self.login_btn_call.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.login_btn_call.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-phone.png);\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
@@ -1185,6 +1194,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.login_btn_call)
 
+        self.login_btn_qrlogin = QPushButton(self.widget)
+        self.login_btn_qrlogin.setObjectName(u"login_btn_qrlogin")
+        self.login_btn_qrlogin.setGeometry(QRect(660, 330, 74, 41))
+        self.login_btn_qrlogin.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.login_btn_qrlogin.setStyleSheet(u"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+"border-radius: 14px;\n"
+"margin-right: 10px;\n"
+"margin-left:10px;")
         self.login_label_back.raise_()
         self.login_label_cover.raise_()
         self.login_input_id.raise_()
@@ -1194,6 +1212,7 @@ class Ui_MainWindow(object):
         self.login_btn_signup.raise_()
         self.login_label_disc.raise_()
         self.horizontalLayoutWidget.raise_()
+        self.login_btn_qrlogin.raise_()
 
         self.gridLayout_3.addWidget(self.widget, 1, 0, 1, 1)
 
@@ -1250,7 +1269,7 @@ class Ui_MainWindow(object):
         self.home_btn_chatgroup = QPushButton(self.home)
         self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
         self.home_btn_chatgroup.setGeometry(QRect(80, 170, 31, 24))
-        self.home_btn_chatgroup.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_chatgroup.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.home_btn_chatgroup.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
 "border:none;\n"
 "")
@@ -1287,19 +1306,19 @@ class Ui_MainWindow(object):
         self.home_btn_chatlist_send = QPushButton(self.home)
         self.home_btn_chatlist_send.setObjectName(u"home_btn_chatlist_send")
         self.home_btn_chatlist_send.setGeometry(QRect(914, 520, 41, 41))
-        self.home_btn_chatlist_send.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_chatlist_send.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.home_btn_chatlist_send.setStyleSheet(u"background-image: url(:/images/images/images/free-icon-send-button-12439334.png);\n"
 "border: none;")
         self.home_btn_left = QPushButton(self.home)
         self.home_btn_left.setObjectName(u"home_btn_left")
         self.home_btn_left.setGeometry(QRect(30, 522, 31, 31))
-        self.home_btn_left.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_left.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.home_btn_left.setStyleSheet(u"background-image: url(:/images/images/images/left.png);\n"
 "")
         self.home_btn_right = QPushButton(self.home)
         self.home_btn_right.setObjectName(u"home_btn_right")
         self.home_btn_right.setGeometry(QRect(130, 522, 31, 31))
-        self.home_btn_right.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_right.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.home_btn_right.setStyleSheet(u"background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "background-image: url(:/images/images/images/right.png);\n"
@@ -1307,14 +1326,14 @@ class Ui_MainWindow(object):
         self.home_btn_add_member = QPushButton(self.home)
         self.home_btn_add_member.setObjectName(u"home_btn_add_member")
         self.home_btn_add_member.setGeometry(QRect(908, 34, 31, 24))
-        self.home_btn_add_member.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_add_member.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.home_btn_add_member.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-follow.png);\n"
 "border:none;\n"
 "")
         self.home_btn_groupmemberlist = QPushButton(self.home)
         self.home_btn_groupmemberlist.setObjectName(u"home_btn_groupmemberlist")
         self.home_btn_groupmemberlist.setGeometry(QRect(870, 34, 31, 24))
-        self.home_btn_groupmemberlist.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_groupmemberlist.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.home_btn_groupmemberlist.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user.png);\n"
 "border:none;\n"
 "")
@@ -1396,20 +1415,20 @@ class Ui_MainWindow(object):
         self.admin_btn_accept = QPushButton(self.adminpage)
         self.admin_btn_accept.setObjectName(u"admin_btn_accept")
         self.admin_btn_accept.setGeometry(QRect(205, 516, 81, 31))
-        self.admin_btn_accept.setCursor(QCursor(Qt.PointingHandCursor))
+        self.admin_btn_accept.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.admin_btn_accept.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
 "border: 1px solid yellow;")
         self.admin_btn_reject = QPushButton(self.adminpage)
         self.admin_btn_reject.setObjectName(u"admin_btn_reject")
         self.admin_btn_reject.setGeometry(QRect(300, 516, 81, 31))
-        self.admin_btn_reject.setCursor(QCursor(Qt.PointingHandCursor))
+        self.admin_btn_reject.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.admin_btn_reject.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
 "border: 1px solid white;\n"
 "")
         self.admin_btn_food = QPushButton(self.adminpage)
         self.admin_btn_food.setObjectName(u"admin_btn_food")
         self.admin_btn_food.setGeometry(QRect(850, 563, 111, 24))
-        self.admin_btn_food.setCursor(QCursor(Qt.PointingHandCursor))
+        self.admin_btn_food.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.admin_btn_food.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_btn_expend = QPushButton(self.adminpage)
         self.admin_btn_expend.setObjectName(u"admin_btn_expend")
@@ -1441,9 +1460,30 @@ class Ui_MainWindow(object):
         self.admin_qgraphicsview_disk.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-radius: 10px;")
         self.stackedWidget.addWidget(self.adminpage)
-        self.page = QWidget()
-        self.page.setObjectName(u"page")
-        self.stackedWidget.addWidget(self.page)
+        self.qrlogin = QWidget()
+        self.qrlogin.setObjectName(u"qrlogin")
+        self.qrlogin_label_waiting = QLabel(self.qrlogin)
+        self.qrlogin_label_waiting.setObjectName(u"qrlogin_label_waiting")
+        self.qrlogin_label_waiting.setGeometry(QRect(100, 90, 431, 411))
+        self.qrlogin_label_waiting_layer = QLabel(self.qrlogin)
+        self.qrlogin_label_waiting_layer.setObjectName(u"qrlogin_label_waiting_layer")
+        self.qrlogin_label_waiting_layer.setGeometry(QRect(60, 50, 511, 491))
+        self.qrlogin_label_waiting_layer.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;\n"
+"")
+        self.qrlogin_btn_back = QPushButton(self.qrlogin)
+        self.qrlogin_btn_back.setObjectName(u"qrlogin_btn_back")
+        self.qrlogin_btn_back.setGeometry(QRect(910, 40, 31, 31))
+        self.qrlogin_btn_back.setCursor(QCursor(Qt.PointingHandCursor))
+        self.qrlogin_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
+"border:none;\n"
+"")
+        self.stackedWidget.addWidget(self.qrlogin)
+        self.qrlogin_label_waiting_layer.raise_()
+        self.qrlogin_label_waiting.raise_()
+        self.qrlogin_btn_back.raise_()
         self.signuppage = QWidget()
         self.signuppage.setObjectName(u"signuppage")
         self.signuppage.setStyleSheet(u"QPushButton#signup_btn_submit {\n"
@@ -1545,7 +1585,7 @@ class Ui_MainWindow(object):
         font5.setWeight(QFont.ExtraLight)
         font5.setItalic(False)
         self.signup_combo_dept.setFont(font5)
-        self.signup_combo_dept.setCursor(QCursor(Qt.PointingHandCursor))
+        self.signup_combo_dept.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.signup_combo_dept.setAutoFillBackground(False)
         self.signup_combo_dept.setStyleSheet(u"\n"
 "font: 8pt \"Segoe UI\";\n"
@@ -1565,7 +1605,7 @@ class Ui_MainWindow(object):
         self.signup_combo_position.setObjectName(u"signup_combo_position")
         self.signup_combo_position.setGeometry(QRect(550, 250, 186, 33))
         self.signup_combo_position.setFont(font5)
-        self.signup_combo_position.setCursor(QCursor(Qt.PointingHandCursor))
+        self.signup_combo_position.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.signup_combo_position.setAutoFillBackground(False)
         self.signup_combo_position.setStyleSheet(u"background-color: rgb(27, 29, 35);\n"
 "\n"
@@ -1576,13 +1616,13 @@ class Ui_MainWindow(object):
         self.signup_btn_submit = QPushButton(self.signuppage)
         self.signup_btn_submit.setObjectName(u"signup_btn_submit")
         self.signup_btn_submit.setGeometry(QRect(330, 450, 331, 41))
-        self.signup_btn_submit.setCursor(QCursor(Qt.PointingHandCursor))
+        self.signup_btn_submit.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.signup_btn_submit.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "")
         self.signup_checkbox_agree = QCheckBox(self.signuppage)
         self.signup_checkbox_agree.setObjectName(u"signup_checkbox_agree")
         self.signup_checkbox_agree.setGeometry(QRect(340, 420, 21, 20))
-        self.signup_checkbox_agree.setCursor(QCursor(Qt.PointingHandCursor))
+        self.signup_checkbox_agree.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.signup_label_useagree = QLabel(self.signuppage)
         self.signup_label_useagree.setObjectName(u"signup_label_useagree")
         self.signup_label_useagree.setGeometry(QRect(370, 422, 51, 16))
@@ -1596,7 +1636,7 @@ class Ui_MainWindow(object):
         self.signup_btn_back = QPushButton(self.signuppage)
         self.signup_btn_back.setObjectName(u"signup_btn_back")
         self.signup_btn_back.setGeometry(QRect(705, 100, 31, 31))
-        self.signup_btn_back.setCursor(QCursor(Qt.PointingHandCursor))
+        self.signup_btn_back.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.signup_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;\n"
@@ -1649,7 +1689,7 @@ class Ui_MainWindow(object):
         self.btn_message.setSizePolicy(sizePolicy1)
         self.btn_message.setMinimumSize(QSize(0, 45))
         self.btn_message.setFont(font)
-        self.btn_message.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_message.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_message.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_message.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-open.png);")
 
@@ -1661,7 +1701,7 @@ class Ui_MainWindow(object):
         self.btn_print.setSizePolicy(sizePolicy1)
         self.btn_print.setMinimumSize(QSize(0, 45))
         self.btn_print.setFont(font)
-        self.btn_print.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_print.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_print.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_print.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-print.png);")
 
@@ -1673,7 +1713,7 @@ class Ui_MainWindow(object):
         self.btn_logout.setSizePolicy(sizePolicy1)
         self.btn_logout.setMinimumSize(QSize(0, 45))
         self.btn_logout.setFont(font)
-        self.btn_logout.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_logout.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.btn_logout.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.btn_logout.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-account-logout.png);")
 
@@ -1729,7 +1769,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1791,6 +1831,7 @@ class Ui_MainWindow(object):
         self.login_label_disc.setText(QCoreApplication.translate("MainWindow", u"forget your password, please contact the administrator.", None))
         self.login_btn_mail.setText("")
         self.login_btn_call.setText("")
+        self.login_btn_qrlogin.setText(QCoreApplication.translate("MainWindow", u"QR", None))
         self.home_label_chatback.setText("")
         self.home_label_left1back.setText("")
         self.home_label_left2back.setText("")
@@ -1815,7 +1856,9 @@ class Ui_MainWindow(object):
         self.admin_btn_accept.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub77d", None))
         self.admin_btn_reject.setText(QCoreApplication.translate("MainWindow", u"\uac70\uc808", None))
         self.admin_btn_food.setText(QCoreApplication.translate("MainWindow", u"\uc624\ub298\uc758 \uc2dd\ub2e8 \ubcf4\uae30", None))
-        self.admin_btn_expend.setText("")
+        self.qrlogin_label_waiting.setText("")
+        self.qrlogin_label_waiting_layer.setText("")
+        self.qrlogin_btn_back.setText("")
         self.signup_label_back.setText("")
         self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.signup_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))

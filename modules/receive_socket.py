@@ -40,7 +40,7 @@ class ReceivePacket():
     
     def loginSuccess(self, msg):
         print(msg)
-        userId = json.loads(msg.decode('utf-8')).get("id")
+        userId = json.loads(msg.decode('utf-8')).get("login_id")
         print("로그인 성공")
         print("id: " + userId)
         self.main_window.userId = userId
@@ -59,12 +59,13 @@ class ReceivePacket():
     def receiveGroupList(self, msg):
         self.groupList = json.loads(msg.decode('utf-8')).get("groups")
         print(msg)
+        print(self.groupList)
         self.main_window.updateDisplay(self.groupList, "grouplist", self.main_window.groupListModel)
     
     def receiveGroupMember(self, msg):
         groupMemberList = json.loads(msg.decode('utf-8')).get("users")
         print(groupMemberList)
-        self.main_window.groupMember.updateDisplay(groupMemberList, "groupMemberList", self.main_window.groupMember.groupMemberModel)
+        self.main_window.groupMember.updateDisplay(groupMemberList, self.main_window.groupMember.groupMemberModel)
         
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
@@ -82,6 +83,7 @@ class ReceivePacket():
         elif jsonType == TYPE_GROUPLIST:
             self.receiveGroupList(msg)
         elif jsonType == TYPE_GROUPMEMBER:
+            print(msg)
             self.receiveGroupMember(msg)
         else:
             print("jsonType이 None입니다.")

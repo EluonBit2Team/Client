@@ -29,7 +29,7 @@ class SendPacket:
         try:
             msg = {
                 "type": TYPE_LOGIN,
-                "id": self.loginId,
+                "login_id": self.loginId,
                 "pw": loginPw
             }
             packet = jsonParser(msg)
@@ -44,6 +44,22 @@ class SendPacket:
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
+    
+    def qrLoginRequest(self, socket, msg):
+        try:
+            packet = jsonParser(msg)
+
+            if socket and msg:
+                socket.sendall(packet)
+
+            self.main_window.btn_home.show()
+            self.main_window.btn_admin.show()
+            self.main_window.btn_notice.show()
+            return True
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
+
         
     def signUpRequest(self, socket):
         self.signupId = self.main_window.signup_input_id.text()
@@ -64,7 +80,7 @@ class SendPacket:
             #             "dept": self.signupDept,
             #             "pos": self.signupPosition}
             msg = {"type": 1,
-                        "id": "login_id26", 
+                        "login_id": "login_id26", 
                         "pw": "password26",
                         "name": "아이디이십육",
                         "phone": "010-1234-9653",
@@ -76,13 +92,13 @@ class SendPacket:
             if socket and msg:
                 socket.sendall(packet)
             
-            QMessageBox.information(self.main_window, "SignUp", "id: " + self.signupId + '\n'
-                                                "pw: " + self.signupPw + '\n'
-                                                "name: " + self.signupName + '\n'
-                                                "Phone: " + self.signupPhone + '\n'
-                                                "Email: " + self.signupEmail + '\n'
-                                                "Dept: " + self.signupDept + '\n'
-                                                "Position: " + self.signupPosition + '\n')
+            # QMessageBox.information(self.main_window, "SignUp", "id: " + self.signupId + '\n'
+            #                                     "pw: " + self.signupPw + '\n'
+            #                                     "name: " + self.signupName + '\n'
+            #                                     "Phone: " + self.signupPhone + '\n'
+            #                                     "Email: " + self.signupEmail + '\n'
+            #                                     "Dept: " + self.signupDept + '\n'
+            #                                     "Position: " + self.signupPosition + '\n')
             return True
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -94,7 +110,7 @@ class SendPacket:
         self.groupName = "채팅방 1"
         try:
             msg = {"type": TYPE_MESSAGE,
-                   "id": self.loginId,
+                   "login_id": self.loginId,
                    "groupname": self.groupName,
                    "text": self.msgText}
             
@@ -140,7 +156,7 @@ class SendPacket:
             msg = {
 	                "type": 7,
 	                "groupname": groupname,
-	                "id" : userlist}
+	                "login_id" : userlist}
             packet = jsonParser(msg)
             if socket and msg:
                 socket.sendall(packet)
@@ -150,11 +166,24 @@ class SendPacket:
             return False
         
     def reqGroupMemberList(self, socket, groupname):
+        msg = {
+                "type": 11,
+                "groupname": groupname
+        }
+        if msg["groupname"]==None:
+            QMessageBox.warning(self.main_window, 'Warning', '그룹을 선택해주세요')
+            raise Exception('그룹을 선택해주세요')
+        packet = jsonParser(msg)
+        if socket and msg:
+            socket.sendall(packet)
+        print(msg)
+    
+    def testDataSender(self, socket):
+        print("type: 11 보냄")
         try:
-            msg = {
-	                "type": 11,
-	                "groupname": groupname
-	        }
+            msg = {"type": 7,
+                   "groupname": "groupname1",
+                   "login_id":["login_id2", "login_id3", "login_id4"]}
             packet = jsonParser(msg)
             if socket and msg:
                 socket.sendall(packet)
@@ -163,19 +192,8 @@ class SendPacket:
             print(f"An error occurred: {e}")
             return False
     
-    def testDataSender(self, socket):
-        print("type: 11 보냄")
-        try:
-            msg = {"type": 7,
-                   "groupname": "groupname1",
-                   "id":["login_id2", "login_id3", "login_id4"]}
-            packet = jsonParser(msg)
-            if socket and msg:
-                socket.sendall(packet)
-            print(msg)
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return False
+    def printSendClass(self):
+        print("어쨌든 SendPacketClass 불러냈음")
             
         
 def jsonParser(msg):

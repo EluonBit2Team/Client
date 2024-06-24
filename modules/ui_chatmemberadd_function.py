@@ -42,7 +42,7 @@ class MemberAddDialog(QDialog, Ui_Dialog):
             json_data = self.main_window.userListModel.data(selectedIndex, Qt.UserRole)
             if json_data:
                 print(json_data)
-                displayRow = json_data['dept_name'] + ' ' + json_data['position'] + ' ' + json_data['name']
+                displayRow = json_data['dept_name'] + ' ' + json_data['position_name'] + ' ' + json_data['name']
                 selectedItem = QStandardItem()
                 selectedItem.setData(json_data, Qt.UserRole)  # JSON 데이터를 새로운 아이템에 설정
                 selectedItem.setText(displayRow)
@@ -67,7 +67,7 @@ class MemberAddDialog(QDialog, Ui_Dialog):
         for row in range(item_count):
             item = self.treeview_right_model.item(row)
             json_data = item.data(Qt.UserRole)
-            name = json_data.get("id")
+            name = json_data.get("login_id")
             self.all_items.append(name)
         
         # 모든 아이템 출력
@@ -87,7 +87,7 @@ class MemberAddDialog(QDialog, Ui_Dialog):
         for row in range(item_count):
             item = self.treeview_right_model.item(row)
             json_data = item.data(Qt.UserRole)
-            name = json_data.get("id")
+            name = json_data.get("login_id")
             self.all_items.append(name)
         
         # 모든 아이템 출력
