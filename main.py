@@ -38,6 +38,7 @@ from modules.mail_function import *
 from modules.ui_adminpage_function import *
 from modules.ui_groupmemberlistdlg_function import *
 from modules.qrcode import *
+from modules.ui_grafana_function import *
 from widgets import *
 
 
@@ -179,10 +180,10 @@ class MainWindow(QMainWindow):
     # 다이얼로그 호출
     def openDialog(self, dialogName):
         try:
-                # 채팅 그룹 추가 다이얼로그
+            # 채팅 그룹 추가 다이얼로그
             if dialogName == "GroupAddDialog":
                 dialog = self.groupDialog
-                # 대화 상대 추가 다이얼로그
+            # 대화 상대 추가 다이얼로그
             elif dialogName == "MemberAddDialog":
                 dialog = MemberAddDialog(self)
             # 이메일 다이얼로그
@@ -194,19 +195,22 @@ class MainWindow(QMainWindow):
             # 음식 다이얼로그
             elif dialogName == "FoodDialog":
                 dialog = FoodDialog(self)
-                # 알람 다이얼로그
+            # 알람 다이얼로그
             elif dialogName == "NoticeDialog":
                 dialog = NoticeDialog(self)
-                # 채팅방 유저 다이얼로그
+            # 그라파나 다이얼로그
+            elif dialogName == "GrafanaDialog":
+                dialog = GrafanaDialog(self)  
+            # 채팅방 유저 다이얼로그
             elif dialogName == "GroupMemberListDialog":
                 self.packetSender.reqGroupMemberList(self.socket, self.groupname)
                 dialog = self.groupMember
-
+            
             dialog.exec()
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
-
+    
     def handleSendButtonClick(self):
         # 클릭 시 아이콘 변경
         self.home_btn_chatlist_send.setIcon(
@@ -238,9 +242,11 @@ class MainWindow(QMainWindow):
         if btnName == "btn_admin":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
-            # GrafanaDashboard 설정
-            grafana_dashboard = GrafanaDashboard(self)
-            grafana_dashboard.setup_dashboard()
+            # QGraphicsView 설정
+            self.memoryUsageView = self.findChild(QGraphicsView, 'admin_qgraphicsview_mem')
+            self.scene = QGraphicsScene(self)
+            self.memoryUsageView.setScene(self.scene)
+
 
         # SHOW LOGIN PAGE
         if btnName == "btn_login":

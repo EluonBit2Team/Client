@@ -45,4 +45,5 @@ class GroupMemberListDialog(QDialog):
             id_column = QStandardItem(json_data["login_id"])
             name_column.setData(json_data, Qt.UserRole)
             row=[name_column, id_column]
+                
             model.appendRow(row)
