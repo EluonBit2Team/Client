@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainMWZipG.ui'
+## Form generated from reading UI file 'mainOkueME.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1031,13 +1031,22 @@ class Ui_MainWindow(object):
 "    color: white;\n"
 "}\n"
 "\n"
+"QPushButton#login_btn_qrlogin {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 5px;\n"
+""
+                        "    padding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
 "QPushButton#login_btn_login {\n"
 "   background-color: rgba(70, 130, 180, 0.25);\n"
 "}\n"
 "\n"
 "QPushButton#login_btn_login:hover {\n"
-"    background-color: rgb"
-                        "a(70, 130, 180, 1);\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
 "}\n"
 "\n"
 "QPushButton#login_btn_login:pressed {\n"
@@ -1069,7 +1078,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QPushButton#login_btn_call {\n"
-"    background-color: rgba(34, 139, 34, 0.25);\n"
+"    background-color: rgba(34, 139, 3"
+                        "4, 0.25);\n"
 "}\n"
 "\n"
 "QPushButton#login_btn_call:hover {\n"
@@ -1184,6 +1194,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.login_btn_call)
 
+        self.login_btn_qrlogin = QPushButton(self.widget)
+        self.login_btn_qrlogin.setObjectName(u"login_btn_qrlogin")
+        self.login_btn_qrlogin.setGeometry(QRect(660, 330, 74, 41))
+        self.login_btn_qrlogin.setCursor(QCursor(Qt.PointingHandCursor))
+        self.login_btn_qrlogin.setStyleSheet(u"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+"border-radius: 14px;\n"
+"margin-right: 10px;\n"
+"margin-left:10px;")
         self.login_label_back.raise_()
         self.login_label_cover.raise_()
         self.login_input_id.raise_()
@@ -1193,6 +1212,7 @@ class Ui_MainWindow(object):
         self.login_btn_signup.raise_()
         self.login_label_disc.raise_()
         self.horizontalLayoutWidget.raise_()
+        self.login_btn_qrlogin.raise_()
 
         self.gridLayout_3.addWidget(self.widget, 1, 0, 1, 1)
 
@@ -1419,9 +1439,30 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;")
         self.admin_webEn_acmember.setUrl(QUrl(u"about:blank"))
         self.stackedWidget.addWidget(self.adminpage)
-        self.page = QWidget()
-        self.page.setObjectName(u"page")
-        self.stackedWidget.addWidget(self.page)
+        self.qrlogin = QWidget()
+        self.qrlogin.setObjectName(u"qrlogin")
+        self.qrlogin_label_waiting = QLabel(self.qrlogin)
+        self.qrlogin_label_waiting.setObjectName(u"qrlogin_label_waiting")
+        self.qrlogin_label_waiting.setGeometry(QRect(100, 90, 431, 411))
+        self.qrlogin_label_waiting_layer = QLabel(self.qrlogin)
+        self.qrlogin_label_waiting_layer.setObjectName(u"qrlogin_label_waiting_layer")
+        self.qrlogin_label_waiting_layer.setGeometry(QRect(60, 50, 511, 491))
+        self.qrlogin_label_waiting_layer.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;\n"
+"")
+        self.qrlogin_btn_back = QPushButton(self.qrlogin)
+        self.qrlogin_btn_back.setObjectName(u"qrlogin_btn_back")
+        self.qrlogin_btn_back.setGeometry(QRect(910, 40, 31, 31))
+        self.qrlogin_btn_back.setCursor(QCursor(Qt.PointingHandCursor))
+        self.qrlogin_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
+"border:none;\n"
+"")
+        self.stackedWidget.addWidget(self.qrlogin)
+        self.qrlogin_label_waiting_layer.raise_()
+        self.qrlogin_label_waiting.raise_()
+        self.qrlogin_btn_back.raise_()
         self.signuppage = QWidget()
         self.signuppage.setObjectName(u"signuppage")
         self.signuppage.setStyleSheet(u"QPushButton#signup_btn_submit {\n"
@@ -1769,6 +1810,7 @@ class Ui_MainWindow(object):
         self.login_label_disc.setText(QCoreApplication.translate("MainWindow", u"forget your password, please contact the administrator.", None))
         self.login_btn_mail.setText("")
         self.login_btn_call.setText("")
+        self.login_btn_qrlogin.setText(QCoreApplication.translate("MainWindow", u"QR", None))
         self.home_label_chatback.setText("")
         self.home_label_left1back.setText("")
         self.home_label_left2back.setText("")
@@ -1793,6 +1835,9 @@ class Ui_MainWindow(object):
         self.admin_btn_accept.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub77d", None))
         self.admin_btn_reject.setText(QCoreApplication.translate("MainWindow", u"\uac70\uc808", None))
         self.admin_btn_food.setText(QCoreApplication.translate("MainWindow", u"\uc624\ub298\uc758 \uc2dd\ub2e8 \ubcf4\uae30", None))
+        self.qrlogin_label_waiting.setText("")
+        self.qrlogin_label_waiting_layer.setText("")
+        self.qrlogin_btn_back.setText("")
         self.signup_label_back.setText("")
         self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.signup_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))

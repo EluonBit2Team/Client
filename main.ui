@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -1785,6 +1785,15 @@ QPushButton#login_btn_mail {
     color: white;
 }
 QPushButton#login_btn_call {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+QPushButton#login_btn_qrlogin {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
@@ -2083,6 +2092,29 @@ margin-left:10px;</string>
                              </item>
                             </layout>
                            </widget>
+                           <widget class="QPushButton" name="login_btn_qrlogin">
+                            <property name="geometry">
+                             <rect>
+                              <x>660</x>
+                              <y>330</y>
+                              <width>74</width>
+                              <height>41</height>
+                             </rect>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-repeat: no-repeat;
+background-position: center;
+border-radius: 14px;
+margin-right: 10px;
+margin-left:10px;</string>
+                            </property>
+                            <property name="text">
+                             <string>QR</string>
+                            </property>
+                           </widget>
                            <zorder>login_label_back</zorder>
                            <zorder>login_label_cover</zorder>
                            <zorder>login_input_id</zorder>
@@ -2092,6 +2124,7 @@ margin-left:10px;</string>
                            <zorder>login_btn_signup</zorder>
                            <zorder>login_label_disc</zorder>
                            <zorder>horizontalLayoutWidget</zorder>
+                           <zorder>login_btn_qrlogin</zorder>
                           </widget>
                          </item>
                         </layout>
@@ -2683,7 +2716,65 @@ border-bottom-right-radius: 10px;</string>
                        </property>
                       </widget>
                      </widget>
-                     <widget class="QWidget" name="page"/>
+                     <widget class="QWidget" name="qrlogin">
+                      <widget class="QLabel" name="qrlogin_label_waiting">
+                       <property name="geometry">
+                        <rect>
+                         <x>100</x>
+                         <y>90</y>
+                         <width>431</width>
+                         <height>411</height>
+                        </rect>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="qrlogin_label_waiting_layer">
+                       <property name="geometry">
+                        <rect>
+                         <x>60</x>
+                         <y>50</y>
+                         <width>511</width>
+                         <height>491</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);
+border-radius: 10px;
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="qrlogin_btn_back">
+                       <property name="geometry">
+                        <rect>
+                         <x>910</x>
+                         <y>40</y>
+                         <width>31</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);
+background-position: centered;
+background-repeat: no-repeat;
+border:none;
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <zorder>qrlogin_label_waiting_layer</zorder>
+                      <zorder>qrlogin_label_waiting</zorder>
+                      <zorder>qrlogin_btn_back</zorder>
+                     </widget>
                      <widget class="QWidget" name="signuppage">
                       <property name="styleSheet">
                        <string notr="true">QPushButton#signup_btn_submit {
