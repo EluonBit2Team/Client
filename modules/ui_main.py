@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainCbtsdI.ui'
+## Form generated from reading UI file 'mainzNFCRc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -1031,22 +1031,15 @@ class Ui_MainWindow(object):
 "    color: white;\n"
 "}\n"
 "\n"
-"QPushButton#login_btn_qrlogin {\n"
-"    border-style: solid;\n"
-"    border-width: 1px;\n"
-"    border-color: rgb(255, 255, 255);\n"
-"    border-radius: 5px;\n"
-""
-                        "    padding: 5px 10px;\n"
-"    color: white;\n"
-"}\n"
+"\n"
 "\n"
 "QPushButton#login_btn_login {\n"
 "   background-color: rgba(70, 130, 180, 0.25);\n"
 "}\n"
 "\n"
 "QPushButton#login_btn_login:hover {\n"
-"    background-color: rgba(70, 130, 180, 1);\n"
+"    background-"
+                        "color: rgba(70, 130, 180, 1);\n"
 "}\n"
 "\n"
 "QPushButton#login_btn_login:pressed {\n"
@@ -1078,8 +1071,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QPushButton#login_btn_call {\n"
-"    background-color: rgba(34, 139, 3"
-                        "4, 0.25);\n"
+"    background-color: rgba(34, 139, 34, 0.25);\n"
 "}\n"
 "\n"
 "QPushButton#login_btn_call:hover {\n"
@@ -1088,7 +1080,8 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton#login_btn_call:pressed {\n"
 "    background-color: rgba(0, 100, 0, 1);\n"
-"}\n"
+"}"
+                        "\n"
 "\n"
 "")
         self.verticalLayout_20 = QVBoxLayout(self.loginpage)
@@ -1196,9 +1189,10 @@ class Ui_MainWindow(object):
 
         self.login_btn_qrlogin = QPushButton(self.widget)
         self.login_btn_qrlogin.setObjectName(u"login_btn_qrlogin")
-        self.login_btn_qrlogin.setGeometry(QRect(660, 330, 74, 41))
+        self.login_btn_qrlogin.setGeometry(QRect(650, 330, 61, 41))
         self.login_btn_qrlogin.setCursor(QCursor(Qt.PointingHandCursor))
         self.login_btn_qrlogin.setStyleSheet(u"background-repeat: no-repeat;\n"
+"background-image: url(:/images/images/images/free-icon-qr-code-8766191.png);\n"
 "background-position: center;\n"
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
@@ -1865,7 +1859,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1927,7 +1921,7 @@ class Ui_MainWindow(object):
         self.login_label_disc.setText(QCoreApplication.translate("MainWindow", u"forget your password, please contact the administrator.", None))
         self.login_btn_mail.setText("")
         self.login_btn_call.setText("")
-        self.login_btn_qrlogin.setText(QCoreApplication.translate("MainWindow", u"QR", None))
+        self.login_btn_qrlogin.setText("")
         self.home_label_chatback.setText("")
         self.home_label_left1back.setText("")
         self.home_label_left2back.setText("")
