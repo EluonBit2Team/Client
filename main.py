@@ -177,10 +177,10 @@ class MainWindow(QMainWindow):
     # 다이얼로그 호출
     def openDialog(self, dialogName):
         try:
-                # 채팅 그룹 추가 다이얼로그
+            # 채팅 그룹 추가 다이얼로그
             if dialogName == "GroupAddDialog":
                 dialog = self.groupDialog
-                # 대화 상대 추가 다이얼로그
+            # 대화 상대 추가 다이얼로그
             elif dialogName == "MemberAddDialog":
                 dialog = MemberAddDialog(self)
             # 이메일 다이얼로그
@@ -192,46 +192,21 @@ class MainWindow(QMainWindow):
             # 음식 다이얼로그
             elif dialogName == "FoodDialog":
                 dialog = FoodDialog(self)
-                # 알람 다이얼로그
+            # 알람 다이얼로그
             elif dialogName == "NoticeDialog":
                 dialog = NoticeDialog(self)
-                # 채팅방 유저 다이얼로그
+            # 그라파나 다이얼로그
+            elif dialogName == "GrafanaDialog":
+                dialog = GrafanaDialog(self)  
+            # 채팅방 유저 다이얼로그
             elif dialogName == "GroupMemberListDialog":
                 self.packetSender.reqGroupMemberList(self.socket, self.groupname)
                 dialog = self.groupMember
-
+            
             dialog.exec()
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
-
-        # 채팅 그룹 추가 다이얼로그
-        if dialogName == "GroupAddDialog":
-            dialog = self.groupDialog
-        # 대화 상대 추가 다이얼로그
-        elif dialogName == "MemberAddDialog":
-            dialog = self.memberAddDialog
-        # 이메일 다이얼로그
-        elif dialogName == "MailFunctionWindow":
-            dialog = MailFunctionWindow(self)
-        # 전화 다이얼로그
-        elif dialogName == "CallDialog":
-            dialog = CallDialog(self)
-        # 음식 다이얼로그
-        elif dialogName == "FoodDialog":
-            dialog = FoodDialog(self)
-        # 알람 다이얼로그
-        elif dialogName == "NoticeDialog":
-            dialog = NoticeDialog(self)
-        # 알람 다이얼로그
-        elif dialogName == "GrafanaDialog":
-            dialog = GrafanaDialog(self)  
-        # 채팅방 유저 다이얼로그
-        elif dialogName == "GroupMemberListDialog":
-            self.packetSender.reqGroupMemberList(self.socket, self.groupname)
-            dialog = self.groupMember
-        
-        dialog.exec()
     
     def handleSendButtonClick(self):
         # 클릭 시 아이콘 변경
