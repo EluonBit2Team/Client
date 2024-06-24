@@ -2529,7 +2529,7 @@ border: 1px solid #3498db;
                          <x>420</x>
                          <y>20</y>
                          <width>541</width>
-                         <height>291</height>
+                         <height>541</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2590,7 +2590,7 @@ border-radius: 10px;</string>
                        <property name="geometry">
                         <rect>
                          <x>450</x>
-                         <y>130</y>
+                         <y>220</y>
                          <width>71</width>
                          <height>21</height>
                         </rect>
@@ -2606,7 +2606,7 @@ border-radius: 10px;</string>
                        <property name="geometry">
                         <rect>
                          <x>700</x>
-                         <y>130</y>
+                         <y>220</y>
                          <width>71</width>
                          <height>21</height>
                         </rect>
@@ -2715,21 +2715,6 @@ background-repeat: no-repeat;</string>
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QListView" name="admin_listView_connect">
-                       <property name="geometry">
-                        <rect>
-                         <x>450</x>
-                         <y>70</y>
-                         <width>501</width>
-                         <height>221</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-radius: 10px;
-</string>
-                       </property>
-                      </widget>
                       <widget class="QListView" name="admin_listView_disk">
                        <property name="geometry">
                         <rect>
@@ -2749,9 +2734,9 @@ border-radius: 10px;
                        <property name="geometry">
                         <rect>
                          <x>450</x>
-                         <y>160</y>
+                         <y>250</y>
                          <width>221</width>
-                         <height>51</height>
+                         <height>131</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2763,9 +2748,9 @@ border-radius: 10px;</string>
                        <property name="geometry">
                         <rect>
                          <x>700</x>
-                         <y>160</y>
+                         <y>250</y>
                          <width>221</width>
-                         <height>51</height>
+                         <height>131</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2776,8 +2761,8 @@ border-radius: 10px;</string>
                       <widget class="QComboBox" name="admin_combo_dept">
                        <property name="geometry">
                         <rect>
-                         <x>420</x>
-                         <y>330</y>
+                         <x>464</x>
+                         <y>410</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2844,8 +2829,8 @@ background-color: rgb(27, 29, 35);
                       <widget class="QComboBox" name="admin_combo_position">
                        <property name="geometry">
                         <rect>
-                         <x>420</x>
-                         <y>380</y>
+                         <x>720</x>
+                         <y>470</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2921,8 +2906,8 @@ font-weight: 200;</string>
                       <widget class="QComboBox" name="admin_combo_role">
                        <property name="geometry">
                         <rect>
-                         <x>420</x>
-                         <y>430</y>
+                         <x>464</x>
+                         <y>470</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2984,8 +2969,8 @@ font-weight: 200;</string>
                       <widget class="QComboBox" name="admin_combo_tps">
                        <property name="geometry">
                         <rect>
-                         <x>420</x>
-                         <y>480</y>
+                         <x>720</x>
+                         <y>410</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -3044,6 +3029,55 @@ font-weight: 200;</string>
                         </property>
                        </item>
                       </widget>
+                      <widget class="QGraphicsView" name="admin_qgraphicsview_mem_2">
+                       <property name="geometry">
+                        <rect>
+                         <x>700</x>
+                         <y>70</y>
+                         <width>221</width>
+                         <height>131</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(31, 35, 41);
+border-radius: 10px;</string>
+                       </property>
+                      </widget>
+                      <widget class="QGraphicsView" name="admin_qgraphicsview_mem_3">
+                       <property name="geometry">
+                        <rect>
+                         <x>450</x>
+                         <y>70</y>
+                         <width>221</width>
+                         <height>131</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(31, 35, 41);
+border-radius: 10px;</string>
+                       </property>
+                      </widget>
+                      <zorder>admin_listView_disk</zorder>
+                      <zorder>admin_label_rightback1</zorder>
+                      <zorder>admin_label_leftback</zorder>
+                      <zorder>admin_listView_status</zorder>
+                      <zorder>admin_label_status</zorder>
+                      <zorder>admin_label_memnum</zorder>
+                      <zorder>admin_label_memstatus</zorder>
+                      <zorder>admin_label_diskstatus</zorder>
+                      <zorder>admin_label_tpsstatus</zorder>
+                      <zorder>admin_btn_accept</zorder>
+                      <zorder>admin_btn_reject</zorder>
+                      <zorder>admin_btn_food</zorder>
+                      <zorder>admin_btn_expend</zorder>
+                      <zorder>admin_qgraphicsview_mem</zorder>
+                      <zorder>admin_qgraphicsview_disk</zorder>
+                      <zorder>admin_combo_dept</zorder>
+                      <zorder>admin_combo_position</zorder>
+                      <zorder>admin_combo_role</zorder>
+                      <zorder>admin_combo_tps</zorder>
+                      <zorder>admin_qgraphicsview_mem_2</zorder>
+                      <zorder>admin_qgraphicsview_mem_3</zorder>
                      </widget>
                      <widget class="QWidget" name="qrlogin">
                       <widget class="QLabel" name="qrlogin_label_waiting">
