@@ -38,8 +38,10 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_left = mainWindow.findChild(QPushButton, "home_btn_left")
     mainWindow.home_btn_groupmemberlist = mainWindow.findChild(QPushButton, "home_btn_groupmemberlist")
 
+    mainWindow.admin_btn_accept = mainWindow.findChild(QPushButton, "admin_btn_accept")
     mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")
     mainWindow.admin_btn_food = mainWindow.findChild(QPushButton, "admin_btn_food")
+    mainWindow.admin_listView_status = mainWindow.findChild(QListView, "admin_listView_status")
 
     mainWindow.btn_home = mainWindow.findChild(QPushButton, "btn_home")
     mainWindow.btn_admin = mainWindow.findChild(QPushButton, "btn_admin")
@@ -53,6 +55,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.btn_notice.clicked.connect(lambda: mainWindow.openDialog("NoticeDialog"))
 
     mainWindow.admin_btn_food.clicked.connect(lambda: mainWindow.openDialog("FoodDialog"))
+    # mainWindow.admin_btn_accept.clicked.connect()
 
     mainWindow.home_btn_groupmemberlist.clicked.connect(lambda: mainWindow.openDialog("GroupMemberListDialog"))
     mainWindow.home_btn_chatgroup.clicked.connect(lambda: mainWindow.openDialog("GroupAddDialog"))

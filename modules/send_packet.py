@@ -130,8 +130,6 @@ class SendPacket:
         try:
             msg = {"type": TYPE_USERLIST,
                     "page": self.page}
-            print("요청된 페이지")
-            print(self.page)
             packet = jsonParser(msg)
         
             if socket and msg:
@@ -146,7 +144,6 @@ class SendPacket:
             packet = jsonParser(msg)
             if socket and msg:
                 socket.sendall(packet)
-            print("메세지 보냄")
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
@@ -177,6 +174,16 @@ class SendPacket:
         if socket and msg:
             socket.sendall(packet)
         print(msg)
+        
+    def reqAcceptList(self, socket):
+        try:
+            msg = {"type": 8}
+            packet = jsonParser(msg)
+            if socket and msg:
+                socket.sendall(packet)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
     
     def testDataSender(self, socket):
         print("type: 11 보냄")
