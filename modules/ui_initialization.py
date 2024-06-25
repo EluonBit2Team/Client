@@ -52,8 +52,8 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.btn_save = mainWindow.findChild(QPushButton, "btn_save")
     mainWindow.btn_notice = mainWindow.findChild(QPushButton, "btn_notice")
 
-    mainWindow.admin_btn_expend = mainWindow.findChild(QPushButton, "admin_btn_expend")
-
+    mainWindow.btn_grafana = mainWindow.findChild(QPushButton, "btn_grafana")
+    mainWindow.admin_btn_reload = mainWindow.findChild(QPushButton, "admin_btn_reload")
 
     #매개변수를 가진 버튼
     mainWindow.login_btn_mail.clicked.connect(lambda: mainWindow.openDialog("MailFunctionWindow"))
@@ -65,12 +65,14 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_btn_accept.clicked.connect(lambda: mainWindow.packetSender.acceptReq(mainWindow.socket))
     mainWindow.admin_btn_reject.clicked.connect(lambda: mainWindow.packetSender.rejectReq(mainWindow.socket))
 
+    
     mainWindow.home_btn_groupmemberlist.clicked.connect(lambda: mainWindow.openDialog("GroupMemberListDialog"))
     mainWindow.home_btn_chatgroup.clicked.connect(lambda: mainWindow.openDialog("GroupAddDialog"))
     mainWindow.home_btn_add_member.clicked.connect(lambda: mainWindow.openDialog("MemberAddDialog"))
     mainWindow.home_listview_chatgroup.clicked.connect(lambda index: mainWindow.groupClick(index, mainWindow.groupname))
 
-    mainWindow.admin_btn_expend.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
+    mainWindow.btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
+    
 
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupname = None

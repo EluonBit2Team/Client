@@ -10,7 +10,7 @@ class GrafanaDialog(QDialog):
         self.ui = Ui_Dialog()  # UI 클래스 인스턴스를 생성합니다.
         self.ui.setupUi(self)  # UI 설정을 다이얼로그에 적용합니다.
         
-        self.setWindowTitle("채팅방 대화 상대")
+        self.setWindowTitle("그라파나 대시보드")
         self.setGeometry(100, 100, 1081, 701)
 
         self.setWindowIcon(QIcon(':/images/images/images/logo.png'))

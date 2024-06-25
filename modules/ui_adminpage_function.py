@@ -19,7 +19,7 @@ class GrafanaDashboard:
         self.browser = self.parent.findChild(QWebEngineView, "admin_webEn_expendgraf")
         if self.browser:
             # Grafana 대시보드 URL 설정
-            grafana_url = "http://192.168.0.145:3000/d/cdp7caqtun94wd/message-log?orgId=1"
+            grafana_url = "http://localhost:3000/d/edpso6ui6zqpsc/grafana-dashboard?orgId=1"
             self.browser.setUrl(QUrl(grafana_url))
         
             # 일정 간격으로 페이지 새로고침
