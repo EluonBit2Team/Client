@@ -2,8 +2,14 @@
   <qresource prefix="images">
     <file>images/images/loginmail.png</file>
     <file>images/images/logincall.png</file>
+    <file>images/images/myinfo.png</file>
+    <file>images/images/pw.png</file>
+    <file>images/images/name.png</file>
     <file>images/images/logo.png</file>
+    <file>images/images/email.png</file>
+    <file>images/images/phone.png</file>
     <file>images/images/create-account (1).png</file>
+    <file>images/images/id.png</file>
     <file>images/images/free-icon-send-button-12439334 - 복사본.png</file>
     <file>images/images/grafana.png</file>
     <file>images/images/callimage.png</file>

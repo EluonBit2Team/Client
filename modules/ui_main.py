@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainYdQHsL.ui'
+## Form generated from reading UI file 'mainICMxzS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,6 +13,7 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -1788,6 +1789,97 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.signuppage)
         self.infoeditpage = QWidget()
         self.infoeditpage.setObjectName(u"infoeditpage")
+        self.label = QLabel(self.infoeditpage)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(20, 20, 941, 541))
+        self.label.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;\n"
+"")
+        self.label_2 = QLabel(self.infoeditpage)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(400, 67, 161, 51))
+        self.label_2.setStyleSheet(u"background-image: url(:/images/images/images/myinfo.png);")
+        self.label_3 = QLabel(self.infoeditpage)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(50, 130, 881, 16))
+        self.label_3.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.label_4 = QLabel(self.infoeditpage)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(210, 173, 61, 21))
+        self.label_4.setStyleSheet(u"background-image: url(:/images/images/images/id.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.label_5 = QLabel(self.infoeditpage)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(210, 225, 81, 31))
+        self.label_5.setStyleSheet(u"background-image: url(:/images/images/images/pw.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.label_6 = QLabel(self.infoeditpage)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(210, 281, 41, 31))
+        self.label_6.setStyleSheet(u"background-image: url(:/images/images/images/name.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.label_7 = QLabel(self.infoeditpage)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(210, 341, 81, 31))
+        self.label_7.setStyleSheet(u"background-image: url(:/images/images/images/phone.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.label_8 = QLabel(self.infoeditpage)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(206, 398, 71, 31))
+        self.label_8.setStyleSheet(u"background-image: url(:/images/images/images/email.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.label_9 = QLabel(self.infoeditpage)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setGeometry(QRect(50, 452, 881, 16))
+        self.label_9.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.pushButton = QPushButton(self.infoeditpage)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(890, 50, 51, 31))
+        self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
+"border:none;\n"
+"")
+        self.pushButton_2 = QPushButton(self.infoeditpage)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(400, 500, 75, 24))
+        self.pushButton_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_2.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
+"border: 1px solid white;\n"
+"")
+        self.pushButton_3 = QPushButton(self.infoeditpage)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setGeometry(QRect(510, 500, 75, 24))
+        self.pushButton_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_3.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
+"border: 1px solid yellow;\n"
+"")
+        self.textEdit_2 = QTextEdit(self.infoeditpage)
+        self.textEdit_2.setObjectName(u"textEdit_2")
+        self.textEdit_2.setGeometry(QRect(350, 160, 341, 41))
+        self.textEdit_2.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.textEdit_3 = QTextEdit(self.infoeditpage)
+        self.textEdit_3.setObjectName(u"textEdit_3")
+        self.textEdit_3.setGeometry(QRect(350, 216, 341, 41))
+        self.textEdit_3.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.textEdit_4 = QTextEdit(self.infoeditpage)
+        self.textEdit_4.setObjectName(u"textEdit_4")
+        self.textEdit_4.setGeometry(QRect(350, 270, 341, 41))
+        self.textEdit_4.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.textEdit_5 = QTextEdit(self.infoeditpage)
+        self.textEdit_5.setObjectName(u"textEdit_5")
+        self.textEdit_5.setGeometry(QRect(350, 325, 341, 41))
+        self.textEdit_5.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.textEdit_6 = QTextEdit(self.infoeditpage)
+        self.textEdit_6.setObjectName(u"textEdit_6")
+        self.textEdit_6.setGeometry(QRect(350, 380, 341, 41))
+        self.textEdit_6.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
         self.stackedWidget.addWidget(self.infoeditpage)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
@@ -2067,6 +2159,18 @@ class Ui_MainWindow(object):
         self.signup_label_useagree.setText(QCoreApplication.translate("MainWindow", u"\uc774\uc6a9\uc57d\uad00", None))
         self.signup_label_infoagree.setText(QCoreApplication.translate("MainWindow", u"\uac1c\uc778\uc815\ubcf4 \uc218\uc9d1 \ubc0f \uc774\uc6a9\uc5d0 \ubaa8\ub450 \ub3d9\uc758\ud569\ub2c8\ub2e4.", None))
         self.signup_btn_back.setText("")
+        self.label.setText("")
+        self.label_2.setText("")
+        self.label_3.setText("")
+        self.label_4.setText("")
+        self.label_5.setText("")
+        self.label_6.setText("")
+        self.label_7.setText("")
+        self.label_8.setText("")
+        self.label_9.setText("")
+        self.pushButton.setText("")
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\ucd08\uae30\ud654", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\ud655\uc778", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
