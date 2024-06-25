@@ -15,6 +15,7 @@ TYPE_LOGIN = 2
 TYPE_MESSAGE = 3
 TYPE_USERLIST = 5
 TYPE_GROUPLIST = 6
+TYPE_EDIT_GROUP_MEMBER = 7
 TYPE_ERROR = 100
 TYPE_GROUPMEMBER = 11
 TYPE_CHATLIST = 12
@@ -68,6 +69,7 @@ def updateDisplay(self, list, type, model):
             item = QStandardItem(i['groupname'])
             model.appendRow(item)
     elif type == "userlist":
+        model.setHorizontalHeaderLabels(["이름", "아이디"])
         for json_data in list:
             makeRow = json_data['dept_name'] + ' ' + \
                 json_data['position_name'] + ' ' + json_data['name']
@@ -89,6 +91,16 @@ def updateDisplay(self, list, type, model):
             item = QStandardItem(makeRow)
             item.setData(json_data, Qt.UserRole)
             model.appendRow(item)
+    elif type == "groupMemberList":
+        model.setHorizontalHeaderLabels(["이름", "아이디"])
+        for json_data in list:
+            makeRow = json_data['dept_name'] + ' ' + \
+                json_data['position_name'] + ' ' + json_data['name']
+            name_column = QStandardItem(makeRow)
+            id_column = QStandardItem(json_data["login_id"])
+            name_column.setData(json_data, Qt.UserRole)
+            row = [name_column, id_column]
+            model.appendRow(row) 
     elif (type == "sent") or (type == "received"):
         item = QStandardItem(list)
         item.setData(type, Qt.ItemDataRole.UserRole + 1)

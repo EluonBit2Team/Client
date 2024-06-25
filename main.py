@@ -158,8 +158,8 @@ class MainWindow(QMainWindow):
         self.packetReceiver = ReceivePacket(self)
         self.qrcode = Qrcode(self)
         self.groupDialog = GroupAddDialog(self)
-        self.memberAddDialog = MemberAddDialog(self)
         self.groupMember = GroupMemberListDialog(self)
+        self.memberAddDialog = MemberAddDialog(self)
         self.lock = threading.Lock()
         
         self.btn_logout.clicked.connect(self.packetSender.disconnect)
@@ -180,7 +180,8 @@ class MainWindow(QMainWindow):
                 dialog = self.groupDialog
             # 대화 상대 추가 다이얼로그
             elif dialogName == "MemberAddDialog":
-                dialog = MemberAddDialog(self)
+                self.packetSender.reqGroupMemberList(self.socket)
+                dialog = self.memberAddDialog
             # 이메일 다이얼로그
             elif dialogName == "MailFunctionWindow":
                 dialog = MailFunctionWindow(self)
@@ -198,7 +199,7 @@ class MainWindow(QMainWindow):
                 dialog = GrafanaDialog(self)  
             # 채팅방 유저 다이얼로그
             elif dialogName == "GroupMemberListDialog":
-                self.packetSender.reqGroupMemberList(self.socket, self.groupname)
+                self.packetSender.reqGroupMemberList(self.socket)
                 dialog = self.groupMember
             
             dialog.exec()

@@ -153,12 +153,12 @@ class SendPacket:
         msgText = self.main_window.home_lineedit_chatlist_send.text()
         print(msgText)
         userId = self.main_window.userId
-        groupName = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
         
         try:
             msg = {"type": TYPE_MESSAGE,
                    "login_id": userId,
-                   "groupname": groupName,
+                   "groupname": groupname,
                    "text": msgText}
             
             packet = jsonParser(msg)
@@ -193,6 +193,23 @@ class SendPacket:
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
+        
+    def sendEditedMember(self, socket):
+        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+        inMember = self.main_window.memberAddDialog.in_member
+        outMember = self.main_window.memberAddDialog.out_member
+        try:
+            msg = {"type": TYPE_EDIT_GROUP_MEMBER,
+                   "groupname": groupname,
+                   "in_member": inMember,
+                   "out_member": outMember}
+            packet = jsonParser(msg)
+            if socket and msg:
+                socket.sendall(packet)
+            print(packet)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
     
     def reqAddGroupMember(self, socket, groupname, userlist):
         try:
@@ -208,7 +225,8 @@ class SendPacket:
             print(f"An error occurred: {e}")
             return False
         
-    def reqGroupMemberList(self, socket, groupname):
+    def reqGroupMemberList(self, socket):
+        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
         msg = {
                 "type": 11,
                 "groupname": groupname

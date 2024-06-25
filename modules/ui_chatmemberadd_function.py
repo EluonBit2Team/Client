@@ -14,6 +14,8 @@ class MemberAddDialog(QDialog, Ui_Dialog):
         self.setWindowIcon(QIcon(':/images/images/images/logo.png'))
         self.groupname = main_window.groupname
         self.all_items = []
+        self.in_member = []
+        self.out_member = []
         # CenterAlignDelegate를 설정하여 아이템 가운데 정렬
         self.delegate = CenterAlignDelegate()
         self.ui.dialog_treeview_left.setItemDelegate(self.delegate)
@@ -24,15 +26,20 @@ class MemberAddDialog(QDialog, Ui_Dialog):
         
         #initialize TreeView
         self.treeview_left_model = QStandardItemModel()
-        self.treeview_right_model = QStandardItemModel()
-        self.treeview_right_model.setHorizontalHeaderLabels(["이름", "아이디"])
-        self.ui.dialog_treeview_right.setModel(self.treeview_right_model)
         self.ui.dialog_treeview_left.setModel(self.main_window.userListModel)
+        self.treeview_left_model.setHorizontalHeaderLabels(["이름", "아이디"])
+        
+        self.treeview_right_model = QStandardItemModel()
+        self.ui.dialog_treeview_right.setModel(self.treeview_right_model)
+        self.treeview_right_model.setHorizontalHeaderLabels(["이름", "아이디"])
+       
         
         #connect widget
         self.ui.dialog_btn_insert.clicked.connect(self.moveItem)
         self.ui.dialog_btn_delete.clicked.connect(self.deleteItem)
-        self.ui.dialog_btn_send.clicked.connect(self.makeMemberList)
+        self.ui.dialog_btn_send.clicked.connect(lambda: self.main_window.packetSender.sendEditedMember(self.main_window.socket))
+        self.ui.dialog_btn_send.clicked.connect(self.close_dialog)
+        
     
     def moveItem(self):
         selectedIndexes = self.ui.dialog_treeview_left.selectedIndexes()
@@ -41,60 +48,26 @@ class MemberAddDialog(QDialog, Ui_Dialog):
             selectedIndex = selectedIndexes[0]
             json_data = self.main_window.userListModel.data(selectedIndex, Qt.UserRole)
             if json_data:
-                print(json_data)
-                displayRow = json_data['dept_name'] + ' ' + json_data['position_name'] + ' ' + json_data['name']
-                selectedItem = QStandardItem()
-                selectedItem.setData(json_data, Qt.UserRole)  # JSON 데이터를 새로운 아이템에 설정
-                selectedItem.setText(displayRow)
-                self.treeview_right_model.appendRow(selectedItem)
+                makeRow = json_data['dept_name'] + ' ' + json_data['position_name'] + ' ' + json_data['name']
+                name_column = QStandardItem(makeRow)
+                id_column = QStandardItem(json_data["login_id"])
+                name_column.setData(json_data, Qt.UserRole)
+                row = [name_column, id_column]
+                self.treeview_right_model.appendRow(row)
+                self.in_member.append(json_data["login_id"])
         else:
             print("아무것도 선택되지 않았습니다.")
     
     def deleteItem(self):
         selectedIndexes = self.ui.dialog_treeview_right.selectedIndexes()
-        
         if selectedIndexes:
-            for selectedIndex in selectedIndexes:
-                self.treeview_right_model.removeRow(selectedIndex.row())
+            selectedIndex = selectedIndexes[0]
+            json_data = self.treeview_right_model.data(selectedIndex, Qt.UserRole)
+            self.treeview_right_model.removeRow(selectedIndex.row())
+            self.out_member.append(json_data["login_id"])
         else:
             print("아무것도 선택되지 않았습니다.")
-    
-    def makeMemberList(self):
-        print("makeMemberList 시작됨")
-        item_count = self.treeview_right_model.rowCount()
-        print(item_count)
-        
-        for row in range(item_count):
-            item = self.treeview_right_model.item(row)
-            json_data = item.data(Qt.UserRole)
-            name = json_data.get("login_id")
-            self.all_items.append(name)
-        
-        # 모든 아이템 출력
-        print("All items in list view:")
-        for item in self.all_items:
-            print(item)
-        
-        self.main_window.packetSender.reqAddGroupMember(self.main_window.socket, self.groupname, self.all_items)
-        print("그룹이름: " + self.groupname)
-        
-        
-    def printItem(self):
-        # item_count = self.main_window.memberAddDialog.treeview_left_model.rowCount()
-        item_count = self.treeview_right_model.rowCount()
-        print(item_count)
-        
-        for row in range(item_count):
-            item = self.treeview_right_model.item(row)
-            json_data = item.data(Qt.UserRole)
-            name = json_data.get("login_id")
-            self.all_items.append(name)
-        
-        # 모든 아이템 출력
-        print("All items in list view:")
-        for item in self.all_items:
-            print(item)
-
+            
     def close_dialog(self):
         self.accept()  # 다이얼로그 닫기  
 
