@@ -12,6 +12,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.login_btn_mail = mainWindow.findChild(QPushButton, "login_btn_mail")
     mainWindow.login_btn_call = mainWindow.findChild(QPushButton, "login_btn_call")
     mainWindow.login_btn_qrlogin = mainWindow.findChild(QPushButton, "login_btn_qrlogin")
+    mainWindow.btn_logout = mainWindow.findChild(QPushButton, "btn_logout")
 
     mainWindow.qrlogin_btn_back = mainWindow.findChild(QPushButton, "qrlogin_btn_back")
     mainWindow.qrlogin_label_waiting = mainWindow.findChild(QLabel, "qrlogin_label_waiting")
@@ -58,7 +59,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     #매개변수를 가진 버튼
     mainWindow.login_btn_mail.clicked.connect(lambda: mainWindow.openDialog("MailFunctionWindow"))
     mainWindow.login_btn_call.clicked.connect(lambda: mainWindow.openDialog("CallDialog"))
-
+    
     mainWindow.btn_notice.clicked.connect(lambda: mainWindow.openDialog("NoticeDialog"))
 
     mainWindow.admin_btn_food.clicked.connect(lambda: mainWindow.openDialog("FoodDialog"))

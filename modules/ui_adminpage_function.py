@@ -4,8 +4,6 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
-import sys
-import psutil
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 

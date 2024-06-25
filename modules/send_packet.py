@@ -7,23 +7,51 @@ from modules.util import *
 class SendPacket:
     def __init__(self, main_window):
         self.main_window = main_window
-        self.page = 1
         
+    # def connectSocket(self, addr, port):
+    #     try:
+    #         print(self.main_window.socket)
+    #         self.main_window.socket = None
+    #         print(self.main_window.socket)
+    #         print(f"Connecting to {addr}:{port}")
+    #         self.main_window.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    #         self.main_window.socket.settimeout(5)
+    #         self.main_window.socket.connect((addr, port))
+    #         print(self.main_window.socket)
+    #         self.main_window.socket.setblocking(False)
+    #         return True
+    #     except Exception as e:
+    #         print(f"An error occurred: {e}")
+    #         return False
     def connectSocket(self, addr, port):
         try:
+            self.socket = None
+            print(self.socket)
             print(f"Connecting to {addr}:{port}")
-            self.main_window.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.main_window.socket.settimeout(5)
-            self.main_window.socket.connect((addr, port))
-            self.main_window.socket.setblocking(False)
+            self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.socket.settimeout(5)
+            self.socket.connect((addr, port))
+            print("connectSocket의 socket")
+            print(self.socket)
+            self.socket.setblocking(False)
+            self.main_window.socket = self.socket
             return True
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
 
-    def loginRequest(self, socket):
+    def loginRequest(self):
         # self.loginId = self.main_window.login_input_id.text()
         # loginPw = self.main_window.login_input_pw.text()
+        
+        if not self.connectSocket(SERVER_ADDR, SERVER_PORT):
+            print("Socket connection failed.")
+            return False
+        
+        socket = self.socket
+        self.main_window.packetReceiver.running = True
+        self.main_window.start_receiving()
+        
         self.loginId = "login_id1"
         loginPw = "password1"
         try:
@@ -33,6 +61,7 @@ class SendPacket:
                 "pw": loginPw
             }
             packet = jsonParser(msg)
+            
 
             if socket and msg:
                 socket.sendall(packet)
@@ -40,6 +69,7 @@ class SendPacket:
             self.main_window.btn_home.show()
             self.main_window.btn_admin.show()
             self.main_window.btn_notice.show()
+            self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
             return True
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -59,6 +89,20 @@ class SendPacket:
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
+    
+    def disconnect(self):
+        self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
+        self.main_window.packetReceiver.running = False
+        self.main_window.receive_thread.join()
+        print("스레드종료")
+        if self.main_window.socket:
+            self.main_window.socket.close()
+            print("소켓 종료됨")
+        else:
+            print("소켓이 이미 닫혔거나 유효하지 않습니다.")
+        
+        # self.main_window.receive_thread.join()
+        # print("스레드종료")
 
         
     def signUpRequest(self, socket):
@@ -105,21 +149,24 @@ class SendPacket:
             return False
     
     def sendMsg(self, socket):
-        self.msgText = self.main_window.home_lineedit_chatlist_send.text()
-        self.loginId = "eluon"
-        self.groupName = "채팅방 1"
+        print("sendMsg 진입함")
+        msgText = self.main_window.home_lineedit_chatlist_send.text()
+        print(msgText)
+        userId = self.main_window.userId
+        groupName = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+        
         try:
             msg = {"type": TYPE_MESSAGE,
-                   "login_id": self.loginId,
-                   "groupname": self.groupName,
-                   "text": self.msgText}
+                   "login_id": userId,
+                   "groupname": groupName,
+                   "text": msgText}
             
             packet = jsonParser(msg)
         
             if socket and msg:
                 socket.sendall(packet)
                 
-            self.main_window.updateMsgDisplay(self.msgText, "sent")
+            self.main_window.updateMsgDisplay(msgText, "sent")
             
             return True
         except Exception as e:
@@ -128,8 +175,7 @@ class SendPacket:
     
     def reqUserList(self, socket):
         try:
-            msg = {"type": TYPE_USERLIST,
-                    "page": self.page}
+            msg = {"type": TYPE_USERLIST}
             packet = jsonParser(msg)
         
             if socket and msg:
@@ -281,6 +327,8 @@ class SendPacket:
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
+    
+        
         
         
     
