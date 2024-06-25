@@ -1,6 +1,7 @@
 import json
 import struct
 import select
+import threading
 from PySide6.QtWidgets import QMessageBox
 from modules.util import *
 from modules.send_packet import *
@@ -20,9 +21,10 @@ class ReceivePacket():
                     readable, _, _ = select.select([self.sock], [], [], 0.5)
                     if readable:
                         data = self.sock.recv(4096)
+                        print(data)
                         if data:
+                            print(buffer)
                             buffer += data
-                            print(data)
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
                                 if len(buffer) >= msg_length - 4:
@@ -37,6 +39,18 @@ class ReceivePacket():
             except Exception as e:
                 print(f"An error occurred: {e}")
                 self.running = False
+            # except BlockingIOError:
+            #     continue
+            # except (OSError, self.socket.error) as e: #좀더 자세한 소켓연결 오류와 라인을 알고싶을때
+            #     print(f"An error occurred: {e}")
+            #     self.running = False
+            #     buffer = b""
+            #     break
+            # except Exception as e:
+            #     print(f"An unexpected error occurred: {e}")
+            #     self.running = False
+            #     break
+            
     
     def loginSuccess(self, msg):
         print(msg)
@@ -47,37 +61,35 @@ class ReceivePacket():
         self.main_window.packetSender.reqGroupList(self.main_window.socket)
         self.main_window.packetSender.reqUserList(self.main_window.socket)
         #ishost
-        self.main_window.packetSender.reqAcceptList(self.main_window.socket)
+        # self.main_window.packetSender.reqAcceptList(self.main_window.socket)
         # self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
         
     def receiveMassage(self, msg):
-        self.receivedMessage = json.loads(msg.decode('utf-8')).get("text")
-        self.main_window.updateMsgDisplay(self.receivedMessage, "received")
+        receivedMessage = json.loads(msg.decode('utf-8')).get("text")
+        updateDisplay(self.main_window, receivedMessage, "received", self.main_window.chatListModel)
     
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8')).get("users")
-        self.main_window.updateDisplay(userList, "userlist", self.main_window.userListModel)
+        updateDisplay(self.main_window, userList, "userlist", self.main_window.userListModel)
     
     def receiveGroupList(self, msg):
         self.groupList = json.loads(msg.decode('utf-8')).get("groups")
-        self.main_window.updateDisplay(self.groupList, "grouplist", self.main_window.groupListModel)
+        updateDisplay(self.main_window, self.groupList, "grouplist", self.main_window.groupListModel)
     
     def receiveGroupMember(self, msg):
         groupMemberList = json.loads(msg.decode('utf-8')).get("users")
         self.main_window.groupMember.updateDisplay(groupMemberList, self.main_window.groupMember.groupMemberModel)
     
-    def receiveAcceptList(self, msg):
-        print("receiveAcceptList 호출")
+    def receiveReqList(self, msg):
+        print("receiveReqList 호출")
         signupList = json.loads(msg.decode('utf-8')).get("signup_req_list")
         print(signupList)
         groupReqList = json.loads(msg.decode('utf-8')).get("group_req_list")
         if signupList:
-            self.main_window.updateDisplay(signupList, "signupList", self.main_window.adminReqListModel)
+            updateDisplay(self.main_window, signupList, "signupList", self.main_window.adminReqListModel)
         if groupReqList:
-            self.main_window.updateDisplay(groupReqList, "groupReqList", self.main_window.adminReqListModel)
+            updateDisplay(self.main_window, groupReqList, "groupReqList", self.main_window.adminReqListModel)
             
-        
-        
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
         print(errorMsg)
@@ -95,8 +107,8 @@ class ReceivePacket():
             self.receiveGroupList(msg)
         elif jsonType == TYPE_GROUPMEMBER:
             self.receiveGroupMember(msg)
-        elif jsonType == TYPE_ACCEPT_LIST:
-            self.receiveAcceptList(msg)
+        elif jsonType == TYPE_REQ_LIST:
+            self.receiveReqList(msg)
         else:
             print("jsonType이 None입니다.")
             print("--------- RAW DATA ---------")

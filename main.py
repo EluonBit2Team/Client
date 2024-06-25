@@ -160,15 +160,10 @@ class MainWindow(QMainWindow):
         self.groupDialog = GroupAddDialog(self)
         self.memberAddDialog = MemberAddDialog(self)
         self.groupMember = GroupMemberListDialog(self)
-
-        # connect socket
-        try:
-            self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
-        except socket.error as e:
-            print(f"Socket connection error: {e}")
-            connectionErrorEvent()
-
-        self.start_receiving()
+        self.lock = threading.Lock()
+        
+        self.btn_logout.clicked.connect(self.packetSender.disconnect)
+        # self.start_receiving()
 
     # 약관체크버튼
     def toggleButton(self, state):
@@ -242,6 +237,7 @@ class MainWindow(QMainWindow):
         if btnName == "btn_admin":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+            self.packetSender.reqAcceptList(self.socket)
             # QGraphicsView 설정
             self.memoryUsageView = self.findChild(QGraphicsView, 'admin_qgraphicsview_mem')
             self.scene = QGraphicsScene(self)
@@ -316,10 +312,15 @@ class MainWindow(QMainWindow):
                 item = QStandardItem(makeRow)
                 item.setData(json_data, Qt.UserRole)
                 model.appendRow(item)
+        elif (type == "sent") or (type == "received"):
+            item = QStandardItem(list)
+            item.setData(type, Qt.ItemDataRole.UserRole + 1)
+            model.appendRow(item)
+            self.home_listview_chatlist.scrollToBottom()
         
 
     def loginRequest(self):
-        self.packetSender.loginRequest(self.socket)
+        self.packetSender.loginRequest()
 
     def signUpRequest(self):
         self.packetSender.signUpRequest(self.socket)
@@ -333,11 +334,11 @@ class MainWindow(QMainWindow):
 
     def start_receiving(self):
         self.running = True
-        receive_thread = threading.Thread(target=self.receiveData)
-        receive_thread.daemon = True
-        receive_thread.start()
+        self.receive_thread = threading.Thread(target=self.receiveData)
+        self.receive_thread.daemon = True
+        self.receive_thread.start()
 
-    # RESIZE EVENTS
+    # RESIZE EVENTSc
     # ///////////////////////////////////////////////////////////////
 
     def resizeEvent(self, event):

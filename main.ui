@@ -3949,22 +3949,6 @@ border:none;
    </hints>
   </connection>
   <connection>
-   <sender>login_btn_login</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>loginRequest()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>684</x>
-     <y>433</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1083</x>
-     <y>90</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>signup_checkbox_agree</sender>
    <signal>stateChanged(int)</signal>
    <receiver>MainWindow</receiver>
@@ -4009,6 +3993,22 @@ border:none;
     <hint type="destinationlabel">
      <x>1046</x>
      <y>695</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>login_btn_login</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>loginRequest()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>684</x>
+     <y>433</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1083</x>
+     <y>90</y>
     </hint>
    </hints>
   </connection>
