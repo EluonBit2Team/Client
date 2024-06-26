@@ -41,6 +41,7 @@ from modules.qrcode import *
 from modules.ui_grafana_function import *
 from widgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
+from modules.ui_loadingsp import *
 
 # FIX Problem for High DPI and Scale above 100%
 os.environ["QT_FONT_DPI"] = "96"
@@ -241,11 +242,7 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             self.packetSender.reqAcceptList(self.socket)
-            # QGraphicsView 설정
-            self.memoryUsageView = self.findChild(QGraphicsView, 'admin_qgraphicsview_mem')
-            self.scene = QGraphicsScene(self)
-            self.memoryUsageView.setScene(self.scene)
-
+            
 
         # SHOW LOGIN PAGE
         if btnName == "btn_login":
@@ -330,7 +327,9 @@ class MainWindow(QMainWindow):
         
 
     def loginRequest(self):
+        
         self.packetSender.loginRequest()
+
 
     def signUpRequest(self):
         self.packetSender.signUpRequest(self.socket)

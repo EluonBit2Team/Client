@@ -124,7 +124,7 @@ class SendPacket:
             #             "dept": self.signupDept,
             #             "pos": self.signupPosition}
             msg = {"type": 1,
-                        "login_id": "login_id26", 
+                        "login_id": self.signupId, 
                         "pw": "password26",
                         "name": "아이디이십육",
                         "phone": "010-1234-9653",

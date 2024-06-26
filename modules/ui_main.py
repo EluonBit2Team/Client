@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maindguMIZ.ui'
+## Form generated from reading UI file 'mainiwEXzl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1130,7 +1130,8 @@ class Ui_MainWindow(object):
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
+"font: 12pt \"Segoe UI\";\n"
+"border-radius: none;")
         self.login_input_pw = QLineEdit(self.widget)
         self.login_input_pw.setObjectName(u"login_input_pw")
         self.login_input_pw.setGeometry(QRect(240, 240, 491, 41))
@@ -1140,7 +1141,8 @@ class Ui_MainWindow(object):
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
+"font: 12pt \"Segoe UI\";\n"
+"border-radius: none;")
         self.login_input_pw.setEchoMode(QLineEdit.EchoMode.Password)
         self.login_label_cover = QLabel(self.widget)
         self.login_label_cover.setObjectName(u"login_label_cover")
@@ -1510,7 +1512,7 @@ class Ui_MainWindow(object):
         self.admin_combo_tps.setFrame(True)
         self.admin_btn_useredit = QPushButton(self.adminpage)
         self.admin_btn_useredit.setObjectName(u"admin_btn_useredit")
-        self.admin_btn_useredit.setGeometry(QRect(743, 278, 41, 31))
+        self.admin_btn_useredit.setGeometry(QRect(744, 278, 41, 31))
         self.admin_btn_useredit.setCursor(QCursor(Qt.PointingHandCursor))
         self.admin_btn_useredit.setStyleSheet(u"background-image: url(:/images/images/images/user-profile.png);\n"
 "background-position: centered;\n"
@@ -1570,23 +1572,21 @@ class Ui_MainWindow(object):
 "border-radius: 10px;")
         self.admin_label_infoedit = QLabel(self.adminpage)
         self.admin_label_infoedit.setObjectName(u"admin_label_infoedit")
-        self.admin_label_infoedit.setGeometry(QRect(733, 317, 61, 16))
+        self.admin_label_infoedit.setGeometry(QRect(735, 313, 61, 16))
         self.admin_label_infoedit.setStyleSheet(u"border-bottom-left-radius: 10px;\n"
 "border-bottom-right-radius: 10px;\n"
 "background-color: rgb(40, 44, 50);\n"
-"font: 600 7.5pt \"Segoe UI Variable Small Semibol\";\n"
-"border-top: 0.5px solid lightgray;\n"
+"font: 9pt \"\uc0c8\uad74\ub9bc\";\n"
+"\n"
 "\n"
 "")
         self.admin_label_game = QLabel(self.adminpage)
         self.admin_label_game.setObjectName(u"admin_label_game")
-        self.admin_label_game.setGeometry(QRect(810, 317, 61, 16))
+        self.admin_label_game.setGeometry(QRect(807, 314, 61, 16))
         self.admin_label_game.setStyleSheet(u"border-bottom-left-radius: 10px;\n"
 "border-bottom-right-radius: 10px;\n"
 "background-color: rgb(40, 44, 50);\n"
-"font: 600 7.5pt \"Segoe UI Variable Small Semibol\";\n"
-"border-top: 0.5px solid lightgray;\n"
-"")
+"font: 9pt \"\uc0c8\uad74\ub9bc\";")
         self.stackedWidget.addWidget(self.adminpage)
         self.admin_label_rightback1.raise_()
         self.admin_label_leftback.raise_()
@@ -1615,24 +1615,24 @@ class Ui_MainWindow(object):
         self.qrlogin.setObjectName(u"qrlogin")
         self.qrlogin_label_waiting = QLabel(self.qrlogin)
         self.qrlogin_label_waiting.setObjectName(u"qrlogin_label_waiting")
-        self.qrlogin_label_waiting.setGeometry(QRect(100, 90, 431, 411))
-        self.qrlogin_label_waiting_layer = QLabel(self.qrlogin)
-        self.qrlogin_label_waiting_layer.setObjectName(u"qrlogin_label_waiting_layer")
-        self.qrlogin_label_waiting_layer.setGeometry(QRect(60, 50, 511, 491))
-        self.qrlogin_label_waiting_layer.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
-"border-radius: 10px;\n"
-"")
+        self.qrlogin_label_waiting.setGeometry(QRect(280, 90, 431, 411))
         self.qrlogin_btn_back = QPushButton(self.qrlogin)
         self.qrlogin_btn_back.setObjectName(u"qrlogin_btn_back")
-        self.qrlogin_btn_back.setGeometry(QRect(910, 40, 31, 31))
+        self.qrlogin_btn_back.setGeometry(QRect(753, 80, 31, 31))
         self.qrlogin_btn_back.setCursor(QCursor(Qt.PointingHandCursor))
         self.qrlogin_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;\n"
 "border:none;\n"
 "")
+        self.qrlogin_label_back = QLabel(self.qrlogin)
+        self.qrlogin_label_back.setObjectName(u"qrlogin_label_back")
+        self.qrlogin_label_back.setGeometry(QRect(20, 20, 941, 541))
+        self.qrlogin_label_back.setStyleSheet(u"background-image: url(:/images/images/images/loginbackground.jpg);\n"
+"border-radius: 20px;\n"
+"")
         self.stackedWidget.addWidget(self.qrlogin)
-        self.qrlogin_label_waiting_layer.raise_()
+        self.qrlogin_label_back.raise_()
         self.qrlogin_label_waiting.raise_()
         self.qrlogin_btn_back.raise_()
         self.signuppage = QWidget()
@@ -1678,87 +1678,55 @@ class Ui_MainWindow(object):
 "")
         self.signup_input_id = QLineEdit(self.signuppage)
         self.signup_input_id.setObjectName(u"signup_input_id")
-        self.signup_input_id.setGeometry(QRect(230, 150, 251, 31))
+        self.signup_input_id.setGeometry(QRect(280, 130, 421, 31))
         self.signup_input_id.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
+"font: 12pt \"Segoe UI\";\n"
+"border-radius: none;")
         self.signup_input_pw = QLineEdit(self.signuppage)
         self.signup_input_pw.setObjectName(u"signup_input_pw")
-        self.signup_input_pw.setGeometry(QRect(230, 200, 251, 31))
+        self.signup_input_pw.setGeometry(QRect(280, 180, 421, 31))
         self.signup_input_pw.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
+"font: 12pt \"Segoe UI\";\n"
+"border-radius: none;")
         self.signup_input_pw.setEchoMode(QLineEdit.EchoMode.Password)
         self.signup_input_name = QLineEdit(self.signuppage)
         self.signup_input_name.setObjectName(u"signup_input_name")
-        self.signup_input_name.setGeometry(QRect(230, 250, 251, 31))
+        self.signup_input_name.setGeometry(QRect(280, 230, 421, 31))
         self.signup_input_name.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
+"font: 12pt \"Segoe UI\";\n"
+"border-radius: none;")
         self.signup_input_phone = QLineEdit(self.signuppage)
         self.signup_input_phone.setObjectName(u"signup_input_phone")
-        self.signup_input_phone.setGeometry(QRect(230, 300, 251, 31))
+        self.signup_input_phone.setGeometry(QRect(280, 280, 421, 31))
         self.signup_input_phone.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
+"font: 12pt \"Segoe UI\";\n"
+"border-radius: none;")
         self.signup_input_email = QLineEdit(self.signuppage)
         self.signup_input_email.setObjectName(u"signup_input_email")
-        self.signup_input_email.setGeometry(QRect(230, 350, 251, 31))
+        self.signup_input_email.setGeometry(QRect(280, 330, 421, 31))
         self.signup_input_email.setStyleSheet(u"background-color:rgba(0,0,0,0);\n"
 "border:none;\n"
 "border-bottom:2px solid rgba(255, 255, 255, 120);\n"
 "color:rgba(255, 255, 255, 230);\n"
 "padding-bottom:7px;\n"
-"font: 12pt \"Segoe UI\";")
-        self.signup_combo_dept = QComboBox(self.signuppage)
-        self.signup_combo_dept.addItem("")
-        self.signup_combo_dept.addItem("")
-        self.signup_combo_dept.addItem("")
-        self.signup_combo_dept.addItem("")
-        self.signup_combo_dept.addItem("")
-        self.signup_combo_dept.setObjectName(u"signup_combo_dept")
-        self.signup_combo_dept.setGeometry(QRect(550, 200, 186, 33))
-        self.signup_combo_dept.setFont(font5)
-        self.signup_combo_dept.setCursor(QCursor(Qt.PointingHandCursor))
-        self.signup_combo_dept.setAutoFillBackground(False)
-        self.signup_combo_dept.setStyleSheet(u"\n"
-"font: 8pt \"Segoe UI\";\n"
-"font-weight: 200;\n"
-"background-color: rgb(27, 29, 35);\n"
-"")
-        self.signup_combo_dept.setIconSize(QSize(16, 16))
-        self.signup_combo_dept.setFrame(True)
-        self.signup_combo_position = QComboBox(self.signuppage)
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.addItem("")
-        self.signup_combo_position.setObjectName(u"signup_combo_position")
-        self.signup_combo_position.setGeometry(QRect(550, 250, 186, 33))
-        self.signup_combo_position.setFont(font5)
-        self.signup_combo_position.setCursor(QCursor(Qt.PointingHandCursor))
-        self.signup_combo_position.setAutoFillBackground(False)
-        self.signup_combo_position.setStyleSheet(u"background-color: rgb(27, 29, 35);\n"
-"\n"
-"font: 8pt \"Segoe UI\";\n"
-"font-weight: 200;")
-        self.signup_combo_position.setIconSize(QSize(16, 16))
-        self.signup_combo_position.setFrame(True)
+"font: 12pt \"Segoe UI\";\n"
+"border-radius: none;")
         self.signup_btn_submit = QPushButton(self.signuppage)
         self.signup_btn_submit.setObjectName(u"signup_btn_submit")
         self.signup_btn_submit.setGeometry(QRect(330, 450, 331, 41))
@@ -1781,7 +1749,7 @@ class Ui_MainWindow(object):
 "font-weight: 200;")
         self.signup_btn_back = QPushButton(self.signuppage)
         self.signup_btn_back.setObjectName(u"signup_btn_back")
-        self.signup_btn_back.setGeometry(QRect(705, 100, 31, 31))
+        self.signup_btn_back.setGeometry(QRect(753, 80, 31, 31))
         self.signup_btn_back.setCursor(QCursor(Qt.PointingHandCursor))
         self.signup_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
 "background-position: centered;\n"
@@ -1851,45 +1819,47 @@ class Ui_MainWindow(object):
 "")
         self.useredit_label_title = QLabel(self.infoeditpage)
         self.useredit_label_title.setObjectName(u"useredit_label_title")
-        self.useredit_label_title.setGeometry(QRect(420, 63, 131, 41))
-        self.useredit_label_title.setStyleSheet(u"background-image: url(:/images/images/images/\uc2a4\ud06c\ub9b0\uc0f7 2024-06-26 091000.png);")
+        self.useredit_label_title.setGeometry(QRect(380, 61, 211, 41))
+        self.useredit_label_title.setStyleSheet(u"background-image: url(:/images/images/images/\uc2a4\ud06c\ub9b0\uc0f7 2024-06-26 110605.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
         self.useredit_label_upline = QLabel(self.infoeditpage)
         self.useredit_label_upline.setObjectName(u"useredit_label_upline")
-        self.useredit_label_upline.setGeometry(QRect(50, 121, 881, 16))
+        self.useredit_label_upline.setGeometry(QRect(50, 110, 881, 16))
         self.useredit_label_upline.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 150);")
         self.useredit_label_id = QLabel(self.infoeditpage)
         self.useredit_label_id.setObjectName(u"useredit_label_id")
-        self.useredit_label_id.setGeometry(QRect(148, 170, 61, 21))
-        self.useredit_label_id.setStyleSheet(u"background-image: url(:/images/images/images/id.png);\n"
+        self.useredit_label_id.setGeometry(QRect(488, 156, 51, 21))
+        self.useredit_label_id.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
         self.useredit_label_pw = QLabel(self.infoeditpage)
         self.useredit_label_pw.setObjectName(u"useredit_label_pw")
-        self.useredit_label_pw.setGeometry(QRect(137, 220, 81, 31))
-        self.useredit_label_pw.setStyleSheet(u"background-image: url(:/images/images/images/pw.png);\n"
+        self.useredit_label_pw.setGeometry(QRect(478, 196, 71, 31))
+        self.useredit_label_pw.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
         self.useredit_label_name = QLabel(self.infoeditpage)
         self.useredit_label_name.setObjectName(u"useredit_label_name")
-        self.useredit_label_name.setGeometry(QRect(160, 278, 41, 31))
-        self.useredit_label_name.setStyleSheet(u"background-image: url(:/images/images/images/name.png);\n"
+        self.useredit_label_name.setGeometry(QRect(495, 236, 41, 31))
+        self.useredit_label_name.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
         self.useredit_label_phone = QLabel(self.infoeditpage)
         self.useredit_label_phone.setObjectName(u"useredit_label_phone")
-        self.useredit_label_phone.setGeometry(QRect(140, 335, 81, 31))
-        self.useredit_label_phone.setStyleSheet(u"background-image: url(:/images/images/images/phone.png);\n"
+        self.useredit_label_phone.setGeometry(QRect(480, 276, 71, 31))
+        self.useredit_label_phone.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
         self.useredit_label_email = QLabel(self.infoeditpage)
         self.useredit_label_email.setObjectName(u"useredit_label_email")
-        self.useredit_label_email.setGeometry(QRect(147, 389, 71, 31))
-        self.useredit_label_email.setStyleSheet(u"background-image: url(:/images/images/images/email.png);\n"
+        self.useredit_label_email.setGeometry(QRect(487, 316, 51, 31))
+        self.useredit_label_email.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
         self.useredit_label_downline = QLabel(self.infoeditpage)
         self.useredit_label_downline.setObjectName(u"useredit_label_downline")
-        self.useredit_label_downline.setGeometry(QRect(50, 455, 881, 16))
+        self.useredit_label_downline.setGeometry(QRect(50, 460, 881, 16))
         self.useredit_label_downline.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 150);")
         self.useredit_btn_back = QPushButton(self.infoeditpage)
         self.useredit_btn_back.setObjectName(u"useredit_btn_back")
@@ -1916,7 +1886,7 @@ class Ui_MainWindow(object):
 "")
         self.useredit_edit_id = QLineEdit(self.infoeditpage)
         self.useredit_edit_id.setObjectName(u"useredit_edit_id")
-        self.useredit_edit_id.setGeometry(QRect(240, 160, 371, 41))
+        self.useredit_edit_id.setGeometry(QRect(560, 144, 281, 41))
         self.useredit_edit_id.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
 "border-top: none;\n"
 "border-right: none;\n"
@@ -1925,7 +1895,7 @@ class Ui_MainWindow(object):
 "border-radius: none;")
         self.useredit_edit_pw = QLineEdit(self.infoeditpage)
         self.useredit_edit_pw.setObjectName(u"useredit_edit_pw")
-        self.useredit_edit_pw.setGeometry(QRect(240, 220, 371, 41))
+        self.useredit_edit_pw.setGeometry(QRect(560, 184, 281, 41))
         self.useredit_edit_pw.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
 "border-top: none;\n"
 "border-right: none;\n"
@@ -1934,7 +1904,7 @@ class Ui_MainWindow(object):
 "border-radius: none;")
         self.useredit_edit_name = QLineEdit(self.infoeditpage)
         self.useredit_edit_name.setObjectName(u"useredit_edit_name")
-        self.useredit_edit_name.setGeometry(QRect(240, 270, 371, 41))
+        self.useredit_edit_name.setGeometry(QRect(560, 224, 281, 41))
         self.useredit_edit_name.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
 "border-top: none;\n"
 "border-right: none;\n"
@@ -1943,7 +1913,7 @@ class Ui_MainWindow(object):
 "border-radius: none;")
         self.useredit_edit_phone = QLineEdit(self.infoeditpage)
         self.useredit_edit_phone.setObjectName(u"useredit_edit_phone")
-        self.useredit_edit_phone.setGeometry(QRect(240, 330, 371, 41))
+        self.useredit_edit_phone.setGeometry(QRect(560, 264, 281, 41))
         self.useredit_edit_phone.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
 "border-top: none;\n"
 "border-right: none;\n"
@@ -1952,7 +1922,7 @@ class Ui_MainWindow(object):
 "border-radius: none;")
         self.useredit_edit_email = QLineEdit(self.infoeditpage)
         self.useredit_edit_email.setObjectName(u"useredit_edit_email")
-        self.useredit_edit_email.setGeometry(QRect(240, 380, 371, 41))
+        self.useredit_edit_email.setGeometry(QRect(560, 304, 281, 41))
         self.useredit_edit_email.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
 "border-top: none;\n"
 "border-right: none;\n"
@@ -1966,7 +1936,7 @@ class Ui_MainWindow(object):
         self.useredit_combo_dept.addItem("")
         self.useredit_combo_dept.addItem("")
         self.useredit_combo_dept.setObjectName(u"useredit_combo_dept")
-        self.useredit_combo_dept.setGeometry(QRect(650, 190, 186, 33))
+        self.useredit_combo_dept.setGeometry(QRect(558, 377, 141, 33))
         self.useredit_combo_dept.setFont(font5)
         self.useredit_combo_dept.setCursor(QCursor(Qt.PointingHandCursor))
         self.useredit_combo_dept.setAutoFillBackground(False)
@@ -1986,30 +1956,29 @@ class Ui_MainWindow(object):
         self.useredit_combo_position.addItem("")
         self.useredit_combo_position.addItem("")
         self.useredit_combo_position.setObjectName(u"useredit_combo_position")
-        self.useredit_combo_position.setGeometry(QRect(650, 240, 186, 33))
+        self.useredit_combo_position.setGeometry(QRect(700, 377, 141, 33))
         self.useredit_combo_position.setFont(font5)
         self.useredit_combo_position.setCursor(QCursor(Qt.PointingHandCursor))
         self.useredit_combo_position.setAutoFillBackground(False)
         self.useredit_combo_position.setStyleSheet(u"background-color: rgb(27, 29, 35);\n"
-"\n"
 "font: 8pt \"Segoe UI\";\n"
 "font-weight: 200;")
         self.useredit_combo_position.setIconSize(QSize(16, 16))
         self.useredit_combo_position.setFrame(True)
-        self.listView = QListView(self.infoeditpage)
-        self.listView.setObjectName(u"listView")
-        self.listView.setGeometry(QRect(40, 220, 91, 192))
-        self.listView.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-top-right-radius: 10px;\n"
-"border-bottom-right-radius: 10px;\n"
+        self.useredit_listview_leftmem = QListView(self.infoeditpage)
+        self.useredit_listview_leftmem.setObjectName(u"useredit_listview_leftmem")
+        self.useredit_listview_leftmem.setGeometry(QRect(50, 170, 391, 281))
+        self.useredit_listview_leftmem.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
-"color: rgb(255, 255, 255);")
+"color: rgb(255, 255, 255);\n"
+"border-radius: 10px;\n"
+"")
         self.useredit_combo_role = QComboBox(self.infoeditpage)
         self.useredit_combo_role.addItem("")
         self.useredit_combo_role.addItem("")
         self.useredit_combo_role.addItem("")
         self.useredit_combo_role.setObjectName(u"useredit_combo_role")
-        self.useredit_combo_role.setGeometry(QRect(650, 290, 186, 33))
+        self.useredit_combo_role.setGeometry(QRect(700, 417, 141, 33))
         sizePolicy.setHeightForWidth(self.useredit_combo_role.sizePolicy().hasHeightForWidth())
         self.useredit_combo_role.setSizePolicy(sizePolicy)
         self.useredit_combo_role.setFont(font5)
@@ -2027,7 +1996,7 @@ class Ui_MainWindow(object):
         self.useredit_combo_tps.addItem("")
         self.useredit_combo_tps.addItem("")
         self.useredit_combo_tps.setObjectName(u"useredit_combo_tps")
-        self.useredit_combo_tps.setGeometry(QRect(650, 340, 186, 33))
+        self.useredit_combo_tps.setGeometry(QRect(557, 417, 141, 33))
         sizePolicy.setHeightForWidth(self.useredit_combo_tps.sizePolicy().hasHeightForWidth())
         self.useredit_combo_tps.setSizePolicy(sizePolicy)
         self.useredit_combo_tps.setFont(font5)
@@ -2039,6 +2008,10 @@ class Ui_MainWindow(object):
 "font-weight: 200;")
         self.useredit_combo_tps.setIconSize(QSize(16, 16))
         self.useredit_combo_tps.setFrame(True)
+        self.label = QLabel(self.infoeditpage)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(200, 140, 81, 20))
+        self.label.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
         self.stackedWidget.addWidget(self.infoeditpage)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
@@ -2166,7 +2139,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2287,33 +2260,17 @@ class Ui_MainWindow(object):
         self.admin_label_seven.setText("")
         self.admin_label_eight.setText("")
         self.admin_label_nine.setText("")
-        self.admin_label_infoedit.setText(QCoreApplication.translate("MainWindow", u"  \uc815\ubcf4 \uc218\uc815", None))
+        self.admin_label_infoedit.setText(QCoreApplication.translate("MainWindow", u" \uc815\ubcf4 \uc218\uc815", None))
         self.admin_label_game.setText(QCoreApplication.translate("MainWindow", u"  \uc810\uc2ec \ub8f0\ub81b", None))
         self.qrlogin_label_waiting.setText("")
-        self.qrlogin_label_waiting_layer.setText("")
         self.qrlogin_btn_back.setText("")
+        self.qrlogin_label_back.setText("")
         self.signup_label_back.setText("")
         self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.signup_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
         self.signup_input_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Name", None))
         self.signup_input_phone.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Phone", None))
         self.signup_input_email.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email", None))
-        self.signup_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.signup_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u" 1\ud300", None))
-        self.signup_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u" 2\ud300", None))
-        self.signup_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u" 3\ud300", None))
-        self.signup_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u" \uc194\ub8e8\uc158\ud300", None))
-
-        self.signup_combo_dept.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.signup_combo_position.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.signup_combo_position.setItemText(1, QCoreApplication.translate("MainWindow", u"\ud68c\uc7a5", None))
-        self.signup_combo_position.setItemText(2, QCoreApplication.translate("MainWindow", u"\uc0ac\uc7a5", None))
-        self.signup_combo_position.setItemText(3, QCoreApplication.translate("MainWindow", u"\ucc28\uc7a5", None))
-        self.signup_combo_position.setItemText(4, QCoreApplication.translate("MainWindow", u"\uacfc\uc7a5", None))
-        self.signup_combo_position.setItemText(5, QCoreApplication.translate("MainWindow", u"\ub300\ub9ac", None))
-        self.signup_combo_position.setItemText(6, QCoreApplication.translate("MainWindow", u"\uc0ac\uc6d0", None))
-
-        self.signup_combo_position.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
         self.signup_btn_submit.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
         self.signup_checkbox_agree.setText("")
         self.signup_label_useagree.setText(QCoreApplication.translate("MainWindow", u"\uc774\uc6a9\uc57d\uad00", None))
@@ -2322,11 +2279,11 @@ class Ui_MainWindow(object):
         self.useredit_label_back.setText("")
         self.useredit_label_title.setText("")
         self.useredit_label_upline.setText("")
-        self.useredit_label_id.setText("")
-        self.useredit_label_pw.setText("")
-        self.useredit_label_name.setText("")
-        self.useredit_label_phone.setText("")
-        self.useredit_label_email.setText("")
+        self.useredit_label_id.setText(QCoreApplication.translate("MainWindow", u"\uc544\uc774\ub514", None))
+        self.useredit_label_pw.setText(QCoreApplication.translate("MainWindow", u"\ube44\ubc00\ubc88\ud638", None))
+        self.useredit_label_name.setText(QCoreApplication.translate("MainWindow", u"\uc774\ub984", None))
+        self.useredit_label_phone.setText(QCoreApplication.translate("MainWindow", u"\ud734\ub300\uc804\ud654", None))
+        self.useredit_label_email.setText(QCoreApplication.translate("MainWindow", u"\uc774\uba54\uc77c", None))
         self.useredit_label_downline.setText("")
         self.useredit_btn_back.setText("")
         self.useredit_btn_reset.setText(QCoreApplication.translate("MainWindow", u"\ucd08\uae30\ud654", None))
@@ -2358,6 +2315,7 @@ class Ui_MainWindow(object):
         self.useredit_combo_tps.setItemText(3, QCoreApplication.translate("MainWindow", u"100", None))
 
         self.useredit_combo_tps.setCurrentText(QCoreApplication.translate("MainWindow", u"tps\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u2705 \ud68c\uc6d0 \ubaa9\ub85d", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
