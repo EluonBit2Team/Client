@@ -68,9 +68,10 @@ class MainWindow(QMainWindow):
         initialize_variable(self)
 
         # hide menu
-        # self.btn_home.hide()
-        # self.btn_admin.hide()
-        # self.btn_notice.hide()
+        self.btn_grafana.hide()
+        self.btn_home.hide()
+        self.btn_admin.hide()
+        self.btn_notice.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -161,12 +162,21 @@ class MainWindow(QMainWindow):
         self.packetReceiver = ReceivePacket(self)
         self.qrcode = Qrcode(self)
         self.groupDialog = GroupAddDialog(self)
-        self.memberAddDialog = MemberAddDialog(self)
         self.groupMember = GroupMemberListDialog(self)
+        self.memberAddDialog = MemberAddDialog(self)
         self.lock = threading.Lock()
         
         self.btn_logout.clicked.connect(self.packetSender.disconnect)
-        # self.start_receiving()
+        
+        #connect socket
+        try:    
+            self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
+        except socket.error as e:
+            print(f"Socket connection error: {e}")
+            connectionErrorEvent()
+        print("main의 socket")
+        print(self.socket)
+        self.start_receiving()
 
     # 약관체크버튼
     def toggleButton(self, state):
@@ -183,7 +193,8 @@ class MainWindow(QMainWindow):
                 dialog = self.groupDialog
             # 대화 상대 추가 다이얼로그
             elif dialogName == "MemberAddDialog":
-                dialog = MemberAddDialog(self)
+                self.packetSender.reqGroupMemberList(self.socket)
+                dialog = self.memberAddDialog
             # 이메일 다이얼로그
             elif dialogName == "MailFunctionWindow":
                 dialog = MailFunctionWindow(self)
@@ -201,7 +212,7 @@ class MainWindow(QMainWindow):
                 dialog = GrafanaDialog(self)  
             # 채팅방 유저 다이얼로그
             elif dialogName == "GroupMemberListDialog":
-                self.packetSender.reqGroupMemberList(self.socket, self.groupname)
+                self.packetSender.reqGroupMemberList(self.socket)
                 dialog = self.groupMember
             
             dialog.exec()
@@ -242,7 +253,6 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             self.packetSender.reqAcceptList(self.socket)
-            
 
         # SHOW LOGIN PAGE
         if btnName == "btn_login":
@@ -342,7 +352,6 @@ class MainWindow(QMainWindow):
         self.packetReceiver.receiveData(self.socket)
 
     def start_receiving(self):
-        self.running = True
         self.receive_thread = threading.Thread(target=self.receiveData)
         self.receive_thread.daemon = True
         self.receive_thread.start()
