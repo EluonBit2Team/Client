@@ -2,6 +2,7 @@ import json
 import struct
 import select
 import threading
+from collections import OrderedDict
 from PySide6.QtWidgets import QMessageBox
 from modules.util import *
 from modules.send_packet import *
@@ -21,9 +22,7 @@ class ReceivePacket():
                     readable, _, _ = select.select([self.sock], [], [], 0.5)
                     if readable:
                         data = self.sock.recv(4096)
-                        print(data)
                         if data:
-                            print(buffer)
                             buffer += data
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
@@ -33,6 +32,7 @@ class ReceivePacket():
                                     json_type = json.loads(json_msg).get("type")
                                     self.receivedType(json_type, json_msg)
                                 else:
+                                    print("데이터가 없습니다")
                                     break
             except BlockingIOError:
                 continue
@@ -55,17 +55,29 @@ class ReceivePacket():
     def loginSuccess(self, msg):
         print(msg)
         userId = json.loads(msg.decode('utf-8')).get("login_id")
+        userRole = json.loads(msg.decode('utf-8')).get("role")
         print("로그인 성공")
         print("id: " + userId)
+        print("직급: " + str(userRole))
         self.main_window.userId = userId
         self.main_window.packetSender.reqGroupList(self.main_window.socket)
         self.main_window.packetSender.reqUserList(self.main_window.socket)
+        
+        self.main_window.ui.btn_login.hide()
+        print("lself.main_window.ui.btn_login.hide() 성공")
+        
+        if userRole == 1:
+            self.main_window.ui.btn_admin.show()
+            self.main_window.ui.btn_notice.show()
+            self.main_window.ui.btn_grafana.show()
         #ishost
         # self.main_window.packetSender.reqAcceptList(self.main_window.socket)
         # self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
         
     def receiveMassage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8')).get("text")
+        name = json.loads(msg.decode('utf-8')).get("login_id")
+        updateDisplay(self.main_window, name, "received", self.main_window.chatListModel)
         updateDisplay(self.main_window, receivedMessage, "received", self.main_window.chatListModel)
     
     def receiveUserList(self, msg):
@@ -83,14 +95,14 @@ class ReceivePacket():
         # self.main_window.groupMember.updateDisplay(groupMemberList, self.main_window.groupMember.groupMemberModel)
     
     def receiveReqList(self, msg):
-        print("receiveReqList 호출")
-        signupList = json.loads(msg.decode('utf-8')).get("signup_req_list")
-        print(signupList)
-        groupReqList = json.loads(msg.decode('utf-8')).get("group_req_list")
+        signupList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("signup_req_list")
+        groupReqList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("group_req_list")
         if signupList:
             updateDisplay(self.main_window, signupList, "signupList", self.main_window.adminReqListModel)
-        if groupReqList:
+        elif groupReqList:
             updateDisplay(self.main_window, groupReqList, "groupReqList", self.main_window.adminReqListModel)
+        else:
+            self.main_window.adminReqListModel.clear()
             
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")

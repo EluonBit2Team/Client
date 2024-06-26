@@ -33,14 +33,12 @@ class MemberAddDialog(QDialog, Ui_Dialog):
         self.ui.dialog_treeview_right.setModel(self.treeview_right_model)
         self.treeview_right_model.setHorizontalHeaderLabels(["이름", "아이디"])
        
-        
         #connect widget
         self.ui.dialog_btn_insert.clicked.connect(self.moveItem)
         self.ui.dialog_btn_delete.clicked.connect(self.deleteItem)
         self.ui.dialog_btn_send.clicked.connect(lambda: self.main_window.packetSender.sendEditedMember(self.main_window.socket))
         self.ui.dialog_btn_send.clicked.connect(self.close_dialog)
         
-    
     def moveItem(self):
         selectedIndexes = self.ui.dialog_treeview_left.selectedIndexes()
         
@@ -55,6 +53,7 @@ class MemberAddDialog(QDialog, Ui_Dialog):
                 row = [name_column, id_column]
                 self.treeview_right_model.appendRow(row)
                 self.in_member.append(json_data["login_id"])
+                print(self.in_member)
         else:
             print("아무것도 선택되지 않았습니다.")
     

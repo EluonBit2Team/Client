@@ -67,9 +67,10 @@ class MainWindow(QMainWindow):
         initialize_variable(self)
 
         # hide menu
-        # self.btn_home.hide()
-        # self.btn_admin.hide()
-        # self.btn_notice.hide()
+        self.btn_grafana.hide()
+        self.btn_home.hide()
+        self.btn_admin.hide()
+        self.btn_notice.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -164,7 +165,16 @@ class MainWindow(QMainWindow):
         self.lock = threading.Lock()
         
         self.btn_logout.clicked.connect(self.packetSender.disconnect)
-        # self.start_receiving()
+        
+        #connect socket
+        try:    
+            self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
+        except socket.error as e:
+            print(f"Socket connection error: {e}")
+            connectionErrorEvent()
+        print("main의 socket")
+        print(self.socket)
+        self.start_receiving()
 
     # 약관체크버튼
     def toggleButton(self, state):
@@ -241,11 +251,6 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             self.packetSender.reqAcceptList(self.socket)
-            # QGraphicsView 설정
-            self.memoryUsageView = self.findChild(QGraphicsView, 'admin_qgraphicsview_mem')
-            self.scene = QGraphicsScene(self)
-            self.memoryUsageView.setScene(self.scene)
-
 
         # SHOW LOGIN PAGE
         if btnName == "btn_login":
@@ -342,7 +347,6 @@ class MainWindow(QMainWindow):
         self.packetReceiver.receiveData(self.socket)
 
     def start_receiving(self):
-        self.running = True
         self.receive_thread = threading.Thread(target=self.receiveData)
         self.receive_thread.daemon = True
         self.receive_thread.start()

@@ -3,6 +3,7 @@ import json
 import struct
 from modules import *
 from widgets import *
+from collections import OrderedDict
 from PySide6.QtWidgets import QMainWindow
 
 
@@ -80,14 +81,14 @@ def updateDisplay(self, list, type, model):
             model.appendRow(row)
     elif type == "signupList":
         for json_data in list:
-            makeRow = json_data['login_id'] + ' ' + \
+            makeRow = "회원가입요청     || " + json_data['login_id'] + ' ' + \
                 json_data['name'] + ' ' + json_data['phone'] + ' ' + json_data['email']
             item = QStandardItem(makeRow)
             item.setData(json_data, Qt.UserRole)
             model.appendRow(item)
     elif type == "groupReqList":
         for json_data in list:
-            makeRow = json_data['group_name'] + ' ' + json_data['memo']
+            makeRow = "그룹생성요청     || " + json_data['group_name'] + ' ' + json_data['memo']
             item = QStandardItem(makeRow)
             item.setData(json_data, Qt.UserRole)
             model.appendRow(item)
@@ -125,6 +126,8 @@ def getClickedRow(type, widget, model):
             string_data = item.data(Qt.DisplayRole)
         
         return string_data
+    
+# def 
 
 
     

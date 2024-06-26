@@ -43,14 +43,25 @@ class SendPacket:
     def loginRequest(self):
         # self.loginId = self.main_window.login_input_id.text()
         # loginPw = self.main_window.login_input_pw.text()
+        self.socket = self.main_window.socket
         
-        if not self.connectSocket(SERVER_ADDR, SERVER_PORT):
-            print("Socket connection failed.")
-            return False
+        if self.socket == None:
+            if not self.connectSocket(SERVER_ADDR, SERVER_PORT):
+                print("Socket connection failed.")
+                socket = self.main_window.socket
+                self.main_window.packetReceiver.running = True
+                self.main_window.start_receiving()
+                return False
+        else:
+            print("loginReq에서 else문")
+            socket = self.socket
         
+        print("loginRequest의 socket")
+        print(self.socket)
         socket = self.socket
-        self.main_window.packetReceiver.running = True
-        self.main_window.start_receiving()
+        # socket = self.socket
+        # self.main_window.packetReceiver.running = True
+        # self.main_window.start_receiving()
         
         self.loginId = "login_id1"
         loginPw = "password1"
@@ -91,12 +102,18 @@ class SendPacket:
             return False
     
     def disconnect(self):
+        self.main_window.ui.btn_login.show()
+        self.main_window.ui.btn_home.hide()
+        self.main_window.ui.btn_admin.hide()
+        self.main_window.ui.btn_notice.hide()
+        self.main_window.ui.btn_grafana.hide()
         self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
         self.main_window.packetReceiver.running = False
         self.main_window.receive_thread.join()
         print("스레드종료")
         if self.main_window.socket:
             self.main_window.socket.close()
+            self.main_window.socket = None
             print("소켓 종료됨")
         else:
             print("소켓이 이미 닫혔거나 유효하지 않습니다.")
@@ -165,7 +182,8 @@ class SendPacket:
         
             if socket and msg:
                 socket.sendall(packet)
-                
+            
+            print(packet)
             self.main_window.updateMsgDisplay(msgText, "sent")
             
             return True
@@ -329,22 +347,36 @@ class SendPacket:
             item = self.main_window.adminReqListModel.itemFromIndex(index)
             json_data = item.data(Qt.UserRole)
         
-        login_id = json_data["login_id"]
-     
-        try:
-            msg = {
-                    "type": TYPE_ACCEPT_SIGNUP,
-                    "is_ok": 0,
-                    "login_id": login_id
-                }
-            packet = jsonParser(msg)
-            print(msg)
-            if socket and msg:
-                socket.sendall(packet)
-            print(packet)
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return False
+        if firstKey(json_data) == "login_id":
+            login_id = json_data["login_id"]
+            try:
+                msg = {
+                        "type": TYPE_ACCEPT_SIGNUP,
+                        "is_ok": 0,
+                        "login_id": login_id
+                    }
+                packet = jsonParser(msg)
+                if socket and msg:
+                    socket.sendall(packet)
+                print(packet)
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
+        else:
+            groupname = json_data["group_name"]
+            try:
+                msg = {
+                        "type": TYPE_ACCEPT_GROUP,
+                        "is_ok": 0,
+                        "groupname": groupname
+                    }
+                packet = jsonParser(msg)
+                if socket and msg:
+                    socket.sendall(packet)
+                print(packet)
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
     
         
         
@@ -376,3 +408,8 @@ def jsonParser(msg):
     header = struct.pack('<I', total_length)
     
     return header + byte_json_msg
+
+def firstKey(dictionary):
+    if dictionary:
+        return next(iter(dictionary))
+    return None
