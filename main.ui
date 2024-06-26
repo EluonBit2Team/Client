@@ -837,6 +837,20 @@ height: 42px;</string>
                  <number>0</number>
                 </property>
                 <item>
+                 <widget class="QPushButton" name="btn_grafana">
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-image: url(:/icons/images/icons/cil-chart-line.png);
+height: 45px</string>
+                  </property>
+                  <property name="text">
+                   <string>Grafana Dashboard</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
                  <widget class="QPushButton" name="btn_home">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -1756,7 +1770,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>5</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -1793,14 +1807,7 @@ QPushButton#login_btn_call {
     color: white;
 }
 
-QPushButton#login_btn_qrlogin {
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: white;
-}
+
 
 QPushButton#login_btn_login {
    background-color: rgba(70, 130, 180, 0.25);
@@ -2095,8 +2102,8 @@ margin-left:10px;</string>
                            <widget class="QPushButton" name="login_btn_qrlogin">
                             <property name="geometry">
                              <rect>
-                              <x>460</x>
-                              <y>280</y>
+                              <x>650</x>
+                              <y>330</y>
                               <width>61</width>
                               <height>41</height>
                              </rect>
@@ -2106,7 +2113,7 @@ margin-left:10px;</string>
                             </property>
                             <property name="styleSheet">
                              <string notr="true">background-repeat: no-repeat;
-background-image: url(:/images/images/images/free-icon-qr-code-8766191.png);
+background-image: url(:/images/images/images/qr-code-scan.png);
 background-position: center;
 border-radius: 14px;
 margin-right: 10px;
@@ -2503,6 +2510,24 @@ QPushButton#admin_btn_reject:hover {
 
 QPushButton#admin_btn_reject:pressed {
     background-color: rgba(25, 25, 112, 1);
+}
+
+QPushButton#admin_btn_reload {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+
+QPushButton#admin_btn_reload:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#admin_btn_reload:pressed {
+    background-color: rgba(25, 25, 112, 1);
 }</string>
                       </property>
                       <widget class="QLabel" name="admin_label_leftback">
@@ -2510,7 +2535,7 @@ QPushButton#admin_btn_reject:pressed {
                         <rect>
                          <x>20</x>
                          <y>20</y>
-                         <width>381</width>
+                         <width>681</width>
                          <height>541</height>
                         </rect>
                        </property>
@@ -2527,9 +2552,9 @@ border: 1px solid #3498db;
                       <widget class="QLabel" name="admin_label_rightback1">
                        <property name="geometry">
                         <rect>
-                         <x>420</x>
+                         <x>720</x>
                          <y>20</y>
-                         <width>541</width>
+                         <width>241</width>
                          <height>541</height>
                         </rect>
                        </property>
@@ -2546,7 +2571,7 @@ border-radius: 10px;</string>
                         <rect>
                          <x>40</x>
                          <y>70</y>
-                         <width>341</width>
+                         <width>641</width>
                          <height>431</height>
                         </rect>
                        </property>
@@ -2571,74 +2596,10 @@ border-radius: 10px;</string>
                         <string>회원 등록 / 회원 상태</string>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="admin_label_memnum">
-                       <property name="geometry">
-                        <rect>
-                         <x>451</x>
-                         <y>40</y>
-                         <width>61</width>
-                         <height>21</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
-                       </property>
-                       <property name="text">
-                        <string>접속자 수</string>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="admin_label_memstatus">
-                       <property name="geometry">
-                        <rect>
-                         <x>450</x>
-                         <y>220</y>
-                         <width>71</width>
-                         <height>21</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
-                       </property>
-                       <property name="text">
-                        <string>MEM 상태</string>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="admin_label_diskstatus">
-                       <property name="geometry">
-                        <rect>
-                         <x>700</x>
-                         <y>220</y>
-                         <width>71</width>
-                         <height>21</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
-                       </property>
-                       <property name="text">
-                        <string>DISK 상태</string>
-                       </property>
-                      </widget>
-                      <widget class="QLabel" name="admin_label_tpsstatus">
-                       <property name="geometry">
-                        <rect>
-                         <x>700</x>
-                         <y>40</y>
-                         <width>71</width>
-                         <height>21</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
-                       </property>
-                       <property name="text">
-                        <string>TPS 상태</string>
-                       </property>
-                      </widget>
                       <widget class="QPushButton" name="admin_btn_accept">
                        <property name="geometry">
                         <rect>
-                         <x>205</x>
+                         <x>510</x>
                          <y>516</y>
                          <width>81</width>
                          <height>31</height>
@@ -2658,7 +2619,7 @@ border: 1px solid yellow;</string>
                       <widget class="QPushButton" name="admin_btn_reject">
                        <property name="geometry">
                         <rect>
-                         <x>300</x>
+                         <x>600</x>
                          <y>516</y>
                          <width>81</width>
                          <height>31</height>
@@ -2676,94 +2637,11 @@ border: 1px solid white;
                         <string>거절</string>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="admin_btn_food">
-                       <property name="geometry">
-                        <rect>
-                         <x>850</x>
-                         <y>563</y>
-                         <width>111</width>
-                         <height>24</height>
-                        </rect>
-                       </property>
-                       <property name="cursor">
-                        <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
-                       </property>
-                       <property name="text">
-                        <string>오늘의 식단 보기</string>
-                       </property>
-                      </widget>
-                      <widget class="QPushButton" name="admin_btn_expend">
-                       <property name="geometry">
-                        <rect>
-                         <x>927</x>
-                         <y>35</y>
-                         <width>21</width>
-                         <height>21</height>
-                        </rect>
-                       </property>
-                       <property name="cursor">
-                        <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-image: url(:/icons/images/icons/cil-plus.png);
-background-position: centered;
-background-repeat: no-repeat;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                      <widget class="QListView" name="admin_listView_disk">
-                       <property name="geometry">
-                        <rect>
-                         <x>700</x>
-                         <y>70</y>
-                         <width>221</width>
-                         <height>51</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-radius: 10px;
-</string>
-                       </property>
-                      </widget>
-                      <widget class="QGraphicsView" name="admin_qgraphicsview_mem">
-                       <property name="geometry">
-                        <rect>
-                         <x>450</x>
-                         <y>250</y>
-                         <width>221</width>
-                         <height>131</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-radius: 10px;</string>
-                       </property>
-                      </widget>
-                      <widget class="QGraphicsView" name="admin_qgraphicsview_disk">
-                       <property name="geometry">
-                        <rect>
-                         <x>700</x>
-                         <y>250</y>
-                         <width>221</width>
-                         <height>131</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-radius: 10px;</string>
-                       </property>
-                      </widget>
                       <widget class="QComboBox" name="admin_combo_dept">
                        <property name="geometry">
                         <rect>
-                         <x>464</x>
-                         <y>410</y>
+                         <x>750</x>
+                         <y>70</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2830,8 +2708,8 @@ background-color: rgb(27, 29, 35);
                       <widget class="QComboBox" name="admin_combo_position">
                        <property name="geometry">
                         <rect>
-                         <x>720</x>
-                         <y>470</y>
+                         <x>750</x>
+                         <y>190</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2907,8 +2785,8 @@ font-weight: 200;</string>
                       <widget class="QComboBox" name="admin_combo_role">
                        <property name="geometry">
                         <rect>
-                         <x>464</x>
-                         <y>470</y>
+                         <x>750</x>
+                         <y>150</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -2970,8 +2848,8 @@ font-weight: 200;</string>
                       <widget class="QComboBox" name="admin_combo_tps">
                        <property name="geometry">
                         <rect>
-                         <x>720</x>
-                         <y>410</y>
+                         <x>750</x>
+                         <y>110</y>
                          <width>186</width>
                          <height>33</height>
                         </rect>
@@ -3030,55 +2908,268 @@ font-weight: 200;</string>
                         </property>
                        </item>
                       </widget>
-                      <widget class="QGraphicsView" name="admin_qgraphicsview_mem_2">
+                      <widget class="QPushButton" name="admin_btn_useredit">
                        <property name="geometry">
                         <rect>
-                         <x>700</x>
-                         <y>70</y>
-                         <width>221</width>
-                         <height>131</height>
+                         <x>743</x>
+                         <y>278</y>
+                         <width>41</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/images/user-profile.png);
+background-position: centered;
+background-repeat: no-repeat;
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="admin_btn_food">
+                       <property name="geometry">
+                        <rect>
+                         <x>820</x>
+                         <y>277</y>
+                         <width>41</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/images/console (1).png);
+background-position: centered;
+background-repeat: no-repeat;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_one">
+                       <property name="geometry">
+                        <rect>
+                         <x>728</x>
+                         <y>265</y>
+                         <width>71</width>
+                         <height>71</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
+                        <string notr="true">background-color: rgb(43, 47, 53);
 border-radius: 10px;</string>
                        </property>
+                       <property name="text">
+                        <string/>
+                       </property>
                       </widget>
-                      <widget class="QGraphicsView" name="admin_qgraphicsview_mem_3">
+                      <widget class="QLabel" name="admin_label_two">
                        <property name="geometry">
                         <rect>
-                         <x>450</x>
-                         <y>70</y>
-                         <width>221</width>
-                         <height>131</height>
+                         <x>805</x>
+                         <y>265</y>
+                         <width>71</width>
+                         <height>71</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
+                        <string notr="true">background-color: rgb(43, 47, 53);
 border-radius: 10px;</string>
                        </property>
+                       <property name="text">
+                        <string/>
+                       </property>
                       </widget>
-                      <zorder>admin_listView_disk</zorder>
+                      <widget class="QLabel" name="admin_label_three">
+                       <property name="geometry">
+                        <rect>
+                         <x>882</x>
+                         <y>265</y>
+                         <width>71</width>
+                         <height>71</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(43, 47, 53);
+border-radius: 10px;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_four">
+                       <property name="geometry">
+                        <rect>
+                         <x>728</x>
+                         <y>343</y>
+                         <width>71</width>
+                         <height>71</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(43, 47, 53);
+border-radius: 10px;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_five">
+                       <property name="geometry">
+                        <rect>
+                         <x>805</x>
+                         <y>343</y>
+                         <width>71</width>
+                         <height>71</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(43, 47, 53);
+border-radius: 10px;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_six">
+                       <property name="geometry">
+                        <rect>
+                         <x>882</x>
+                         <y>343</y>
+                         <width>71</width>
+                         <height>71</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(43, 47, 53);
+border-radius: 10px;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_seven">
+                       <property name="geometry">
+                        <rect>
+                         <x>728</x>
+                         <y>420</y>
+                         <width>71</width>
+                         <height>71</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(43, 47, 53);
+border-radius: 10px;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_eight">
+                       <property name="geometry">
+                        <rect>
+                         <x>805</x>
+                         <y>421</y>
+                         <width>71</width>
+                         <height>71</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(43, 47, 53);
+border-radius: 10px;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_nine">
+                       <property name="geometry">
+                        <rect>
+                         <x>882</x>
+                         <y>421</y>
+                         <width>71</width>
+                         <height>71</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(43, 47, 53);
+border-radius: 10px;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_infoedit">
+                       <property name="geometry">
+                        <rect>
+                         <x>733</x>
+                         <y>317</y>
+                         <width>61</width>
+                         <height>16</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+background-color: rgb(40, 44, 50);
+font: 600 7.5pt &quot;Segoe UI Variable Small Semibol&quot;;
+border-top: 0.5px solid lightgray;
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>  정보 수정</string>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_game">
+                       <property name="geometry">
+                        <rect>
+                         <x>810</x>
+                         <y>317</y>
+                         <width>61</width>
+                         <height>16</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+background-color: rgb(40, 44, 50);
+font: 600 7.5pt &quot;Segoe UI Variable Small Semibol&quot;;
+border-top: 0.5px solid lightgray;
+</string>
+                       </property>
+                       <property name="text">
+                        <string>  점심 룰렛</string>
+                       </property>
+                      </widget>
                       <zorder>admin_label_rightback1</zorder>
                       <zorder>admin_label_leftback</zorder>
                       <zorder>admin_listView_status</zorder>
                       <zorder>admin_label_status</zorder>
-                      <zorder>admin_label_memnum</zorder>
-                      <zorder>admin_label_memstatus</zorder>
-                      <zorder>admin_label_diskstatus</zorder>
-                      <zorder>admin_label_tpsstatus</zorder>
                       <zorder>admin_btn_accept</zorder>
                       <zorder>admin_btn_reject</zorder>
-                      <zorder>admin_btn_food</zorder>
-                      <zorder>admin_btn_expend</zorder>
-                      <zorder>admin_qgraphicsview_mem</zorder>
-                      <zorder>admin_qgraphicsview_disk</zorder>
                       <zorder>admin_combo_dept</zorder>
                       <zorder>admin_combo_position</zorder>
                       <zorder>admin_combo_role</zorder>
                       <zorder>admin_combo_tps</zorder>
-                      <zorder>admin_qgraphicsview_mem_2</zorder>
-                      <zorder>admin_qgraphicsview_mem_3</zorder>
+                      <zorder>admin_label_one</zorder>
+                      <zorder>admin_btn_useredit</zorder>
+                      <zorder>admin_label_two</zorder>
+                      <zorder>admin_btn_food</zorder>
+                      <zorder>admin_label_three</zorder>
+                      <zorder>admin_label_four</zorder>
+                      <zorder>admin_label_five</zorder>
+                      <zorder>admin_label_six</zorder>
+                      <zorder>admin_label_seven</zorder>
+                      <zorder>admin_label_eight</zorder>
+                      <zorder>admin_label_nine</zorder>
+                      <zorder>admin_label_infoedit</zorder>
+                      <zorder>admin_label_game</zorder>
                      </widget>
                      <widget class="QWidget" name="qrlogin">
                       <widget class="QLabel" name="qrlogin_label_waiting">
@@ -3540,6 +3631,294 @@ border:none;
                        </property>
                       </widget>
                      </widget>
+                     <widget class="QWidget" name="infoeditpage">
+                      <widget class="QLabel" name="label">
+                       <property name="geometry">
+                        <rect>
+                         <x>20</x>
+                         <y>20</y>
+                         <width>941</width>
+                         <height>541</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);
+border-radius: 10px;
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="label_2">
+                       <property name="geometry">
+                        <rect>
+                         <x>400</x>
+                         <y>67</y>
+                         <width>161</width>
+                         <height>51</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/images/myinfo.png);</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="label_3">
+                       <property name="geometry">
+                        <rect>
+                         <x>50</x>
+                         <y>130</y>
+                         <width>881</width>
+                         <height>16</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom:2px solid rgba(255, 255, 255, 120);</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="label_4">
+                       <property name="geometry">
+                        <rect>
+                         <x>210</x>
+                         <y>173</y>
+                         <width>61</width>
+                         <height>21</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/images/id.png);
+background-position: centered;
+background-repeat: no-repeat;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="label_5">
+                       <property name="geometry">
+                        <rect>
+                         <x>210</x>
+                         <y>225</y>
+                         <width>81</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/images/pw.png);
+background-position: centered;
+background-repeat: no-repeat;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="label_6">
+                       <property name="geometry">
+                        <rect>
+                         <x>210</x>
+                         <y>281</y>
+                         <width>41</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/images/name.png);
+background-position: centered;
+background-repeat: no-repeat;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="label_7">
+                       <property name="geometry">
+                        <rect>
+                         <x>210</x>
+                         <y>341</y>
+                         <width>81</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/images/phone.png);
+background-position: centered;
+background-repeat: no-repeat;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="label_8">
+                       <property name="geometry">
+                        <rect>
+                         <x>206</x>
+                         <y>398</y>
+                         <width>71</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/images/email.png);
+background-position: centered;
+background-repeat: no-repeat;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="label_9">
+                       <property name="geometry">
+                        <rect>
+                         <x>50</x>
+                         <y>452</y>
+                         <width>881</width>
+                         <height>16</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom:2px solid rgba(255, 255, 255, 120);</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="pushButton">
+                       <property name="geometry">
+                        <rect>
+                         <x>890</x>
+                         <y>50</y>
+                         <width>51</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);
+background-position: centered;
+background-repeat: no-repeat;
+border:none;
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="pushButton_2">
+                       <property name="geometry">
+                        <rect>
+                         <x>400</x>
+                         <y>500</y>
+                         <width>75</width>
+                         <height>24</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
+border: 1px solid white;
+</string>
+                       </property>
+                       <property name="text">
+                        <string>초기화</string>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="pushButton_3">
+                       <property name="geometry">
+                        <rect>
+                         <x>510</x>
+                         <y>500</y>
+                         <width>75</width>
+                         <height>24</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
+border: 1px solid yellow;
+</string>
+                       </property>
+                       <property name="text">
+                        <string>확인</string>
+                       </property>
+                      </widget>
+                      <widget class="QTextEdit" name="textEdit_2">
+                       <property name="geometry">
+                        <rect>
+                         <x>350</x>
+                         <y>160</y>
+                         <width>341</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom:2px solid rgba(255, 255, 255, 120);</string>
+                       </property>
+                      </widget>
+                      <widget class="QTextEdit" name="textEdit_3">
+                       <property name="geometry">
+                        <rect>
+                         <x>350</x>
+                         <y>216</y>
+                         <width>341</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom:2px solid rgba(255, 255, 255, 120);</string>
+                       </property>
+                      </widget>
+                      <widget class="QTextEdit" name="textEdit_4">
+                       <property name="geometry">
+                        <rect>
+                         <x>350</x>
+                         <y>270</y>
+                         <width>341</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom:2px solid rgba(255, 255, 255, 120);</string>
+                       </property>
+                      </widget>
+                      <widget class="QTextEdit" name="textEdit_5">
+                       <property name="geometry">
+                        <rect>
+                         <x>350</x>
+                         <y>325</y>
+                         <width>341</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom:2px solid rgba(255, 255, 255, 120);</string>
+                       </property>
+                      </widget>
+                      <widget class="QTextEdit" name="textEdit_6">
+                       <property name="geometry">
+                        <rect>
+                         <x>350</x>
+                         <y>380</y>
+                         <width>341</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom:2px solid rgba(255, 255, 255, 120);</string>
+                       </property>
+                      </widget>
+                     </widget>
                     </widget>
                    </item>
                   </layout>
@@ -3949,6 +4328,22 @@ border:none;
    </hints>
   </connection>
   <connection>
+   <sender>login_btn_login</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>loginRequest()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>684</x>
+     <y>433</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1083</x>
+     <y>90</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>signup_checkbox_agree</sender>
    <signal>stateChanged(int)</signal>
    <receiver>MainWindow</receiver>
@@ -3993,22 +4388,6 @@ border:none;
     <hint type="destinationlabel">
      <x>1046</x>
      <y>695</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>login_btn_login</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>loginRequest()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>684</x>
-     <y>433</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1083</x>
-     <y>90</y>
     </hint>
    </hints>
   </connection>

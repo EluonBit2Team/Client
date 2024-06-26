@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainzNFCRc.ui'
+## Form generated from reading UI file 'mainICMxzS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -650,6 +650,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.btn_grafana = QPushButton(self.topMenu)
+        self.btn_grafana.setObjectName(u"btn_grafana")
+        self.btn_grafana.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_grafana.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-chart-line.png);\n"
+"height: 45px")
+
+        self.verticalLayout_8.addWidget(self.btn_grafana)
+
         self.btn_home = QPushButton(self.topMenu)
         self.btn_home.setObjectName(u"btn_home")
         sizePolicy1.setHeightForWidth(self.btn_home.sizePolicy().hasHeightForWidth())
@@ -1192,7 +1200,7 @@ class Ui_MainWindow(object):
         self.login_btn_qrlogin.setGeometry(QRect(650, 330, 61, 41))
         self.login_btn_qrlogin.setCursor(QCursor(Qt.PointingHandCursor))
         self.login_btn_qrlogin.setStyleSheet(u"background-repeat: no-repeat;\n"
-"background-image: url(:/images/images/images/free-icon-qr-code-8766191.png);\n"
+"background-image: url(:/images/images/images/qr-code-scan.png);\n"
 "background-position: center;\n"
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
@@ -1368,85 +1376,60 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton#admin_btn_reject:pressed {\n"
 "    background-color: rgba(25, 25, 112, 1);\n"
+"}\n"
+"\n"
+"QPushButton#admin_btn_reload {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 5px;\n"
+"    pa"
+                        "dding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton#admin_btn_reload:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#admin_btn_reload:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
 "}")
         self.admin_label_leftback = QLabel(self.adminpage)
         self.admin_label_leftback.setObjectName(u"admin_label_leftback")
-        self.admin_label_leftback.setGeometry(QRect(20, 20, 381, 541))
+        self.admin_label_leftback.setGeometry(QRect(20, 20, 681, 541))
         self.admin_label_leftback.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
 "border-radius: 10px;\n"
 "border: 1px solid #3498db;\n"
 "")
         self.admin_label_rightback1 = QLabel(self.adminpage)
         self.admin_label_rightback1.setObjectName(u"admin_label_rightback1")
-        self.admin_label_rightback1.setGeometry(QRect(420, 20, 541, 541))
+        self.admin_label_rightback1.setGeometry(QRect(720, 20, 241, 541))
         self.admin_label_rightback1.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
 "border-radius: 10px;")
         self.admin_listView_status = QListView(self.adminpage)
         self.admin_listView_status.setObjectName(u"admin_listView_status")
-        self.admin_listView_status.setGeometry(QRect(40, 70, 341, 431))
+        self.admin_listView_status.setGeometry(QRect(40, 70, 641, 431))
         self.admin_listView_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-radius: 10px;")
         self.admin_label_status = QLabel(self.adminpage)
         self.admin_label_status.setObjectName(u"admin_label_status")
         self.admin_label_status.setGeometry(QRect(40, 40, 141, 21))
         self.admin_label_status.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
-        self.admin_label_memnum = QLabel(self.adminpage)
-        self.admin_label_memnum.setObjectName(u"admin_label_memnum")
-        self.admin_label_memnum.setGeometry(QRect(451, 40, 61, 21))
-        self.admin_label_memnum.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
-        self.admin_label_memstatus = QLabel(self.adminpage)
-        self.admin_label_memstatus.setObjectName(u"admin_label_memstatus")
-        self.admin_label_memstatus.setGeometry(QRect(450, 220, 71, 21))
-        self.admin_label_memstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
-        self.admin_label_diskstatus = QLabel(self.adminpage)
-        self.admin_label_diskstatus.setObjectName(u"admin_label_diskstatus")
-        self.admin_label_diskstatus.setGeometry(QRect(700, 220, 71, 21))
-        self.admin_label_diskstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
-        self.admin_label_tpsstatus = QLabel(self.adminpage)
-        self.admin_label_tpsstatus.setObjectName(u"admin_label_tpsstatus")
-        self.admin_label_tpsstatus.setGeometry(QRect(700, 40, 71, 21))
-        self.admin_label_tpsstatus.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
         self.admin_btn_accept = QPushButton(self.adminpage)
         self.admin_btn_accept.setObjectName(u"admin_btn_accept")
-        self.admin_btn_accept.setGeometry(QRect(205, 516, 81, 31))
+        self.admin_btn_accept.setGeometry(QRect(510, 516, 81, 31))
         self.admin_btn_accept.setCursor(QCursor(Qt.PointingHandCursor))
         self.admin_btn_accept.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
 "border: 1px solid yellow;")
         self.admin_btn_reject = QPushButton(self.adminpage)
         self.admin_btn_reject.setObjectName(u"admin_btn_reject")
-        self.admin_btn_reject.setGeometry(QRect(300, 516, 81, 31))
+        self.admin_btn_reject.setGeometry(QRect(600, 516, 81, 31))
         self.admin_btn_reject.setCursor(QCursor(Qt.PointingHandCursor))
         self.admin_btn_reject.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
 "border: 1px solid white;\n"
 "")
-        self.admin_btn_food = QPushButton(self.adminpage)
-        self.admin_btn_food.setObjectName(u"admin_btn_food")
-        self.admin_btn_food.setGeometry(QRect(850, 563, 111, 24))
-        self.admin_btn_food.setCursor(QCursor(Qt.PointingHandCursor))
-        self.admin_btn_food.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
-        self.admin_btn_expend = QPushButton(self.adminpage)
-        self.admin_btn_expend.setObjectName(u"admin_btn_expend")
-        self.admin_btn_expend.setGeometry(QRect(927, 35, 21, 21))
-        self.admin_btn_expend.setCursor(QCursor(Qt.PointingHandCursor))
-        self.admin_btn_expend.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
-"background-position: centered;\n"
-"background-repeat: no-repeat;")
-        self.admin_listView_disk = QListView(self.adminpage)
-        self.admin_listView_disk.setObjectName(u"admin_listView_disk")
-        self.admin_listView_disk.setGeometry(QRect(700, 70, 221, 51))
-        self.admin_listView_disk.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-radius: 10px;\n"
-"")
-        self.admin_qgraphicsview_mem = QGraphicsView(self.adminpage)
-        self.admin_qgraphicsview_mem.setObjectName(u"admin_qgraphicsview_mem")
-        self.admin_qgraphicsview_mem.setGeometry(QRect(450, 250, 221, 131))
-        self.admin_qgraphicsview_mem.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-radius: 10px;")
-        self.admin_qgraphicsview_disk = QGraphicsView(self.adminpage)
-        self.admin_qgraphicsview_disk.setObjectName(u"admin_qgraphicsview_disk")
-        self.admin_qgraphicsview_disk.setGeometry(QRect(700, 250, 221, 131))
-        self.admin_qgraphicsview_disk.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
-"border-radius: 10px;")
         self.admin_combo_dept = QComboBox(self.adminpage)
         self.admin_combo_dept.addItem("")
         self.admin_combo_dept.addItem("")
@@ -1454,7 +1437,7 @@ class Ui_MainWindow(object):
         self.admin_combo_dept.addItem("")
         self.admin_combo_dept.addItem("")
         self.admin_combo_dept.setObjectName(u"admin_combo_dept")
-        self.admin_combo_dept.setGeometry(QRect(464, 410, 186, 33))
+        self.admin_combo_dept.setGeometry(QRect(750, 70, 186, 33))
         font5 = QFont()
         font5.setFamilies([u"Segoe UI"])
         font5.setPointSize(8)
@@ -1479,7 +1462,7 @@ class Ui_MainWindow(object):
         self.admin_combo_position.addItem("")
         self.admin_combo_position.addItem("")
         self.admin_combo_position.setObjectName(u"admin_combo_position")
-        self.admin_combo_position.setGeometry(QRect(720, 470, 186, 33))
+        self.admin_combo_position.setGeometry(QRect(750, 190, 186, 33))
         self.admin_combo_position.setFont(font5)
         self.admin_combo_position.setCursor(QCursor(Qt.PointingHandCursor))
         self.admin_combo_position.setAutoFillBackground(False)
@@ -1494,7 +1477,7 @@ class Ui_MainWindow(object):
         self.admin_combo_role.addItem("")
         self.admin_combo_role.addItem("")
         self.admin_combo_role.setObjectName(u"admin_combo_role")
-        self.admin_combo_role.setGeometry(QRect(464, 470, 186, 33))
+        self.admin_combo_role.setGeometry(QRect(750, 150, 186, 33))
         sizePolicy.setHeightForWidth(self.admin_combo_role.sizePolicy().hasHeightForWidth())
         self.admin_combo_role.setSizePolicy(sizePolicy)
         self.admin_combo_role.setFont(font5)
@@ -1511,7 +1494,7 @@ class Ui_MainWindow(object):
         self.admin_combo_tps.addItem("")
         self.admin_combo_tps.addItem("")
         self.admin_combo_tps.setObjectName(u"admin_combo_tps")
-        self.admin_combo_tps.setGeometry(QRect(720, 410, 186, 33))
+        self.admin_combo_tps.setGeometry(QRect(750, 110, 186, 33))
         sizePolicy.setHeightForWidth(self.admin_combo_tps.sizePolicy().hasHeightForWidth())
         self.admin_combo_tps.setSizePolicy(sizePolicy)
         self.admin_combo_tps.setFont(font5)
@@ -1523,38 +1506,109 @@ class Ui_MainWindow(object):
 "font-weight: 200;")
         self.admin_combo_tps.setIconSize(QSize(16, 16))
         self.admin_combo_tps.setFrame(True)
-        self.admin_qgraphicsview_mem_2 = QGraphicsView(self.adminpage)
-        self.admin_qgraphicsview_mem_2.setObjectName(u"admin_qgraphicsview_mem_2")
-        self.admin_qgraphicsview_mem_2.setGeometry(QRect(700, 70, 221, 131))
-        self.admin_qgraphicsview_mem_2.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+        self.admin_btn_useredit = QPushButton(self.adminpage)
+        self.admin_btn_useredit.setObjectName(u"admin_btn_useredit")
+        self.admin_btn_useredit.setGeometry(QRect(743, 278, 41, 31))
+        self.admin_btn_useredit.setCursor(QCursor(Qt.PointingHandCursor))
+        self.admin_btn_useredit.setStyleSheet(u"background-image: url(:/images/images/images/user-profile.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
+"")
+        self.admin_btn_food = QPushButton(self.adminpage)
+        self.admin_btn_food.setObjectName(u"admin_btn_food")
+        self.admin_btn_food.setGeometry(QRect(820, 277, 41, 31))
+        self.admin_btn_food.setCursor(QCursor(Qt.PointingHandCursor))
+        self.admin_btn_food.setStyleSheet(u"background-image: url(:/images/images/images/console (1).png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.admin_label_one = QLabel(self.adminpage)
+        self.admin_label_one.setObjectName(u"admin_label_one")
+        self.admin_label_one.setGeometry(QRect(728, 265, 71, 71))
+        self.admin_label_one.setStyleSheet(u"background-color: rgb(43, 47, 53);\n"
 "border-radius: 10px;")
-        self.admin_qgraphicsview_mem_3 = QGraphicsView(self.adminpage)
-        self.admin_qgraphicsview_mem_3.setObjectName(u"admin_qgraphicsview_mem_3")
-        self.admin_qgraphicsview_mem_3.setGeometry(QRect(450, 70, 221, 131))
-        self.admin_qgraphicsview_mem_3.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+        self.admin_label_two = QLabel(self.adminpage)
+        self.admin_label_two.setObjectName(u"admin_label_two")
+        self.admin_label_two.setGeometry(QRect(805, 265, 71, 71))
+        self.admin_label_two.setStyleSheet(u"background-color: rgb(43, 47, 53);\n"
 "border-radius: 10px;")
+        self.admin_label_three = QLabel(self.adminpage)
+        self.admin_label_three.setObjectName(u"admin_label_three")
+        self.admin_label_three.setGeometry(QRect(882, 265, 71, 71))
+        self.admin_label_three.setStyleSheet(u"background-color: rgb(43, 47, 53);\n"
+"border-radius: 10px;")
+        self.admin_label_four = QLabel(self.adminpage)
+        self.admin_label_four.setObjectName(u"admin_label_four")
+        self.admin_label_four.setGeometry(QRect(728, 343, 71, 71))
+        self.admin_label_four.setStyleSheet(u"background-color: rgb(43, 47, 53);\n"
+"border-radius: 10px;")
+        self.admin_label_five = QLabel(self.adminpage)
+        self.admin_label_five.setObjectName(u"admin_label_five")
+        self.admin_label_five.setGeometry(QRect(805, 343, 71, 71))
+        self.admin_label_five.setStyleSheet(u"background-color: rgb(43, 47, 53);\n"
+"border-radius: 10px;")
+        self.admin_label_six = QLabel(self.adminpage)
+        self.admin_label_six.setObjectName(u"admin_label_six")
+        self.admin_label_six.setGeometry(QRect(882, 343, 71, 71))
+        self.admin_label_six.setStyleSheet(u"background-color: rgb(43, 47, 53);\n"
+"border-radius: 10px;")
+        self.admin_label_seven = QLabel(self.adminpage)
+        self.admin_label_seven.setObjectName(u"admin_label_seven")
+        self.admin_label_seven.setGeometry(QRect(728, 420, 71, 71))
+        self.admin_label_seven.setStyleSheet(u"background-color: rgb(43, 47, 53);\n"
+"border-radius: 10px;")
+        self.admin_label_eight = QLabel(self.adminpage)
+        self.admin_label_eight.setObjectName(u"admin_label_eight")
+        self.admin_label_eight.setGeometry(QRect(805, 421, 71, 71))
+        self.admin_label_eight.setStyleSheet(u"background-color: rgb(43, 47, 53);\n"
+"border-radius: 10px;")
+        self.admin_label_nine = QLabel(self.adminpage)
+        self.admin_label_nine.setObjectName(u"admin_label_nine")
+        self.admin_label_nine.setGeometry(QRect(882, 421, 71, 71))
+        self.admin_label_nine.setStyleSheet(u"background-color: rgb(43, 47, 53);\n"
+"border-radius: 10px;")
+        self.admin_label_infoedit = QLabel(self.adminpage)
+        self.admin_label_infoedit.setObjectName(u"admin_label_infoedit")
+        self.admin_label_infoedit.setGeometry(QRect(733, 317, 61, 16))
+        self.admin_label_infoedit.setStyleSheet(u"border-bottom-left-radius: 10px;\n"
+"border-bottom-right-radius: 10px;\n"
+"background-color: rgb(40, 44, 50);\n"
+"font: 600 7.5pt \"Segoe UI Variable Small Semibol\";\n"
+"border-top: 0.5px solid lightgray;\n"
+"\n"
+"")
+        self.admin_label_game = QLabel(self.adminpage)
+        self.admin_label_game.setObjectName(u"admin_label_game")
+        self.admin_label_game.setGeometry(QRect(810, 317, 61, 16))
+        self.admin_label_game.setStyleSheet(u"border-bottom-left-radius: 10px;\n"
+"border-bottom-right-radius: 10px;\n"
+"background-color: rgb(40, 44, 50);\n"
+"font: 600 7.5pt \"Segoe UI Variable Small Semibol\";\n"
+"border-top: 0.5px solid lightgray;\n"
+"")
         self.stackedWidget.addWidget(self.adminpage)
-        self.admin_listView_disk.raise_()
         self.admin_label_rightback1.raise_()
         self.admin_label_leftback.raise_()
         self.admin_listView_status.raise_()
         self.admin_label_status.raise_()
-        self.admin_label_memnum.raise_()
-        self.admin_label_memstatus.raise_()
-        self.admin_label_diskstatus.raise_()
-        self.admin_label_tpsstatus.raise_()
         self.admin_btn_accept.raise_()
         self.admin_btn_reject.raise_()
-        self.admin_btn_food.raise_()
-        self.admin_btn_expend.raise_()
-        self.admin_qgraphicsview_mem.raise_()
-        self.admin_qgraphicsview_disk.raise_()
         self.admin_combo_dept.raise_()
         self.admin_combo_position.raise_()
         self.admin_combo_role.raise_()
         self.admin_combo_tps.raise_()
-        self.admin_qgraphicsview_mem_2.raise_()
-        self.admin_qgraphicsview_mem_3.raise_()
+        self.admin_label_one.raise_()
+        self.admin_btn_useredit.raise_()
+        self.admin_label_two.raise_()
+        self.admin_btn_food.raise_()
+        self.admin_label_three.raise_()
+        self.admin_label_four.raise_()
+        self.admin_label_five.raise_()
+        self.admin_label_six.raise_()
+        self.admin_label_seven.raise_()
+        self.admin_label_eight.raise_()
+        self.admin_label_nine.raise_()
+        self.admin_label_infoedit.raise_()
+        self.admin_label_game.raise_()
         self.qrlogin = QWidget()
         self.qrlogin.setObjectName(u"qrlogin")
         self.qrlogin_label_waiting = QLabel(self.qrlogin)
@@ -1733,6 +1787,100 @@ class Ui_MainWindow(object):
 "border:none;\n"
 "")
         self.stackedWidget.addWidget(self.signuppage)
+        self.infoeditpage = QWidget()
+        self.infoeditpage.setObjectName(u"infoeditpage")
+        self.label = QLabel(self.infoeditpage)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(20, 20, 941, 541))
+        self.label.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;\n"
+"")
+        self.label_2 = QLabel(self.infoeditpage)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(400, 67, 161, 51))
+        self.label_2.setStyleSheet(u"background-image: url(:/images/images/images/myinfo.png);")
+        self.label_3 = QLabel(self.infoeditpage)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(50, 130, 881, 16))
+        self.label_3.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.label_4 = QLabel(self.infoeditpage)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(210, 173, 61, 21))
+        self.label_4.setStyleSheet(u"background-image: url(:/images/images/images/id.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.label_5 = QLabel(self.infoeditpage)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(210, 225, 81, 31))
+        self.label_5.setStyleSheet(u"background-image: url(:/images/images/images/pw.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.label_6 = QLabel(self.infoeditpage)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(210, 281, 41, 31))
+        self.label_6.setStyleSheet(u"background-image: url(:/images/images/images/name.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.label_7 = QLabel(self.infoeditpage)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(210, 341, 81, 31))
+        self.label_7.setStyleSheet(u"background-image: url(:/images/images/images/phone.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.label_8 = QLabel(self.infoeditpage)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(206, 398, 71, 31))
+        self.label_8.setStyleSheet(u"background-image: url(:/images/images/images/email.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.label_9 = QLabel(self.infoeditpage)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setGeometry(QRect(50, 452, 881, 16))
+        self.label_9.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.pushButton = QPushButton(self.infoeditpage)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(890, 50, 51, 31))
+        self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
+"border:none;\n"
+"")
+        self.pushButton_2 = QPushButton(self.infoeditpage)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(400, 500, 75, 24))
+        self.pushButton_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_2.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
+"border: 1px solid white;\n"
+"")
+        self.pushButton_3 = QPushButton(self.infoeditpage)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setGeometry(QRect(510, 500, 75, 24))
+        self.pushButton_3.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton_3.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
+"border: 1px solid yellow;\n"
+"")
+        self.textEdit_2 = QTextEdit(self.infoeditpage)
+        self.textEdit_2.setObjectName(u"textEdit_2")
+        self.textEdit_2.setGeometry(QRect(350, 160, 341, 41))
+        self.textEdit_2.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.textEdit_3 = QTextEdit(self.infoeditpage)
+        self.textEdit_3.setObjectName(u"textEdit_3")
+        self.textEdit_3.setGeometry(QRect(350, 216, 341, 41))
+        self.textEdit_3.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.textEdit_4 = QTextEdit(self.infoeditpage)
+        self.textEdit_4.setObjectName(u"textEdit_4")
+        self.textEdit_4.setGeometry(QRect(350, 270, 341, 41))
+        self.textEdit_4.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.textEdit_5 = QTextEdit(self.infoeditpage)
+        self.textEdit_5.setObjectName(u"textEdit_5")
+        self.textEdit_5.setGeometry(QRect(350, 325, 341, 41))
+        self.textEdit_5.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.textEdit_6 = QTextEdit(self.infoeditpage)
+        self.textEdit_6.setObjectName(u"textEdit_6")
+        self.textEdit_6.setGeometry(QRect(350, 380, 341, 41))
+        self.textEdit_6.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 120);")
+        self.stackedWidget.addWidget(self.infoeditpage)
 
         self.verticalLayout_15.addWidget(self.stackedWidget)
 
@@ -1859,7 +2007,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1869,6 +2017,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.titleLeftApp.setText("")
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
+        self.btn_grafana.setText(QCoreApplication.translate("MainWindow", u"Grafana Dashboard", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Chat", None))
         self.btn_admin.setText(QCoreApplication.translate("MainWindow", u"Manager", None))
         self.btn_login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
@@ -1939,14 +2088,8 @@ class Ui_MainWindow(object):
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
         self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))
-        self.admin_label_memnum.setText(QCoreApplication.translate("MainWindow", u"\uc811\uc18d\uc790 \uc218", None))
-        self.admin_label_memstatus.setText(QCoreApplication.translate("MainWindow", u"MEM \uc0c1\ud0dc", None))
-        self.admin_label_diskstatus.setText(QCoreApplication.translate("MainWindow", u"DISK \uc0c1\ud0dc", None))
-        self.admin_label_tpsstatus.setText(QCoreApplication.translate("MainWindow", u"TPS \uc0c1\ud0dc", None))
         self.admin_btn_accept.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub77d", None))
         self.admin_btn_reject.setText(QCoreApplication.translate("MainWindow", u"\uac70\uc808", None))
-        self.admin_btn_food.setText(QCoreApplication.translate("MainWindow", u"\uc624\ub298\uc758 \uc2dd\ub2e8 \ubcf4\uae30", None))
-        self.admin_btn_expend.setText("")
         self.admin_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
         self.admin_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u" 1\ud300", None))
         self.admin_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u" 2\ud300", None))
@@ -1973,6 +2116,19 @@ class Ui_MainWindow(object):
         self.admin_combo_tps.setItemText(2, QCoreApplication.translate("MainWindow", u"1", None))
 
         self.admin_combo_tps.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc5ed\ud560\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))
+        self.admin_btn_useredit.setText("")
+        self.admin_btn_food.setText("")
+        self.admin_label_one.setText("")
+        self.admin_label_two.setText("")
+        self.admin_label_three.setText("")
+        self.admin_label_four.setText("")
+        self.admin_label_five.setText("")
+        self.admin_label_six.setText("")
+        self.admin_label_seven.setText("")
+        self.admin_label_eight.setText("")
+        self.admin_label_nine.setText("")
+        self.admin_label_infoedit.setText(QCoreApplication.translate("MainWindow", u"  \uc815\ubcf4 \uc218\uc815", None))
+        self.admin_label_game.setText(QCoreApplication.translate("MainWindow", u"  \uc810\uc2ec \ub8f0\ub81b", None))
         self.qrlogin_label_waiting.setText("")
         self.qrlogin_label_waiting_layer.setText("")
         self.qrlogin_btn_back.setText("")
@@ -2003,6 +2159,18 @@ class Ui_MainWindow(object):
         self.signup_label_useagree.setText(QCoreApplication.translate("MainWindow", u"\uc774\uc6a9\uc57d\uad00", None))
         self.signup_label_infoagree.setText(QCoreApplication.translate("MainWindow", u"\uac1c\uc778\uc815\ubcf4 \uc218\uc9d1 \ubc0f \uc774\uc6a9\uc5d0 \ubaa8\ub450 \ub3d9\uc758\ud569\ub2c8\ub2e4.", None))
         self.signup_btn_back.setText("")
+        self.label.setText("")
+        self.label_2.setText("")
+        self.label_3.setText("")
+        self.label_4.setText("")
+        self.label_5.setText("")
+        self.label_6.setText("")
+        self.label_7.setText("")
+        self.label_8.setText("")
+        self.label_9.setText("")
+        self.pushButton.setText("")
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\ucd08\uae30\ud654", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\ud655\uc778", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))

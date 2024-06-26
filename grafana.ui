@@ -50,33 +50,15 @@ QPushButton#admin_btn_reload:pressed {
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>40</y>
+     <y>20</y>
      <width>1041</width>
-     <height>641</height>
+     <height>661</height>
     </rect>
    </property>
    <property name="url">
     <url>
      <string>about:blank</string>
     </url>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="admin_btn_reload">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>5</y>
-     <width>41</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-image: url(:/icons/images/icons/cil-reload.png);
-background-repeat: no-repeat;
-background-position: center;</string>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
  </widget>

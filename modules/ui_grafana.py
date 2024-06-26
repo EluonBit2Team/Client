@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'expendgrafdlgtsgSZo.ui'
+## Form generated from reading UI file 'grafanaWhvYxA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -40,14 +40,8 @@ class Ui_Dialog(object):
         self.admin_label_back.setStyleSheet(u"background-color: rgb(33, 37, 43);")
         self.admin_webEn_expendgraf = QWebEngineView(Dialog)
         self.admin_webEn_expendgraf.setObjectName(u"admin_webEn_expendgraf")
-        self.admin_webEn_expendgraf.setGeometry(QRect(20, 40, 1041, 641))
+        self.admin_webEn_expendgraf.setGeometry(QRect(20, 20, 1041, 661))
         self.admin_webEn_expendgraf.setUrl(QUrl(u"about:blank"))
-        self.admin_btn_reload = QPushButton(Dialog)
-        self.admin_btn_reload.setObjectName(u"admin_btn_reload")
-        self.admin_btn_reload.setGeometry(QRect(20, 5, 41, 30))
-        self.admin_btn_reload.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-reload.png);\n"
-"background-repeat: no-repeat;\n"
-"background-position: center;")
 
         self.retranslateUi(Dialog)
 
@@ -57,6 +51,5 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.admin_label_back.setText("")
-        self.admin_btn_reload.setText("")
     # retranslateUi
 

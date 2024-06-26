@@ -40,7 +40,7 @@ from modules.ui_groupmemberlistdlg_function import *
 from modules.qrcode import *
 from modules.ui_grafana_function import *
 from widgets import *
-
+from PySide6.QtWebEngineWidgets import QWebEngineView
 
 # FIX Problem for High DPI and Scale above 100%
 os.environ["QT_FONT_DPI"] = "96"
@@ -114,6 +114,7 @@ class MainWindow(QMainWindow):
         widgets.login_btn_qrlogin.clicked.connect(self.buttonClick)
         widgets.signup_btn_back.clicked.connect(self.buttonClick)
         widgets.qrlogin_btn_back.clicked.connect(self.buttonClick)
+        widgets.admin_btn_useredit.clicked.connect(self.buttonClick)
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
@@ -223,6 +224,7 @@ class MainWindow(QMainWindow):
     # SET HOME PAGE AND SELECT MENU
     # ///////////////////////////////////////////////////////////////
 
+
     def buttonClick(self):
         # GET BUTTON CLICKED
         btn = self.sender()
@@ -267,6 +269,12 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(
                 widgets.signuppage)  # SET PAGE
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
+
+        # SHOW USEREDIT PAGE
+        if btnName == "admin_btn_useredit":
+            widgets.stackedWidget.setCurrentWidget(widgets.infoeditpage)
+            
+
 
         if btnName == "btn_exit":
             self.packetSender.testDataSender(self.socket)

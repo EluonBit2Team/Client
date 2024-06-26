@@ -2,21 +2,36 @@
   <qresource prefix="images">
     <file>images/images/loginmail.png</file>
     <file>images/images/logincall.png</file>
+    <file>images/images/myinfo.png</file>
+    <file>images/images/pw.png</file>
+    <file>images/images/name.png</file>
     <file>images/images/logo.png</file>
+    <file>images/images/email.png</file>
+    <file>images/images/phone.png</file>
+    <file>images/images/create-account (1).png</file>
+    <file>images/images/id.png</file>
     <file>images/images/free-icon-send-button-12439334 - 복사본.png</file>
+    <file>images/images/grafana.png</file>
     <file>images/images/callimage.png</file>
+    <file>images/images/qr-code-scan.png</file>
+    <file>images/images/user-profile.png</file>
     <file>images/images/eluonlogo_modified.png</file>
     <file>images/images/right.png</file>
     <file>images/images/left.png</file>
+    <file>images/images/create-account.png</file>
     <file>images/images/loginbackground.jpg</file>
     <file>images/icons/free-icon-back-button-5708793 (1).png</file>
+    <file>images/images/console.png</file>
     <file>images/images/addpeple2.png</file>
     <file>images/images/free-icon-qr-code-8766191.png</file>
     <file>images/images/right.png</file>
     <file>images/images/free-icon-downward-arrow-2268476.png</file>
+    <file>images/images/user-profile.png</file>
     <file>images/images/free-icon-send-button-12439334.png</file>
     <file>images/images/LUON.png</file>
     <file>images/images/eluonlogo.png</file>
+    <file>images/images/user-profile.png</file>
+    <file>images/images/console (1).png</file>
   </qresource>
   <qresource prefix="icons">
     <file>images/icons/cil-3d.png</file>
