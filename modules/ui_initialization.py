@@ -59,6 +59,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.useredit_combo_position = mainWindow.findChild(QComboBox, "useredit_combo_position")
     mainWindow.useredit_combo_role = mainWindow.findChild(QComboBox, "useredit_combo_role")
     mainWindow.useredit_combo_tps = mainWindow.findChild(QComboBox, "useredit_combo_tps")
+    mainWindow.useredit_treeview_leftmem = mainWindow.findChild(QTreeView, "useredit_treeview_leftmem")
 
     mainWindow.btn_home = mainWindow.findChild(QPushButton, "btn_home")
     mainWindow.btn_admin = mainWindow.findChild(QPushButton, "btn_admin")

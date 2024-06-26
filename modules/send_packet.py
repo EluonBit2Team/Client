@@ -434,16 +434,27 @@ class SendPacket:
         print("if문 완료")
         try:
             print("try문 진입")
+            # msg = {
+            #     "type": TPPE_EDIT_USERINFO,
+            #     "login_id": self.userEditId, 
+            #     "name": self.userEditName,
+            #     "phone": self.userEditPhone,
+            #     "email": self.userEditEmail,
+            #     "dept": dept,
+            #     "pos": pos,
+            #     "role": role,
+            #     "max_tps": tps
+            # }
             msg = {
                 "type": TPPE_EDIT_USERINFO,
-                "login_id": self.userEditId, 
-                "name": self.userEditName,
-                "phone": self.userEditPhone,
-                "email": self.userEditEmail,
-                "dept": dept,
-                "pos": pos,
-                "role": role,
-                "max_tps": tps
+                "login_id": "login_id2", 
+                "name": "name22",
+                "phone": "number22",
+                "email": "",
+                "dept": "",
+                "pos": 1,
+                "role": 0,
+                "max_tps": 100
             }
             packet = jsonParser(msg)
             print("회원수정 packet")
