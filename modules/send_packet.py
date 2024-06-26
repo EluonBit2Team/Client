@@ -328,9 +328,74 @@ class SendPacket:
             print(f"An error occurred: {e}")
             return False
     
-        
-        
-        
+    def editUserReq(self, socket):
+        print("edit user req 진입")
+        self.userEditId = self.main_window.useredit_edit_id.text()
+        self.userEditName = self.main_window.useredit_edit_name.text()
+        self.userEditPhone = self.main_window.useredit_edit_phone.text()
+        self.userEditEmail = self.main_window.useredit_edit_email.text()
+        dept = self.main_window.useredit_combo_dept.currentText()
+        pos = self.main_window.useredit_combo_position.currentText()
+        role = int(self.main_window.useredit_combo_role.currentText())
+        tps = int(self.main_window.useredit_combo_tps.currentText())
+
+        print("if 문 진입")
+
+        if role == "역할을 선택하세요.":
+            role = ""
+
+        if tps == "tps을 선택하세요.":
+            tps = ""
+
+        if dept == "부서를 선택하세요.":
+            dept = ""
+        elif dept == "1팀":
+            dept = 1
+        elif dept == "2팀":
+            dept = 2
+        elif dept == "3팀":
+            dept = 3
+        else:
+            dept = 4
+            
+        if pos == "직급을 선택하세요.":
+            pos = ""
+        elif pos == "회장":
+            pos = 1
+        elif pos == "사장":
+            pos = 2
+        elif pos == "차장":
+            pos = 3
+        elif pos == "과장":
+            pos = 4
+        elif pos == "대리":
+            pos = 5
+        elif pos == "사원":
+            pos = 6
+
+        print("if문 완료")
+        try:
+            print("try문 진입")
+            msg = {
+                "type": TPPE_EDIT_USERINFO,
+                "login_id": self.userEditId, 
+                "name": self.userEditName,
+                "phone": self.userEditPhone,
+                "email": self.userEditEmail,
+                "dept": dept,
+                "pos": pos,
+                "role": role,
+                "max_tps": tps
+            }
+            packet = jsonParser(msg)
+            
+            if socket and msg:
+                socket.sendall(packet)
+
+        except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
+
     
     def testDataSender(self, socket):
         print("type: 11 보냄")

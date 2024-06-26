@@ -115,6 +115,7 @@ class MainWindow(QMainWindow):
         widgets.signup_btn_back.clicked.connect(self.buttonClick)
         widgets.qrlogin_btn_back.clicked.connect(self.buttonClick)
         widgets.admin_btn_useredit.clicked.connect(self.buttonClick)
+        widgets.useredit_btn_back.clicked.connect(self.buttonClick)
 
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
@@ -272,7 +273,8 @@ class MainWindow(QMainWindow):
         # SHOW USEREDIT PAGE
         if btnName == "admin_btn_useredit":
             widgets.stackedWidget.setCurrentWidget(widgets.infoeditpage)
-            
+        if btnName == "useredit_btn_back":
+            widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
 
 
         if btnName == "btn_exit":
