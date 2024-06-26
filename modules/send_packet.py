@@ -386,16 +386,24 @@ class SendPacket:
         self.userEditEmail = self.main_window.useredit_edit_email.text()
         dept = self.main_window.useredit_combo_dept.currentText()
         pos = self.main_window.useredit_combo_position.currentText()
-        role = int(self.main_window.useredit_combo_role.currentText())
-        tps = int(self.main_window.useredit_combo_tps.currentText())
+        role = self.main_window.useredit_combo_role.currentText()
+        tps = self.main_window.useredit_combo_tps.currentText()
+        
+        print("tps값")
+        print(tps)
+        print(type(tps))
 
         print("if 문 진입")
 
         if role == "역할을 선택하세요.":
             role = ""
+        else:
+            role = int(role)
 
-        if tps == "tps을 선택하세요.":
+        if tps == "tps를 선택하세요.":
             tps = ""
+        else:
+            tps = int(tps)
 
         if dept == "부서를 선택하세요.":
             dept = ""
@@ -438,6 +446,8 @@ class SendPacket:
                 "max_tps": tps
             }
             packet = jsonParser(msg)
+            print("회원수정 packet")
+            print(packet)
             
             if socket and msg:
                 socket.sendall(packet)
