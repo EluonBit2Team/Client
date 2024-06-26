@@ -1,7 +1,7 @@
 import sys 
 from PyQt6 import QtCore, QtGui, QtWidgets 
 from PyQt6.QtGui import QMovie 
-
+from PyQt6.QtCore import Qt
   
   
 class LoadingGif(QtWidgets.QMainWindow):

@@ -337,7 +337,8 @@ class MainWindow(QMainWindow):
         
 
     def loginRequest(self):
-        
+        self.loadingGif = LoadingGif()
+        self.loadingGif.show()
         self.packetSender.loginRequest()
 
 

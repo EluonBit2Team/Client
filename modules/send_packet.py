@@ -394,7 +394,7 @@ class SendPacket:
         if role == "역할을 선택하세요.":
             role = ""
 
-        if tps == "tps을 선택하세요.":
+        if tps == "tps를 선택하세요.":
             tps = ""
 
         if dept == "부서를 선택하세요.":
