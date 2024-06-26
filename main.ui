@@ -4008,7 +4008,7 @@ font-weight: 200;</string>
                         </property>
                        </item>
                       </widget>
-                      <widget class="QListView" name="useredit_listview_leftmem">
+                      <widget class="QTreeView" name="useredit_treeview_userlist">
                        <property name="geometry">
                         <rect>
                          <x>50</x>

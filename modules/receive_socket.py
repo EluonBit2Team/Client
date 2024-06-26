@@ -24,6 +24,9 @@ class ReceivePacket():
                         data = self.sock.recv(4096)
                         if data:
                             buffer += data
+                            print("---------RAW DATA---------")
+                            print(data)
+                            print("--------------------------")
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
                                 if len(buffer) >= msg_length - 4:

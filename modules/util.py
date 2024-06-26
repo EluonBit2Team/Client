@@ -23,7 +23,7 @@ TYPE_CHATLIST = 12
 TYPE_REQ_LIST = 8
 TYPE_ACCEPT_SIGNUP = 9
 TYPE_ACCEPT_GROUP = 10
-TPPE_EDIT_USERINFO = 13
+TYPE_EDIT_USERINFO = 13
 
 
 class CustomDelegate(QStyledItemDelegate):
@@ -65,12 +65,12 @@ def connectionSuccessEvent():
 
 def updateDisplay(self, list, type, model):
     print("updateDisplay 진입")
-    model.clear()
     if type == "grouplist":
         for i in list:
             item = QStandardItem(i['groupname'])
             model.appendRow(item)
     elif type == "userlist":
+        model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
         for json_data in list:
             makeRow = json_data['dept_name'] + ' ' + \
@@ -81,6 +81,7 @@ def updateDisplay(self, list, type, model):
             row = [name_column, id_column]
             model.appendRow(row)
     elif type == "signupList":
+        model.clear()
         for json_data in list:
             makeRow = "회원가입요청     || " + json_data['login_id'] + ' ' + \
                 json_data['name'] + ' ' + json_data['phone'] + ' ' + json_data['email']
@@ -88,12 +89,14 @@ def updateDisplay(self, list, type, model):
             item.setData(json_data, Qt.UserRole)
             model.appendRow(item)
     elif type == "groupReqList":
+        model.clear()
         for json_data in list:
             makeRow = "그룹생성요청     || " + json_data['group_name'] + ' ' + json_data['memo']
             item = QStandardItem(makeRow)
             item.setData(json_data, Qt.UserRole)
             model.appendRow(item)
     elif type == "groupMemberList":
+        model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
         for json_data in list:
             makeRow = json_data['dept_name'] + ' ' + \
@@ -108,6 +111,13 @@ def updateDisplay(self, list, type, model):
         item.setData(type, Qt.ItemDataRole.UserRole + 1)
         model.appendRow(item)
         self.home_listview_chatlist.scrollToBottom()
+
+
+# def updateMsgDisplay(self, message, messageType):
+#     item = QStandardItem(message)
+#     item.setData(messageType, Qt.ItemDataRole.UserRole + 1)
+#     self.chatListModel.appendRow(item)
+#     self.home_listview_chatlist.scrollToBottom()
 
 def getClickedRow(type, widget, model):
     if type == "json":
@@ -128,7 +138,116 @@ def getClickedRow(type, widget, model):
         
         return string_data
     
-# def 
+def sortUserInfo(var, name):
+    if name == "dept":
+        if var == "부서를 선택하세요.":
+            return 999
+        elif var == "1팀":
+            return 1
+        elif var == "2팀":
+            return 2
+        elif var == "3팀":
+            return 3
+        else:
+            return 4
+    
+    elif name == "pos":
+        if var == "직급을 선택하세요.":
+            return 999
+        elif var == "회장":
+            return 1
+        elif var == "사장":
+            return 2
+        elif var == "차장":
+            return 3
+        elif var == "과장":
+            return 4
+        elif var == "대리":
+            return 5
+        elif var == "사원":
+            return 6
+    
+    elif name == "role":
+        if var == "역할을 선택하세요.":
+            return 999
+        else:
+            return int(var)
+    
+    elif name == "tps":
+        if var == "tps를 선택하세요.":
+            return 999
+        else:
+            return int(var)
+
+# class AnimationClass:
+#     def __init__(self, main_window):
+#         self.main_window = main_window
+
+    # def switchPage(self, currentPage, nextPage):
+    #     self.animateTransition(self.main_window, currentPage, nextPage)
+    #     self.stackedWidget.setCurrentWidget(nextPage)
+
+    # def animateTransition(self, fromIndex, toIndex):
+    #         currentWidget = self.stackedWidget.widget(fromIndex)
+    #         nextWidget = self.stackedWidget.widget(toIndex)
+
+    #         currentRect = self.stackedWidget.geometry()
+    #         width = currentRect.width()
+
+    #         # 다음 위젯의 초기 위치를 스택 위젯의 오른쪽으로 설정
+    #         nextWidget.setGeometry(currentRect.x() + width, currentRect.y(), width, currentRect.height())
+
+    #         # 현재 위젯을 왼쪽으로 밀어내는 애니메이션
+    #         self.currentAnimation = QPropertyAnimation(currentWidget, b"geometry")
+    #         self.currentAnimation.setDuration(500)
+    #         self.currentAnimation.setStartValue(currentRect)
+    #         self.currentAnimation.setEndValue(QRect(currentRect.x() - width, currentRect.y(), width, currentRect.height()))
+    #         self.currentAnimation.setEasingCurve(QEasingCurve.InOutQuad)
+
+    #         # 다음 위젯을 제자리에 맞추는 애니메이션
+    #         self.nextAnimation = QPropertyAnimation(nextWidget, b"geometry")
+    #         self.nextAnimation.setDuration(500)
+    #         self.nextAnimation.setStartValue(nextWidget.geometry())
+    #         self.nextAnimation.setEndValue(currentRect)
+    #         self.nextAnimation.setEasingCurve(QEasingCurve.InOutQuad)
+
+    #         # 애니메이션 시작
+    #         self.currentAnimation.start()
+    #         self.nextAnimation.start()
+
+def setPage(self, nextPage):
+    self.stackedWidget.setCurrentWidget(nextPage)
+
+def animateTransition(self, currentPage, nextPage, onFinished):
+    parentRect = currentPage.geometry()
+    width = parentRect.width()
+
+    # 다음 위젯의 초기 위치를 스택 위젯의 오른쪽으로 설정
+    nextPage.setGeometry(parentRect.x() + width, parentRect.y(), width, parentRect.height())
+    
+    # 현재 위젯을 왼쪽으로 밀어내는 애니메이션
+    self.currentAnimation = QPropertyAnimation(currentPage, b"geometry")
+    self.currentAnimation.setDuration(500)
+    self.currentAnimation.setStartValue(parentRect)
+    self.currentAnimation.setEndValue(QRect(parentRect.x() - width, parentRect.y(), width, parentRect.height()))
+    self.currentAnimation.setEasingCurve(QEasingCurve.InOutQuad)
+
+    # 다음 위젯을 제자리에 맞추는 애니메이션
+    self.nextAnimation = QPropertyAnimation(nextPage, b"geometry")
+    self.nextAnimation.setDuration(500)
+    self.nextAnimation.setStartValue(QRect(parentRect.x() + width, parentRect.y(), width, parentRect.height()))
+    self.nextAnimation.setEndValue(parentRect)
+    self.nextAnimation.setEasingCurve(QEasingCurve.InOutQuad)
+    
+    self.animationGroup = QParallelAnimationGroup()
+    self.animationGroup.addAnimation(self.currentAnimation)
+    self.animationGroup.addAnimation(self.nextAnimation)
+
+    self.animationGroup.finished.connect(lambda: onFinished(self, nextPage))
+    # 애니메이션 그룹 시작
+    self.animationGroup.start()
+
+    
 
 
     
