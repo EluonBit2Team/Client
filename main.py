@@ -156,6 +156,8 @@ class MainWindow(QMainWindow):
         self.home_treeview_userlist.setModel(self.userListModel)
         self.userListModel.setHorizontalHeaderLabels(["이름", "아이디"])
 
+        self.useredit_treeview_userlist.setModel(self.userListModel)
+
         print(self.groupname)
 
         self.packetSender = SendPacket(self)
@@ -290,10 +292,16 @@ class MainWindow(QMainWindow):
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
 
-    def groupClick(self, index, selectedrow):
-        item_text = index.data(Qt.DisplayRole)
-        selectedrow = item_text
-        print(selectedrow)
+    def groupClick(self, listname, index, selectedrow):
+        if listname == "useredit_treeview_userlist":
+            item_json = index.data(Qt.UserRole)
+            selectedrow = item_json
+            self.useredit_edit_id.setText(selectedrow['login_id'])
+        elif listname == "home_listview_chatgroup":
+            item_text = index.data(Qt.DisPlayRole)
+            selectedrow = item_text
+            print(selectedrow)
+            
 
 
     # def updateDisplay(self, list, type, model):
