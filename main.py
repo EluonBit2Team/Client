@@ -124,7 +124,10 @@ class MainWindow(QMainWindow):
         widgets.qrlogin_btn_back.clicked.connect(self.buttonClick)
         widgets.admin_btn_useredit.clicked.connect(self.buttonClick)
         widgets.useredit_btn_back.clicked.connect(self.buttonClick)
-
+        widgets.admin_btn_log.clicked.connect(self.buttonClick)
+        widgets.admin_btn_server.clicked.connect(self.buttonClick)
+        widgets.log_btn_back.clicked.connect(self.buttonClick)
+        widgets.serverstate_btn_back.clicked.connect(self.buttonClick)
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
@@ -294,10 +297,22 @@ class MainWindow(QMainWindow):
         if btnName == "admin_btn_useredit":
             widgets.stackedWidget.setCurrentWidget(widgets.infoeditpage)
             self.packetSender.reqUserList(self.socket)
-            
-            
         if btnName == "useredit_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
+
+        # SHOW LOG PAGE
+        if btnName == "admin_btn_log":
+            widgets.stackedWidget.setCurrentWidget(widgets.serverlogpage)
+        if btnName == "log_btn_back":
+            widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
+
+        # SHOW SERVER PAGE
+        if btnName == "admin_btn_server":
+            widgets.stackedWidget.setCurrentWidget(widgets.serverstatepage)
+        if btnName == "serverstate_btn_back":
+            widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
+            
+        
 
 
         if btnName == "btn_exit":

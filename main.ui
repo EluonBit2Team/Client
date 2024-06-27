@@ -1790,7 +1790,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -2304,7 +2304,7 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QPushButton" name="home_btn_chatgroup">
                        <property name="geometry">
                         <rect>
-                         <x>80</x>
+                         <x>57</x>
                          <y>170</y>
                          <width>31</width>
                          <height>24</height>
@@ -2490,6 +2490,25 @@ border:none;
                         <string notr="true">background-image: url(:/icons/images/icons/cil-user.png);
 border:none;
 </string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="home_btn_groupdelete">
+                       <property name="geometry">
+                        <rect>
+                         <x>103</x>
+                         <y>170</y>
+                         <width>31</width>
+                         <height>24</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/icons/images/icons/cil-user-unfollow.png);</string>
                        </property>
                        <property name="text">
                         <string/>
@@ -3300,7 +3319,22 @@ QPushButton#log_btn_search:hover {
 QPushButton#log_btn_search:pressed {
     background-color: rgba(25, 25, 112, 1);
 }
-</string>
+
+QPushButton#log_btn_back {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    padding: 5px 10px;
+    color: white;
+}
+QPushButton#log_btn_back:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#log_btn_back:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}</string>
                       </property>
                       <widget class="QTreeView" name="log_treview_log">
                        <property name="geometry">
@@ -3333,10 +3367,8 @@ QCalendarWidget {
     background-color: #2e2e2e;
     border: 1px solid #444;
     border-radius: 5px;
-    background-image: url(background-image.png); /* 배경 이미지 경로 */
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
 }
 
 /* 헤더(월/연도 선택 영역) 스타일링 */
@@ -3524,13 +3556,48 @@ border-radius: 10px;</string>
                       <zorder>log_label_rightback</zorder>
                       <zorder>log_label_leftback</zorder>
                       <zorder>log_treview_log</zorder>
-                      <zorder>log_calendarwidget_cal</zorder>
                       <zorder>log_btn_back</zorder>
                       <zorder>log_label_title</zorder>
                       <zorder>log_btn_search</zorder>
+                      <zorder>log_calendarwidget_cal</zorder>
                      </widget>
                      <widget class="QWidget" name="serverstatepage">
-                      <widget class="QLabel" name="log_label_rightback_2">
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton#serverstate_btn_reload {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+}
+
+
+QPushButton#serverstate_btn_reload:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#serverstate_btn_reload:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}
+
+QPushButton#serverstate_btn_back {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    padding: 5px 10px;
+    color: white;
+}
+QPushButton#serverstate_btn_back:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#serverstate_btn_back:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}</string>
+                      </property>
+                      <widget class="QLabel" name="serverstate_label_back">
                        <property name="geometry">
                         <rect>
                          <x>20</x>
@@ -3547,13 +3614,13 @@ border-radius: 10px;</string>
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="label_2">
+                      <widget class="QLabel" name="serverstate_label_topback">
                        <property name="geometry">
                         <rect>
                          <x>50</x>
-                         <y>60</y>
+                         <y>100</y>
                          <width>881</width>
-                         <height>101</height>
+                         <height>121</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -3564,11 +3631,11 @@ border-radius: 10px;</string>
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="log_label_title_2">
+                      <widget class="QLabel" name="serverstate_label_toptitle">
                        <property name="geometry">
                         <rect>
                          <x>68</x>
-                         <y>71</y>
+                         <y>111</y>
                          <width>111</width>
                          <height>21</height>
                         </rect>
@@ -3580,13 +3647,13 @@ border-radius: 10px;</string>
                         <string>Memory (메모리)</string>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="label_3">
+                      <widget class="QLabel" name="serverstate_label_midback">
                        <property name="geometry">
                         <rect>
                          <x>50</x>
-                         <y>180</y>
+                         <y>249</y>
                          <width>881</width>
-                         <height>101</height>
+                         <height>131</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -3597,12 +3664,12 @@ border-radius: 10px;</string>
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="log_label_title_3">
+                      <widget class="QLabel" name="serverstate_label_midtitle">
                        <property name="geometry">
                         <rect>
                          <x>68</x>
-                         <y>191</y>
-                         <width>111</width>
+                         <y>260</y>
+                         <width>181</width>
                          <height>21</height>
                         </rect>
                        </property>
@@ -3610,40 +3677,114 @@ border-radius: 10px;</string>
                         <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>Memory (메모리)</string>
+                        <string>Number of users (사용자 수)</string>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="label_4">
+                      <widget class="QLabel" name="serverstate_label_botback">
                        <property name="geometry">
                         <rect>
                          <x>50</x>
+                         <y>409</y>
+                         <width>881</width>
+                         <height>121</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(31, 35, 41);
+border-radius: 10px;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="serverstate_label_bottomtitle">
+                       <property name="geometry">
+                        <rect>
+                         <x>68</x>
+                         <y>420</y>
+                         <width>231</width>
+                         <height>21</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>Packets per minute (분당 패킷 수)</string>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="serverstate_btn_back">
+                       <property name="geometry">
+                        <rect>
+                         <x>910</x>
+                         <y>40</y>
+                         <width>31</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);
+background-position: centered;
+background-repeat: no-repeat;
+border:none;
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="serverstate_btn_reload">
+                       <property name="geometry">
+                        <rect>
+                         <x>50</x>
+                         <y>40</y>
+                         <width>41</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/icons/images/icons/cil-reload.png);
+background-position: center; /* 이미지가 가운데 오도록 설정 */
+background-repeat: no-repeat;
+width: 30px; /* 버튼의 너비 지정 */
+height: 30px; /* 버튼의 높이 지정 */
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLineEdit" name="serverstate_lineedit_mem">
+                       <property name="geometry">
+                        <rect>
+                         <x>69</x>
+                         <y>150</y>
+                         <width>841</width>
+                         <height>51</height>
+                        </rect>
+                       </property>
+                      </widget>
+                      <widget class="QLineEdit" name="serverstate_lineedit_numuser">
+                       <property name="geometry">
+                        <rect>
+                         <x>70</x>
                          <y>300</y>
-                         <width>881</width>
-                         <height>101</height>
+                         <width>841</width>
+                         <height>51</height>
                         </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-color: rgb(31, 35, 41);
-border-radius: 10px;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="log_label_title_4">
+                      <widget class="QLineEdit" name="serverstate_lineedit_packet">
                        <property name="geometry">
                         <rect>
-                         <x>68</x>
-                         <y>311</y>
-                         <width>111</width>
-                         <height>21</height>
+                         <x>70</x>
+                         <y>460</y>
+                         <width>841</width>
+                         <height>51</height>
                         </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
-                       </property>
-                       <property name="text">
-                        <string>Memory (메모리)</string>
                        </property>
                       </widget>
                      </widget>
@@ -4077,7 +4218,7 @@ background-repeat: no-repeat;</string>
                        <property name="geometry">
                         <rect>
                          <x>488</x>
-                         <y>177</y>
+                         <y>156</y>
                          <width>51</width>
                          <height>21</height>
                         </rect>
@@ -4091,11 +4232,29 @@ background-repeat: no-repeat;</string>
                         <string>아이디</string>
                        </property>
                       </widget>
+                      <widget class="QLabel" name="useredit_label_pw">
+                       <property name="geometry">
+                        <rect>
+                         <x>478</x>
+                         <y>196</y>
+                         <width>71</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 600 12pt &quot;Segoe UI Variable Small Semibol&quot;;
+background-position: centered;
+background-repeat: no-repeat;</string>
+                       </property>
+                       <property name="text">
+                        <string>비밀번호</string>
+                       </property>
+                      </widget>
                       <widget class="QLabel" name="useredit_label_name">
                        <property name="geometry">
                         <rect>
                          <x>495</x>
-                         <y>216</y>
+                         <y>236</y>
                          <width>41</width>
                          <height>31</height>
                         </rect>
@@ -4113,7 +4272,7 @@ background-repeat: no-repeat;</string>
                        <property name="geometry">
                         <rect>
                          <x>480</x>
-                         <y>256</y>
+                         <y>276</y>
                          <width>71</width>
                          <height>31</height>
                         </rect>
@@ -4131,7 +4290,7 @@ background-repeat: no-repeat;</string>
                        <property name="geometry">
                         <rect>
                          <x>487</x>
-                         <y>296</y>
+                         <y>316</y>
                          <width>51</width>
                          <height>31</height>
                         </rect>
@@ -4227,13 +4386,28 @@ border: 1px solid yellow;
                        </property>
                       </widget>
                       <widget class="QLineEdit" name="useredit_edit_id">
-                       <property name="enabled">
-                        <bool>false</bool>
-                       </property>
                        <property name="geometry">
                         <rect>
                          <x>560</x>
-                         <y>165</y>
+                         <y>144</y>
+                         <width>281</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom:1px solid rgba(255, 255, 255, 120);
+border-top: none;
+border-right: none;
+border-left: none;
+font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;
+border-radius: none;</string>
+                       </property>
+                      </widget>
+                      <widget class="QLineEdit" name="useredit_edit_pw">
+                       <property name="geometry">
+                        <rect>
+                         <x>560</x>
+                         <y>184</y>
                          <width>281</width>
                          <height>41</height>
                         </rect>
@@ -4251,7 +4425,7 @@ border-radius: none;</string>
                        <property name="geometry">
                         <rect>
                          <x>560</x>
-                         <y>204</y>
+                         <y>224</y>
                          <width>281</width>
                          <height>41</height>
                         </rect>
@@ -4269,7 +4443,7 @@ border-radius: none;</string>
                        <property name="geometry">
                         <rect>
                          <x>560</x>
-                         <y>244</y>
+                         <y>264</y>
                          <width>281</width>
                          <height>41</height>
                         </rect>
@@ -4287,7 +4461,7 @@ border-radius: none;</string>
                        <property name="geometry">
                         <rect>
                          <x>560</x>
-                         <y>284</y>
+                         <y>304</y>
                          <width>281</width>
                          <height>41</height>
                         </rect>

@@ -53,8 +53,8 @@ class SendPacket:
         # self.main_window.packetReceiver.running = True
         # self.main_window.start_receiving()
         
-        self.loginId = "login_id1"
-        loginPw = "password1"
+        self.loginId = "admin"
+        loginPw = "admin"
         try:
             msg = {
                 "type": TYPE_LOGIN,
@@ -426,6 +426,24 @@ class SendPacket:
             }
             packet = jsonParser(msg)
             print("회원수정 packet")
+            print(packet)
+            
+            if socket and msg:
+                socket.sendall(packet)
+
+        except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
+        
+    # 그룹 삭제 요청
+    def groupdeleteReq(self, socket):
+        try:
+            msg = {
+                "type": TYPE_GROUPDELETE_REQ,
+                "groupname": "그룹이름"
+            }
+            packet = jsonParser(msg)
+            print("회원 삭제 packet")
             print(packet)
             
             if socket and msg:
