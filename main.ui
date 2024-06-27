@@ -3607,7 +3607,7 @@ background-repeat: no-repeat;</string>
                        <property name="geometry">
                         <rect>
                          <x>488</x>
-                         <y>156</y>
+                         <y>177</y>
                          <width>51</width>
                          <height>21</height>
                         </rect>
@@ -3621,29 +3621,11 @@ background-repeat: no-repeat;</string>
                         <string>아이디</string>
                        </property>
                       </widget>
-                      <widget class="QLabel" name="useredit_label_pw">
-                       <property name="geometry">
-                        <rect>
-                         <x>478</x>
-                         <y>196</y>
-                         <width>71</width>
-                         <height>31</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 600 12pt &quot;Segoe UI Variable Small Semibol&quot;;
-background-position: centered;
-background-repeat: no-repeat;</string>
-                       </property>
-                       <property name="text">
-                        <string>비밀번호</string>
-                       </property>
-                      </widget>
                       <widget class="QLabel" name="useredit_label_name">
                        <property name="geometry">
                         <rect>
                          <x>495</x>
-                         <y>236</y>
+                         <y>216</y>
                          <width>41</width>
                          <height>31</height>
                         </rect>
@@ -3661,7 +3643,7 @@ background-repeat: no-repeat;</string>
                        <property name="geometry">
                         <rect>
                          <x>480</x>
-                         <y>276</y>
+                         <y>256</y>
                          <width>71</width>
                          <height>31</height>
                         </rect>
@@ -3679,7 +3661,7 @@ background-repeat: no-repeat;</string>
                        <property name="geometry">
                         <rect>
                          <x>487</x>
-                         <y>316</y>
+                         <y>296</y>
                          <width>51</width>
                          <height>31</height>
                         </rect>
@@ -3775,28 +3757,13 @@ border: 1px solid yellow;
                        </property>
                       </widget>
                       <widget class="QLineEdit" name="useredit_edit_id">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="geometry">
                         <rect>
                          <x>560</x>
-                         <y>144</y>
-                         <width>281</width>
-                         <height>41</height>
-                        </rect>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">border-bottom:1px solid rgba(255, 255, 255, 120);
-border-top: none;
-border-right: none;
-border-left: none;
-font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;
-border-radius: none;</string>
-                       </property>
-                      </widget>
-                      <widget class="QLineEdit" name="useredit_edit_pw">
-                       <property name="geometry">
-                        <rect>
-                         <x>560</x>
-                         <y>184</y>
+                         <y>165</y>
                          <width>281</width>
                          <height>41</height>
                         </rect>
@@ -3814,7 +3781,7 @@ border-radius: none;</string>
                        <property name="geometry">
                         <rect>
                          <x>560</x>
-                         <y>224</y>
+                         <y>204</y>
                          <width>281</width>
                          <height>41</height>
                         </rect>
@@ -3832,7 +3799,7 @@ border-radius: none;</string>
                        <property name="geometry">
                         <rect>
                          <x>560</x>
-                         <y>264</y>
+                         <y>244</y>
                          <width>281</width>
                          <height>41</height>
                         </rect>
@@ -3850,7 +3817,7 @@ border-radius: none;</string>
                        <property name="geometry">
                         <rect>
                          <x>560</x>
-                         <y>304</y>
+                         <y>284</y>
                          <width>281</width>
                          <height>41</height>
                         </rect>

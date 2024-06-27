@@ -49,7 +49,6 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_combo_tps = mainWindow.findChild(QComboBox, "admin_combo_tps")
     
     mainWindow.useredit_edit_id = mainWindow.findChild(QLineEdit, "useredit_edit_id")
-    mainWindow.useredit_edit_pw = mainWindow.findChild(QLineEdit, "useredit_edit_pw")
     mainWindow.useredit_edit_name = mainWindow.findChild(QLineEdit, "useredit_edit_name")
     mainWindow.useredit_edit_phone = mainWindow.findChild(QLineEdit, "useredit_edit_phone")
     mainWindow.useredit_edit_email = mainWindow.findChild(QLineEdit, "useredit_edit_email")
@@ -59,7 +58,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.useredit_combo_position = mainWindow.findChild(QComboBox, "useredit_combo_position")
     mainWindow.useredit_combo_role = mainWindow.findChild(QComboBox, "useredit_combo_role")
     mainWindow.useredit_combo_tps = mainWindow.findChild(QComboBox, "useredit_combo_tps")
-    mainWindow.useredit_treeview_leftmem = mainWindow.findChild(QTreeView, "useredit_treeview_leftmem")
+    mainWindow.useredit_treeview_userlist = mainWindow.findChild(QTreeView, "useredit_treeview_userlist")
 
     mainWindow.btn_home = mainWindow.findChild(QPushButton, "btn_home")
     mainWindow.btn_admin = mainWindow.findChild(QPushButton, "btn_admin")
@@ -82,12 +81,13 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_btn_accept.clicked.connect(lambda: mainWindow.packetSender.acceptReq(mainWindow.socket))
     mainWindow.admin_btn_reject.clicked.connect(lambda: mainWindow.packetSender.rejectReq(mainWindow.socket))
 
+    mainWindow.useredit_treeview_userlist.clicked.connect(lambda index: mainWindow.groupClick("useredit_treeview_userlist", index, mainWindow.groupname))
     mainWindow.useredit_btn_send.clicked.connect(lambda: mainWindow.packetSender.editUserReq(mainWindow.socket))
     
     mainWindow.home_btn_groupmemberlist.clicked.connect(lambda: mainWindow.openDialog("GroupMemberListDialog"))
     mainWindow.home_btn_chatgroup.clicked.connect(lambda: mainWindow.openDialog("GroupAddDialog"))
     mainWindow.home_btn_add_member.clicked.connect(lambda: mainWindow.openDialog("MemberAddDialog"))
-    mainWindow.home_listview_chatgroup.clicked.connect(lambda index: mainWindow.groupClick(index, mainWindow.groupname))
+    mainWindow.home_listview_chatgroup.clicked.connect(lambda index: mainWindow.groupClick("home_listview_chatgroup", index, mainWindow.groupname))
 
     mainWindow.btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
     
