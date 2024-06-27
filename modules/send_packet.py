@@ -128,24 +128,14 @@ class SendPacket:
         self.signupName = self.main_window.signup_input_name.text()
         self.signupPhone = self.main_window.signup_input_phone.text()
         self.signupEmail = self.main_window.signup_input_email.text()
-        self.signupDept = self.main_window.signup_combo_dept.currentText()
-        self.signupPosition = self.main_window.signup_combo_position.currentText()
         
         try:
-            # msg = {"type": 1,
-            #             "id": self.signupId, 
-            #             "pw": self.signupPw,
-            #             "name": self.signupName,
-            #             "phone": self.signupPhone,
-            #             "email": self.signupEmail,
-            #             "dept": self.signupDept,
-            #             "pos": self.signupPosition}
-            msg = {"type": 1,
+            msg = {"type": TYPE_SIGNUP_REQ,
                         "login_id": self.signupId, 
-                        "pw": "password26",
-                        "name": "아이디이십육",
-                        "phone": "010-1234-9653",
-                        "email": "eluon@gmail.com"}
+                        "pw": self.signupPw,
+                        "name": self.signupName,
+                        "phone": self.signupPhone,
+                        "email": self.signupEmail}
             packet = jsonParser(msg)
             
             print(packet)
@@ -184,7 +174,7 @@ class SendPacket:
                 socket.sendall(packet)
             
             print(packet)
-            self.main_window.updateMsgDisplay(msgText, "sent")
+            self.main_window.updateMsgDisplay(msgText, "sent", self.main_window.chatListModel)
             
             return True
         except Exception as e:

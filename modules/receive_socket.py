@@ -80,8 +80,8 @@ class ReceivePacket():
     def receiveMassage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8')).get("text")
         name = json.loads(msg.decode('utf-8')).get("login_id")
-        updateDisplay(self.main_window, name, "received", self.main_window.chatListModel)
-        updateDisplay(self.main_window, receivedMessage, "received", self.main_window.chatListModel)
+        updateDisplay(self.main_window, name, "receivedChat", self.main_window.chatListModel)
+        updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
     
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8')).get("users")
@@ -100,10 +100,14 @@ class ReceivePacket():
     def receiveReqList(self, msg):
         signupList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("signup_req_list")
         groupReqList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("group_req_list")
-        if signupList:
-            updateDisplay(self.main_window, signupList, "signupList", self.main_window.adminReqListModel)
-        elif groupReqList:
-            updateDisplay(self.main_window, groupReqList, "groupReqList", self.main_window.adminReqListModel)
+        reqList = signupList + groupReqList
+        print (reqList)
+        # if signupList:
+        #     updateDisplay(self.main_window, signupList, "signupList", self.main_window.adminReqListModel)
+        # elif groupReqList:
+        #     updateDisplay(self.main_window, groupReqList, "groupReqList", self.main_window.adminReqListModel)
+        if reqList:
+            updateDisplay(self.main_window, reqList, "reqList", self.main_window.adminReqListModel)
         else:
             self.main_window.adminReqListModel.clear()
             

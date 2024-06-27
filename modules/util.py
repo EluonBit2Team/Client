@@ -12,6 +12,7 @@ SERVER_ADDR = "192.168.0.253"
 SERVER_PORT = 3335
 
 #json type 4번은 ui_groupadddlg_function으로
+TYPE_SIGNUP_REQ = 1
 TYPE_LOGIN = 2
 TYPE_MESSAGE = 3
 TYPE_USERLIST = 5
@@ -27,11 +28,12 @@ TYPE_EDIT_USERINFO = 13
 
 
 class CustomDelegate(QStyledItemDelegate):
+    # def init
     def paint(self, painter, option, index):
         painter.save()
-        messageType = index.data(Qt.ItemDataRole.UserRole + 1)
+        messageSender = index.data(Qt.ItemDataRole.UserRole + 1)
 
-        if messageType == "sent":
+        if messageSender == "sent":
             option.displayAlignment = Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter
         else:
             option.displayAlignment = Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter
@@ -80,21 +82,23 @@ def updateDisplay(self, list, type, model):
             name_column.setData(json_data, Qt.UserRole)
             row = [name_column, id_column]
             model.appendRow(row)
-    elif type == "signupList":
+    elif type == "reqList":
+        signup_type = 'login_id'
+        group_type = 'group_name'
         model.clear()
         for json_data in list:
-            makeRow = "회원가입요청     || " + json_data['login_id'] + ' ' + \
-                json_data['name'] + ' ' + json_data['phone'] + ' ' + json_data['email']
-            item = QStandardItem(makeRow)
-            item.setData(json_data, Qt.UserRole)
-            model.appendRow(item)
-    elif type == "groupReqList":
-        model.clear()
-        for json_data in list:
-            makeRow = "그룹생성요청     || " + json_data['group_name'] + ' ' + json_data['memo']
-            item = QStandardItem(makeRow)
-            item.setData(json_data, Qt.UserRole)
-            model.appendRow(item)
+            if signup_type in json_data:
+                makeRow = "회원가입요청     || " + json_data['login_id'] + ' ' + \
+                    json_data['name'] + ' ' + json_data['phone'] + ' ' + json_data['email']
+                item = QStandardItem(makeRow)
+                item.setData(json_data, Qt.UserRole)
+                model.appendRow(item)
+            if group_type in json_data:
+                makeRow = "그룹생성요청     || " + json_data['group_name'] + ' ' + json_data['memo']
+                item = QStandardItem(makeRow)
+                item.setData(json_data, Qt.UserRole)
+                model.appendRow(item)
+                
     elif type == "groupMemberList":
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
@@ -106,7 +110,7 @@ def updateDisplay(self, list, type, model):
             name_column.setData(json_data, Qt.UserRole)
             row = [name_column, id_column]
             model.appendRow(row) 
-    elif (type == "sent") or (type == "received"):
+    elif type == "receivedChat":
         item = QStandardItem(list)
         item.setData(type, Qt.ItemDataRole.UserRole + 1)
         model.appendRow(item)
@@ -240,9 +244,8 @@ def animateTransition(self, currentPage, nextPage, onFinished):
     self.nextAnimation.setEasingCurve(QEasingCurve.InOutQuad)
     
     self.animationGroup = QParallelAnimationGroup()
-    self.animationGroup.addAnimation(self.currentAnimation)
     self.animationGroup.addAnimation(self.nextAnimation)
-
+    self.animationGroup.addAnimation(self.currentAnimation)
     self.animationGroup.finished.connect(lambda: onFinished(self, nextPage))
     # 애니메이션 그룹 시작
     self.animationGroup.start()
