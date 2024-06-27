@@ -142,24 +142,14 @@ class SendPacket:
         self.signupName = self.main_window.signup_input_name.text()
         self.signupPhone = self.main_window.signup_input_phone.text()
         self.signupEmail = self.main_window.signup_input_email.text()
-        self.signupDept = self.main_window.signup_combo_dept.currentText()
-        self.signupPosition = self.main_window.signup_combo_position.currentText()
         
         try:
-            # msg = {"type": 1,
-            #             "id": self.signupId, 
-            #             "pw": self.signupPw,
-            #             "name": self.signupName,
-            #             "phone": self.signupPhone,
-            #             "email": self.signupEmail,
-            #             "dept": self.signupDept,
-            #             "pos": self.signupPosition}
-            msg = {"type": 1,
+            msg = {"type": TYPE_SIGNUP_REQ,
                         "login_id": self.signupId, 
-                        "pw": "password26",
-                        "name": "아이디이십육",
-                        "phone": "010-1234-9653",
-                        "email": "eluon@gmail.com"}
+                        "pw": self.signupPw,
+                        "name": self.signupName,
+                        "phone": self.signupPhone,
+                        "email": self.signupEmail}
             packet = jsonParser(msg)
             
             print(packet)
@@ -198,7 +188,7 @@ class SendPacket:
                 socket.sendall(packet)
             
             print(packet)
-            self.main_window.updateMsgDisplay(msgText, "sent")
+            self.main_window.updateMsgDisplay(msgText, "sent", self.main_window.chatListModel)
             
             return True
         except Exception as e:
@@ -393,7 +383,6 @@ class SendPacket:
                 return False
     
     def editUserReq(self, socket):
-        print("edit user req 진입")
         self.userEditId = self.main_window.useredit_edit_id.text()
         self.userEditName = self.main_window.useredit_edit_name.text()
         self.userEditPhone = self.main_window.useredit_edit_phone.text()
@@ -403,72 +392,58 @@ class SendPacket:
         role = self.main_window.useredit_combo_role.currentText()
         tps = self.main_window.useredit_combo_tps.currentText()
         
-        print("tps값")
-        print(tps)
-        print(type(tps))
+        # sortUserInfo(dept, "dept")
+        # sortUserInfo(pos, "pos")
+        # sortUserInfo(role, "role")
+        # sortUserInfo(tps, "tps")
 
-        print("if 문 진입")
+        # if role == "역할을 선택하세요.":
+        #     role = ""
+        # else:
+        #     role = int(role)
 
-        if role == "역할을 선택하세요.":
-            role = ""
-        else:
-            role = int(role)
+        # if tps == "tps를 선택하세요.":
+        #     tps = ""
+        # else:
+        #     tps = int(tps)
 
-        if tps == "tps를 선택하세요.":
-            tps = ""
-        else:
-            tps = int(tps)
-
-        if dept == "부서를 선택하세요.":
-            dept = ""
-        elif dept == "1팀":
-            dept = 1
-        elif dept == "2팀":
-            dept = 2
-        elif dept == "3팀":
-            dept = 3
-        else:
-            dept = 4
+        # if dept == "부서를 선택하세요.":
+        #     dept = ""
+        # elif dept == "1팀":
+        #     dept = 1
+        # elif dept == "2팀":
+        #     dept = 2
+        # elif dept == "3팀":
+        #     dept = 3
+        # else:
+        #     dept = 4
             
-        if pos == "직급을 선택하세요.":
-            pos = ""
-        elif pos == "회장":
-            pos = 1
-        elif pos == "사장":
-            pos = 2
-        elif pos == "차장":
-            pos = 3
-        elif pos == "과장":
-            pos = 4
-        elif pos == "대리":
-            pos = 5
-        elif pos == "사원":
-            pos = 6
+        # if pos == "직급을 선택하세요.":
+        #     pos = ""
+        # elif pos == "회장":
+        #     pos = 1
+        # elif pos == "사장":
+        #     pos = 2
+        # elif pos == "차장":
+        #     pos = 3
+        # elif pos == "과장":
+        #     pos = 4
+        # elif pos == "대리":
+        #     pos = 5
+        # elif pos == "사원":
+        #     pos = 6
 
-        print("if문 완료")
         try:
-            print("try문 진입")
-            # msg = {
-            #     "type": TPPE_EDIT_USERINFO,
-            #     "login_id": self.userEditId, 
-            #     "name": self.userEditName,
-            #     "phone": self.userEditPhone,
-            #     "email": self.userEditEmail,
-            #     "dept": dept,
-            #     "pos": pos,
-            #     "role": role,
-            #     "max_tps": tps
-            # }
             msg = {
-                "type": TPPE_EDIT_USERINFO,
-                "login_id": "login_id2", 
-                "name": "name22",
-                "phone": "number22",
-                "email": "",
-                "dept": "",
-                "pos": 1,
-                "role": 0,
-                "max_tps": 100
+                "type": TYPE_EDIT_USERINFO,
+                "login_id": self.userEditId, 
+                "name": self.userEditName,
+                "phone": self.userEditPhone,
+                "email": self.userEditEmail,
+                "dept": sortUserInfo(dept, "dept"),
+                "pos": sortUserInfo(pos, "pos"),
+                "role": sortUserInfo(role, "role"),
+                "max_tps": sortUserInfo(tps, "tps")
             }
             packet = jsonParser(msg)
             print("회원수정 packet")
