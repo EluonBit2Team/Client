@@ -95,7 +95,7 @@ class ReceivePacket():
         groupMemberList = json.loads(msg.decode('utf-8')).get("users")
         updateDisplay(self.main_window, groupMemberList, "groupMemberList", self.main_window.groupMember.groupMemberModel)
         updateDisplay(self.main_window, groupMemberList, "groupMemberList", self.main_window.memberAddDialog.treeview_right_model)
-        # self.main_window.groupMember.updateDisplay(groupMemberList, self.main_window.groupMember.groupMemberModel)
+
     
     def receiveReqList(self, msg):
         signupList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("signup_req_list")

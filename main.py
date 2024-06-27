@@ -22,6 +22,7 @@ import select
 import threading
 import json
 import struct
+import time
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules.util import *
@@ -156,6 +157,9 @@ class MainWindow(QMainWindow):
         self.home_treeview_userlist.setModel(self.userListModel)
         self.userListModel.setHorizontalHeaderLabels(["이름", "아이디"])
 
+        self.useredit_treeview_leftmem.setModel(self.userListModel)
+
+
         print(self.groupname)
 
         self.packetSender = SendPacket(self)
@@ -280,12 +284,16 @@ class MainWindow(QMainWindow):
         # SHOW USEREDIT PAGE
         if btnName == "admin_btn_useredit":
             widgets.stackedWidget.setCurrentWidget(widgets.infoeditpage)
+            self.packetSender.reqUserList(self.socket)
+            
+            
         if btnName == "useredit_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
 
 
         if btnName == "btn_exit":
             self.packetSender.testDataSender(self.socket)
+       
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
@@ -333,8 +341,20 @@ class MainWindow(QMainWindow):
 
     def loginRequest(self):
         
+        # 로딩 GIF 보여주기
+        self.loadingGif = LoadingGif()
+        self.loadingGif.show()
+        self.loadingGif.startAnimation()
+
+        # 3초 후에 loginRequest 실행
+        QTimer.singleShot(1500, self.executeLoginRequest)
+        
+    def executeLoginRequest(self):
+        # 로그인 요청 실행
         self.packetSender.loginRequest()
 
+        # 애니메이션 멈추기
+        self.loadingGif.stopAnimation()
 
     def signUpRequest(self):
         self.packetSender.signUpRequest(self.socket)
@@ -350,6 +370,7 @@ class MainWindow(QMainWindow):
         self.receive_thread = threading.Thread(target=self.receiveData)
         self.receive_thread.daemon = True
         self.receive_thread.start()
+
 
     # RESIZE EVENTSc
     # ///////////////////////////////////////////////////////////////

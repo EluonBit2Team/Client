@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainiwEXzl.ui'
+## Form generated from reading UI file 'mainTbAlxA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1965,10 +1965,10 @@ class Ui_MainWindow(object):
 "font-weight: 200;")
         self.useredit_combo_position.setIconSize(QSize(16, 16))
         self.useredit_combo_position.setFrame(True)
-        self.useredit_listview_leftmem = QListView(self.infoeditpage)
-        self.useredit_listview_leftmem.setObjectName(u"useredit_listview_leftmem")
-        self.useredit_listview_leftmem.setGeometry(QRect(50, 170, 391, 281))
-        self.useredit_listview_leftmem.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+        self.useredit_treeview_leftmem = QTreeView(self.infoeditpage)
+        self.useredit_treeview_leftmem.setObjectName(u"useredit_treeview_leftmem")
+        self.useredit_treeview_leftmem.setGeometry(QRect(50, 170, 391, 281))
+        self.useredit_treeview_leftmem.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 10px;\n"
@@ -2139,7 +2139,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
