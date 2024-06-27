@@ -3,6 +3,8 @@ import struct
 import socket
 from PySide6.QtWidgets import QMessageBox
 from modules.util import *
+from main import *
+from modules.ui_loadingsp import *
 
 class SendPacket:
     def __init__(self, main_window):
@@ -28,12 +30,24 @@ class SendPacket:
             self.socket = None
             print(self.socket)
             print(f"Connecting to {addr}:{port}")
+
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.socket.settimeout(5)
+
+            # 로딩 GIF 보여주기
+            self.loadingGif = LoadingGif()
+            self.loadingGif.show()
+            self.loadingGif.startAnimation()
+
             self.socket.connect((addr, port))
+            
             print("connectSocket의 socket")
             print(self.socket)
             self.socket.setblocking(False)
+
+            # 소켓 연결 성공 시 로딩 애니메이션 멈추기
+            self.loadingGif.stopAnimation()
+
             self.main_window.socket = self.socket
             return True
         except Exception as e:

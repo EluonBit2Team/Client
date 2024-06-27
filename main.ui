@@ -1770,7 +1770,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>5</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -4008,7 +4008,7 @@ font-weight: 200;</string>
                         </property>
                        </item>
                       </widget>
-                      <widget class="QListView" name="useredit_listview_leftmem">
+                      <widget class="QTreeView" name="useredit_treeview_leftmem">
                        <property name="geometry">
                         <rect>
                          <x>50</x>
@@ -4460,8 +4460,8 @@ font-weight: 200;</string>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>402</x>
-     <y>254</y>
+     <x>483</x>
+     <y>234</y>
     </hint>
     <hint type="destinationlabel">
      <x>439</x>
@@ -4476,8 +4476,8 @@ font-weight: 200;</string>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>328</x>
-     <y>274</y>
+     <x>409</x>
+     <y>284</y>
     </hint>
     <hint type="destinationlabel">
      <x>480</x>
@@ -4492,8 +4492,8 @@ font-weight: 200;</string>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>340</x>
-     <y>326</y>
+     <x>421</x>
+     <y>334</y>
     </hint>
     <hint type="destinationlabel">
      <x>444</x>
@@ -4508,8 +4508,8 @@ font-weight: 200;</string>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>437</x>
-     <y>404</y>
+     <x>518</x>
+     <y>384</y>
     </hint>
     <hint type="destinationlabel">
      <x>452</x>

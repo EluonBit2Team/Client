@@ -11,7 +11,8 @@ class LoadingGif(QtWidgets.QWidget):
     def mainUI(self):
         self.setObjectName("FTwindow")
         self.resize(200, 200)
-        self.setWindowFlags(Qt.WindowType.FramelessWindowHint)  # FramelessWindowHint 적용
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.WindowStaysOnTopHint)
+        
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)  # 배경을 투명하게 설정
 
         self.centralwidget = QtWidgets.QWidget(self)
@@ -43,6 +44,15 @@ class LoadingGif(QtWidgets.QWidget):
         self.movie.stop()
         self.close()
 
+    # Disable moving the window
+    def mousePressEvent(self, event):
+        pass
+
+    def mouseMoveEvent(self, event):
+        pass
+
+    def mouseReleaseEvent(self, event):
+        pass
 # self.loadingGif = LoadingGif()
 # self.loadingGif.show()
 # QTimer.singleShot(1000, self.loadingGif.stopAnimation) # 로딩 딜레이

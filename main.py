@@ -345,21 +345,10 @@ class MainWindow(QMainWindow):
         
 
     def loginRequest(self):
-        
-        # 로딩 GIF 보여주기
-        self.loadingGif = LoadingGif()
-        self.loadingGif.show()
-        self.loadingGif.startAnimation()
 
-        # 3초 후에 loginRequest 실행
-        QTimer.singleShot(1500, self.executeLoginRequest)
-        
-    def executeLoginRequest(self):
         # 로그인 요청 실행
         self.packetSender.loginRequest()
-
-        # 애니메이션 멈추기
-        self.loadingGif.stopAnimation()
+        
 
     def signUpRequest(self):
         self.packetSender.signUpRequest(self.socket)
