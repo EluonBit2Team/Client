@@ -31,8 +31,6 @@ class SendPacket:
             return False
 
     def loginRequest(self):
-        # self.loginId = self.main_window.login_input_id.text()
-        # loginPw = self.main_window.login_input_pw.text()
         self.socket = self.main_window.socket
         
         if self.socket == None:
@@ -53,8 +51,11 @@ class SendPacket:
         # self.main_window.packetReceiver.running = True
         # self.main_window.start_receiving()
         
-        self.loginId = "login_id1"
-        loginPw = "password1"
+        self.loginId = self.main_window.login_input_id.text()
+        loginPw = self.main_window.login_input_pw.text()
+        
+        # self.loginId = "admin"
+        # loginPw = "admin"
         try:
             msg = {
                 "type": TYPE_LOGIN,
@@ -66,6 +67,9 @@ class SendPacket:
 
             if socket and msg:
                 socket.sendall(packet)
+                
+            print("login 패킷")
+            print(packet)
 
             self.main_window.btn_home.show()
             self.main_window.btn_admin.show()

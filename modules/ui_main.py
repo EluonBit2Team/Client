@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maingaOSDH.ui'
+## Form generated from reading UI file 'mainQQyjyS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1619,9 +1619,6 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;\n"
 "background-color: rgb(40, 44, 50);\n"
 "font: 9pt \"\uc0c8\uad74\ub9bc\";")
-        self.admin_btn_test = QPushButton(self.adminpage)
-        self.admin_btn_test.setObjectName(u"admin_btn_test")
-        self.admin_btn_test.setGeometry(QRect(40, 520, 81, 24))
         self.stackedWidget.addWidget(self.adminpage)
         self.admin_label_rightback1.raise_()
         self.admin_label_leftback.raise_()
@@ -1685,10 +1682,8 @@ class Ui_MainWindow(object):
 "    background-color: #2e2e2e;\n"
 "    border: 1px solid #444;\n"
 "    border-radius: 5px;\n"
-"    background-image: url(background-image.png); /* \ubc30\uacbd \uc774\ubbf8\uc9c0 \uacbd\ub85c */\n"
 "    background-position: center;\n"
 "    background-repeat: no-repeat;\n"
-"    background-size: cover;\n"
 "}\n"
 "\n"
 "/* \ud5e4\ub354(\uc6d4/\uc5f0\ub3c4 \uc120\ud0dd \uc601\uc5ed) \uc2a4\ud0c0\uc77c\ub9c1 */\n"
@@ -1704,11 +1699,11 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QCalendarWidget QToolButton::hover {\n"
-"    background-color: rgba(102, 102, 102, "
-                        "0.8); /* \ud22c\uba85\ub3c4 \uc801\uc6a9 */\n"
+"    background-color: rgba(102, 102, 102, 0.8); /* \ud22c\uba85\ub3c4 \uc801\uc6a9 */\n"
 "}\n"
 "\n"
-"/* \ud5e4\ub354\uc758 \ud654\uc0b4\ud45c \ubc84\ud2bc \uc2a4\ud0c0\uc77c\ub9c1 */\n"
+"/* \ud5e4\ub354\uc758 \ud654\uc0b4\ud45c \ubc84\ud2bc \uc2a4\ud0c0\uc77c\ub9c1"
+                        " */\n"
 "QCalendarWidget QToolButton#qt_calendar_prevmonth {\n"
 "	\n"
 "	\n"
@@ -1725,10 +1720,10 @@ class Ui_MainWindow(object):
 "	background-position: center; /* \uc774\ubbf8\uc9c0\uac00 \uac00\uc6b4\ub370 \uc624\ub3c4\ub85d \uc124\uc815 */\n"
 "    background-repeat: no-repeat;\n"
 "    width: 30px; /* \ubc84\ud2bc\uc758 \ub108\ube44 \uc9c0\uc815 */\n"
-"    height: 30px; /* \ubc84\ud2bc"
-                        "\uc758 \ub192\uc774 \uc9c0\uc815 */\n"
+"    height: 30px; /* \ubc84\ud2bc\uc758 \ub192\uc774 \uc9c0\uc815 */\n"
 "    border: none; /* \ubc84\ud2bc\uc758 \ud14c\ub450\ub9ac \uc81c\uac70 */\n"
-"    background-color: transparent; /* \ubc30\uacbd\uc0c9 \ud22c\uba85\ud558\uac8c \uc124\uc815 */\n"
+"    background-col"
+                        "or: transparent; /* \ubc30\uacbd\uc0c9 \ud22c\uba85\ud558\uac8c \uc124\uc815 */\n"
 "}\n"
 "\n"
 "/* \ub0a0\uc9dc \uc140 \uc2a4\ud0c0\uc77c\ub9c1 */\n"
@@ -1756,11 +1751,11 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "/* \uc624\ub298 \ub0a0\uc9dc \uc2a4\ud0c0\uc77c\ub9c1 */\n"
-"QCalend"
-                        "arWidget QWidget#qt_calendar_calendarview .QWidget {\n"
+"QCalendarWidget QWidget#qt_calendar_calendarview .QWidget {\n"
 "    color: white;\n"
 "    background-color: #FF5722;\n"
-"    border-radius: 15px;\n"
+"    border-radius: 15px"
+                        ";\n"
 "}\n"
 "\n"
 "/* \uc694\uc77c \ud5e4\ub354 \uc2a4\ud0c0\uc77c\ub9c1 */\n"
@@ -1775,8 +1770,7 @@ class Ui_MainWindow(object):
 "/* \ud604\uc7ac \uc6d4\uc5d0 \uc18d\ud558\uc9c0 \uc54a\ub294 \ub0a0\uc9dc \uc140 \uc2a4\ud0c0\uc77c\ub9c1 */\n"
 "QCalendarWidget QAbstractItemView::item:disabled {\n"
 "    background-color: rgba(30, 30, 30, 0.6); /* \ud604\uc7ac \uc6d4\uc5d0 \uc18d\ud558\uc9c0 \uc54a\ub294 \ub0a0\uc9dc\uc758 \ubc30\uacbd \uc0c9\uc0c1 */\n"
-"    color: rgba(255, 255, 255, 0.5); /* \ud604\uc7ac \uc6d4\uc5d0 \uc18d\ud558\uc9c0 \uc54a\ub294 \ub0a0\uc9dc\uc758 \uae00\uc790 \uc0c9"
-                        "\uc0c1 */\n"
+"    color: rgba(255, 255, 255, 0.5); /* \ud604\uc7ac \uc6d4\uc5d0 \uc18d\ud558\uc9c0 \uc54a\ub294 \ub0a0\uc9dc\uc758 \uae00\uc790 \uc0c9\uc0c1 */\n"
 "}\n"
 "")
         self.log_btn_back = QPushButton(self.serverlogpage)
@@ -2368,7 +2362,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

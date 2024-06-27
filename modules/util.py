@@ -68,6 +68,7 @@ def connectionSuccessEvent():
 def updateDisplay(self, list, type, model):
     print("updateDisplay 진입")
     if type == "grouplist":
+        model.clear()
         for i in list:
             item = QStandardItem(i['groupname'])
             model.appendRow(item)
