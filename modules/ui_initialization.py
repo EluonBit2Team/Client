@@ -47,7 +47,11 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_combo_position = mainWindow.findChild(QComboBox, "admin_combo_position")
     mainWindow.admin_combo_role = mainWindow.findChild(QComboBox, "admin_combo_role")
     mainWindow.admin_combo_tps = mainWindow.findChild(QComboBox, "admin_combo_tps")
-    
+    mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")
+    mainWindow.admin_btn_log = mainWindow.findChild(QPushButton, "admin_btn_log")
+    mainWindow.admin_btn_server = mainWindow.findChild(QPushButton, "admin_btn_server")
+
+
     mainWindow.useredit_edit_id = mainWindow.findChild(QLineEdit, "useredit_edit_id")
     mainWindow.useredit_edit_pw = mainWindow.findChild(QLineEdit, "useredit_edit_pw")
     mainWindow.useredit_edit_name = mainWindow.findChild(QLineEdit, "useredit_edit_name")
@@ -59,7 +63,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.useredit_combo_position = mainWindow.findChild(QComboBox, "useredit_combo_position")
     mainWindow.useredit_combo_role = mainWindow.findChild(QComboBox, "useredit_combo_role")
     mainWindow.useredit_combo_tps = mainWindow.findChild(QComboBox, "useredit_combo_tps")
-    mainWindow.useredit_treeview_leftmem = mainWindow.findChild(QTreeView, "useredit_treeview_leftmem")
+    mainWindow.useredit_treeview_userlist = mainWindow.findChild(QTreeView, "useredit_treeview_userlist")
 
     mainWindow.btn_home = mainWindow.findChild(QPushButton, "btn_home")
     mainWindow.btn_admin = mainWindow.findChild(QPushButton, "btn_admin")

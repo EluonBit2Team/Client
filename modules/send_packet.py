@@ -34,19 +34,11 @@ class SendPacket:
             self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.socket.settimeout(5)
 
-            # 로딩 GIF 보여주기
-            self.loadingGif = LoadingGif()
-            self.loadingGif.show()
-            self.loadingGif.startAnimation()
-
             self.socket.connect((addr, port))
             
             print("connectSocket의 socket")
             print(self.socket)
             self.socket.setblocking(False)
-
-            # 소켓 연결 성공 시 로딩 애니메이션 멈추기
-            self.loadingGif.stopAnimation()
 
             self.main_window.socket = self.socket
             return True

@@ -64,6 +64,11 @@ class MainWindow(QMainWindow):
         global widgets
         widgets = self.ui
 
+        # 로딩 GIF 보여주기
+        self.loadingGif = LoadingGif()
+        self.loadingGif.show()
+        self.loadingGif.startAnimation()
+
         # widgets initialize
         initialize_widgets(self)
         initialize_variable(self)
@@ -157,7 +162,7 @@ class MainWindow(QMainWindow):
         self.home_treeview_userlist.setModel(self.userListModel)
         self.userListModel.setHorizontalHeaderLabels(["이름", "아이디"])
 
-        self.useredit_treeview_leftmem.setModel(self.userListModel)
+        self.useredit_treeview_userlist.setModel(self.userListModel)
 
 
         print(self.groupname)
@@ -180,7 +185,10 @@ class MainWindow(QMainWindow):
             connectionErrorEvent()
         print("main의 socket")
         print(self.socket)
-        self.start_receiving()
+        self.start_receiving() # 데이터 받기 시작
+
+        # 소켓 연결 성공 시 로딩 애니메이션 멈추기
+        self.loadingGif.stopAnimation()
 
     # 약관체크버튼
     def toggleButton(self, state):
@@ -264,7 +272,7 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
         
         if btnName == "signup_btn_back":
-            widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
+            animateTransitionBack(self.ui, widgets.signuppage, widgets.loginpage, setPage)
         
         if btnName == "qrlogin_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.loginpage)

@@ -2,20 +2,24 @@
   <qresource prefix="images">
     <file>images/images/loginmail.png</file>
     <file>images/images/logincall.png</file>
+    <file>images/icons/cil-media-reverse.png</file>
     <file>images/images/myinfo.png</file>
     <file>images/images/pw.png</file>
     <file>images/images/스크린샷 2024-06-26 110605.png</file>
+    <file>images/images/search.png</file>
     <file>images/images/name.png</file>
+    <file>images/images/domain-servers (1).png</file>
     <file>images/images/logo.png</file>
-    <file>images/images/Spinner@1x-1.0s-200px-200px.gif</file>
     <file>images/images/email.png</file>
     <file>images/images/phone.png</file>
     <file>images/images/create-account (1).png</file>
+    <file>images/images/servers.png</file>
     <file>images/images/id.png</file>
     <file>images/images/free-icon-send-button-12439334 - 복사본.png</file>
     <file>images/images/grafana.png</file>
     <file>images/images/callimage.png</file>
     <file>images/images/스크린샷 2024-06-26 091000.png</file>
+    <file>images/images/log-file.png</file>
     <file>images/images/qr-code-scan.png</file>
     <file>images/images/user-profile.png</file>
     <file>images/images/eluonlogo_modified.png</file>

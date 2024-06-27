@@ -234,22 +234,55 @@ def animateTransition(self, currentPage, nextPage, onFinished):
     self.currentAnimation.setDuration(500)
     self.currentAnimation.setStartValue(parentRect)
     self.currentAnimation.setEndValue(QRect(parentRect.x() - width, parentRect.y(), width, parentRect.height()))
-    self.currentAnimation.setEasingCurve(QEasingCurve.InOutQuad)
+    self.currentAnimation.setEasingCurve(QEasingCurve.InOutSine)
 
     # 다음 위젯을 제자리에 맞추는 애니메이션
     self.nextAnimation = QPropertyAnimation(nextPage, b"geometry")
     self.nextAnimation.setDuration(500)
     self.nextAnimation.setStartValue(QRect(parentRect.x() + width, parentRect.y(), width, parentRect.height()))
     self.nextAnimation.setEndValue(parentRect)
-    self.nextAnimation.setEasingCurve(QEasingCurve.InOutQuad)
+    self.nextAnimation.setEasingCurve(QEasingCurve.InOutSine)
     
+    # 애니메이션 그룹 생성
+    self.animationGroup = QParallelAnimationGroup()
+    self.animationGroup.addAnimation(self.nextAnimation)
+    self.animationGroup.addAnimation(self.currentAnimation)
+    
+    # 애니메이션 그룹이 끝났을 때 호출될 콜백 설정
+    self.animationGroup.finished.connect(lambda: onFinished(self, nextPage))
+    
+    # 애니메이션 그룹 시작
+    self.animationGroup.start()
+
+def animateTransitionBack(self, currentPage, nextPage, onFinished):
+    parentRect = currentPage.geometry()
+    width = parentRect.width()
+
+    # 다음 위젯의 초기 위치를 스택 위젯의 왼쪽으로 설정
+    nextPage.setGeometry(parentRect.x() - width, parentRect.y(), width, parentRect.height())
+    
+    # 현재 위젯을 오른쪽으로 밀어내는 애니메이션
+    self.currentAnimation = QPropertyAnimation(currentPage, b"geometry")
+    self.currentAnimation.setDuration(500)
+    self.currentAnimation.setStartValue(parentRect)
+    self.currentAnimation.setEndValue(QRect(parentRect.x() + width, parentRect.y(), width, parentRect.height()))
+    self.currentAnimation.setEasingCurve(QEasingCurve.InOutSine)
+
+    # 다음 위젯을 제자리에 맞추는 애니메이션
+    self.nextAnimation = QPropertyAnimation(nextPage, b"geometry")
+    self.nextAnimation.setDuration(500)
+    self.nextAnimation.setStartValue(QRect(parentRect.x() - width, parentRect.y(), width, parentRect.height()))
+    self.nextAnimation.setEndValue(parentRect)
+    self.nextAnimation.setEasingCurve(QEasingCurve.InOutSine)
+    
+    # 애니메이션 그룹을 생성하고 두 애니메이션을 추가
     self.animationGroup = QParallelAnimationGroup()
     self.animationGroup.addAnimation(self.nextAnimation)
     self.animationGroup.addAnimation(self.currentAnimation)
     self.animationGroup.finished.connect(lambda: onFinished(self, nextPage))
+
     # 애니메이션 그룹 시작
     self.animationGroup.start()
-
     
 
 
