@@ -162,10 +162,7 @@ class SendPacket:
         
             if socket and msg:
                 socket.sendall(packet)
-            
-            print(packet)
-            self.main_window.updateMsgDisplay(msgText, "sent", self.main_window.chatListModel)
-            
+                
             return True
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -434,11 +431,12 @@ class SendPacket:
 
     
     def testDataSender(self, socket):
-        print("type: 11 보냄")
+        print("type: 14 보냄")
         try:
-            msg = {"type": 7,
-                   "groupname": "groupname1",
-                   "login_id":["login_id2", "login_id3", "login_id4"]}
+            msg = {
+                "type": 14,
+                "groupname": "groupname1" 
+            }
             packet = jsonParser(msg)
             if socket and msg:
                 socket.sendall(packet)

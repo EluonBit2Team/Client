@@ -78,9 +78,7 @@ class ReceivePacket():
         # self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
         
     def receiveMassage(self, msg):
-        receivedMessage = json.loads(msg.decode('utf-8')).get("text")
-        name = json.loads(msg.decode('utf-8')).get("login_id")
-        updateDisplay(self.main_window, name, "receivedChat", self.main_window.chatListModel)
+        receivedMessage = json.loads(msg.decode('utf-8'))
         updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
     
     def receiveUserList(self, msg):

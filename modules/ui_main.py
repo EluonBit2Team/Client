@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainFqcjCx.ui'
+## Form generated from reading UI file 'maingaOSDH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,7 +13,6 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1588,6 +1587,9 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;\n"
 "background-color: rgb(40, 44, 50);\n"
 "font: 9pt \"\uc0c8\uad74\ub9bc\";")
+        self.admin_btn_test = QPushButton(self.adminpage)
+        self.admin_btn_test.setObjectName(u"admin_btn_test")
+        self.admin_btn_test.setGeometry(QRect(40, 520, 81, 24))
         self.stackedWidget.addWidget(self.adminpage)
         self.admin_label_rightback1.raise_()
         self.admin_label_leftback.raise_()
@@ -1612,6 +1614,7 @@ class Ui_MainWindow(object):
         self.admin_label_nine.raise_()
         self.admin_label_infoedit.raise_()
         self.admin_label_game.raise_()
+        self.admin_btn_test.raise_()
         self.qrlogin = QWidget()
         self.qrlogin.setObjectName(u"qrlogin")
         self.qrlogin_label_waiting = QLabel(self.qrlogin)
@@ -2126,7 +2129,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2249,6 +2252,7 @@ class Ui_MainWindow(object):
         self.admin_label_nine.setText("")
         self.admin_label_infoedit.setText(QCoreApplication.translate("MainWindow", u" \uc815\ubcf4 \uc218\uc815", None))
         self.admin_label_game.setText(QCoreApplication.translate("MainWindow", u"  \uc810\uc2ec \ub8f0\ub81b", None))
+        self.admin_btn_test.setText(QCoreApplication.translate("MainWindow", u"test button", None))
         self.qrlogin_label_waiting.setText("")
         self.qrlogin_btn_back.setText("")
         self.qrlogin_label_back.setText("")

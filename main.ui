@@ -1770,7 +1770,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>5</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -3153,6 +3153,19 @@ font: 9pt &quot;새굴림&quot;;</string>
                         <string>  점심 룰렛</string>
                        </property>
                       </widget>
+                      <widget class="QPushButton" name="admin_btn_test">
+                       <property name="geometry">
+                        <rect>
+                         <x>40</x>
+                         <y>520</y>
+                         <width>81</width>
+                         <height>24</height>
+                        </rect>
+                       </property>
+                       <property name="text">
+                        <string>test button</string>
+                       </property>
+                      </widget>
                       <zorder>admin_label_rightback1</zorder>
                       <zorder>admin_label_leftback</zorder>
                       <zorder>admin_listView_status</zorder>
@@ -3176,6 +3189,7 @@ font: 9pt &quot;새굴림&quot;;</string>
                       <zorder>admin_label_nine</zorder>
                       <zorder>admin_label_infoedit</zorder>
                       <zorder>admin_label_game</zorder>
+                      <zorder>admin_btn_test</zorder>
                      </widget>
                      <widget class="QWidget" name="qrlogin">
                       <widget class="QLabel" name="qrlogin_label_waiting">

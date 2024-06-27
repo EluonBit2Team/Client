@@ -47,6 +47,9 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_combo_position = mainWindow.findChild(QComboBox, "admin_combo_position")
     mainWindow.admin_combo_role = mainWindow.findChild(QComboBox, "admin_combo_role")
     mainWindow.admin_combo_tps = mainWindow.findChild(QComboBox, "admin_combo_tps")
+    #테스트버튼
+    mainWindow.admin_btn_test = mainWindow.findChild(QPushButton, "admin_btn_test")
+    mainWindow.admin_btn_test.clicked.connect(lambda: mainWindow.packetSender.testDataSender(mainWindow.socket))
     
     mainWindow.useredit_edit_id = mainWindow.findChild(QLineEdit, "useredit_edit_id")
     mainWindow.useredit_edit_name = mainWindow.findChild(QLineEdit, "useredit_edit_name")
