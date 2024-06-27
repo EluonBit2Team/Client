@@ -33,7 +33,7 @@ class CustomDelegate(QStyledItemDelegate):
         painter.save()
         messageSender = index.data(Qt.ItemDataRole.UserRole + 1)
 
-        if messageSender == "sent":
+        if messageSender == "me":
             option.displayAlignment = Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter
         else:
             option.displayAlignment = Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter
@@ -98,7 +98,6 @@ def updateDisplay(self, list, type, model):
                 item = QStandardItem(makeRow)
                 item.setData(json_data, Qt.UserRole)
                 model.appendRow(item)
-                
     elif type == "groupMemberList":
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
@@ -111,9 +110,45 @@ def updateDisplay(self, list, type, model):
             row = [name_column, id_column]
             model.appendRow(row) 
     elif type == "receivedChat":
-        item = QStandardItem(list)
-        item.setData(type, Qt.ItemDataRole.UserRole + 1)
-        model.appendRow(item)
+        print("receivedChat 진입함")
+        name = list['login_id']
+        message = list['text']
+        if self.userId == name:
+            sentUser = "me"
+        else:
+            sentUser = "other"
+        row_count = model.rowCount()
+        print(row_count)
+        if row_count<1:
+            item = QStandardItem(name)
+            item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+            model.appendRow(item)
+            
+            item = QStandardItem(message)
+            item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+            item.setData(list, Qt.UserRole)
+            model.appendRow(item)
+        else:
+            last_index = model.index(row_count - 1, 0)
+            last_item = model.itemFromIndex(last_index)
+            row_json_data = last_item.data(Qt.UserRole)
+            lastSender = row_json_data['login_id']
+            print("마지막에 보낸사람")
+            print(lastSender)
+            if lastSender == name:
+                item = QStandardItem(message)
+                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                item.setData(list, Qt.UserRole)
+                model.appendRow(item)
+            else:
+                item = QStandardItem(name)
+                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                model.appendRow(item)
+                
+                item = QStandardItem(message)
+                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                model.appendRow(item)
+        
         self.home_listview_chatlist.scrollToBottom()
 
 

@@ -9,22 +9,6 @@ from modules.ui_loadingsp import *
 class SendPacket:
     def __init__(self, main_window):
         self.main_window = main_window
-        
-    # def connectSocket(self, addr, port):
-    #     try:
-    #         print(self.main_window.socket)
-    #         self.main_window.socket = None
-    #         print(self.main_window.socket)
-    #         print(f"Connecting to {addr}:{port}")
-    #         self.main_window.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #         self.main_window.socket.settimeout(5)
-    #         self.main_window.socket.connect((addr, port))
-    #         print(self.main_window.socket)
-    #         self.main_window.socket.setblocking(False)
-    #         return True
-    #     except Exception as e:
-    #         print(f"An error occurred: {e}")
-    #         return False
     def connectSocket(self, addr, port):
         try:
             self.socket = None
@@ -54,10 +38,10 @@ class SendPacket:
         if self.socket == None:
             if not self.connectSocket(SERVER_ADDR, SERVER_PORT):
                 print("Socket connection failed.")
-                socket = self.main_window.socket
-                self.main_window.packetReceiver.running = True
-                self.main_window.start_receiving()
                 return False
+            socket = self.main_window.socket
+            self.main_window.packetReceiver.running = True
+            self.main_window.start_receiving()
         else:
             print("loginReq에서 else문")
             socket = self.socket
@@ -123,9 +107,15 @@ class SendPacket:
             print("소켓 종료됨")
         else:
             print("소켓이 이미 닫혔거나 유효하지 않습니다.")
+            
+        if self.main_window.socket == None:
+            if not self.connectSocket(SERVER_ADDR, SERVER_PORT):
+                print("Socket connection failed.")
+                return False
+            # self.socket = self.main_window.socket
+            self.main_window.packetReceiver.running = True
+            self.main_window.start_receiving()
         
-        # self.main_window.receive_thread.join()
-        # print("스레드종료")
 
         
     def signUpRequest(self, socket):
@@ -178,10 +168,7 @@ class SendPacket:
         
             if socket and msg:
                 socket.sendall(packet)
-            
-            print(packet)
-            self.main_window.updateMsgDisplay(msgText, "sent", self.main_window.chatListModel)
-            
+                
             return True
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -450,11 +437,12 @@ class SendPacket:
 
     
     def testDataSender(self, socket):
-        print("type: 11 보냄")
+        print("type: 14 보냄")
         try:
-            msg = {"type": 7,
-                   "groupname": "groupname1",
-                   "login_id":["login_id2", "login_id3", "login_id4"]}
+            msg = {
+                "type": 14,
+                "groupname": "groupname1" 
+            }
             packet = jsonParser(msg)
             if socket and msg:
                 socket.sendall(packet)

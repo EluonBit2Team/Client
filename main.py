@@ -164,7 +164,6 @@ class MainWindow(QMainWindow):
 
         self.useredit_treeview_userlist.setModel(self.userListModel)
 
-
         print(self.groupname)
 
         self.packetSender = SendPacket(self)
@@ -259,6 +258,8 @@ class MainWindow(QMainWindow):
         if btnName == "btn_home":
             widgets.stackedWidget.setCurrentWidget(widgets.home)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+            self.packetSender.reqUserList(self.socket)
+            self.packetSender.reqGroupList(self.socket)
 
         # SHOW ADMIN PAGE
         if btnName == "btn_admin":
@@ -306,10 +307,16 @@ class MainWindow(QMainWindow):
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
 
-    def groupClick(self, index, selectedrow):
-        item_text = index.data(Qt.DisplayRole)
-        selectedrow = item_text
-        print(selectedrow)
+    def groupClick(self, listname, index, selectedrow):
+        if listname == "useredit_treeview_userlist":
+            item_json = index.data(Qt.UserRole)
+            selectedrow = item_json
+            self.useredit_edit_id.setText(selectedrow['login_id'])
+        elif listname == "home_listview_chatgroup":
+            item_text = index.data(Qt.DisplayRole)
+            selectedrow = item_text
+            print(selectedrow)
+            
 
 
     # def updateDisplay(self, list, type, model):
@@ -352,6 +359,20 @@ class MainWindow(QMainWindow):
         # 로그인 요청 실행
         self.packetSender.loginRequest()
         
+        # # 로딩 GIF 보여주기
+        # self.loadingGif = LoadingGif()
+        # self.loadingGif.show()
+        # self.loadingGif.startAnimation()
+
+        # # 3초 후에 loginRequest 실행
+        # QTimer.singleShot(1500, self.executeLoginRequest)
+        
+    # def executeLoginRequest(self):
+    #     # 로그인 요청 실행
+    #     self.packetSender.loginRequest()
+
+    #     # 애니메이션 멈추기
+    #     self.loadingGif.stopAnimation()
 
     def signUpRequest(self):
         self.packetSender.signUpRequest(self.socket)
@@ -381,7 +402,6 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
