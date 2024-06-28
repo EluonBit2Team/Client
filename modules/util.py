@@ -25,6 +25,7 @@ TYPE_REQ_LIST = 8
 TYPE_ACCEPT_SIGNUP = 9
 TYPE_ACCEPT_GROUP = 10
 TYPE_EDIT_USERINFO = 13
+TYPE_LOG_REQ = 16
 TYPE_GROUPDELETE_REQ = 15
 
 
@@ -180,6 +181,18 @@ def getClickedRow(type, widget, model):
             string_data = item.data(Qt.DisplayRole)
         
         return string_data
+
+def updateStartTime(date):
+    # 선택한 날짜를 'yyyy-MM-dd HH:mm:ss.zzz' 형식으로 변환
+    start_time = date.toString("yyyy-MM-dd") + " 00:00:00.000"
+    
+    # end_time을 start_time 다음 날로 설정
+    end_date = date.addDays(1)
+    end_time = end_date.toString("yyyy-MM-dd") + " 00:00:00.000"
+    
+    print(f'start_time: {start_time}, end_time: {end_time}')
+    
+    return start_time, end_time
 
 def groupClick(self, listname, index, selectedrow):
     if listname == "useredit_treeview_userlist":

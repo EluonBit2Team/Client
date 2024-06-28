@@ -107,6 +107,7 @@ def initialize_widgets(mainWindow: QMainWindow):
 
     mainWindow.serverstate_btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
     
+    mainWindow.log_calendarwidget_cal.clicked.connect(lambda: mainWindow.packetSender.serverlogReq(mainWindow.socket))
 
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupname = None

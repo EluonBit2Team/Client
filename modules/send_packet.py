@@ -95,7 +95,6 @@ class SendPacket:
         self.main_window.ui.btn_home.hide()
         self.main_window.ui.btn_admin.hide()
         self.main_window.ui.btn_notice.hide()
-        self.main_window.ui.btn_grafana.hide()
         self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
         self.main_window.packetReceiver.running = False
         self.main_window.receive_thread.join()
@@ -391,33 +390,7 @@ class SendPacket:
                 print(f"An error occurred: {e}")
                 return False
         
-    # 그룹 삭제 요청
-    def groupdeleteReq(self, socket):
-        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
-        try:
-            msg = {
-                "type": TYPE_GROUPDELETE_REQ,
-                "groupname": groupname
-            }
-
-            if msg["groupname"]==None:
-                QMessageBox.warning(self.main_window, 'Warning', '그룹을 선택해주세요')
-                raise Exception('그룹을 선택해주세요')
-            packet = jsonParser(msg)
-
-            print("회원 삭제 packet")
-            print(packet)
-            
-            if socket and msg:
-                socket.sendall(packet)
-            print(msg)
-
-
-
-        except Exception as e:
-                print(f"An error occurred: {e}")
-                return False
-        
+  
     # 그룹 삭제 요청
     def groupdeleteReq(self, socket):
         groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
@@ -437,6 +410,29 @@ class SendPacket:
                 print(f"An error occurred: {e}")
                 return False
     
+    # 서버 로그 요청
+    def serverlogReq(self, socket):
+        # QCalendarWidget에서 선택된 날짜 가져오기
+        selected_date = self.main_window.log_calendarwidget_cal.selectedDate()
+    
+        # updateStartTime 함수를 호출하여 start_time과 end_time을 업데이트
+        start_time, end_time = updateStartTime(selected_date)
+        try:
+            msg = {
+                "type": TYPE_LOG_REQ,
+                "start_time": start_time,
+                "end_time": end_time
+            }
+            packet = jsonParser(msg)
+            print("서버 로그 요청 packet")
+            print(packet)
+            
+            if socket and msg:
+                socket.sendall(packet)
+
+        except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
     
 
     

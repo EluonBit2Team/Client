@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>4</number>
+                      <number>3</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -3481,27 +3481,6 @@ border: 1px solid #3498db;
                         <string>서버 로그 목록</string>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="log_btn_search">
-                       <property name="geometry">
-                        <rect>
-                         <x>564</x>
-                         <y>430</y>
-                         <width>381</width>
-                         <height>31</height>
-                        </rect>
-                       </property>
-                       <property name="cursor">
-                        <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
-border: 1px solid yellow;
-</string>
-                       </property>
-                       <property name="text">
-                        <string>검색</string>
-                       </property>
-                      </widget>
                       <widget class="QLabel" name="log_label_rightback">
                        <property name="geometry">
                         <rect>
@@ -3524,7 +3503,6 @@ border-radius: 10px;</string>
                       <zorder>log_treview_log</zorder>
                       <zorder>log_btn_back</zorder>
                       <zorder>log_label_title</zorder>
-                      <zorder>log_btn_search</zorder>
                       <zorder>log_calendarwidget_cal</zorder>
                      </widget>
                      <widget class="QWidget" name="serverstatepage">

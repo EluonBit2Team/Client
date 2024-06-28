@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainLbfVgS.ui'
+## Form generated from reading UI file 'mainDoIwty.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,7 +13,6 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -1801,13 +1800,6 @@ class Ui_MainWindow(object):
         self.log_label_title.setObjectName(u"log_label_title")
         self.log_label_title.setGeometry(QRect(40, 40, 141, 21))
         self.log_label_title.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
-        self.log_btn_search = QPushButton(self.serverlogpage)
-        self.log_btn_search.setObjectName(u"log_btn_search")
-        self.log_btn_search.setGeometry(QRect(564, 430, 381, 31))
-        self.log_btn_search.setCursor(QCursor(Qt.PointingHandCursor))
-        self.log_btn_search.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
-"border: 1px solid yellow;\n"
-"")
         self.log_label_rightback = QLabel(self.serverlogpage)
         self.log_label_rightback.setObjectName(u"log_label_rightback")
         self.log_label_rightback.setGeometry(QRect(550, 20, 411, 541))
@@ -1819,7 +1811,6 @@ class Ui_MainWindow(object):
         self.log_treview_log.raise_()
         self.log_btn_back.raise_()
         self.log_label_title.raise_()
-        self.log_btn_search.raise_()
         self.log_calendarwidget_cal.raise_()
         self.serverstatepage = QWidget()
         self.serverstatepage.setObjectName(u"serverstatepage")
@@ -2461,7 +2452,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2591,7 +2582,6 @@ class Ui_MainWindow(object):
         self.log_btn_back.setText("")
         self.log_label_leftback.setText("")
         self.log_label_title.setText(QCoreApplication.translate("MainWindow", u"\uc11c\ubc84 \ub85c\uadf8 \ubaa9\ub85d", None))
-        self.log_btn_search.setText(QCoreApplication.translate("MainWindow", u"\uac80\uc0c9", None))
         self.log_label_rightback.setText("")
         self.serverstate_label_back.setText("")
         self.serverstate_label_topback.setText("")
