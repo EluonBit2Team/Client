@@ -322,18 +322,6 @@ class MainWindow(QMainWindow):
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
 
-    def groupClick(self, listname, index, selectedrow):
-        if listname == "useredit_treeview_userlist":
-            item_json = index.data(Qt.UserRole)
-            selectedrow = item_json
-            self.useredit_edit_id.setText(selectedrow['login_id'])
-        elif listname == "home_listview_chatgroup":
-            item_text = index.data(Qt.DisplayRole)
-            selectedrow = item_text
-            print(selectedrow)
-            
-
-
     # def updateDisplay(self, list, type, model):
     #     print("updateDisplay 진입")
     #     if type == "grouplist":

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>images/images/user-profile.png</file>
     <file>images/images/loginmail.png</file>
     <file>images/images/logincall.png</file>
     <file>images/icons/cil-media-reverse.png</file>
@@ -21,7 +22,6 @@
     <file>images/images/스크린샷 2024-06-26 091000.png</file>
     <file>images/images/log-file.png</file>
     <file>images/images/qr-code-scan.png</file>
-    <file>images/images/user-profile.png</file>
     <file>images/images/eluonlogo_modified.png</file>
     <file>images/images/right.png</file>
     <file>images/images/left.png</file>
@@ -31,13 +31,10 @@
     <file>images/images/console.png</file>
     <file>images/images/addpeple2.png</file>
     <file>images/images/free-icon-qr-code-8766191.png</file>
-    <file>images/images/right.png</file>
     <file>images/images/free-icon-downward-arrow-2268476.png</file>
-    <file>images/images/user-profile.png</file>
     <file>images/images/free-icon-send-button-12439334.png</file>
     <file>images/images/LUON.png</file>
     <file>images/images/eluonlogo.png</file>
-    <file>images/images/user-profile.png</file>
     <file>images/images/console (1).png</file>
   </qresource>
   <qresource prefix="icons">
@@ -92,7 +89,6 @@
     <file>images/icons/cil-check-circle.png</file>
     <file>images/icons/cil-chevron-bottom.png</file>
     <file>images/icons/cil-chevron-circle-down-alt.png</file>
-    <file>images/icons/cil-chevron-circle-left-alt.png</file>
     <file>images/icons/cil-chevron-circle-right-alt.png</file>
     <file>images/icons/cil-chevron-circle-up-alt.png</file>
     <file>images/icons/cil-chevron-double-down.png</file>

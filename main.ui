@@ -1790,7 +1790,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>3</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">

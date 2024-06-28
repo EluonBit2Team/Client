@@ -94,16 +94,11 @@ class ReceivePacket():
         updateDisplay(self.main_window, groupMemberList, "groupMemberList", self.main_window.groupMember.groupMemberModel)
         updateDisplay(self.main_window, groupMemberList, "groupMemberList", self.main_window.memberAddDialog.treeview_right_model)
 
-    
     def receiveReqList(self, msg):
         signupList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("signup_req_list")
         groupReqList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("group_req_list")
         reqList = signupList + groupReqList
         print (reqList)
-        # if signupList:
-        #     updateDisplay(self.main_window, signupList, "signupList", self.main_window.adminReqListModel)
-        # elif groupReqList:
-        #     updateDisplay(self.main_window, groupReqList, "groupReqList", self.main_window.adminReqListModel)
         if reqList:
             updateDisplay(self.main_window, reqList, "reqList", self.main_window.adminReqListModel)
         else:
