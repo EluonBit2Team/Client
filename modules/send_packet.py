@@ -47,10 +47,6 @@ class SendPacket:
         print("loginRequest의 socket")
         print(self.socket)
         socket = self.socket
-        # socket = self.socket
-        # self.main_window.packetReceiver.running = True
-        # self.main_window.start_receiving()
-        
         self.loginId = self.main_window.login_input_id.text()
         loginPw = self.main_window.login_input_pw.text()
         
@@ -64,10 +60,9 @@ class SendPacket:
             }
             packet = jsonParser(msg)
             
-
             if socket and msg:
                 socket.sendall(packet)
-                
+            
             print("login 패킷")
             print(packet)
 
@@ -119,9 +114,7 @@ class SendPacket:
             # self.socket = self.main_window.socket
             self.main_window.packetReceiver.running = True
             self.main_window.start_receiving()
-        
-
-        
+    
     def signUpRequest(self, socket):
         self.signupId = self.main_window.signup_input_id.text()
         self.signupPw = self.main_window.signup_input_pw.text()
@@ -374,47 +367,6 @@ class SendPacket:
         pos = self.main_window.useredit_combo_position.currentText()
         role = self.main_window.useredit_combo_role.currentText()
         tps = self.main_window.useredit_combo_tps.currentText()
-        
-        # sortUserInfo(dept, "dept")
-        # sortUserInfo(pos, "pos")
-        # sortUserInfo(role, "role")
-        # sortUserInfo(tps, "tps")
-
-        # if role == "역할을 선택하세요.":
-        #     role = ""
-        # else:
-        #     role = int(role)
-
-        # if tps == "tps를 선택하세요.":
-        #     tps = ""
-        # else:
-        #     tps = int(tps)
-
-        # if dept == "부서를 선택하세요.":
-        #     dept = ""
-        # elif dept == "1팀":
-        #     dept = 1
-        # elif dept == "2팀":
-        #     dept = 2
-        # elif dept == "3팀":
-        #     dept = 3
-        # else:
-        #     dept = 4
-            
-        # if pos == "직급을 선택하세요.":
-        #     pos = ""
-        # elif pos == "회장":
-        #     pos = 1
-        # elif pos == "사장":
-        #     pos = 2
-        # elif pos == "차장":
-        #     pos = 3
-        # elif pos == "과장":
-        #     pos = 4
-        # elif pos == "대리":
-        #     pos = 5
-        # elif pos == "사원":
-        #     pos = 6
 
         try:
             msg = {
@@ -438,6 +390,8 @@ class SendPacket:
         except Exception as e:
                 print(f"An error occurred: {e}")
                 return False
+    
+    
 
     
     def testDataSender(self, socket):
