@@ -63,6 +63,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.serverstate_lineedit_mem = mainWindow.findChild(QLineEdit, "serverstate_lineedit_mem")
     mainWindow.serverstate_lineedit_numuser = mainWindow.findChild(QLineEdit, "serverstate_lineedit_numuser")
     mainWindow.serverstate_lineedit_packet = mainWindow.findChild(QLineEdit, "serverstate_lineedit_packet")
+    mainWindow.serverstate_btn_grafana = mainWindow.findChild(QPushButton, "serverstate_btn_grafana")
 
     mainWindow.useredit_edit_id = mainWindow.findChild(QLineEdit, "useredit_edit_id")
     mainWindow.useredit_edit_name = mainWindow.findChild(QLineEdit, "useredit_edit_name")
@@ -81,7 +82,6 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.btn_save = mainWindow.findChild(QPushButton, "btn_save")
     mainWindow.btn_notice = mainWindow.findChild(QPushButton, "btn_notice")
 
-    mainWindow.btn_grafana = mainWindow.findChild(QPushButton, "btn_grafana")
     mainWindow.admin_btn_reload = mainWindow.findChild(QPushButton, "admin_btn_reload")
 
 
@@ -96,6 +96,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_btn_food.clicked.connect(lambda: mainWindow.openDialog("FoodDialog"))
     mainWindow.admin_btn_accept.clicked.connect(lambda: mainWindow.packetSender.acceptReq(mainWindow.socket))
     mainWindow.admin_btn_reject.clicked.connect(lambda: mainWindow.packetSender.rejectReq(mainWindow.socket))
+    mainWindow.home_btn_groupdelete.clicked.connect(lambda: mainWindow.packetSender.groupdeleteReq(mainWindow.socket))
 
     mainWindow.useredit_treeview_userlist.clicked.connect(lambda index: groupClick(mainWindow, "useredit_treeview_userlist", index))
     mainWindow.useredit_btn_send.clicked.connect(lambda: mainWindow.packetSender.editUserReq(mainWindow.socket))
@@ -105,7 +106,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_add_member.clicked.connect(lambda: mainWindow.openDialog("MemberAddDialog"))
     mainWindow.home_listview_chatgroup.clicked.connect(lambda index: groupClick(mainWindow, "home_listview_chatgroup", index))
 
-    mainWindow.btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
+    mainWindow.serverstate_btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
     
 
 def initialize_variable(mainWindow: QMainWindow):

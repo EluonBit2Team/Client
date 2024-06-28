@@ -50,8 +50,8 @@ class SendPacket:
         self.loginId = self.main_window.login_input_id.text()
         loginPw = self.main_window.login_input_pw.text()
         
-        # self.loginId = "admin"
-        # loginPw = "admin"
+        self.loginId = "admin"
+        loginPw = "admin"
         try:
             msg = {
                 "type": TYPE_LOGIN,
@@ -392,17 +392,26 @@ class SendPacket:
         
     # 그룹 삭제 요청
     def groupdeleteReq(self, socket):
+        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
         try:
             msg = {
                 "type": TYPE_GROUPDELETE_REQ,
-                "groupname": "그룹이름"
+                "groupname": groupname
             }
+
+            if msg["groupname"]==None:
+                QMessageBox.warning(self.main_window, 'Warning', '그룹을 선택해주세요')
+                raise Exception('그룹을 선택해주세요')
             packet = jsonParser(msg)
+
             print("회원 삭제 packet")
             print(packet)
             
             if socket and msg:
                 socket.sendall(packet)
+            print(msg)
+
+
 
         except Exception as e:
                 print(f"An error occurred: {e}")
@@ -416,10 +425,8 @@ class SendPacket:
 
         try:
             msg = {
-                "type": TYPE_GROUP_CHAT_REQ,
-                "groupname": groupname,
-                "start_time": str_start_time,
-                "end_time": str_now
+                "type": TYPE_GROUPDELETE_REQ,
+                "groupname": groupname
             }
             
             packet = jsonParser(msg)
