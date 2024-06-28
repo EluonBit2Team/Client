@@ -298,7 +298,7 @@ class MainWindow(QMainWindow):
         if btnName == "admin_btn_useredit":
             print("admin_btn_useredit 후")
             widgets.stackedWidget.setCurrentWidget(widgets.infoeditpage)
-            self.packetSender.reqUserList(self.socket)
+            #self.packetSender.reqUserList(self.socket)
         if btnName == "useredit_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
 
