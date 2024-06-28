@@ -390,6 +390,42 @@ class SendPacket:
         except Exception as e:
                 print(f"An error occurred: {e}")
                 return False
+        
+    # 그룹 삭제 요청
+    def groupdeleteReq(self, socket):
+        try:
+            msg = {
+                "type": TYPE_GROUPDELETE_REQ,
+                "groupname": "그룹이름"
+            }
+            packet = jsonParser(msg)
+            print("회원 삭제 packet")
+            print(packet)
+            
+            if socket and msg:
+                socket.sendall(packet)
+
+        except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
+        
+    # 그룹 삭제 요청
+    def groupdeleteReq(self, socket):
+        try:
+            msg = {
+                "type": TYPE_GROUPDELETE_REQ,
+                "groupname": "그룹이름"
+            }
+            packet = jsonParser(msg)
+            print("회원 삭제 packet")
+            print(packet)
+            
+            if socket and msg:
+                socket.sendall(packet)
+
+        except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
     
     
 

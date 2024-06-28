@@ -38,6 +38,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_right = mainWindow.findChild(QPushButton, "home_btn_right")
     mainWindow.home_btn_left = mainWindow.findChild(QPushButton, "home_btn_left")
     mainWindow.home_btn_groupmemberlist = mainWindow.findChild(QPushButton, "home_btn_groupmemberlist")
+    mainWindow.home_btn_groupdelete = mainWindow.findChild(QPushButton, "home_btn_groupdelete")
 
     mainWindow.admin_btn_accept = mainWindow.findChild(QPushButton, "admin_btn_accept")
     mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")
@@ -51,6 +52,16 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_btn_log = mainWindow.findChild(QPushButton, "admin_btn_log")
     mainWindow.admin_btn_server = mainWindow.findChild(QPushButton, "admin_btn_server")
 
+    mainWindow.log_btn_back = mainWindow.findChild(QPushButton, "log_btn_back")
+    mainWindow.log_btn_search = mainWindow.findChild(QPushButton, "log_btn_search")
+    mainWindow.log_treview_log = mainWindow.findChild(QTreeView, "log_treview_log")
+    mainWindow.log_calendarwidget_cal = mainWindow.findChild(QCalendarWidget, "log_calendarwidget_cal")
+
+    mainWindow.serverstate_btn_reload = mainWindow.findChild(QPushButton, "serverstate_btn_reload")
+    mainWindow.serverstate_btn_back = mainWindow.findChild(QPushButton, "serverstate_btn_back")
+    mainWindow.serverstate_lineedit_mem = mainWindow.findChild(QLineEdit, "serverstate_lineedit_mem")
+    mainWindow.serverstate_lineedit_numuser = mainWindow.findChild(QLineEdit, "serverstate_lineedit_numuser")
+    mainWindow.serverstate_lineedit_packet = mainWindow.findChild(QLineEdit, "serverstate_lineedit_packet")
 
     mainWindow.useredit_edit_id = mainWindow.findChild(QLineEdit, "useredit_edit_id")
     mainWindow.useredit_edit_name = mainWindow.findChild(QLineEdit, "useredit_edit_name")

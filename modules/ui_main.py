@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainQQyjyS.ui'
+## Form generated from reading UI file 'mainKlKHRA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
+
 
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -1276,7 +1277,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);")
         self.home_btn_chatgroup = QPushButton(self.home)
         self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
-        self.home_btn_chatgroup.setGeometry(QRect(80, 170, 31, 24))
+        self.home_btn_chatgroup.setGeometry(QRect(57, 170, 31, 24))
         self.home_btn_chatgroup.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_chatgroup.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
 "border:none;\n"
@@ -1345,6 +1346,11 @@ class Ui_MainWindow(object):
         self.home_btn_groupmemberlist.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user.png);\n"
 "border:none;\n"
 "")
+        self.home_btn_groupdelete = QPushButton(self.home)
+        self.home_btn_groupdelete.setObjectName(u"home_btn_groupdelete")
+        self.home_btn_groupdelete.setGeometry(QRect(103, 170, 31, 24))
+        self.home_btn_groupdelete.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_groupdelete.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-unfollow.png);")
         self.stackedWidget.addWidget(self.home)
         self.adminpage = QWidget()
         self.adminpage.setObjectName(u"adminpage")
@@ -1666,7 +1672,22 @@ class Ui_MainWindow(object):
 "QPushButton#log_btn_search:pressed {\n"
 "    background-color: rgba(25, 25, 112, 1);\n"
 "}\n"
-"")
+"\n"
+"QPushButton#log_btn_back {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 15px;\n"
+"    padding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"QPushButton#log_btn_back:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#log_btn_back:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}")
         self.log_treview_log = QTreeView(self.serverlogpage)
         self.log_treview_log.setObjectName(u"log_treview_log")
         self.log_treview_log.setGeometry(QRect(40, 70, 481, 471))
@@ -1809,44 +1830,104 @@ class Ui_MainWindow(object):
         self.log_label_rightback.raise_()
         self.log_label_leftback.raise_()
         self.log_treview_log.raise_()
-        self.log_calendarwidget_cal.raise_()
         self.log_btn_back.raise_()
         self.log_label_title.raise_()
         self.log_btn_search.raise_()
+        self.log_calendarwidget_cal.raise_()
         self.serverstatepage = QWidget()
         self.serverstatepage.setObjectName(u"serverstatepage")
-        self.log_label_rightback_2 = QLabel(self.serverstatepage)
-        self.log_label_rightback_2.setObjectName(u"log_label_rightback_2")
-        self.log_label_rightback_2.setGeometry(QRect(20, 20, 941, 541))
-        self.log_label_rightback_2.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+        self.serverstatepage.setStyleSheet(u"QPushButton#serverstate_btn_reload {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 5px;\n"
+"    padding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton#serverstate_btn_reload:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#serverstate_btn_reload:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}\n"
+"\n"
+"QPushButton#serverstate_btn_back {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"    border-radius: 15px;\n"
+"    padding: 5px 10px;\n"
+"    color: white;\n"
+"}\n"
+"QPushButton#serverstate_btn_back:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#serverstate_btn_back:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}")
+        self.serverstate_label_back = QLabel(self.serverstatepage)
+        self.serverstate_label_back.setObjectName(u"serverstate_label_back")
+        self.serverstate_label_back.setGeometry(QRect(20, 20, 941, 541))
+        self.serverstate_label_back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
 "border-radius: 10px;")
-        self.label_2 = QLabel(self.serverstatepage)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(50, 60, 881, 101))
-        self.label_2.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+        self.serverstate_label_topback = QLabel(self.serverstatepage)
+        self.serverstate_label_topback.setObjectName(u"serverstate_label_topback")
+        self.serverstate_label_topback.setGeometry(QRect(50, 100, 881, 121))
+        self.serverstate_label_topback.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-radius: 10px;")
-        self.log_label_title_2 = QLabel(self.serverstatepage)
-        self.log_label_title_2.setObjectName(u"log_label_title_2")
-        self.log_label_title_2.setGeometry(QRect(68, 71, 111, 21))
-        self.log_label_title_2.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
-        self.label_3 = QLabel(self.serverstatepage)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(50, 180, 881, 101))
-        self.label_3.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+        self.serverstate_label_toptitle = QLabel(self.serverstatepage)
+        self.serverstate_label_toptitle.setObjectName(u"serverstate_label_toptitle")
+        self.serverstate_label_toptitle.setGeometry(QRect(68, 111, 111, 21))
+        self.serverstate_label_toptitle.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.serverstate_label_midback = QLabel(self.serverstatepage)
+        self.serverstate_label_midback.setObjectName(u"serverstate_label_midback")
+        self.serverstate_label_midback.setGeometry(QRect(50, 249, 881, 131))
+        self.serverstate_label_midback.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-radius: 10px;")
-        self.log_label_title_3 = QLabel(self.serverstatepage)
-        self.log_label_title_3.setObjectName(u"log_label_title_3")
-        self.log_label_title_3.setGeometry(QRect(68, 191, 111, 21))
-        self.log_label_title_3.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
-        self.label_4 = QLabel(self.serverstatepage)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(50, 300, 881, 101))
-        self.label_4.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+        self.serverstate_label_midtitle = QLabel(self.serverstatepage)
+        self.serverstate_label_midtitle.setObjectName(u"serverstate_label_midtitle")
+        self.serverstate_label_midtitle.setGeometry(QRect(68, 260, 181, 21))
+        self.serverstate_label_midtitle.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.serverstate_label_botback = QLabel(self.serverstatepage)
+        self.serverstate_label_botback.setObjectName(u"serverstate_label_botback")
+        self.serverstate_label_botback.setGeometry(QRect(50, 409, 881, 121))
+        self.serverstate_label_botback.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-radius: 10px;")
-        self.log_label_title_4 = QLabel(self.serverstatepage)
-        self.log_label_title_4.setObjectName(u"log_label_title_4")
-        self.log_label_title_4.setGeometry(QRect(68, 311, 111, 21))
-        self.log_label_title_4.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.serverstate_label_bottomtitle = QLabel(self.serverstatepage)
+        self.serverstate_label_bottomtitle.setObjectName(u"serverstate_label_bottomtitle")
+        self.serverstate_label_bottomtitle.setGeometry(QRect(68, 420, 231, 21))
+        self.serverstate_label_bottomtitle.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.serverstate_btn_back = QPushButton(self.serverstatepage)
+        self.serverstate_btn_back.setObjectName(u"serverstate_btn_back")
+        self.serverstate_btn_back.setGeometry(QRect(910, 40, 31, 31))
+        self.serverstate_btn_back.setCursor(QCursor(Qt.PointingHandCursor))
+        self.serverstate_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
+"border:none;\n"
+"")
+        self.serverstate_btn_reload = QPushButton(self.serverstatepage)
+        self.serverstate_btn_reload.setObjectName(u"serverstate_btn_reload")
+        self.serverstate_btn_reload.setGeometry(QRect(50, 40, 41, 31))
+        self.serverstate_btn_reload.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-reload.png);\n"
+"background-position: center; /* \uc774\ubbf8\uc9c0\uac00 \uac00\uc6b4\ub370 \uc624\ub3c4\ub85d \uc124\uc815 */\n"
+"background-repeat: no-repeat;\n"
+"width: 30px; /* \ubc84\ud2bc\uc758 \ub108\ube44 \uc9c0\uc815 */\n"
+"height: 30px; /* \ubc84\ud2bc\uc758 \ub192\uc774 \uc9c0\uc815 */\n"
+"")
+        self.serverstate_lineedit_mem = QLineEdit(self.serverstatepage)
+        self.serverstate_lineedit_mem.setObjectName(u"serverstate_lineedit_mem")
+        self.serverstate_lineedit_mem.setGeometry(QRect(69, 150, 841, 51))
+        self.serverstate_lineedit_numuser = QLineEdit(self.serverstatepage)
+        self.serverstate_lineedit_numuser.setObjectName(u"serverstate_lineedit_numuser")
+        self.serverstate_lineedit_numuser.setGeometry(QRect(70, 300, 841, 51))
+        self.serverstate_lineedit_packet = QLineEdit(self.serverstatepage)
+        self.serverstate_lineedit_packet.setObjectName(u"serverstate_lineedit_packet")
+        self.serverstate_lineedit_packet.setGeometry(QRect(70, 460, 841, 51))
         self.stackedWidget.addWidget(self.serverstatepage)
         self.qrlogin = QWidget()
         self.qrlogin.setObjectName(u"qrlogin")
@@ -2066,25 +2147,31 @@ class Ui_MainWindow(object):
         self.useredit_label_upline.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 150);")
         self.useredit_label_id = QLabel(self.infoeditpage)
         self.useredit_label_id.setObjectName(u"useredit_label_id")
-        self.useredit_label_id.setGeometry(QRect(488, 177, 51, 21))
+        self.useredit_label_id.setGeometry(QRect(488, 156, 51, 21))
         self.useredit_label_id.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.useredit_label_pw = QLabel(self.infoeditpage)
+        self.useredit_label_pw.setObjectName(u"useredit_label_pw")
+        self.useredit_label_pw.setGeometry(QRect(478, 196, 71, 31))
+        self.useredit_label_pw.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
         self.useredit_label_name = QLabel(self.infoeditpage)
         self.useredit_label_name.setObjectName(u"useredit_label_name")
-        self.useredit_label_name.setGeometry(QRect(495, 216, 41, 31))
+        self.useredit_label_name.setGeometry(QRect(495, 236, 41, 31))
         self.useredit_label_name.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
         self.useredit_label_phone = QLabel(self.infoeditpage)
         self.useredit_label_phone.setObjectName(u"useredit_label_phone")
-        self.useredit_label_phone.setGeometry(QRect(480, 256, 71, 31))
+        self.useredit_label_phone.setGeometry(QRect(480, 276, 71, 31))
         self.useredit_label_phone.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
         self.useredit_label_email = QLabel(self.infoeditpage)
         self.useredit_label_email.setObjectName(u"useredit_label_email")
-        self.useredit_label_email.setGeometry(QRect(487, 296, 51, 31))
+        self.useredit_label_email.setGeometry(QRect(487, 316, 51, 31))
         self.useredit_label_email.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
@@ -2117,9 +2204,17 @@ class Ui_MainWindow(object):
 "")
         self.useredit_edit_id = QLineEdit(self.infoeditpage)
         self.useredit_edit_id.setObjectName(u"useredit_edit_id")
-        self.useredit_edit_id.setEnabled(False)
-        self.useredit_edit_id.setGeometry(QRect(560, 165, 281, 41))
+        self.useredit_edit_id.setGeometry(QRect(560, 144, 281, 41))
         self.useredit_edit_id.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
+"border-top: none;\n"
+"border-right: none;\n"
+"border-left: none;\n"
+"font: 600 10pt \"Segoe UI Variable Small Semibol\";\n"
+"border-radius: none;")
+        self.useredit_edit_pw = QLineEdit(self.infoeditpage)
+        self.useredit_edit_pw.setObjectName(u"useredit_edit_pw")
+        self.useredit_edit_pw.setGeometry(QRect(560, 184, 281, 41))
+        self.useredit_edit_pw.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
 "border-top: none;\n"
 "border-right: none;\n"
 "border-left: none;\n"
@@ -2127,7 +2222,7 @@ class Ui_MainWindow(object):
 "border-radius: none;")
         self.useredit_edit_name = QLineEdit(self.infoeditpage)
         self.useredit_edit_name.setObjectName(u"useredit_edit_name")
-        self.useredit_edit_name.setGeometry(QRect(560, 204, 281, 41))
+        self.useredit_edit_name.setGeometry(QRect(560, 224, 281, 41))
         self.useredit_edit_name.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
 "border-top: none;\n"
 "border-right: none;\n"
@@ -2136,7 +2231,7 @@ class Ui_MainWindow(object):
 "border-radius: none;")
         self.useredit_edit_phone = QLineEdit(self.infoeditpage)
         self.useredit_edit_phone.setObjectName(u"useredit_edit_phone")
-        self.useredit_edit_phone.setGeometry(QRect(560, 244, 281, 41))
+        self.useredit_edit_phone.setGeometry(QRect(560, 264, 281, 41))
         self.useredit_edit_phone.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
 "border-top: none;\n"
 "border-right: none;\n"
@@ -2145,7 +2240,7 @@ class Ui_MainWindow(object):
 "border-radius: none;")
         self.useredit_edit_email = QLineEdit(self.infoeditpage)
         self.useredit_edit_email.setObjectName(u"useredit_edit_email")
-        self.useredit_edit_email.setGeometry(QRect(560, 284, 281, 41))
+        self.useredit_edit_email.setGeometry(QRect(560, 304, 281, 41))
         self.useredit_edit_email.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
 "border-top: none;\n"
 "border-right: none;\n"
@@ -2362,7 +2457,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2440,6 +2535,7 @@ class Ui_MainWindow(object):
         self.home_btn_right.setText("")
         self.home_btn_add_member.setText("")
         self.home_btn_groupmemberlist.setText("")
+        self.home_btn_groupdelete.setText("")
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
         self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))
@@ -2494,13 +2590,15 @@ class Ui_MainWindow(object):
         self.log_label_title.setText(QCoreApplication.translate("MainWindow", u"\uc11c\ubc84 \ub85c\uadf8 \ubaa9\ub85d", None))
         self.log_btn_search.setText(QCoreApplication.translate("MainWindow", u"\uac80\uc0c9", None))
         self.log_label_rightback.setText("")
-        self.log_label_rightback_2.setText("")
-        self.label_2.setText("")
-        self.log_label_title_2.setText(QCoreApplication.translate("MainWindow", u"Memory (\uba54\ubaa8\ub9ac)", None))
-        self.label_3.setText("")
-        self.log_label_title_3.setText(QCoreApplication.translate("MainWindow", u"Memory (\uba54\ubaa8\ub9ac)", None))
-        self.label_4.setText("")
-        self.log_label_title_4.setText(QCoreApplication.translate("MainWindow", u"Memory (\uba54\ubaa8\ub9ac)", None))
+        self.serverstate_label_back.setText("")
+        self.serverstate_label_topback.setText("")
+        self.serverstate_label_toptitle.setText(QCoreApplication.translate("MainWindow", u"Memory (\uba54\ubaa8\ub9ac)", None))
+        self.serverstate_label_midback.setText("")
+        self.serverstate_label_midtitle.setText(QCoreApplication.translate("MainWindow", u"Number of users (\uc0ac\uc6a9\uc790 \uc218)", None))
+        self.serverstate_label_botback.setText("")
+        self.serverstate_label_bottomtitle.setText(QCoreApplication.translate("MainWindow", u"Packets per minute (\ubd84\ub2f9 \ud328\ud0b7 \uc218)", None))
+        self.serverstate_btn_back.setText("")
+        self.serverstate_btn_reload.setText("")
         self.qrlogin_label_waiting.setText("")
         self.qrlogin_btn_back.setText("")
         self.qrlogin_label_back.setText("")
@@ -2519,6 +2617,7 @@ class Ui_MainWindow(object):
         self.useredit_label_title.setText("")
         self.useredit_label_upline.setText("")
         self.useredit_label_id.setText(QCoreApplication.translate("MainWindow", u"\uc544\uc774\ub514", None))
+        self.useredit_label_pw.setText(QCoreApplication.translate("MainWindow", u"\ube44\ubc00\ubc88\ud638", None))
         self.useredit_label_name.setText(QCoreApplication.translate("MainWindow", u"\uc774\ub984", None))
         self.useredit_label_phone.setText(QCoreApplication.translate("MainWindow", u"\ud734\ub300\uc804\ud654", None))
         self.useredit_label_email.setText(QCoreApplication.translate("MainWindow", u"\uc774\uba54\uc77c", None))
