@@ -72,7 +72,6 @@ class ReceivePacket():
         if userRole == 1:
             self.main_window.ui.btn_admin.show()
             self.main_window.ui.btn_notice.show()
-            self.main_window.ui.btn_grafana.show()
         #ishost
         # self.main_window.packetSender.reqAcceptList(self.main_window.socket)
         # self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)

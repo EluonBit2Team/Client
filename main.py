@@ -74,7 +74,6 @@ class MainWindow(QMainWindow):
         initialize_variable(self)
 
         # hide menu
-        self.btn_grafana.hide()
         self.btn_home.hide()
         self.btn_admin.hide()
         self.btn_notice.hide()
@@ -146,6 +145,7 @@ class MainWindow(QMainWindow):
             AppFunctions.setThemeHack(self)
 
         widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
+
         widgets.btn_home.setStyleSheet(
             UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
 
@@ -294,20 +294,26 @@ class MainWindow(QMainWindow):
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
         # SHOW USEREDIT PAGE
+        print("admin_btn_useredit 전")
         if btnName == "admin_btn_useredit":
+            print("admin_btn_useredit 후")
             widgets.stackedWidget.setCurrentWidget(widgets.infoeditpage)
             self.packetSender.reqUserList(self.socket)
         if btnName == "useredit_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
 
         # SHOW LOG PAGE
+        print("admin_btn_log 전")
         if btnName == "admin_btn_log":
+            print("admin_btn_log 후")
             widgets.stackedWidget.setCurrentWidget(widgets.serverlogpage)
         if btnName == "log_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
 
         # SHOW SERVER PAGE
+        print("admin_btn_server 전")
         if btnName == "admin_btn_server":
+            print("admin_btn_server 후")
             widgets.stackedWidget.setCurrentWidget(widgets.serverstatepage)
         if btnName == "serverstate_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
@@ -318,41 +324,6 @@ class MainWindow(QMainWindow):
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
-
-    # def updateDisplay(self, list, type, model):
-    #     print("updateDisplay 진입")
-    #     if type == "grouplist":
-    #         for i in list:
-    #             item = QStandardItem(i['groupname'])
-    #             model.appendRow(item)
-    #     elif type == "userlist":
-    #         for json_data in list:
-    #             makeRow = json_data['dept_name'] + ' ' + \
-    #                 json_data['position_name'] + ' ' + json_data['name']
-    #             name_column = QStandardItem(makeRow)
-    #             id_column = QStandardItem(json_data["login_id"])
-    #             name_column.setData(json_data, Qt.UserRole)
-    #             row = [name_column, id_column]
-    #             model.appendRow(row)
-    #     elif type == "signupList":
-    #         for json_data in list:
-    #             makeRow = json_data['login_id'] + ' ' + \
-    #                 json_data['name'] + ' ' + json_data['phone'] + ' ' + json_data['email']
-    #             item = QStandardItem(makeRow)
-    #             item.setData(json_data, Qt.UserRole)
-    #             model.appendRow(item)
-    #     elif type == "groupReqList":
-    #         for json_data in list:
-    #             makeRow = json_data['group_name'] + ' ' + json_data['memo']
-    #             item = QStandardItem(makeRow)
-    #             item.setData(json_data, Qt.UserRole)
-    #             model.appendRow(item)
-    #     elif (type == "sent") or (type == "received"):
-    #         item = QStandardItem(list)
-    #         item.setData(type, Qt.ItemDataRole.UserRole + 1)
-    #         model.appendRow(item)
-    #         self.home_listview_chatlist.scrollToBottom()
-        
 
     def loginRequest(self):
 

@@ -74,9 +74,13 @@ def updateDisplay(self, list, type, model):
             item = QStandardItem(i['groupname'])
             model.appendRow(item)
     elif type == "userlist":
+        print("userlist 진입")
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
+        print("userlist for문 진입 전")
         for json_data in list:
+            print("userlist for문 진입 후")
+            print(json_data)
             makeRow = json_data['dept_name'] + ' ' + \
                 json_data['position_name'] + ' ' + json_data['name']
             name_column = QStandardItem(makeRow)
@@ -85,10 +89,12 @@ def updateDisplay(self, list, type, model):
             row = [name_column, id_column]
             model.appendRow(row)
     elif type == "reqList":
+        print("reqList 진입")
         signup_type = 'login_id'
         group_type = 'group_name'
         model.clear()
         for json_data in list:
+            print("reqList for문 진입")
             if signup_type in json_data:
                 makeRow = "회원가입요청     || " + json_data['login_id'] + ' ' + \
                     json_data['name'] + ' ' + json_data['phone'] + ' ' + json_data['email']
@@ -101,9 +107,11 @@ def updateDisplay(self, list, type, model):
                 item.setData(json_data, Qt.UserRole)
                 model.appendRow(item)
     elif type == "groupMemberList":
+        print("groupMemberList 진입")
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
         for json_data in list:
+            print("groupMemberList for문 진입")
             makeRow = json_data['dept_name'] + ' ' + \
                 json_data['position_name'] + ' ' + json_data['name']
             name_column = QStandardItem(makeRow)
@@ -112,6 +120,7 @@ def updateDisplay(self, list, type, model):
             row = [name_column, id_column]
             model.appendRow(row) 
     elif type == "receivedChat":
+        
         print("receivedChat 진입함")
         name = list['login_id']
         message = list['text']

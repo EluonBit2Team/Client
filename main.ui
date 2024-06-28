@@ -837,40 +837,6 @@ height: 42px;</string>
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="QPushButton" name="btn_grafana">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                    <pointsize>10</pointsize>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-image: url(:/icons/images/icons/cil-chart-line.png);
-height: 45px</string>
-                  </property>
-                  <property name="text">
-                   <string>Grafana Dashboard</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
                  <widget class="QPushButton" name="btn_home">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -1790,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>7</number>
+                      <number>4</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -3567,9 +3533,11 @@ border-radius: 10px;</string>
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    padding: 5px 10px;
     color: white;
+	border-right: none;
+	border-top: none;
+	border-left: none;
+	
 }
 
 
@@ -3586,7 +3554,6 @@ QPushButton#serverstate_btn_back {
     border-width: 1px;
     border-color: rgb(255, 255, 255);
     border-radius: 15px;
-    padding: 5px 10px;
     color: white;
 }
 QPushButton#serverstate_btn_back:hover {
@@ -3594,6 +3561,26 @@ QPushButton#serverstate_btn_back:hover {
 }
 
 QPushButton#serverstate_btn_back:pressed {
+    background-color: rgba(25, 25, 112, 1);
+}
+
+QPushButton#serverstate_btn_grafana {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+	border-right: none;
+	border-top: none;
+	border-left: none;
+
+    color: white;
+}
+
+
+QPushButton#serverstate_btn_grafana:hover {
+    background-color: rgba(70, 130, 180, 1);
+}
+
+QPushButton#serverstate_btn_grafana:pressed {
     background-color: rgba(25, 25, 112, 1);
 }</string>
                       </property>
@@ -3785,6 +3772,27 @@ height: 30px; /* 버튼의 높이 지정 */
                          <width>841</width>
                          <height>51</height>
                         </rect>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="serverstate_btn_grafana">
+                       <property name="geometry">
+                        <rect>
+                         <x>110</x>
+                         <y>40</y>
+                         <width>41</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/icons/images/icons/cil-chart-line.png);
+background-position: center; /* 이미지가 가운데 오도록 설정 */
+background-repeat: no-repeat;
+width: 30px; /* 버튼의 너비 지정 */
+height: 30px; /* 버튼의 높이 지정 */
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
                        </property>
                       </widget>
                      </widget>

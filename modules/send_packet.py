@@ -420,10 +420,11 @@ class SendPacket:
         
     # 그룹 삭제 요청
     def groupdeleteReq(self, socket):
+        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
         try:
             msg = {
                 "type": TYPE_GROUPDELETE_REQ,
-                "groupname": "그룹이름"
+                "groupname": groupname
             }
             packet = jsonParser(msg)
             print("회원 삭제 packet")

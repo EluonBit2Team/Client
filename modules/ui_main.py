@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maintGQUCD.ui'
+## Form generated from reading UI file 'mainLbfVgS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -650,18 +650,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.btn_grafana = QPushButton(self.topMenu)
-        self.btn_grafana.setObjectName(u"btn_grafana")
-        sizePolicy1.setHeightForWidth(self.btn_grafana.sizePolicy().hasHeightForWidth())
-        self.btn_grafana.setSizePolicy(sizePolicy1)
-        self.btn_grafana.setMinimumSize(QSize(0, 45))
-        self.btn_grafana.setFont(font)
-        self.btn_grafana.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_grafana.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-chart-line.png);\n"
-"height: 45px")
-
-        self.verticalLayout_8.addWidget(self.btn_grafana)
-
         self.btn_home = QPushButton(self.topMenu)
         self.btn_home.setObjectName(u"btn_home")
         sizePolicy1.setHeightForWidth(self.btn_home.sizePolicy().hasHeightForWidth())
@@ -1839,9 +1827,11 @@ class Ui_MainWindow(object):
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
-"    border-radius: 5px;\n"
-"    padding: 5px 10px;\n"
 "    color: white;\n"
+"	border-right: none;\n"
+"	border-top: none;\n"
+"	border-left: none;\n"
+"	\n"
 "}\n"
 "\n"
 "\n"
@@ -1858,7 +1848,6 @@ class Ui_MainWindow(object):
 "    border-width: 1px;\n"
 "    border-color: rgb(255, 255, 255);\n"
 "    border-radius: 15px;\n"
-"    padding: 5px 10px;\n"
 "    color: white;\n"
 "}\n"
 "QPushButton#serverstate_btn_back:hover {\n"
@@ -1866,6 +1855,27 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QPushButton#serverstate_btn_back:pressed {\n"
+"    background-color: rgba(25, 25, 112, 1);\n"
+"}\n"
+"\n"
+"QPushButton#serverstate_btn_grafana {\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(255, 255, 255);\n"
+"	border-ri"
+                        "ght: none;\n"
+"	border-top: none;\n"
+"	border-left: none;\n"
+"\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton#serverstate_btn_grafana:hover {\n"
+"    background-color: rgba(70, 130, 180, 1);\n"
+"}\n"
+"\n"
+"QPushButton#serverstate_btn_grafana:pressed {\n"
 "    background-color: rgba(25, 25, 112, 1);\n"
 "}")
         self.serverstate_label_back = QLabel(self.serverstatepage)
@@ -1927,6 +1937,15 @@ class Ui_MainWindow(object):
         self.serverstate_lineedit_packet = QLineEdit(self.serverstatepage)
         self.serverstate_lineedit_packet.setObjectName(u"serverstate_lineedit_packet")
         self.serverstate_lineedit_packet.setGeometry(QRect(70, 460, 841, 51))
+        self.serverstate_btn_grafana = QPushButton(self.serverstatepage)
+        self.serverstate_btn_grafana.setObjectName(u"serverstate_btn_grafana")
+        self.serverstate_btn_grafana.setGeometry(QRect(110, 40, 41, 31))
+        self.serverstate_btn_grafana.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-chart-line.png);\n"
+"background-position: center; /* \uc774\ubbf8\uc9c0\uac00 \uac00\uc6b4\ub370 \uc624\ub3c4\ub85d \uc124\uc815 */\n"
+"background-repeat: no-repeat;\n"
+"width: 30px; /* \ubc84\ud2bc\uc758 \ub108\ube44 \uc9c0\uc815 */\n"
+"height: 30px; /* \ubc84\ud2bc\uc758 \ub192\uc774 \uc9c0\uc815 */\n"
+"")
         self.stackedWidget.addWidget(self.serverstatepage)
         self.qrlogin = QWidget()
         self.qrlogin.setObjectName(u"qrlogin")
@@ -2442,7 +2461,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(7)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2452,7 +2471,6 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.titleLeftApp.setText("")
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
-        self.btn_grafana.setText(QCoreApplication.translate("MainWindow", u"Grafana Dashboard", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Chat", None))
         self.btn_admin.setText(QCoreApplication.translate("MainWindow", u"Manager", None))
         self.btn_login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
@@ -2584,6 +2602,7 @@ class Ui_MainWindow(object):
         self.serverstate_label_bottomtitle.setText(QCoreApplication.translate("MainWindow", u"Packets per minute (\ubd84\ub2f9 \ud328\ud0b7 \uc218)", None))
         self.serverstate_btn_back.setText("")
         self.serverstate_btn_reload.setText("")
+        self.serverstate_btn_grafana.setText("")
         self.qrlogin_label_waiting.setText("")
         self.qrlogin_btn_back.setText("")
         self.qrlogin_label_back.setText("")
