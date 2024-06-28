@@ -199,6 +199,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
                 
                 item = QStandardItem(message)
                 item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                item.setData(json_data, Qt.UserRole)
                 model.appendRow(item)
         
         mainWindow.home_listview_chatlist.scrollToBottom()
