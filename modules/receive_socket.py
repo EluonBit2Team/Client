@@ -2,6 +2,7 @@ import json
 import struct
 import select
 import threading
+from datetime import datetime
 from collections import OrderedDict
 from PySide6.QtWidgets import QMessageBox
 from modules.util import *
@@ -24,9 +25,9 @@ class ReceivePacket():
                         data = self.sock.recv(4096)
                         if data:
                             buffer += data
-                            print("---------RAW DATA---------")
+                            print("-------받은 RAW DATA--------")
                             print(data)
-                            print("--------------------------")
+                            print("---------------------------")
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
                                 if len(buffer) >= msg_length - 4:
@@ -79,7 +80,12 @@ class ReceivePacket():
         
     def receiveMassage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
-        updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
+        recvGroupName = json.loads(msg.decode('utf-8')).get("groupname")
+        if recvGroupName == self.main_window.nowGroupName:
+            updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
+        else:
+            pass
+        
     
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8')).get("users")
@@ -103,6 +109,14 @@ class ReceivePacket():
             updateDisplay(self.main_window, reqList, "reqList", self.main_window.adminReqListModel)
         else:
             self.main_window.adminReqListModel.clear()
+    
+    def receiveGroupChat(self, msg):
+        receivedMessage = json.loads(msg.decode('utf-8'))
+        recvGroupName = receivedMessage.get("groupname")
+        if recvGroupName == self.main_window.nowGroupName:
+            updateDisplay(self.main_window, receivedMessage.get("chatlog"), "clickedGroup", self.main_window.chatListModel)
+        
+        
             
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
@@ -123,6 +137,8 @@ class ReceivePacket():
             self.receiveGroupMember(msg)
         elif jsonType == TYPE_REQ_LIST:
             self.receiveReqList(msg)
+        elif jsonType == TYPE_GROUP_CHAT_REQ:
+            self.receiveGroupChat(msg)
         else:
             print("jsonType이 None입니다.")
             print("--------- RAW DATA ---------")

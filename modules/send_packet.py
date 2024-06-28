@@ -1,10 +1,10 @@
 import json
 import struct
 import socket
+from datetime import datetime, timedelta
 from PySide6.QtWidgets import QMessageBox
 from modules.util import *
 from main import *
-from modules.ui_loadingsp import *
 
 class SendPacket:
     def __init__(self, main_window):
@@ -111,7 +111,6 @@ class SendPacket:
             if not self.connectSocket(SERVER_ADDR, SERVER_PORT):
                 print("Socket connection failed.")
                 return False
-            # self.socket = self.main_window.socket
             self.main_window.packetReceiver.running = True
             self.main_window.start_receiving()
     
@@ -408,16 +407,23 @@ class SendPacket:
         except Exception as e:
                 print(f"An error occurred: {e}")
                 return False
-        
-    # 그룹 삭제 요청
-    def groupdeleteReq(self, socket):
+    
+    def reqGroupChat(self, socket):
+        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+        str_now = datetime.now().isoformat().replace('T', ' ')
+        start_time = datetime.now() - timedelta(days=3)
+        str_start_time = start_time.isoformat().replace('T', ' ')
+
         try:
             msg = {
-                "type": TYPE_GROUPDELETE_REQ,
-                "groupname": "그룹이름"
+                "type": TYPE_GROUP_CHAT_REQ,
+                "groupname": groupname,
+                "start_time": str_start_time,
+                "end_time": str_now
             }
+            
             packet = jsonParser(msg)
-            print("회원 삭제 packet")
+            print("그룹 채팅기록 요청")
             print(packet)
             
             if socket and msg:
@@ -427,8 +433,6 @@ class SendPacket:
                 print(f"An error occurred: {e}")
                 return False
     
-    
-
     
     def testDataSender(self, socket):
         print("type: 14 보냄")
