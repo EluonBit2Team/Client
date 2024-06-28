@@ -312,9 +312,6 @@ class MainWindow(QMainWindow):
         if btnName == "serverstate_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
             
-        
-
-
         if btnName == "btn_exit":
             self.packetSender.testDataSender(self.socket)
        

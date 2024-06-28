@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainKlKHRA.ui'
+## Form generated from reading UI file 'maintGQUCD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
 
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -2147,14 +2146,8 @@ class Ui_MainWindow(object):
         self.useredit_label_upline.setStyleSheet(u"border-bottom:2px solid rgba(255, 255, 255, 150);")
         self.useredit_label_id = QLabel(self.infoeditpage)
         self.useredit_label_id.setObjectName(u"useredit_label_id")
-        self.useredit_label_id.setGeometry(QRect(488, 156, 51, 21))
+        self.useredit_label_id.setGeometry(QRect(488, 199, 51, 21))
         self.useredit_label_id.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
-"background-position: centered;\n"
-"background-repeat: no-repeat;")
-        self.useredit_label_pw = QLabel(self.infoeditpage)
-        self.useredit_label_pw.setObjectName(u"useredit_label_pw")
-        self.useredit_label_pw.setGeometry(QRect(478, 196, 71, 31))
-        self.useredit_label_pw.setStyleSheet(u"font: 600 12pt \"Segoe UI Variable Small Semibol\";\n"
 "background-position: centered;\n"
 "background-repeat: no-repeat;")
         self.useredit_label_name = QLabel(self.infoeditpage)
@@ -2204,17 +2197,9 @@ class Ui_MainWindow(object):
 "")
         self.useredit_edit_id = QLineEdit(self.infoeditpage)
         self.useredit_edit_id.setObjectName(u"useredit_edit_id")
-        self.useredit_edit_id.setGeometry(QRect(560, 144, 281, 41))
+        self.useredit_edit_id.setEnabled(False)
+        self.useredit_edit_id.setGeometry(QRect(560, 187, 281, 41))
         self.useredit_edit_id.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
-"border-top: none;\n"
-"border-right: none;\n"
-"border-left: none;\n"
-"font: 600 10pt \"Segoe UI Variable Small Semibol\";\n"
-"border-radius: none;")
-        self.useredit_edit_pw = QLineEdit(self.infoeditpage)
-        self.useredit_edit_pw.setObjectName(u"useredit_edit_pw")
-        self.useredit_edit_pw.setGeometry(QRect(560, 184, 281, 41))
-        self.useredit_edit_pw.setStyleSheet(u"border-bottom:1px solid rgba(255, 255, 255, 120);\n"
 "border-top: none;\n"
 "border-right: none;\n"
 "border-left: none;\n"
@@ -2457,7 +2442,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(7)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2617,7 +2602,6 @@ class Ui_MainWindow(object):
         self.useredit_label_title.setText("")
         self.useredit_label_upline.setText("")
         self.useredit_label_id.setText(QCoreApplication.translate("MainWindow", u"\uc544\uc774\ub514", None))
-        self.useredit_label_pw.setText(QCoreApplication.translate("MainWindow", u"\ube44\ubc00\ubc88\ud638", None))
         self.useredit_label_name.setText(QCoreApplication.translate("MainWindow", u"\uc774\ub984", None))
         self.useredit_label_phone.setText(QCoreApplication.translate("MainWindow", u"\ud734\ub300\uc804\ud654", None))
         self.useredit_label_email.setText(QCoreApplication.translate("MainWindow", u"\uc774\uba54\uc77c", None))
