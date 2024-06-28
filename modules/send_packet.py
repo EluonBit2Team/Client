@@ -50,8 +50,8 @@ class SendPacket:
         self.loginId = self.main_window.login_input_id.text()
         loginPw = self.main_window.login_input_pw.text()
         
-        self.loginId = "admin"
-        loginPw = "admin"
+        # self.loginId = "id02"
+        # loginPw = "id02"
         try:
             msg = {
                 "type": TYPE_LOGIN,
@@ -95,7 +95,6 @@ class SendPacket:
         self.main_window.ui.btn_home.hide()
         self.main_window.ui.btn_admin.hide()
         self.main_window.ui.btn_notice.hide()
-        self.main_window.ui.btn_grafana.hide()
         self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
         self.main_window.packetReceiver.running = False
         self.main_window.receive_thread.join()
@@ -392,6 +391,7 @@ class SendPacket:
         
     # 그룹 삭제 요청
     def groupdeleteReq(self, socket):
+        print("그룹삭제요청")
         groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
         try:
             msg = {
@@ -403,21 +403,16 @@ class SendPacket:
                 QMessageBox.warning(self.main_window, 'Warning', '그룹을 선택해주세요')
                 raise Exception('그룹을 선택해주세요')
             packet = jsonParser(msg)
-
-            print("회원 삭제 packet")
-            print(packet)
             
             if socket and msg:
                 socket.sendall(packet)
             print(msg)
-
-
-
         except Exception as e:
                 print(f"An error occurred: {e}")
                 return False
     
     def reqGroupChat(self, socket):
+        print("reqGroupChat의 socket")
         groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
         str_now = datetime.now().isoformat().replace('T', ' ')
         start_time = datetime.now() - timedelta(days=3)
@@ -425,8 +420,10 @@ class SendPacket:
 
         try:
             msg = {
-                "type": TYPE_GROUPDELETE_REQ,
-                "groupname": groupname
+                "type": TYPE_GROUP_CHAT_REQ,
+                "groupname": groupname,
+                "start_time": str_start_time,
+                "end_time": str_now
             }
             
             packet = jsonParser(msg)

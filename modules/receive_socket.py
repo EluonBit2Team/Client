@@ -115,8 +115,6 @@ class ReceivePacket():
         if recvGroupName == self.main_window.nowGroupName:
             updateDisplay(self.main_window, receivedMessage.get("chatlog"), "clickedGroup", self.main_window.chatListModel)
         
-        
-            
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
         print(errorMsg)
