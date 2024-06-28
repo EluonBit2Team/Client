@@ -138,7 +138,7 @@ class ReceivePacket():
             self.receiveGroupChat(msg)
         else:
             print("jsonType이 None입니다.")
-            print("--------- RAW DATA ---------")
+            print("------NoneType RAW DATA ------")
             print(msg)
-            print("----------------------------")
+            print("------------------------------")
             
