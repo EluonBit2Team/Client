@@ -28,7 +28,7 @@ TYPE_EDIT_USERINFO = 13
 TYPE_GROUP_CHAT_REQ = 14
 TYPE_LOG_REQ = 16
 TYPE_GROUPDELETE_REQ = 15
-
+TYPE_REALTIME_REQ = 17
 
 class CustomDelegate(QStyledItemDelegate):
     # def init
@@ -177,6 +177,13 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
                 model.appendRow(row)
             else:
                 print("Error: 'uptime' or 'downtime' key not found in", json_data)
+
+    elif type in ["realtimememList", "realtimeloginList", "realtimetpsList"]:
+        model.clear()
+        for json_data in data_list:
+           item = QStandardItem(str(json_data))
+           model.appendRow(item)
+
 
 
     elif type == "receivedChat":

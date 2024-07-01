@@ -118,7 +118,7 @@ class ReceivePacket():
         if recvGroupName == self.main_window.nowGroupName:
             updateDisplay(self.main_window, receivedMessage.get("chatlog"), "clickedGroup", self.main_window.chatListModel)
         
-    
+    # 로그
     def receiveReqLogList(self, msg):
         print("receiveReqLogList 진입")
         serverLogList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("server_log_list")
@@ -127,6 +127,38 @@ class ReceivePacket():
             updateDisplay(self.main_window, serverLogList, "serverLogList", self.main_window.logReqListModel)
         else:
             self.main_window.logReqListModel.clear()
+    
+    # 실시간
+    def receiveReqRealtime(self, msg):
+        try:
+            print("receiveReqRealtime 진입")
+            decoded_msg = msg.decode('utf-8')
+            parsed_json = json.loads(decoded_msg, object_pairs_hook=OrderedDict)
+
+            realtimememList = parsed_json.get("mem")
+            realtimeloginList = parsed_json.get("login_user_cnt")
+            realtimetpsList = parsed_json.get("tps")
+
+            print(f"realtimememList: {realtimememList}")
+            print(f"realtimeloginList: {realtimeloginList}")
+            print(f"realtimetpsList: {realtimetpsList}")
+
+            if realtimememList is not None:
+                print("if문 realtimememList 진입")
+                updateDisplay(self.main_window, [realtimememList], "realtimememList", self.main_window.realtimememListModel)
+            if realtimeloginList is not None:
+                print("if문 realtimeloginList 진입")
+                updateDisplay(self.main_window, [realtimeloginList], "realtimeloginList", self.main_window.realtimeloginListModel)
+            if realtimetpsList is not None:
+                print("if문 realtimetpsList 진입")
+                updateDisplay(self.main_window, [realtimetpsList], "realtimetpsList", self.main_window.realtimetpsListModel)
+            if realtimememList is None and realtimeloginList is None and realtimetpsList is None:
+                print("else문 진입 - 모든 모델을 클리어합니다.")
+                self.main_window.realtimememListModel.clear()
+                self.main_window.realtimeloginListModel.clear()
+                self.main_window.realtimetpsListModel.clear()
+        except Exception as e:
+            print(f"예외 발생: {e}")
 
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
@@ -151,6 +183,8 @@ class ReceivePacket():
             self.receiveGroupChat(msg)
         elif jsonType == TYPE_LOG_REQ:
             self.receiveReqLogList(msg)
+        elif jsonType == TYPE_REALTIME_REQ:
+            self.receiveReqRealtime(msg)
         else:
             print("jsonType이 None입니다.")
             print("------NoneType RAW DATA ------")

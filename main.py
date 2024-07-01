@@ -164,6 +164,15 @@ class MainWindow(QMainWindow):
         self.logReqListModel = QStandardItemModel(self.log_treview_log)
         self.log_treview_log.setModel(self.logReqListModel)
 
+        self.realtimememListModel = QStandardItemModel(self.serverstate_listview_mem)
+        self.serverstate_listview_mem.setModel(self.realtimememListModel)
+
+        self.realtimeloginListModel = QStandardItemModel(self.serverstate_listview_numuser)
+        self.serverstate_listview_numuser.setModel(self.realtimeloginListModel)
+
+        self.realtimetpsListModel = QStandardItemModel(self.serverstate_listview_packet)
+        self.serverstate_listview_packet.setModel(self.realtimetpsListModel)
+
         self.userListModel = QStandardItemModel(self.home_treeview_userlist)
         self.home_treeview_userlist.setModel(self.userListModel)
         self.userListModel.setHorizontalHeaderLabels(["이름", "아이디"])
