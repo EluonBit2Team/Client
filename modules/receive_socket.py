@@ -7,11 +7,13 @@ from PySide6.QtWidgets import QMessageBox
 from modules.util import *
 from modules.send_packet import *
 
+
 class ReceivePacket():
     def __init__(self, main_window):
         self.main_window = main_window
         self.receivedPacket = 0
         self.running = True
+        
 
     def receiveData(self, socket):
         self.sock = socket
@@ -105,7 +107,7 @@ class ReceivePacket():
     
     def receiveReqLogList(self, msg):
         print("receiveReqLogList 진입")
-        serverLogList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("log_req_list")
+        serverLogList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("server_log_list")
         if serverLogList:
             print("if문 serverLogList 진입")
             updateDisplay(self.main_window, serverLogList, "serverLogList", self.main_window.logReqListModel)

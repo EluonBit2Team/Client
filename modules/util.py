@@ -122,17 +122,28 @@ def updateDisplay(self, list, type, model):
             model.appendRow(row) 
     elif type == "serverLogList":
         print("serverLogList 진입")
-        print(list)
         model.clear()
-        model.setHorizontalHeaderLabels(["날짜", "시간"])
+        model.setHorizontalHeaderLabels(["날짜", "UP TIME", "DOWN TIME"])
         for json_data in list:
-            makeRow = json_data['uptime'] + ' ' + \
-                json_data['downtime']
-            name_column = QStandardItem(makeRow)
-            id_column = QStandardItem(json_data["server_log_list"])
-            name_column.setData(json_data, Qt.UserRole)
-            row = [name_column, id_column]
-            model.appendRow(row)
+                print("for문 진입")
+                if 'uptime' in json_data and 'downtime' in json_data:
+                    print("if문 진입")
+                    uptime = json_data['uptime']
+                    downtime = json_data['downtime']
+                    
+                    date_column = QStandardItem(uptime.split(' ')[0])  # 날짜 부분만 추출
+                    uptime_column = QStandardItem(uptime)
+                    downtime_column = QStandardItem(downtime)
+                    
+                    date_column.setData(json_data, Qt.UserRole)
+                    
+                    row = [date_column, uptime_column, downtime_column]
+                     
+                    model.appendRow(row)
+                else:
+                    print("Error: 'uptime' or 'downtime' key not found in", json_data)
+
+
     elif type == "receivedChat":
         
         print("receivedChat 진입함")
