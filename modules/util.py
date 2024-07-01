@@ -120,6 +120,19 @@ def updateDisplay(self, list, type, model):
             name_column.setData(json_data, Qt.UserRole)
             row = [name_column, id_column]
             model.appendRow(row) 
+    elif type == "serverLogList":
+        print("serverLogList 진입")
+        print(list)
+        model.clear()
+        model.setHorizontalHeaderLabels(["날짜", "시간"])
+        for json_data in list:
+            makeRow = json_data['uptime'] + ' ' + \
+                json_data['downtime']
+            name_column = QStandardItem(makeRow)
+            id_column = QStandardItem(json_data["server_log_list"])
+            name_column.setData(json_data, Qt.UserRole)
+            row = [name_column, id_column]
+            model.appendRow(row)
     elif type == "receivedChat":
         
         print("receivedChat 진입함")

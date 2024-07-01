@@ -414,9 +414,10 @@ class SendPacket:
     def serverlogReq(self, socket):
         # QCalendarWidget에서 선택된 날짜 가져오기
         selected_date = self.main_window.log_calendarwidget_cal.selectedDate()
-    
+
         # updateStartTime 함수를 호출하여 start_time과 end_time을 업데이트
         start_time, end_time = updateStartTime(selected_date)
+
         try:
             msg = {
                 "type": TYPE_LOG_REQ,

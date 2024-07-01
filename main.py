@@ -161,6 +161,9 @@ class MainWindow(QMainWindow):
         self.adminReqListModel = QStandardItemModel(self.admin_listView_status)
         self.admin_listView_status.setModel(self.adminReqListModel)
 
+        self.logReqListModel = QStandardItemModel(self.log_treview_log)
+        self.log_treview_log.setModel(self.logReqListModel)
+
         self.userListModel = QStandardItemModel(self.home_treeview_userlist)
         self.home_treeview_userlist.setModel(self.userListModel)
         self.userListModel.setHorizontalHeaderLabels(["이름", "아이디"])

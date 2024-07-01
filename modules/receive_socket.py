@@ -102,7 +102,16 @@ class ReceivePacket():
             updateDisplay(self.main_window, reqList, "reqList", self.main_window.adminReqListModel)
         else:
             self.main_window.adminReqListModel.clear()
-            
+    
+    def receiveReqLogList(self, msg):
+        print("receiveReqLogList 진입")
+        serverLogList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("log_req_list")
+        if serverLogList:
+            print("if문 serverLogList 진입")
+            updateDisplay(self.main_window, serverLogList, "serverLogList", self.main_window.logReqListModel)
+        else:
+            self.main_window.logReqListModel.clear()
+
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
         print(errorMsg)
@@ -122,9 +131,12 @@ class ReceivePacket():
             self.receiveGroupMember(msg)
         elif jsonType == TYPE_REQ_LIST:
             self.receiveReqList(msg)
+        elif jsonType == TYPE_LOG_REQ:
+            self.receiveReqLogList(msg)
         else:
             print("jsonType이 None입니다.")
             print("--------- RAW DATA ---------")
             print(msg)
             print("----------------------------")
-            
+    
+    
