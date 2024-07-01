@@ -197,6 +197,29 @@ class SendPacket:
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
+    
+    def reqGroupChat(self, socket):
+        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+        str_now = datetime.now().isoformat().replace('T', ' ')
+        start_time = datetime.now() - timedelta(days=3)
+        str_start_time = start_time.isoformat().replace('T', ' ')
+        try:
+            msg = {
+                "type": TYPE_GROUP_CHAT_REQ,
+                "groupname": groupname,
+                "start_time": str_start_time,
+                "end_time": str_now
+            }
+            
+            packet = jsonParser(msg)
+            print("그룹 채팅기록 요청")
+            print(packet)
+            
+            if socket and msg:
+                socket.sendall(packet)
+        except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
         
     def sendEditedMember(self, socket):
         groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
