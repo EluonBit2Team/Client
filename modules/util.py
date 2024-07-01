@@ -75,6 +75,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
         for i in data_list:
             item = QStandardItem(i['groupname'])
             model.appendRow(item)
+    
     elif type == "userlist":
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
@@ -160,24 +161,22 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
         print("serverLogList 진입")
         model.clear()
         model.setHorizontalHeaderLabels(["날짜", "UP TIME", "DOWN TIME"])
-        for json_data in list:
-                print("for문 진입")
-                if 'uptime' in json_data and 'downtime' in json_data:
-                    print("if문 진입")
-                    uptime = json_data['uptime']
-                    downtime = json_data['downtime']
+        for json_data in data_list:
+            if 'uptime' in json_data and 'downtime' in json_data:
+                uptime = json_data['uptime']
+                downtime = json_data['downtime']
+                
+                date_column = QStandardItem(uptime.split(' ')[0])  # 날짜 부분만 추출
+                uptime_column = QStandardItem(uptime)
+                downtime_column = QStandardItem(downtime)
+                
+                date_column.setData(json_data, Qt.UserRole)
+                
+                row = [date_column, uptime_column, downtime_column]
                     
-                    date_column = QStandardItem(uptime.split(' ')[0])  # 날짜 부분만 추출
-                    uptime_column = QStandardItem(uptime)
-                    downtime_column = QStandardItem(downtime)
-                    
-                    date_column.setData(json_data, Qt.UserRole)
-                    
-                    row = [date_column, uptime_column, downtime_column]
-                     
-                    model.appendRow(row)
-                else:
-                    print("Error: 'uptime' or 'downtime' key not found in", json_data)
+                model.appendRow(row)
+            else:
+                print("Error: 'uptime' or 'downtime' key not found in", json_data)
 
 
     elif type == "receivedChat":
