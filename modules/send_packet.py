@@ -149,9 +149,11 @@ class SendPacket:
     def sendMsg(self, socket):
         print("sendMsg 진입함")
         msgText = self.main_window.home_lineedit_chatlist_send.text()
-        print(msgText)
         userId = self.main_window.userId
         groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+        print("userId = " + userId)
+        print("groupname = " + groupname)
+        print("msgText = " + msgText)
         
         try:
             msg = {"type": TYPE_MESSAGE,
@@ -159,10 +161,16 @@ class SendPacket:
                    "groupname": groupname,
                    "text": msgText}
             
+            print("msg")
+            print(msg)
+            
             packet = jsonParser(msg)
         
             if socket and msg:
                 socket.sendall(packet)
+                
+            print(packet)
+            print("전송완료")
                 
             return True
         except Exception as e:

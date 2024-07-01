@@ -114,6 +114,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             row = [name_column, id_column]
             model.appendRow(row)
     elif type == "clickedGroup":
+        print("clickedgroup 진입")
         model.clear()
         for json_data in data_list:
             name = json_data['login_id']
@@ -123,7 +124,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             else:
                 sentUser = "other"
             row_count = model.rowCount()
-            if row_count<1:
+            if row_count<2:
                 item = QStandardItem(name)
                 item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
                 model.appendRow(item)
@@ -151,12 +152,15 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
                     item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
                     item.setData(json_data, Qt.UserRole)
                     model.appendRow(item)
-            
-            mainWindow.home_listview_chatlist.scrollToBottom()
+        
+        mainWindow.home_listview_chatlist.scrollToBottom
     
     elif type == "receivedChat":
+        print("receivedChat 진입")
         name = data_list['login_id']
+        print('login_id = ' + name)
         message = data_list['text']
+        print('text = ' + message)
         if mainWindow.userId == name:
             sentUser = "me"
         else:
@@ -172,6 +176,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             item.setData(data_list, Qt.UserRole)
             model.appendRow(item)
         else:
+            print("else문 들어감")
             last_index = model.index(row_count - 1, 0)
             last_item = model.itemFromIndex(last_index)
             row_json_data = last_item.data(Qt.UserRole)
@@ -191,7 +196,9 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
                 item.setData(data_list, Qt.UserRole)
                 model.appendRow(item)
         
-        mainWindow.home_listview_chatlist.scrollToBottom()
+        mainWindow.home_listview_chatlist.scrollToBottom
+    
+    
 
 def getClickedRow(type, widget, model):
     if type == "json":

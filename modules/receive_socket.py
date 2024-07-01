@@ -83,7 +83,8 @@ class ReceivePacket():
         if recvGroupName == self.main_window.nowGroupName:
             updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
         else:
-            pass
+            print("잘못된 그룹")
+            return False
         
     
     def receiveUserList(self, msg):
