@@ -114,10 +114,8 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             row = [name_column, id_column]
             model.appendRow(row)
     elif type == "clickedGroup":
-        print(data_list)
         model.clear()
         for json_data in data_list:
-            print(json_data)
             name = json_data['login_id']
             message = json_data['text']
             if mainWindow.userId == name:
@@ -125,7 +123,6 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             else:
                 sentUser = "other"
             row_count = model.rowCount()
-            print(row_count)
             if row_count<1:
                 item = QStandardItem(name)
                 item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
@@ -136,16 +133,10 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
                 item.setData(json_data, Qt.UserRole)
                 model.appendRow(item)
             else:
-                print("updaeDisplay -> clickedGroup -> else")
                 last_index = model.index(row_count - 1, 0)
-                print("updaeDisplay -> clickedGroup -> else -> last_index")
                 last_item = model.itemFromIndex(last_index)
-                print("updaeDisplay -> clickedGroup -> else -> last_item")
                 row_json_data = last_item.data(Qt.UserRole)
-                print("updaeDisplay -> clickedGroup -> else -> row_json_data")
-                print(row_json_data)
                 lastSender = row_json_data['login_id']
-                print(lastSender)
                 if lastSender == name:
                     item = QStandardItem(message)
                     item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
@@ -171,7 +162,6 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
         else:
             sentUser = "other"
         row_count = model.rowCount()
-        print(row_count)
         if row_count<1:
             item = QStandardItem(name)
             item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
@@ -186,7 +176,6 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             last_item = model.itemFromIndex(last_index)
             row_json_data = last_item.data(Qt.UserRole)
             lastSender = row_json_data['login_id']
-            print(lastSender)
             if lastSender == name:
                 item = QStandardItem(message)
                 item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
@@ -199,6 +188,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
                 
                 item = QStandardItem(message)
                 item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                item.setData(data_list, Qt.UserRole)
                 model.appendRow(item)
         
         mainWindow.home_listview_chatlist.scrollToBottom()

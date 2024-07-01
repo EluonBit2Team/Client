@@ -412,7 +412,6 @@ class SendPacket:
                 return False
     
     def reqGroupChat(self, socket):
-        print("reqGroupChat의 socket")
         groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
         str_now = datetime.now().isoformat().replace('T', ' ')
         start_time = datetime.now() - timedelta(days=3)
