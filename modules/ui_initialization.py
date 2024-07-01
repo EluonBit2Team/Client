@@ -1,3 +1,4 @@
+from modules.util import *
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -97,13 +98,13 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_btn_reject.clicked.connect(lambda: mainWindow.packetSender.rejectReq(mainWindow.socket))
     mainWindow.home_btn_groupdelete.clicked.connect(lambda: mainWindow.packetSender.groupdeleteReq(mainWindow.socket))
 
-    # mainWindow.useredit_treeview_userlist.clicked.connect(lambda index: mainWindow.groupClick("useredit_treeview_userlist", index, mainWindow.groupname))
+    mainWindow.useredit_treeview_userlist.clicked.connect(lambda index: groupClick(mainWindow, "useredit_treeview_userlist", index))
     mainWindow.useredit_btn_send.clicked.connect(lambda: mainWindow.packetSender.editUserReq(mainWindow.socket))
     
     mainWindow.home_btn_groupmemberlist.clicked.connect(lambda: mainWindow.openDialog("GroupMemberListDialog"))
     mainWindow.home_btn_chatgroup.clicked.connect(lambda: mainWindow.openDialog("GroupAddDialog"))
     mainWindow.home_btn_add_member.clicked.connect(lambda: mainWindow.openDialog("MemberAddDialog"))
-    # mainWindow.home_listview_chatgroup.clicked.connect(lambda index: mainWindow.groupClick("home_listview_chatgroup", index, mainWindow.groupname))
+    mainWindow.home_listview_chatgroup.clicked.connect(lambda index: groupClick(mainWindow, "home_listview_chatgroup", index))
 
     mainWindow.serverstate_btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
     
@@ -111,6 +112,7 @@ def initialize_widgets(mainWindow: QMainWindow):
 
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupname = None
+    mainWindow.nowGroupName = None
     mainWindow.groupList = []
     mainWindow.userList = []
     mainWindow.groupMemberList = []

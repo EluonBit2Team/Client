@@ -297,26 +297,20 @@ class MainWindow(QMainWindow):
            # btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
         # SHOW USEREDIT PAGE
-        print("admin_btn_useredit 전")
         if btnName == "admin_btn_useredit":
-            print("admin_btn_useredit 후")
             widgets.stackedWidget.setCurrentWidget(widgets.infoeditpage)
             #self.packetSender.reqUserList(self.socket)
         if btnName == "useredit_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
 
         # SHOW LOG PAGE
-        print("admin_btn_log 전")
         if btnName == "admin_btn_log":
-            print("admin_btn_log 후")
             widgets.stackedWidget.setCurrentWidget(widgets.serverlogpage)
         if btnName == "log_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
 
         # SHOW SERVER PAGE
-        print("admin_btn_server 전")
         if btnName == "admin_btn_server":
-            print("admin_btn_server 후")
             widgets.stackedWidget.setCurrentWidget(widgets.serverstatepage)
         if btnName == "serverstate_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)

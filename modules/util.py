@@ -25,6 +25,7 @@ TYPE_REQ_LIST = 8
 TYPE_ACCEPT_SIGNUP = 9
 TYPE_ACCEPT_GROUP = 10
 TYPE_EDIT_USERINFO = 13
+TYPE_GROUP_CHAT_REQ = 14
 TYPE_LOG_REQ = 16
 TYPE_GROUPDELETE_REQ = 15
 
@@ -41,7 +42,7 @@ class CustomDelegate(QStyledItemDelegate):
             option.displayAlignment = Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter
 
         text = index.data(Qt.ItemDataRole.DisplayRole)
-        painter.drawText(option.rect, option.displayAlignment, text)
+        painter.drawText(option.rect, option.displayAlignment, '  ' + text + '  ')
         painter.restore()
     
 # class util:
@@ -67,20 +68,17 @@ def connectionErrorEvent():
 def connectionSuccessEvent():
     QMessageBox.information(None, "Success", "연결 성공")
 
-def updateDisplay(self, list, type, model):
+def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
     print("updateDisplay 진입")
     if type == "grouplist":
         model.clear()
-        for i in list:
+        for i in data_list:
             item = QStandardItem(i['groupname'])
             model.appendRow(item)
     elif type == "userlist":
-        print("userlist 진입")
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
-        print("userlist for문 진입 전")
-        for json_data in list:
-            print("userlist for문 진입 후")
+        for json_data in data_list:
             print(json_data)
             makeRow = json_data['dept_name'] + ' ' + \
                 json_data['position_name'] + ' ' + json_data['name']
@@ -90,12 +88,10 @@ def updateDisplay(self, list, type, model):
             row = [name_column, id_column]
             model.appendRow(row)
     elif type == "reqList":
-        print("reqList 진입")
         signup_type = 'login_id'
         group_type = 'group_name'
         model.clear()
-        for json_data in list:
-            print("reqList for문 진입")
+        for json_data in data_list:
             if signup_type in json_data:
                 makeRow = "회원가입요청     || " + json_data['login_id'] + ' ' + \
                     json_data['name'] + ' ' + json_data['phone'] + ' ' + json_data['email']
@@ -108,18 +104,59 @@ def updateDisplay(self, list, type, model):
                 item.setData(json_data, Qt.UserRole)
                 model.appendRow(item)
     elif type == "groupMemberList":
-        print("groupMemberList 진입")
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
-        for json_data in list:
-            print("groupMemberList for문 진입")
+        for json_data in data_list:
             makeRow = json_data['dept_name'] + ' ' + \
                 json_data['position_name'] + ' ' + json_data['name']
             name_column = QStandardItem(makeRow)
             id_column = QStandardItem(json_data["login_id"])
             name_column.setData(json_data, Qt.UserRole)
             row = [name_column, id_column]
-            model.appendRow(row) 
+            model.appendRow(row)
+    elif type == "clickedGroup":
+        model.clear()
+        for json_data in data_list:
+            name = json_data['login_id']
+            message = json_data['text']
+            if mainWindow.userId == name:
+                sentUser = "me"
+            else:
+                sentUser = "other"
+            row_count = model.rowCount()
+            if row_count<1:
+                item = QStandardItem(name)
+                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                model.appendRow(item)
+                
+                item = QStandardItem(message)
+                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                item.setData(json_data, Qt.UserRole)
+                model.appendRow(item)
+            else:
+                last_index = model.index(row_count - 1, 0)
+                last_item = model.itemFromIndex(last_index)
+                row_json_data = last_item.data(Qt.UserRole)
+                lastSender = row_json_data['login_id']
+                if lastSender == name:
+                    item = QStandardItem(message)
+                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                    item.setData(json_data, Qt.UserRole)
+                    model.appendRow(item)
+                else:
+                    item = QStandardItem(name)
+                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                    model.appendRow(item)
+                    
+                    item = QStandardItem(message)
+                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                    item.setData(json_data, Qt.UserRole)
+                    model.appendRow(item)
+                
+                mainWindow.home_listview_chatlist.scrollToBottom()
+            
+            mainWindow.home_listview_chatlist.scrollToBottom()
+    
     elif type == "serverLogList":
         print("serverLogList 진입")
         model.clear()
@@ -145,16 +182,16 @@ def updateDisplay(self, list, type, model):
 
 
     elif type == "receivedChat":
-        
-        print("receivedChat 진입함")
-        name = list['login_id']
-        message = list['text']
-        if self.userId == name:
+        name = data_list['login_id']
+        message = data_list['text']
+        print("now my id: " + mainWindow.userId)
+        print("received massage id: " + name)
+        if mainWindow.userId == name:
             sentUser = "me"
         else:
             sentUser = "other"
+        print("sentUser: " + sentUser)
         row_count = model.rowCount()
-        print(row_count)
         if row_count<1:
             item = QStandardItem(name)
             item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
@@ -162,19 +199,19 @@ def updateDisplay(self, list, type, model):
             
             item = QStandardItem(message)
             item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-            item.setData(list, Qt.UserRole)
+            item.setData(data_list, Qt.UserRole)
             model.appendRow(item)
         else:
+            print("row_count가 2 이상이라 else로 넘어감")
             last_index = model.index(row_count - 1, 0)
             last_item = model.itemFromIndex(last_index)
             row_json_data = last_item.data(Qt.UserRole)
             lastSender = row_json_data['login_id']
-            print("마지막에 보낸사람")
-            print(lastSender)
             if lastSender == name:
+                print("lastSender == name")
                 item = QStandardItem(message)
                 item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                item.setData(list, Qt.UserRole)
+                item.setData(data_list, Qt.UserRole)
                 model.appendRow(item)
             else:
                 item = QStandardItem(name)
@@ -183,9 +220,12 @@ def updateDisplay(self, list, type, model):
                 
                 item = QStandardItem(message)
                 item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                item.setData(data_list, Qt.UserRole)
                 model.appendRow(item)
+            
+            mainWindow.home_listview_chatlist.scrollToBottom()
         
-        self.home_listview_chatlist.scrollToBottom()
+        mainWindow.home_listview_chatlist.scrollToBottom()
 
 def getClickedRow(type, widget, model):
     if type == "json":
@@ -218,15 +258,15 @@ def updateStartTime(date):
     
     return start_time, end_time
 
-def groupClick(self, listname, index, selectedrow):
+def groupClick(mainWindow: QMainWindow, listname, index):
     if listname == "useredit_treeview_userlist":
         item_json = index.data(Qt.UserRole)
-        selectedrow = item_json
-        self.useredit_edit_id.setText(selectedrow['login_id'])
+        mainWindow.useredit_edit_id.setText(item_json['login_id'])
     elif listname == "home_listview_chatgroup":
         item_text = index.data(Qt.DisplayRole)
-        selectedrow = item_text
-        print(selectedrow)
+        mainWindow.nowGroupName = item_text
+        mainWindow.packetSender.reqGroupChat(mainWindow.socket)
+        print(item_text)
 
 def sortUserInfo(var, name):
     if name == "dept":
@@ -268,6 +308,9 @@ def sortUserInfo(var, name):
             return 999
         else:
             return int(var)
+        
+    
+    
 
 # class AnimationClass:
 #     def __init__(self, main_window):
