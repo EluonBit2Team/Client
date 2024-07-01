@@ -50,8 +50,8 @@ class SendPacket:
         self.loginId = self.main_window.login_input_id.text()
         loginPw = self.main_window.login_input_pw.text()
         
-        # self.loginId = "id02"
-        # loginPw = "id02"
+        self.loginId = "id05"
+        loginPw = "id05"
         try:
             msg = {
                 "type": TYPE_LOGIN,
