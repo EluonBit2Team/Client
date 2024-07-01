@@ -114,10 +114,8 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             row = [name_column, id_column]
             model.appendRow(row)
     elif type == "clickedGroup":
-        print(data_list)
         model.clear()
         for json_data in data_list:
-            print(json_data)
             name = json_data['login_id']
             message = json_data['text']
             if mainWindow.userId == name:
@@ -138,9 +136,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
                 last_index = model.index(row_count - 1, 0)
                 last_item = model.itemFromIndex(last_index)
                 row_json_data = last_item.data(Qt.UserRole)
-                print(row_json_data)
                 lastSender = row_json_data['login_id']
-                print(lastSender)
                 if lastSender == name:
                     item = QStandardItem(message)
                     item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
@@ -186,8 +182,6 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             last_item = model.itemFromIndex(last_index)
             row_json_data = last_item.data(Qt.UserRole)
             lastSender = row_json_data['login_id']
-            print(lastSender)
-            print(data_list)
             if lastSender == name:
                 print("lastSender == name")
                 item = QStandardItem(message)
