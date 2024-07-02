@@ -107,7 +107,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_listview_chatgroup.clicked.connect(lambda index: groupClick(mainWindow, "home_listview_chatgroup", index))
 
     mainWindow.serverstate_btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
-    mainWindow.serverstate_btn_reload.clicked.connect(lambda: mainWindow.packetSender.start_realtime_requests(mainWindow.socket))
+    mainWindow.serverstate_btn_reload.clicked.connect(mainWindow.statusthread)
 
     mainWindow.log_calendarwidget_cal.clicked.connect(lambda: mainWindow.packetSender.serverlogReq(mainWindow.socket))
 

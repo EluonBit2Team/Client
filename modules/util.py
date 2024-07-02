@@ -5,7 +5,7 @@ from modules import *
 from widgets import *
 from collections import OrderedDict
 from PySide6.QtWidgets import QMainWindow
-
+import threading
 
 SERVER_ADDR = "192.168.0.253"
 # SERVER_ADDR = "127.0.0.1"
@@ -417,7 +417,9 @@ def animateTransitionBack(self, currentPage, nextPage, onFinished):
 
     # 애니메이션 그룹 시작
     self.animationGroup.start()
-    
+
+
+
 
 
     

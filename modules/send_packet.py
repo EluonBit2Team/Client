@@ -6,15 +6,15 @@ from PySide6.QtWidgets import QMessageBox
 from modules.util import *
 from main import *
 import threading
-
+request_thread = None
+stop_thread_flag = False
+import time
 class SendPacket:
+    
     def __init__(self, main_window):
         self.main_window = main_window
-        
-        # 실시간 상태 추적 플래그
-        self.stop_event = threading.Event()
-        self.is_running = False
-        
+
+
     def connectSocket(self, addr, port):
         try:
             self.socket = None
@@ -56,8 +56,8 @@ class SendPacket:
         self.loginId = self.main_window.login_input_id.text()
         loginPw = self.main_window.login_input_pw.text()
         
-        self.loginId = "admin"
-        loginPw = "admin"
+        self.loginId = "id05"
+        loginPw = "id05"
         try:
             msg = {
                 "type": TYPE_LOGIN,
@@ -479,44 +479,28 @@ class SendPacket:
                 return False
     
     # 서버 실시간 상태 요청
-    def serverrealtimeReq(self, socket):
-        try:
-            msg = {
-                "type": TYPE_REALTIME_REQ,
-            }
-            packet = jsonParser(msg)
-            print("서버 실시간 상태 요청 packet")
-            print(packet)
-            
-            if socket and msg:
-                socket.sendall(packet)
+    def serverrealtimeReq(self, socket, interval):
+        print("서버로그 스레드 시작")
+        self.stop_thread_flag = True
+        while self.stop_thread_flag:
+            try:
+                msg = {
+                    "type": TYPE_REALTIME_REQ,
+                }
+                packet = jsonParser(msg)
+                print("서버 실시간 상태 요청 packet")
+                print(packet)
+                
+                if socket and msg:
+                    socket.sendall(packet)
 
-        except Exception as e:
+            except Exception as e:
                 print(f"An error occurred: {e}")
+                self.stop_thread_flag = False
                 return False
-        
-    # 서버 실시간 상태 요청 (10초마다 한번씩 요청 보내기 함수)
-    def start_realtime_requests(self, socket, interval=10):
-        if self.is_running:
-            self.stop_realtime_requests()
-        else:
-            self.is_running = True
-            self.stop_event.clear()
-
-            def request_wrapper():
-                if not self.stop_event.is_set():
-                    print("10초 실시간")
-                    self.serverrealtimeReq(socket)
-                    threading.Timer(interval, request_wrapper).start()
             
-            request_wrapper()
-            
-    # 스레드 종료
-    def stop_realtime_requests(self):
-        self.is_running = False
-        self.stop_event.set()
-        print("쓰레드 종료")
-        
+            time.sleep(interval)
+      
     def testDataSender(self, socket):
         print("type: 14 보냄")
         try:
