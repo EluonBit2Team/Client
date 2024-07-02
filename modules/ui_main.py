@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainDoIwty.ui'
+## Form generated from reading UI file 'mainBnAPbm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,6 +13,7 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
@@ -1337,6 +1338,22 @@ class Ui_MainWindow(object):
         self.home_btn_groupdelete.setGeometry(QRect(103, 170, 31, 24))
         self.home_btn_groupdelete.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_groupdelete.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-unfollow.png);")
+        self.home_btn_search_chat = QPushButton(self.home)
+        self.home_btn_search_chat.setObjectName(u"home_btn_search_chat")
+        self.home_btn_search_chat.setGeometry(QRect(832, 34, 31, 24))
+        self.home_btn_search_chat.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_search_chat.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-find-in-page.png);\n"
+"border:none;\n"
+"\n"
+"")
+        self.home_btn_return_chat = QPushButton(self.home)
+        self.home_btn_return_chat.setObjectName(u"home_btn_return_chat")
+        self.home_btn_return_chat.setGeometry(QRect(540, 490, 31, 24))
+        self.home_btn_return_chat.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_return_chat.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-action-undo.png);\n"
+"border:none;\n"
+"\n"
+"")
         self.stackedWidget.addWidget(self.home)
         self.adminpage = QWidget()
         self.adminpage.setObjectName(u"adminpage")
@@ -2452,7 +2469,7 @@ class Ui_MainWindow(object):
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
         self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2530,6 +2547,8 @@ class Ui_MainWindow(object):
         self.home_btn_add_member.setText("")
         self.home_btn_groupmemberlist.setText("")
         self.home_btn_groupdelete.setText("")
+        self.home_btn_search_chat.setText("")
+        self.home_btn_return_chat.setText("")
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
         self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))

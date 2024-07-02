@@ -33,8 +33,9 @@ class ReceivePacket():
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
                                 if len(buffer) >= msg_length - 4:
-                                    json_msg = buffer[4:4 + msg_length]
-                                    buffer = buffer[4 + msg_length:]
+                                    json_msg = buffer[4:msg_length]
+                                    buffer = buffer[msg_length:]
+                                    
                                     json_type = json.loads(json_msg).get("type")
                                     self.receivedType(json_type, json_msg)
                                 else:
@@ -72,12 +73,9 @@ class ReceivePacket():
         self.main_window.ui.btn_login.hide()
         print("lself.main_window.ui.btn_login.hide() 성공")
         
-        if userRole == 1:
-            self.main_window.ui.btn_admin.show()
-            self.main_window.ui.btn_notice.show()
-        #ishost
-        # self.main_window.packetSender.reqAcceptList(self.main_window.socket)
-        # self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
+        # if userRole == 1:
+        #     self.main_window.ui.btn_admin.show()
+        #     self.main_window.ui.btn_notice.show()
         
     def receiveMassage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
@@ -151,6 +149,7 @@ class ReceivePacket():
             self.receiveGroupChat(msg)
         elif jsonType == TYPE_LOG_REQ:
             self.receiveReqLogList(msg)
+        # elfi jsonType == 
         else:
             print("jsonType이 None입니다.")
             print("------NoneType RAW DATA ------")

@@ -41,17 +41,15 @@ class SendPacket:
             self.main_window.packetReceiver.running = True
             self.main_window.start_receiving()
         else:
-            print("loginReq에서 else문")
             socket = self.socket
-        
-        print("loginRequest의 socket")
+            
         print(self.socket)
         socket = self.socket
         self.loginId = self.main_window.login_input_id.text()
         loginPw = self.main_window.login_input_pw.text()
         
-        self.loginId = "id05"
-        loginPw = "id05"
+        self.loginId = "admin"
+        loginPw = "admin"
         try:
             msg = {
                 "type": TYPE_LOGIN,
@@ -472,6 +470,50 @@ class SendPacket:
                 print(f"An error occurred: {e}")
                 return False
     
+    def searchChatLog(self, socket):
+        start_time = self.main_window.setLogTime.start_time
+        end_time = self.main_window.setLogTime.end_time
+        print(start_time + "부터 "+ end_time + "까지의 데이터")
+        if self.main_window.nowClickedRow['groupname']:
+            try:
+                msg = {
+                    "type": TYPE_GROUP_CHAT_REQ,
+                    "groupname": self.main_window.nowClickedRow['groupname'],
+                    "start_time": start_time,
+                    "end_time": end_time
+                }
+                packet = jsonParser(msg)
+                print("그룹채팅로그요청")
+                print(packet)
+                
+                if socket and msg:
+                    socket.sendall(packet)
+
+            except Exception as e:
+                    print(f"An error occurred: {e}")
+                    return False
+        
+        elif self.main_window.nowClickedRow['login_id']:
+            try:
+                msg = {
+                    "type": TYPE_DM_LOG,
+                    "recver_login_id": self.main_window.nowClickedRow['login_id'],
+                    "start_time": start_time,
+                    "end_time": end_time
+                }
+                packet = jsonParser(msg)
+                print("개인채팅로그요청")
+                print(packet)
+                
+                if socket and msg:
+                    socket.sendall(packet)
+
+            except Exception as e:
+                    print(f"An error occurred: {e}")
+                    return False
+        
+        self.main_window.home_btn_return_chat.show()
+        
 
     
     def testDataSender(self, socket):

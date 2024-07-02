@@ -28,6 +28,8 @@ TYPE_EDIT_USERINFO = 13
 TYPE_GROUP_CHAT_REQ = 14
 TYPE_LOG_REQ = 16
 TYPE_GROUPDELETE_REQ = 15
+TYPE_DM_LOG = 19
+
 
 
 class CustomDelegate(QStyledItemDelegate):
@@ -72,8 +74,9 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
     print("updateDisplay 진입")
     if type == "grouplist":
         model.clear()
-        for i in data_list:
-            item = QStandardItem(i['groupname'])
+        for json_data in data_list:
+            item = QStandardItem(json_data['groupname'])
+            item.setData(json_data, Qt.UserRole)
             model.appendRow(item)
     
     elif type == "userlist":
@@ -222,8 +225,6 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
                 model.appendRow(item)
         
         mainWindow.home_listview_chatlist.scrollToBottom
-    
-    
 
 def getClickedRow(type, widget, model):
     if type == "json":
@@ -259,12 +260,15 @@ def updateStartTime(date):
 def groupClick(mainWindow: QMainWindow, listname, index):
     if listname == "useredit_treeview_userlist":
         item_json = index.data(Qt.UserRole)
+        mainWindow.nowClickedRow = item_json
         mainWindow.useredit_edit_id.setText(item_json['login_id'])
     elif listname == "home_listview_chatgroup":
-        item_text = index.data(Qt.DisplayRole)
-        mainWindow.nowGroupName = item_text
+        print("채팅그룹 클릭함")
+        item_json = index.data(Qt.UserRole)
+        mainWindow.nowGroupName = item_json['groupname']
+        mainWindow.nowClickedRow = item_json
         mainWindow.packetSender.reqGroupChat(mainWindow.socket)
-        print(item_text)
+        print(item_json['groupname'])
 
 def sortUserInfo(var, name):
     if name == "dept":
@@ -306,6 +310,12 @@ def sortUserInfo(var, name):
             return 999
         else:
             return int(var)
+    
+def returnChat(mainWindow: QMainWindow, json_data):
+    if json_data['groupname']:
+        mainWindow.packetSender.reqGroupChat(mainWindow.socket)
+    
+    mainWindow.home_btn_return_chat.hide()
         
     
     

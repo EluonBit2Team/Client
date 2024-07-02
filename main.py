@@ -40,9 +40,11 @@ from modules.ui_adminpage_function import *
 from modules.ui_groupmemberlistdlg_function import *
 from modules.qrcode import *
 from modules.ui_grafana_function import *
+from modules.ui_loadingsp import *
+from modules.ui_setlogtimedlg_function import *
 from widgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
-from modules.ui_loadingsp import *
+
 
 # FIX Problem for High DPI and Scale above 100%
 os.environ["QT_FONT_DPI"] = "96"
@@ -77,6 +79,7 @@ class MainWindow(QMainWindow):
         self.btn_home.hide()
         self.btn_admin.hide()
         self.btn_notice.hide()
+        self.home_btn_return_chat.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -170,14 +173,13 @@ class MainWindow(QMainWindow):
 
         self.useredit_treeview_userlist.setModel(self.userListModel)
 
-        print(self.groupname)
-
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
         self.qrcode = Qrcode(self)
         self.groupDialog = GroupAddDialog(self)
         self.groupMember = GroupMemberListDialog(self)
         self.memberAddDialog = MemberAddDialog(self)
+        self.setLogTime = SetLogTimeDlg(self)
         self.lock = threading.Lock()
         
         self.btn_logout.clicked.connect(self.packetSender.disconnect)
@@ -231,6 +233,8 @@ class MainWindow(QMainWindow):
             elif dialogName == "GroupMemberListDialog":
                 self.packetSender.reqGroupMemberList(self.socket)
                 dialog = self.groupMember
+            elif dialogName == "SetLogTimeDlg":
+                dialog = self.setLogTime
             
             dialog.exec()
         except Exception as e:
