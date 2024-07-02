@@ -62,9 +62,9 @@ def initialize_widgets(mainWindow: QMainWindow):
 
     mainWindow.serverstate_btn_reload = mainWindow.findChild(QPushButton, "serverstate_btn_reload")
     mainWindow.serverstate_btn_back = mainWindow.findChild(QPushButton, "serverstate_btn_back")
-    mainWindow.serverstate_lineedit_mem = mainWindow.findChild(QLineEdit, "serverstate_lineedit_mem")
-    mainWindow.serverstate_lineedit_numuser = mainWindow.findChild(QLineEdit, "serverstate_lineedit_numuser")
-    mainWindow.serverstate_lineedit_packet = mainWindow.findChild(QLineEdit, "serverstate_lineedit_packet")
+    mainWindow.serverstate_listview_mem = mainWindow.findChild(QListView, "serverstate_listview_mem")
+    mainWindow.serverstate_listview_numuser = mainWindow.findChild(QListView, "serverstate_listview_numuser")
+    mainWindow.serverstate_listview_packet = mainWindow.findChild(QListView, "serverstate_listview_packet")
     mainWindow.serverstate_btn_grafana = mainWindow.findChild(QPushButton, "serverstate_btn_grafana")
 
     mainWindow.useredit_edit_id = mainWindow.findChild(QLineEdit, "useredit_edit_id")
@@ -111,9 +111,11 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_return_chat.clicked.connect(lambda: returnChat(mainWindow, mainWindow.nowClickedRow))
 
     mainWindow.serverstate_btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
-    
+    mainWindow.serverstate_btn_reload.clicked.connect(mainWindow.statusthread)
+
     mainWindow.log_calendarwidget_cal.clicked.connect(lambda: mainWindow.packetSender.serverlogReq(mainWindow.socket))
 
+    
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupname = None
     mainWindow.nowClickedRow = None

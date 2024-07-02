@@ -8,6 +8,7 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
@@ -1936,15 +1937,6 @@ class Ui_MainWindow(object):
 "width: 30px; /* \ubc84\ud2bc\uc758 \ub108\ube44 \uc9c0\uc815 */\n"
 "height: 30px; /* \ubc84\ud2bc\uc758 \ub192\uc774 \uc9c0\uc815 */\n"
 "")
-        self.serverstate_lineedit_mem = QLineEdit(self.serverstatepage)
-        self.serverstate_lineedit_mem.setObjectName(u"serverstate_lineedit_mem")
-        self.serverstate_lineedit_mem.setGeometry(QRect(69, 150, 841, 51))
-        self.serverstate_lineedit_numuser = QLineEdit(self.serverstatepage)
-        self.serverstate_lineedit_numuser.setObjectName(u"serverstate_lineedit_numuser")
-        self.serverstate_lineedit_numuser.setGeometry(QRect(70, 300, 841, 51))
-        self.serverstate_lineedit_packet = QLineEdit(self.serverstatepage)
-        self.serverstate_lineedit_packet.setObjectName(u"serverstate_lineedit_packet")
-        self.serverstate_lineedit_packet.setGeometry(QRect(70, 460, 841, 51))
         self.serverstate_btn_grafana = QPushButton(self.serverstatepage)
         self.serverstate_btn_grafana.setObjectName(u"serverstate_btn_grafana")
         self.serverstate_btn_grafana.setGeometry(QRect(110, 40, 41, 31))
@@ -1954,6 +1946,15 @@ class Ui_MainWindow(object):
 "width: 30px; /* \ubc84\ud2bc\uc758 \ub108\ube44 \uc9c0\uc815 */\n"
 "height: 30px; /* \ubc84\ud2bc\uc758 \ub192\uc774 \uc9c0\uc815 */\n"
 "")
+        self.serverstate_listview_mem = QListView(self.serverstatepage)
+        self.serverstate_listview_mem.setObjectName(u"serverstate_listview_mem")
+        self.serverstate_listview_mem.setGeometry(QRect(70, 150, 841, 41))
+        self.serverstate_listview_numuser = QListView(self.serverstatepage)
+        self.serverstate_listview_numuser.setObjectName(u"serverstate_listview_numuser")
+        self.serverstate_listview_numuser.setGeometry(QRect(70, 300, 841, 41))
+        self.serverstate_listview_packet = QListView(self.serverstatepage)
+        self.serverstate_listview_packet.setObjectName(u"serverstate_listview_packet")
+        self.serverstate_listview_packet.setGeometry(QRect(70, 460, 841, 41))
         self.stackedWidget.addWidget(self.serverstatepage)
         self.qrlogin = QWidget()
         self.qrlogin.setObjectName(u"qrlogin")

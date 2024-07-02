@@ -5,10 +5,16 @@ from datetime import datetime, timedelta
 from PySide6.QtWidgets import QMessageBox
 from modules.util import *
 from main import *
-
+import threading
+request_thread = None
+stop_thread_flag = False
+import time
 class SendPacket:
+    
     def __init__(self, main_window):
         self.main_window = main_window
+
+
     def connectSocket(self, addr, port):
         try:
             self.socket = None
@@ -514,8 +520,29 @@ class SendPacket:
         
         self.main_window.home_btn_return_chat.show()
         
+    # 서버 실시간 상태 요청
+    def serverrealtimeReq(self, socket, interval):
+        print("서버로그 스레드 시작")
+        self.stop_thread_flag = True
+        while self.stop_thread_flag:
+            try:
+                msg = {
+                    "type": TYPE_REALTIME_REQ,
+                }
+                packet = jsonParser(msg)
+                print("서버 실시간 상태 요청 packet")
+                print(packet)
+                
+                if socket and msg:
+                    socket.sendall(packet)
 
-    
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                self.stop_thread_flag = False
+                return False
+            
+            time.sleep(interval)
+      
     def testDataSender(self, socket):
         print("type: 14 보냄")
         try:
