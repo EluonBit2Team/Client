@@ -2270,7 +2270,7 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QPushButton" name="home_btn_chatgroup">
                        <property name="geometry">
                         <rect>
-                         <x>57</x>
+                         <x>34</x>
                          <y>170</y>
                          <width>31</width>
                          <height>24</height>
@@ -2443,7 +2443,7 @@ border:none;
                       <widget class="QPushButton" name="home_btn_groupmemberlist">
                        <property name="geometry">
                         <rect>
-                         <x>870</x>
+                         <x>873</x>
                          <y>34</y>
                          <width>31</width>
                          <height>24</height>
@@ -2461,10 +2461,10 @@ border:none;
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="home_btn_groupdelete">
+                      <widget class="QPushButton" name="home_btn_leave_group">
                        <property name="geometry">
                         <rect>
-                         <x>103</x>
+                         <x>80</x>
                          <y>170</y>
                          <width>31</width>
                          <height>24</height>
@@ -2474,7 +2474,7 @@ border:none;
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">background-image: url(:/icons/images/icons/cil-user-unfollow.png);</string>
+                        <string notr="true">background-image: url(:/icons/images/icons/cil-account-logout.png)</string>
                        </property>
                        <property name="text">
                         <string/>
@@ -2483,7 +2483,7 @@ border:none;
                       <widget class="QPushButton" name="home_btn_search_chat">
                        <property name="geometry">
                         <rect>
-                         <x>832</x>
+                         <x>838</x>
                          <y>34</y>
                          <width>31</width>
                          <height>24</height>
@@ -2519,6 +2519,25 @@ border:none;
 border:none;
 
 </string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="home_btn_groupdelete">
+                       <property name="geometry">
+                        <rect>
+                         <x>130</x>
+                         <y>170</y>
+                         <width>31</width>
+                         <height>24</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/icons/images/icons/cil-x-circle.png)</string>
                        </property>
                        <property name="text">
                         <string/>

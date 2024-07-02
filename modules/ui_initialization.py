@@ -42,7 +42,8 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_groupdelete = mainWindow.findChild(QPushButton, "home_btn_groupdelete")
     mainWindow.home_btn_search_chat = mainWindow.findChild(QPushButton, "home_btn_search_chat")
     mainWindow.home_btn_return_chat = mainWindow.findChild(QPushButton, "home_btn_return_chat")
-
+    mainWindow.home_btn_leave_group =  mainWindow.findChild(QPushButton, "home_btn_leave_group")
+    
     mainWindow.admin_btn_accept = mainWindow.findChild(QPushButton, "admin_btn_accept")
     mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")
     mainWindow.admin_btn_food = mainWindow.findChild(QPushButton, "admin_btn_food")
@@ -107,8 +108,10 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_chatgroup.clicked.connect(lambda: mainWindow.openDialog("GroupAddDialog"))
     mainWindow.home_btn_add_member.clicked.connect(lambda: mainWindow.openDialog("MemberAddDialog"))
     mainWindow.home_listview_chatgroup.clicked.connect(lambda index: groupClick(mainWindow, "home_listview_chatgroup", index))
+    mainWindow.home_treeview_userlist.clicked.connect(lambda index: groupClick(mainWindow, "home_treeview_userlist", index))
     mainWindow.home_btn_search_chat.clicked.connect(lambda: mainWindow.openDialog("SetLogTimeDlg"))
     mainWindow.home_btn_return_chat.clicked.connect(lambda: returnChat(mainWindow, mainWindow.nowClickedRow))
+    mainWindow.home_btn_leave_group.clicked.connect(lambda: mainWindow.packetSender.leaveGroup(mainWindow.socket))
 
     mainWindow.serverstate_btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
     mainWindow.serverstate_btn_reload.clicked.connect(mainWindow.statusthread)
@@ -118,6 +121,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.groupname = None
+    mainWindow.sendTarget = None
     mainWindow.nowClickedRow = None
     mainWindow.nowGroupName = None
     mainWindow.groupList = []

@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainBnAPbm.ui'
+## Form generated from reading UI file 'mainCirMwx.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
 
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -1265,7 +1264,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);")
         self.home_btn_chatgroup = QPushButton(self.home)
         self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
-        self.home_btn_chatgroup.setGeometry(QRect(57, 170, 31, 24))
+        self.home_btn_chatgroup.setGeometry(QRect(34, 170, 31, 24))
         self.home_btn_chatgroup.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_chatgroup.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
 "border:none;\n"
@@ -1329,19 +1328,19 @@ class Ui_MainWindow(object):
 "")
         self.home_btn_groupmemberlist = QPushButton(self.home)
         self.home_btn_groupmemberlist.setObjectName(u"home_btn_groupmemberlist")
-        self.home_btn_groupmemberlist.setGeometry(QRect(870, 34, 31, 24))
+        self.home_btn_groupmemberlist.setGeometry(QRect(873, 34, 31, 24))
         self.home_btn_groupmemberlist.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_groupmemberlist.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user.png);\n"
 "border:none;\n"
 "")
-        self.home_btn_groupdelete = QPushButton(self.home)
-        self.home_btn_groupdelete.setObjectName(u"home_btn_groupdelete")
-        self.home_btn_groupdelete.setGeometry(QRect(103, 170, 31, 24))
-        self.home_btn_groupdelete.setCursor(QCursor(Qt.PointingHandCursor))
-        self.home_btn_groupdelete.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-user-unfollow.png);")
+        self.home_btn_leave_group = QPushButton(self.home)
+        self.home_btn_leave_group.setObjectName(u"home_btn_leave_group")
+        self.home_btn_leave_group.setGeometry(QRect(80, 170, 31, 24))
+        self.home_btn_leave_group.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_leave_group.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-account-logout.png)")
         self.home_btn_search_chat = QPushButton(self.home)
         self.home_btn_search_chat.setObjectName(u"home_btn_search_chat")
-        self.home_btn_search_chat.setGeometry(QRect(832, 34, 31, 24))
+        self.home_btn_search_chat.setGeometry(QRect(838, 34, 31, 24))
         self.home_btn_search_chat.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_search_chat.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-find-in-page.png);\n"
 "border:none;\n"
@@ -1355,6 +1354,11 @@ class Ui_MainWindow(object):
 "border:none;\n"
 "\n"
 "")
+        self.home_btn_groupdelete = QPushButton(self.home)
+        self.home_btn_groupdelete.setObjectName(u"home_btn_groupdelete")
+        self.home_btn_groupdelete.setGeometry(QRect(130, 170, 31, 24))
+        self.home_btn_groupdelete.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_groupdelete.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-x-circle.png)")
         self.stackedWidget.addWidget(self.home)
         self.adminpage = QWidget()
         self.adminpage.setObjectName(u"adminpage")
@@ -2547,9 +2551,10 @@ class Ui_MainWindow(object):
         self.home_btn_right.setText("")
         self.home_btn_add_member.setText("")
         self.home_btn_groupmemberlist.setText("")
-        self.home_btn_groupdelete.setText("")
+        self.home_btn_leave_group.setText("")
         self.home_btn_search_chat.setText("")
         self.home_btn_return_chat.setText("")
+        self.home_btn_groupdelete.setText("")
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
         self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))

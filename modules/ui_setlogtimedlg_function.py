@@ -10,20 +10,20 @@ class SetLogTimeDlg(QDialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         
-        current_datetime = QDateTime.currentDateTime()
-        one_month_ago = current_datetime.addMonths(-1)
+        current_date = QDate.currentDate()
+        one_month_ago = current_date.addMonths(-1)
         
-        self.ui.dialog_dateTimeEdit_start.setCalendarPopup(True)
-        self.ui.dialog_dateTimeEdit_end.setCalendarPopup(True)
+        self.ui.dialog_dateEdit_start.setCalendarPopup(True)
+        self.ui.dialog_dateEdit_end.setCalendarPopup(True)
         
-        self.ui.dialog_dateTimeEdit_start.setDateTime(one_month_ago)
-        self.ui.dialog_dateTimeEdit_end.setDateTime(current_datetime)
+        self.ui.dialog_dateEdit_start.setDate(one_month_ago)
+        self.ui.dialog_dateEdit_end.setDate(current_date)
         
         self.ui.dialog_btn_submit.clicked.connect(self.clickSubmit)
     
     def clickSubmit(self):
-        self.start_time = self.ui.dialog_dateTimeEdit_start.dateTime().toString("yyyy-MM-dd HH:mm:ss")
-        self.end_time = self.ui.dialog_dateTimeEdit_end.dateTime().toString("yyyy-MM-dd HH:mm:ss")
+        self.start_time = self.ui.dialog_dateEdit_start.date().toString("yyyy-MM-dd")
+        self.end_time = self.ui.dialog_dateEdit_end.date().toString("yyyy-MM-dd")
         self.main_window.packetSender.searchChatLog(self.main_window.socket)
         self.close_dialog()
     
