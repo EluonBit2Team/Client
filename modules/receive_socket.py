@@ -33,8 +33,9 @@ class ReceivePacket():
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
                                 if len(buffer) >= msg_length - 4:
-                                    json_msg = buffer[4:4 + msg_length]
-                                    buffer = buffer[4 + msg_length:]
+                                    json_msg = buffer[4:msg_length]
+                                    buffer = buffer[msg_length:]
+                                    
                                     json_type = json.loads(json_msg).get("type")
                                     self.receivedType(json_type, json_msg)
                                 else:
@@ -57,7 +58,6 @@ class ReceivePacket():
             #     self.running = False
             #     break
             
-    
     def loginSuccess(self, msg):
         print(msg)
         userId = json.loads(msg.decode('utf-8')).get("login_id")
@@ -72,12 +72,9 @@ class ReceivePacket():
         self.main_window.ui.btn_login.hide()
         print("lself.main_window.ui.btn_login.hide() 성공")
         
-        if userRole == 1:
-            self.main_window.ui.btn_admin.show()
-            self.main_window.ui.btn_notice.show()
-        #ishost
-        # self.main_window.packetSender.reqAcceptList(self.main_window.socket)
-        # self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
+        # if userRole == 1:
+        #     self.main_window.ui.btn_admin.show()
+        #     self.main_window.ui.btn_notice.show()
         
     def receiveMassage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
@@ -87,7 +84,12 @@ class ReceivePacket():
         else:
             print("잘못된 그룹")
             return False
-        
+    
+    def receivedDm(self, msg):
+        dm = json.loads(msg.decode('utf-8'))
+        print(self.main_window.nowClickedRow['login_id'])
+        if self.main_window.nowClickedRow['login_id'] == dm.get('recver_login_id'):
+            updateDisplay(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
     
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8')).get("users")
@@ -117,6 +119,10 @@ class ReceivePacket():
         recvGroupName = receivedMessage.get("groupname")
         if recvGroupName == self.main_window.nowGroupName:
             updateDisplay(self.main_window, receivedMessage.get("chatlog"), "clickedGroup", self.main_window.chatListModel)
+            
+    def receiveDmLog(self, msg):
+        dm = json.loads(msg.decode('utf-8'))
+        updateDisplay(self.main_window, dm.get("dmlog"), "clickedUser", self.main_window.chatListModel)
         
     # 로그
     def receiveReqLogList(self, msg):
@@ -172,7 +178,8 @@ class ReceivePacket():
         elif jsonType == TYPE_MESSAGE:
             self.receiveMassage(msg)
         elif jsonType == TYPE_ERROR:
-            self.receiveError(msg)
+            pass
+            # self.receiveError(msg)
         elif jsonType == TYPE_GROUPLIST:
             self.receiveGroupList(msg)
         elif jsonType == TYPE_GROUPMEMBER:
@@ -185,6 +192,10 @@ class ReceivePacket():
             self.receiveReqLogList(msg)
         elif jsonType == TYPE_REALTIME_REQ:
             self.receiveReqRealtime(msg)
+        elif jsonType == TYPE_DM_SEND:
+            self.receivedDm(msg)
+        elif jsonType == TYPE_DM_LOG:
+            self.receiveDmLog(msg)
         else:
             print("jsonType이 None입니다.")
             print("------NoneType RAW DATA ------")

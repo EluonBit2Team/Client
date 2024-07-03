@@ -47,17 +47,15 @@ class SendPacket:
             self.main_window.packetReceiver.running = True
             self.main_window.start_receiving()
         else:
-            print("loginReq에서 else문")
             socket = self.socket
-        
-        print("loginRequest의 socket")
+            
         print(self.socket)
         socket = self.socket
         self.loginId = self.main_window.login_input_id.text()
         loginPw = self.main_window.login_input_pw.text()
         
-        self.loginId = "id05"
-        loginPw = "id05"
+        self.loginId = "admin"
+        loginPw = "admin"
         try:
             msg = {
                 "type": TYPE_LOGIN,
@@ -153,35 +151,60 @@ class SendPacket:
             return False
     
     def sendMsg(self, socket):
-        print("sendMsg 진입함")
-        msgText = self.main_window.home_lineedit_chatlist_send.text()
-        userId = self.main_window.userId
-        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
-        print("userId = " + userId)
-        print("groupname = " + groupname)
-        print("msgText = " + msgText)
-        
-        try:
-            msg = {"type": TYPE_MESSAGE,
-                   "login_id": userId,
-                   "groupname": groupname,
-                   "text": msgText}
+        print("현재 sendTarget = " + self.main_window.sendTarget)
+        if self.main_window.sendTarget == "group":
+            print("그룹메세지")
+            msgText = self.main_window.home_lineedit_chatlist_send.text()
+            userId = self.main_window.userId
+            groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+            print("userId = " + userId)
+            print("groupname = " + groupname)
+            print("msgText = " + msgText)
             
-            print("msg")
-            print(msg)
+            try:
+                msg = {"type": TYPE_MESSAGE,
+                    "login_id": userId,
+                    "groupname": groupname,
+                    "text": msgText}
+                
+                print("msg")
+                print(msg)
+                
+                packet = jsonParser(msg)
             
-            packet = jsonParser(msg)
+                if socket and msg:
+                    socket.sendall(packet)
+                    
+                print(packet)
+                print("전송완료")
+                    
+                return True
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
         
-            if socket and msg:
-                socket.sendall(packet)
-                
-            print(packet)
-            print("전송완료")
-                
-            return True
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return False
+        elif self.main_window.sendTarget == "user":
+            print("개인메세지")
+            sendTo = self.main_window.nowClickedRow['login_id']
+            msgText = self.main_window.home_lineedit_chatlist_send.text()
+            print("보낸사람: " + self.main_window.userId)
+            print("받는사람: " + sendTo)
+            try:
+                msg = {"type": TYPE_DM_SEND,
+                    "sender_login_id" : self.main_window.userId,
+                    "recver_login_id" : sendTo,
+                    "text" : msgText
+                    }
+                packet = jsonParser(msg)
+            
+                if socket and msg:
+                    socket.sendall(packet)
+                print("개인메세지 전송완료")
+                    
+                return True
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
     
     def reqUserList(self, socket):
         try:
@@ -205,7 +228,8 @@ class SendPacket:
             return False
     
     def reqGroupChat(self, socket):
-        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+        groupname = self.main_window.nowClickedRow['groupname']
+        print("그룹네임 : " + groupname)
         str_now = datetime.now().isoformat().replace('T', ' ')
         start_time = datetime.now() - timedelta(days=3)
         str_start_time = start_time.isoformat().replace('T', ' ')
@@ -226,7 +250,7 @@ class SendPacket:
         except Exception as e:
                 print(f"An error occurred: {e}")
                 return False
-        
+    
     def sendEditedMember(self, socket):
         groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
         inMember = self.main_window.memberAddDialog.in_member
@@ -426,26 +450,16 @@ class SendPacket:
                 print(f"An error occurred: {e}")
                 return False
         
-  
     # 그룹 삭제 요청
     def groupdeleteReq(self, socket):
-        groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
-        str_now = datetime.now().isoformat().replace('T', ' ')
-        start_time = datetime.now() - timedelta(days=3)
-        str_start_time = start_time.isoformat().replace('T', ' ')
-
+        groupname = self.main_window.nowClickedRow['groupname']
         try:
             msg = {
-                "type": TYPE_GROUP_CHAT_REQ,
-                "groupname": groupname,
-                "start_time": str_start_time,
-                "end_time": str_now
+                "type": TYPE_GROUPDELETE_REQ,
+                "groupname": groupname
             }
             
             packet = jsonParser(msg)
-            print("그룹 채팅기록 요청")
-            print(packet)
-            
             if socket and msg:
                 socket.sendall(packet)
 
@@ -478,6 +492,73 @@ class SendPacket:
                 print(f"An error occurred: {e}")
                 return False
     
+    def reqDm(self, socket):
+        str_now = datetime.now().isoformat().replace('T', ' ')
+        start_time = datetime.now() - timedelta(days=3)
+        str_start_time = start_time.isoformat().replace('T', ' ')
+        try:
+            msg = {
+                "type": TYPE_DM_LOG,
+                "recver_login_id": self.main_window.nowClickedRow['login_id'],
+                "start_time": str_start_time,
+                "end_time": str_now
+            }
+            packet = jsonParser(msg)
+            print("개인채팅로그요청")
+            print(packet)
+            
+            if socket and msg:
+                socket.sendall(packet)
+
+        except Exception as e:
+                print(f"An error occurred: {e}")
+                return False
+        
+    
+    def searchChatLog(self, socket):
+        start_time = self.main_window.setLogTime.start_time
+        end_time = self.main_window.setLogTime.end_time
+        print(start_time + "부터 "+ end_time + "까지의 데이터")
+        if self.main_window.nowClickedRow['groupname']:
+            try:
+                msg = {
+                    "type": TYPE_GROUP_CHAT_REQ,
+                    "groupname": self.main_window.nowClickedRow['groupname'],
+                    "start_time": start_time,
+                    "end_time": end_time
+                }
+                packet = jsonParser(msg)
+                print("그룹채팅로그요청")
+                print(packet)
+                
+                if socket and msg:
+                    socket.sendall(packet)
+
+            except Exception as e:
+                    print(f"An error occurred: {e}")
+                    return False
+        
+        elif self.main_window.nowClickedRow['login_id']:
+            try:
+                msg = {
+                    "type": TYPE_DM_LOG,
+                    "recver_login_id": self.main_window.nowClickedRow['login_id'],
+                    "start_time": start_time,
+                    "end_time": end_time
+                }
+                packet = jsonParser(msg)
+                print("개인채팅로그요청")
+                print(packet)
+                
+                if socket and msg:
+                    socket.sendall(packet)
+
+            except Exception as e:
+                    print(f"An error occurred: {e}")
+                    return False
+        
+        self.main_window.home_btn_return_chat.show()
+        
     # 서버 실시간 상태 요청
     def serverrealtimeReq(self, socket, interval):
         print("서버로그 스레드 시작")
@@ -500,6 +581,21 @@ class SendPacket:
                 return False
             
             time.sleep(interval)
+    
+    def leaveGroup(self, socket):
+        groupname = self.main_window.nowClickedRow['groupname']
+        try:
+            msg = {
+                "type": TYPE_LEAVE_GROUP,
+                "groupname": groupname
+            }
+            packet = jsonParser(msg)
+            if socket and msg:
+                socket.sendall(packet)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            return False
+        
       
     def testDataSender(self, socket):
         print("type: 14 보냄")

@@ -29,6 +29,11 @@ TYPE_GROUP_CHAT_REQ = 14
 TYPE_LOG_REQ = 16
 TYPE_GROUPDELETE_REQ = 15
 TYPE_REALTIME_REQ = 17
+TYPE_DM_SEND = 18
+TYPE_DM_LOG = 19
+TYPE_LEAVE_GROUP = 20
+
+
 
 class CustomDelegate(QStyledItemDelegate):
     # def init
@@ -68,15 +73,16 @@ def connectionErrorEvent():
 def connectionSuccessEvent():
     QMessageBox.information(None, "Success", "연결 성공")
 
-def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
+def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
     print("updateDisplay 진입")
-    if type == "grouplist":
+    if data_type == "grouplist":
         model.clear()
-        for i in data_list:
-            item = QStandardItem(i['groupname'])
+        for json_data in data_list:
+            item = QStandardItem(json_data['groupname'])
+            item.setData(json_data, Qt.UserRole)
             model.appendRow(item)
     
-    elif type == "userlist":
+    elif data_type == "userlist":
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
         for json_data in data_list:
@@ -88,7 +94,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             name_column.setData(json_data, Qt.UserRole)
             row = [name_column, id_column]
             model.appendRow(row)
-    elif type == "reqList":
+    elif data_type == "reqList":
         signup_type = 'login_id'
         group_type = 'group_name'
         model.clear()
@@ -104,7 +110,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
                 item = QStandardItem(makeRow)
                 item.setData(json_data, Qt.UserRole)
                 model.appendRow(item)
-    elif type == "groupMemberList":
+    elif data_type == "groupMemberList":
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
         for json_data in data_list:
@@ -115,7 +121,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             name_column.setData(json_data, Qt.UserRole)
             row = [name_column, id_column]
             model.appendRow(row)
-    elif type == "clickedGroup":
+    elif data_type == "clickedGroup":
         print("clickedgroup 진입")
         model.clear()
         for json_data in data_list:
@@ -157,7 +163,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
         
         mainWindow.home_listview_chatlist.scrollToBottom
     
-    elif type == "serverLogList":
+    elif data_type == "serverLogList":
         print("serverLogList 진입")
         model.clear()
         model.setHorizontalHeaderLabels(["날짜", "UP TIME", "DOWN TIME"])
@@ -178,20 +184,15 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
             else:
                 print("Error: 'uptime' or 'downtime' key not found in", json_data)
 
-    elif type in ["realtimememList", "realtimeloginList", "realtimetpsList"]:
+    elif data_type in ["realtimememList", "realtimeloginList", "realtimetpsList"]:
         model.clear()
         for json_data in data_list:
            item = QStandardItem(str(json_data))
            model.appendRow(item)
 
-
-
-    elif type == "receivedChat":
-        print("receivedChat 진입")
+    elif data_type == "receivedChat":
         name = data_list['login_id']
-        print('login_id = ' + name)
         message = data_list['text']
-        print('text = ' + message)
         if mainWindow.userId == name:
             sentUser = "me"
         else:
@@ -227,10 +228,90 @@ def updateDisplay(mainWindow: QMainWindow, data_list, type, model):
                 item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
                 item.setData(data_list, Qt.UserRole)
                 model.appendRow(item)
+                
+        mainWindow.home_listview_chatlist.scrollToBottom
+    
+    elif data_type=="clickedUser":
+        model.clear()
+        for json_data in data_list:
+            name = json_data['sender_login_id']
+            message = json_data['text']
+            if mainWindow.userId == name:
+                sentUser = "me"
+            else:
+                sentUser = "other"
+            row_count = model.rowCount()
+            if row_count<2:
+                item = QStandardItem(name)
+                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                model.appendRow(item)
+                
+                item = QStandardItem(message)
+                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                item.setData(json_data, Qt.UserRole)
+                model.appendRow(item)
+            else:
+                last_index = model.index(row_count - 1, 0)
+                last_item = model.itemFromIndex(last_index)
+                row_json_data = last_item.data(Qt.UserRole)
+                lastSender = row_json_data['sender_login_id']
+                if lastSender == name:
+                    item = QStandardItem(message)
+                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                    item.setData(json_data, Qt.UserRole)
+                    model.appendRow(item)
+                else:
+                    item = QStandardItem(name)
+                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                    model.appendRow(item)
+                    
+                    item = QStandardItem(message)
+                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                    item.setData(json_data, Qt.UserRole)
+                    model.appendRow(item)
         
         mainWindow.home_listview_chatlist.scrollToBottom
     
-    
+    elif data_type == "receivedDm":
+        name = data_list['sender_login_id']
+        message = data_list['text']
+        if mainWindow.userId == name:
+            sentUser = "me"
+        else:
+            sentUser = "other"
+        row_count = model.rowCount()
+        if row_count<1:
+            item = QStandardItem(name)
+            item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+            model.appendRow(item)
+            
+            item = QStandardItem(message)
+            item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+            item.setData(data_list, Qt.UserRole)
+            model.appendRow(item)
+        else:
+            last_index = model.index(row_count - 1, 0)
+            last_item = model.itemFromIndex(last_index)
+            row_json_data = last_item.data(Qt.UserRole)
+            lastSender = row_json_data['sender_login_id']
+            if lastSender == name:
+                print("lastSender == name")
+                item = QStandardItem(message)
+                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                item.setData(data_list, Qt.UserRole)
+                model.appendRow(item)
+            else:
+                item = QStandardItem(name)
+                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                model.appendRow(item)
+                
+                item = QStandardItem(message)
+                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+                item.setData(data_list, Qt.UserRole)
+                model.appendRow(item)
+                
+        mainWindow.home_listview_chatlist.scrollToBottom
+        
 
 def getClickedRow(type, widget, model):
     if type == "json":
@@ -266,12 +347,25 @@ def updateStartTime(date):
 def groupClick(mainWindow: QMainWindow, listname, index):
     if listname == "useredit_treeview_userlist":
         item_json = index.data(Qt.UserRole)
+        mainWindow.nowClickedRow = item_json
         mainWindow.useredit_edit_id.setText(item_json['login_id'])
+        mainWindow.home_listview_chatgroup.clearSelection()
+        mainWindow.sendTarget = "user"
     elif listname == "home_listview_chatgroup":
-        item_text = index.data(Qt.DisplayRole)
-        mainWindow.nowGroupName = item_text
+        print("채팅그룹 클릭함")
+        item_json = index.data(Qt.UserRole)
+        mainWindow.nowGroupName = item_json['groupname']
+        mainWindow.nowClickedRow = item_json
         mainWindow.packetSender.reqGroupChat(mainWindow.socket)
-        print(item_text)
+        mainWindow.useredit_treeview_userlist.clearSelection()
+        mainWindow.sendTarget = "group"
+    elif listname == "home_treeview_userlist":
+        print("home_treeview_userlist의 요소를 클릭함")
+        item_json = index.data(Qt.UserRole)
+        mainWindow.nowClickedRow = item_json
+        mainWindow.packetSender.reqDm(mainWindow.socket)
+        mainWindow.home_listview_chatgroup.clearSelection()
+        mainWindow.sendTarget = "user"
 
 def sortUserInfo(var, name):
     if name == "dept":
@@ -313,6 +407,12 @@ def sortUserInfo(var, name):
             return 999
         else:
             return int(var)
+    
+def returnChat(mainWindow: QMainWindow, json_data):
+    if json_data['groupname']:
+        mainWindow.packetSender.reqGroupChat(mainWindow.socket)
+    
+    mainWindow.home_btn_return_chat.hide()
         
     
     

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>479</height>
+    <width>550</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,7 +37,7 @@ QPushButton#dialog_btn_exit:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>641</width>
+     <width>551</width>
      <height>481</height>
     </rect>
    </property>
@@ -51,8 +51,8 @@ QPushButton#dialog_btn_exit:pressed {
   <widget class="QLabel" name="dialog_label_title">
    <property name="geometry">
     <rect>
-     <x>236</x>
-     <y>19</y>
+     <x>200</x>
+     <y>20</y>
      <width>141</width>
      <height>16</height>
     </rect>
@@ -70,7 +70,7 @@ color: rgb(232, 232, 232);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>641</width>
+     <width>551</width>
      <height>51</height>
     </rect>
    </property>
@@ -87,7 +87,7 @@ border-bottom: 1px solid #3498db;</string>
     <rect>
      <x>-2</x>
      <y>52</y>
-     <width>641</width>
+     <width>551</width>
      <height>371</height>
     </rect>
    </property>
@@ -102,8 +102,8 @@ font: 600 15pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
   <widget class="QPushButton" name="dialog_btn_exit">
    <property name="geometry">
     <rect>
-     <x>524</x>
-     <y>433</y>
+     <x>440</x>
+     <y>440</y>
      <width>101</width>
      <height>31</height>
     </rect>
