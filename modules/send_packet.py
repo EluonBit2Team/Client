@@ -101,11 +101,17 @@ class SendPacket:
         loginPw = self.main_window.login_input_pw.text()
         
         try:
+            
             msg = {
                 "type": TYPE_LOGIN,
-                "login_id": self.loginId,
-                "pw": loginPw
+                "login_id": "admin2",
+                "pw": "admin2"
             }
+            # msg = {
+            #     "type": TYPE_LOGIN,
+            #     "login_id": self.loginId,
+            #     "pw": loginPw
+            # }
             packet = jsonParser(msg)
             
             if sock and msg:
