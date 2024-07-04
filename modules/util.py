@@ -136,7 +136,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         model.clear()
         for json_data in data_list:
             name = json_data['login_id']
-            message = json_data['text']
+            message = '   ' + json_data['text'] + '   ' 
             if mainWindow.userId == name:
                 sentUser = "me"
             else:
@@ -202,7 +202,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
 
     elif data_type == "receivedChat":
         name = data_list['login_id']
-        message = data_list['text']
+        message = '   ' + data_list['text'] + '   '
         if mainWindow.userId == name:
             sentUser = "me"
         else:

@@ -313,6 +313,9 @@ class SendPacket:
         
         inMember, outMember = removeDuplicate(inMember, outMember)
         
+        print("추가할 멤버")
+        print(inMember)
+        
         try:
             msg = {"type": TYPE_EDIT_GROUP_MEMBER,
                    "groupname": groupname,
@@ -321,6 +324,10 @@ class SendPacket:
             packet = jsonParser(msg)
             if socket and msg:
                 socket.sendall(packet)
+            
+            inMember.clear()
+            outMember.clear()
+            
             print(packet)
         except Exception as e:
             self.main_window.isConnect = False
