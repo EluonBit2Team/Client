@@ -56,6 +56,8 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")
     mainWindow.admin_btn_log = mainWindow.findChild(QPushButton, "admin_btn_log")
     mainWindow.admin_btn_server = mainWindow.findChild(QPushButton, "admin_btn_server")
+    mainWindow.admin_btn_conlog = mainWindow.findChild(QPushButton, "admin_btn_conlog")
+    mainWindow.admin_label_new = mainWindow.findChild(QLabel, "admin_label_new")
 
     mainWindow.log_btn_back = mainWindow.findChild(QPushButton, "log_btn_back")
     mainWindow.log_btn_search = mainWindow.findChild(QPushButton, "log_btn_search")
@@ -87,6 +89,10 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.btn_notice = mainWindow.findChild(QPushButton, "btn_notice")
 
     mainWindow.admin_btn_reload = mainWindow.findChild(QPushButton, "admin_btn_reload")
+
+    mainWindow.userlog_btn_back = mainWindow.findChild(QPushButton, "userlog_btn_back")
+    mainWindow.userlog_treview_log = mainWindow.findChild(QTreeView, "userlog_treview_log")
+    mainWindow.userlog_calendarwidget_cal = mainWindow.findChild(QCalendarWidget, "userlog_calendarwidget_cal")
 
 
 
@@ -124,7 +130,8 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.serverstate_btn_reload.clicked.connect(mainWindow.statusthread)
 
     mainWindow.log_calendarwidget_cal.clicked.connect(lambda: mainWindow.packetSender.serverlogReq(mainWindow.socket))
-
+    mainWindow.userlog_calendarwidget_cal.clicked.connect(lambda: mainWindow.packetSender.userlogReq(mainWindow.socket))
+    mainWindow.admin_btn_conlog.clicked.connect(lambda: mainWindow.packetSender.userlogReq(mainWindow.socket))
     
 def initialize_variable(mainWindow: QMainWindow):
     mainWindow.alertMsg = ""

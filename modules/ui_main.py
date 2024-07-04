@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainCeeygn.ui'
+## Form generated from reading UI file 'mainlRqTeL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1658,10 +1658,10 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;\n"
 "background-color: rgb(40, 44, 50);\n"
 "font: 9pt \"\uc0c8\uad74\ub9bc\";")
-        self.label_2 = QLabel(self.adminpage)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(803, 344, 71, 71))
-        self.label_2.setStyleSheet(u"border-radius: 10px;\n"
+        self.admin_label_new = QLabel(self.adminpage)
+        self.admin_label_new.setObjectName(u"admin_label_new")
+        self.admin_label_new.setGeometry(QRect(804, 344, 71, 71))
+        self.admin_label_new.setStyleSheet(u"border-radius: 10px;\n"
 "border-bottom: 2px solid red;\n"
 "border-right: 2px solid red;")
         self.stackedWidget.addWidget(self.adminpage)
@@ -1693,7 +1693,7 @@ class Ui_MainWindow(object):
         self.admin_btn_server.raise_()
         self.admin_label_server.raise_()
         self.admin_label_conlog.raise_()
-        self.label_2.raise_()
+        self.admin_label_new.raise_()
         self.admin_btn_conlog.raise_()
         self.serverlogpage = QWidget()
         self.serverlogpage.setObjectName(u"serverlogpage")
@@ -2778,7 +2778,7 @@ class Ui_MainWindow(object):
         self.admin_label_server.setText(QCoreApplication.translate("MainWindow", u"\uc11c\ubc84 \uc815\ubcf4", None))
         self.admin_btn_conlog.setText("")
         self.admin_label_conlog.setText(QCoreApplication.translate("MainWindow", u"\uc811\uc18d \ub85c\uadf8", None))
-        self.label_2.setText("")
+        self.admin_label_new.setText("")
         self.log_btn_back.setText("")
         self.log_label_leftback.setText("")
         self.log_label_title.setText(QCoreApplication.translate("MainWindow", u"\uc11c\ubc84 \ub85c\uadf8 \ubaa9\ub85d", None))

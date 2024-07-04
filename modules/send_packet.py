@@ -104,8 +104,8 @@ class SendPacket:
             
             msg = {
                 "type": TYPE_LOGIN,
-                "login_id": "admin2",
-                "pw": "admin2"
+                "login_id": "admin",
+                "pw": "admin"
             }
             # msg = {
             #     "type": TYPE_LOGIN,
@@ -677,7 +677,32 @@ class SendPacket:
             print(f"An error occurred: {e}")
             return False
         
-      
+    # 유저 로그 요청
+    def userlogReq(self, socket):
+        # QCalendarWidget에서 선택된 날짜 가져오기
+        selected_date = self.main_window.userlog_calendarwidget_cal.selectedDate()
+
+        # updateStartTime 함수를 호출하여 start_time과 end_time을 업데이트
+        start_time, end_time = updateStartTime(selected_date)
+
+        try:
+            msg = {
+                "type": TYPE_USERLOG_REQ,
+                "start_time": start_time,
+                "end_time": end_time
+            }
+            packet = jsonParser(msg)
+            print("서버 로그 요청 packet")
+            print(packet)
+            
+            if socket and msg:
+                socket.sendall(packet)
+
+        except Exception as e:
+            self.main_window.isConnect = False
+            print(f"An error occurred: {e}")
+            return False
+
     def testDataSender(self, socket):
         print("type: 14 보냄")
         try:

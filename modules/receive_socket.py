@@ -153,6 +153,27 @@ class ReceivePacket(QObject):
         else:
             self.main_window.logReqListModel.clear()
     
+    # 사용자 로그
+    def receiveReqUserLogList(self, msg):
+        print("receiveReqUserLogList 진입")
+        userLogList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("user_log_list")
+        if userLogList:
+            print("if문 userLogList 진입")
+            updateDisplay(self.main_window, userLogList, "userLogList", self.main_window.loguserReqListModel)
+        else:
+            self.main_window.loguserReqListModel.clear()
+
+    # type 300
+    def onlineReq(self, msg):
+        print("onlineReq 진입")
+        print(msg)
+        if msg == b'{\n\t"type":\t300\n}':
+            print("300 진입")
+            self.main_window.admin_label_new.show()
+        else:
+            print("300 진입 오류")
+        
+
     # 실시간
     def receiveReqRealtime(self, msg):
         try:
@@ -217,6 +238,8 @@ class ReceivePacket(QObject):
             self.receiveGroupChat(msg)
         elif jsonType == TYPE_LOG_REQ:
             self.receiveReqLogList(msg)
+        elif jsonType == TYPE_USERLOG_REQ:
+            self.receiveReqUserLogList(msg)
         elif jsonType == TYPE_REALTIME_REQ:
             self.receiveReqRealtime(msg)
         elif jsonType == TYPE_DM_SEND:
@@ -225,6 +248,8 @@ class ReceivePacket(QObject):
             self.receiveDmLog(msg)
         elif jsonType == TYPE_ERROR_DUP_LOGIN:
             self.loginError(msg)
+        elif jsonType == TYPE_ONLINE_REQ:
+            self.onlineReq(msg)
         else:
             print("jsonType이 None입니다.")
             print("------NoneType RAW DATA ------")

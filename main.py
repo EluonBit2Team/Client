@@ -82,6 +82,7 @@ class MainWindow(QMainWindow):
         self.btn_notice.hide()
         self.home_btn_return_chat.hide()
         self.login_btn_reconnect.hide()
+        self.admin_label_new.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -132,6 +133,8 @@ class MainWindow(QMainWindow):
         widgets.admin_btn_server.clicked.connect(self.buttonClick)
         widgets.log_btn_back.clicked.connect(self.buttonClick)
         widgets.serverstate_btn_back.clicked.connect(self.buttonClick)
+        widgets.userlog_btn_back.clicked.connect(self.buttonClick)
+        widgets.admin_btn_conlog.clicked.connect(self.buttonClick)
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
@@ -168,6 +171,9 @@ class MainWindow(QMainWindow):
 
         self.logReqListModel = QStandardItemModel(self.log_treview_log)
         self.log_treview_log.setModel(self.logReqListModel)
+
+        self.loguserReqListModel = QStandardItemModel(self.userlog_treview_log)
+        self.userlog_treview_log.setModel(self.loguserReqListModel)
 
         self.realtimememListModel = QStandardItemModel(self.serverstate_listview_mem)
         self.serverstate_listview_mem.setModel(self.realtimememListModel)
@@ -330,6 +336,18 @@ class MainWindow(QMainWindow):
         if btnName == "admin_btn_log":
             widgets.stackedWidget.setCurrentWidget(widgets.serverlogpage)
         if btnName == "log_btn_back":
+            widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
+
+
+        # SHOW USER LOG PAGE
+        if btnName == "admin_btn_conlog":
+            widgets.stackedWidget.setCurrentWidget(widgets.userlogpage)
+            self.admin_label_new.hide()
+            if isinstance(widgets.log_calendarwidget_cal, QCalendarWidget):
+                today_date = QDate.currentDate()
+                widgets.log_calendarwidget_cal.setSelectedDate(today_date)
+            
+        if btnName == "userlog_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
 
         # SHOW SERVER PAGE
