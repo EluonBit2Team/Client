@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainLLzOYF.ui'
+## Form generated from reading UI file 'mainCeeygn.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1644,6 +1644,26 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;\n"
 "background-color: rgb(40, 44, 50);\n"
 "font: 9pt \"\uc0c8\uad74\ub9bc\";")
+        self.admin_btn_conlog = QPushButton(self.adminpage)
+        self.admin_btn_conlog.setObjectName(u"admin_btn_conlog")
+        self.admin_btn_conlog.setGeometry(QRect(820, 352, 41, 41))
+        self.admin_btn_conlog.setCursor(QCursor(Qt.PointingHandCursor))
+        self.admin_btn_conlog.setStyleSheet(u"background-image: url(:/images/images/images/log-file.png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;")
+        self.admin_label_conlog = QLabel(self.adminpage)
+        self.admin_label_conlog.setObjectName(u"admin_label_conlog")
+        self.admin_label_conlog.setGeometry(QRect(815, 390, 51, 20))
+        self.admin_label_conlog.setStyleSheet(u"border-bottom-left-radius: 10px;\n"
+"border-bottom-right-radius: 10px;\n"
+"background-color: rgb(40, 44, 50);\n"
+"font: 9pt \"\uc0c8\uad74\ub9bc\";")
+        self.label_2 = QLabel(self.adminpage)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(803, 344, 71, 71))
+        self.label_2.setStyleSheet(u"border-radius: 10px;\n"
+"border-bottom: 2px solid red;\n"
+"border-right: 2px solid red;")
         self.stackedWidget.addWidget(self.adminpage)
         self.admin_label_rightback1.raise_()
         self.admin_label_leftback.raise_()
@@ -1672,6 +1692,9 @@ class Ui_MainWindow(object):
         self.admin_label_log.raise_()
         self.admin_btn_server.raise_()
         self.admin_label_server.raise_()
+        self.admin_label_conlog.raise_()
+        self.label_2.raise_()
+        self.admin_btn_conlog.raise_()
         self.serverlogpage = QWidget()
         self.serverlogpage.setObjectName(u"serverlogpage")
         self.serverlogpage.setStyleSheet(u"QPushButton#log_btn_search {\n"
@@ -1845,6 +1868,146 @@ class Ui_MainWindow(object):
         self.log_btn_back.raise_()
         self.log_label_title.raise_()
         self.log_calendarwidget_cal.raise_()
+        self.userlogpage = QWidget()
+        self.userlogpage.setObjectName(u"userlogpage")
+        self.userlog_label_leftback = QLabel(self.userlogpage)
+        self.userlog_label_leftback.setObjectName(u"userlog_label_leftback")
+        self.userlog_label_leftback.setGeometry(QRect(20, 20, 521, 541))
+        self.userlog_label_leftback.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;\n"
+"border: 1px solid #3498db;\n"
+"")
+        self.userlog_btn_back = QPushButton(self.userlogpage)
+        self.userlog_btn_back.setObjectName(u"userlog_btn_back")
+        self.userlog_btn_back.setGeometry(QRect(910, 40, 31, 31))
+        self.userlog_btn_back.setCursor(QCursor(Qt.PointingHandCursor))
+        self.userlog_btn_back.setStyleSheet(u"background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);\n"
+"background-position: centered;\n"
+"background-repeat: no-repeat;\n"
+"border:none;\n"
+"")
+        self.userlog_calendarwidget_cal = QCalendarWidget(self.userlogpage)
+        self.userlog_calendarwidget_cal.setObjectName(u"userlog_calendarwidget_cal")
+        self.userlog_calendarwidget_cal.setGeometry(QRect(565, 140, 381, 241))
+        self.userlog_calendarwidget_cal.setStyleSheet(u"\n"
+"/* \uc804\uccb4 \uc704\uc82f \ubc30\uacbd \uc0c9\uc0c1 \ubc0f \ubc30\uacbd \uc774\ubbf8\uc9c0 */\n"
+"QCalendarWidget {\n"
+"    background-color: #2e2e2e;\n"
+"    border: 1px solid #444;\n"
+"    border-radius: 5px;\n"
+"    background-position: center;\n"
+"    background-repeat: no-repeat;\n"
+"}\n"
+"\n"
+"/* \ud5e4\ub354(\uc6d4/\uc5f0\ub3c4 \uc120\ud0dd \uc601\uc5ed) \uc2a4\ud0c0\uc77c\ub9c1 */\n"
+"QCalendarWidget QToolButton {\n"
+"    border: none; /* \ubc84\ud2bc\uc758 \ud14c\ub450\ub9ac \uc81c\uac70 */\n"
+"    background-color: transparent; /* \ubc30\uacbd\uc0c9 \ud22c\uba85\ud558\uac8c \uc124\uc815 */\n"
+"    color: white;\n"
+"    font-size: 16px;\n"
+"    height: 30px;\n"
+"    border: none;\n"
+"    border-radius: 5px;\n"
+"	font: 600 10pt \"Segoe UI Variable Small Semibol\";\n"
+"}\n"
+"\n"
+"QCalendarWidget QToolButton::hover {\n"
+"    background-color: rgba(102, 102, 102, 0.8); /* \ud22c\uba85\ub3c4 \uc801\uc6a9 */\n"
+"}\n"
+"\n"
+"/* \ud5e4\ub354\uc758 \ud654\uc0b4\ud45c \ubc84\ud2bc \uc2a4\ud0c0\uc77c\ub9c1"
+                        " */\n"
+"QCalendarWidget QToolButton#qt_calendar_prevmonth {\n"
+"	\n"
+"	\n"
+"	background-position: center; /* \uc774\ubbf8\uc9c0\uac00 \uac00\uc6b4\ub370 \uc624\ub3c4\ub85d \uc124\uc815 */\n"
+"    background-repeat: no-repeat;\n"
+"    width: 30px; /* \ubc84\ud2bc\uc758 \ub108\ube44 \uc9c0\uc815 */\n"
+"    height: 30px; /* \ubc84\ud2bc\uc758 \ub192\uc774 \uc9c0\uc815 */\n"
+"    border: none; /* \ubc84\ud2bc\uc758 \ud14c\ub450\ub9ac \uc81c\uac70 */\n"
+"    background-color: transparent; /* \ubc30\uacbd\uc0c9 \ud22c\uba85\ud558\uac8c \uc124\uc815 */\n"
+"}\n"
+"\n"
+"QCalendarWidget QToolButton#qt_calendar_nextmonth {\n"
+"	\n"
+"	background-position: center; /* \uc774\ubbf8\uc9c0\uac00 \uac00\uc6b4\ub370 \uc624\ub3c4\ub85d \uc124\uc815 */\n"
+"    background-repeat: no-repeat;\n"
+"    width: 30px; /* \ubc84\ud2bc\uc758 \ub108\ube44 \uc9c0\uc815 */\n"
+"    height: 30px; /* \ubc84\ud2bc\uc758 \ub192\uc774 \uc9c0\uc815 */\n"
+"    border: none; /* \ubc84\ud2bc\uc758 \ud14c\ub450\ub9ac \uc81c\uac70 */\n"
+"    background-col"
+                        "or: transparent; /* \ubc30\uacbd\uc0c9 \ud22c\uba85\ud558\uac8c \uc124\uc815 */\n"
+"}\n"
+"\n"
+"/* \ub0a0\uc9dc \uc140 \uc2a4\ud0c0\uc77c\ub9c1 */\n"
+"QCalendarWidget QAbstractItemView {\n"
+"\n"
+"    background-color: rgba(58, 58, 58, 0.8); /* \ud22c\uba85\ub3c4 \uc801\uc6a9 */\n"
+"    selection-background-color: #4CAF50;\n"
+"    selection-color: white;\n"
+"    border: none;\n"
+"    outline: 0;\n"
+"}\n"
+"\n"
+"QCalendarWidget QAbstractItemView::item {\n"
+"    height: 30px;\n"
+"    width: 30px;\n"
+"    margin: 3px;\n"
+"    color: white;\n"
+"    background-color: rgba(58, 58, 58, 0.6); /* \uc140 \ubc30\uacbd\uc5d0 \ud22c\uba85\ub3c4 \uc801\uc6a9 */\n"
+"}\n"
+"\n"
+"QCalendarWidget QAbstractItemView::item:selected {\n"
+"    background-color: #4CAF50;\n"
+"    color: white;\n"
+"    border-radius: 15px;\n"
+"}\n"
+"\n"
+"/* \uc624\ub298 \ub0a0\uc9dc \uc2a4\ud0c0\uc77c\ub9c1 */\n"
+"QCalendarWidget QWidget#qt_calendar_calendarview .QWidget {\n"
+"    color: white;\n"
+"    background-color: #FF5722;\n"
+"    border-radius: 15px"
+                        ";\n"
+"}\n"
+"\n"
+"/* \uc694\uc77c \ud5e4\ub354 \uc2a4\ud0c0\uc77c\ub9c1 */\n"
+"QCalendarWidget QTableView QHeaderView::section {\n"
+"    background-color: rgba(85, 85, 85, 0.8); /* \ud22c\uba85\ub3c4 \uc801\uc6a9 */\n"
+"    color: #888; /* \uc694\uc77c \uae00\uc790 \uc0c9\uc0c1\uc744 \uc5b4\ub450\uc6b4 \ud68c\uc0c9\uc73c\ub85c \ubcc0\uacbd */\n"
+"    font-size: 14px;\n"
+"    border: none;\n"
+"    height: 30px;\n"
+"}\n"
+"\n"
+"/* \ud604\uc7ac \uc6d4\uc5d0 \uc18d\ud558\uc9c0 \uc54a\ub294 \ub0a0\uc9dc \uc140 \uc2a4\ud0c0\uc77c\ub9c1 */\n"
+"QCalendarWidget QAbstractItemView::item:disabled {\n"
+"    background-color: rgba(30, 30, 30, 0.6); /* \ud604\uc7ac \uc6d4\uc5d0 \uc18d\ud558\uc9c0 \uc54a\ub294 \ub0a0\uc9dc\uc758 \ubc30\uacbd \uc0c9\uc0c1 */\n"
+"    color: rgba(255, 255, 255, 0.5); /* \ud604\uc7ac \uc6d4\uc5d0 \uc18d\ud558\uc9c0 \uc54a\ub294 \ub0a0\uc9dc\uc758 \uae00\uc790 \uc0c9\uc0c1 */\n"
+"}\n"
+"")
+        self.userlog_label_rightback = QLabel(self.userlogpage)
+        self.userlog_label_rightback.setObjectName(u"userlog_label_rightback")
+        self.userlog_label_rightback.setGeometry(QRect(550, 20, 411, 541))
+        self.userlog_label_rightback.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
+"border-radius: 10px;")
+        self.userlog_label_title = QLabel(self.userlogpage)
+        self.userlog_label_title.setObjectName(u"userlog_label_title")
+        self.userlog_label_title.setGeometry(QRect(40, 40, 141, 21))
+        self.userlog_label_title.setStyleSheet(u"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.userlog_treview_log = QTreeView(self.userlogpage)
+        self.userlog_treview_log.setObjectName(u"userlog_treview_log")
+        self.userlog_treview_log.setGeometry(QRect(40, 70, 481, 471))
+        self.userlog_treview_log.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
+"border-radius: 10px;\n"
+"font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.stackedWidget.addWidget(self.userlogpage)
+        self.userlog_label_rightback.raise_()
+        self.userlog_label_leftback.raise_()
+        self.userlog_btn_back.raise_()
+        self.userlog_calendarwidget_cal.raise_()
+        self.userlog_label_title.raise_()
+        self.userlog_treview_log.raise_()
         self.serverstatepage = QWidget()
         self.serverstatepage.setObjectName(u"serverstatepage")
         self.serverstatepage.setStyleSheet(u"QPushButton#serverstate_btn_reload {\n"
@@ -2482,7 +2645,7 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2610,13 +2773,20 @@ class Ui_MainWindow(object):
         self.admin_label_infoedit.setText(QCoreApplication.translate("MainWindow", u" \uc815\ubcf4 \uc218\uc815", None))
         self.admin_label_game.setText(QCoreApplication.translate("MainWindow", u"  \uc810\uc2ec \ub8f0\ub81b", None))
         self.admin_btn_log.setText("")
-        self.admin_label_log.setText(QCoreApplication.translate("MainWindow", u"\ub85c\uadf8 \ubcf4\uae30", None))
+        self.admin_label_log.setText(QCoreApplication.translate("MainWindow", u"\uc11c\ubc84 \ub85c\uadf8", None))
         self.admin_btn_server.setText("")
         self.admin_label_server.setText(QCoreApplication.translate("MainWindow", u"\uc11c\ubc84 \uc815\ubcf4", None))
+        self.admin_btn_conlog.setText("")
+        self.admin_label_conlog.setText(QCoreApplication.translate("MainWindow", u"\uc811\uc18d \ub85c\uadf8", None))
+        self.label_2.setText("")
         self.log_btn_back.setText("")
         self.log_label_leftback.setText("")
         self.log_label_title.setText(QCoreApplication.translate("MainWindow", u"\uc11c\ubc84 \ub85c\uadf8 \ubaa9\ub85d", None))
         self.log_label_rightback.setText("")
+        self.userlog_label_leftback.setText("")
+        self.userlog_btn_back.setText("")
+        self.userlog_label_rightback.setText("")
+        self.userlog_label_title.setText(QCoreApplication.translate("MainWindow", u"\uc720\uc800 \ub85c\uadf8 \ubaa9\ub85d", None))
         self.serverstate_label_back.setText("")
         self.serverstate_label_topback.setText("")
         self.serverstate_label_toptitle.setText(QCoreApplication.translate("MainWindow", u"Memory (\uba54\ubaa8\ub9ac)", None))
