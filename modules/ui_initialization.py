@@ -127,6 +127,7 @@ def initialize_widgets(mainWindow: QMainWindow):
 
     
 def initialize_variable(mainWindow: QMainWindow):
+    mainWindow.alertMsg = ""
     mainWindow.isFailed = True
     mainWindow.isConnect = False
     mainWindow.groupname = None

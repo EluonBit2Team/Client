@@ -11,12 +11,14 @@ from modules.util import *
 from modules.send_packet import *
 
 
-class ReceivePacket():
-    data_received = Signal(str)
+class ReceivePacket(QObject):
+    messageSignal = Signal(str)
     def __init__(self, main_window):
+        super().__init__()
         self.main_window = main_window
         self.receivedPacket = 0
         self.running = True
+        self.messageSignal.connect(self.main_window.alertMsgBox)
 
     def receiveData(self, socket):
         self.sock = socket
@@ -183,12 +185,13 @@ class ReceivePacket():
         except Exception as e:
             print(f"예외 발생: {e}")
     
-    @Slot(str)
     def loginError(self, msg):
+        errorMsg = msg
         alertMsg = "중복된 아이디 입니다."
-        self.main_window.alertMsg(alertMsg)
-        self.data_received.emit(alertMsg)
-
+        self.main_window.alertMsg = alertMsg
+        self.messageSignal.emit(alertMsg)
+        
+        
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
         print(errorMsg)

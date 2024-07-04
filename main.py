@@ -195,6 +195,7 @@ class MainWindow(QMainWindow):
         
         self.btn_logout.clicked.connect(self.packetSender.disconnect)
         
+        
         #connect socket
         while not self.socket:
             try:
@@ -367,9 +368,10 @@ class MainWindow(QMainWindow):
     def setLoginPage(self):
         self.login_btn_reconnect.show()
         widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
+    
     @Slot(str)
-    def alertMsg(self,msg):
-        QMessageBox.warning(self, '경고', msg , QMessageBox.Ok)
+    def alertMsgBox(self):
+        QMessageBox.warning(self, '경고', self.alertMsg, QMessageBox.Ok)
 
 
     # RESIZE EVENTSc
