@@ -367,12 +367,9 @@ class MainWindow(QMainWindow):
     def setLoginPage(self):
         self.login_btn_reconnect.show()
         widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
-    
+    @Slot(str)
     def alertMsg(self,msg):
         QMessageBox.warning(self, '경고', msg , QMessageBox.Ok)
-        self.data_receiver_thread = threading.Thread(target=self.packetReceiver.receiveData)
-        self.data_receiver_thread.start()
-
 
 
     # RESIZE EVENTSc

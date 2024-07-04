@@ -12,7 +12,7 @@ from modules.send_packet import *
 
 
 class ReceivePacket():
-    
+    data_received = Signal(str)
     def __init__(self, main_window):
         self.main_window = main_window
         self.receivedPacket = 0
@@ -75,6 +75,7 @@ class ReceivePacket():
         self.main_window.isConnect = True
             
     def loginSuccess(self, msg):
+        self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
         print(msg)
         userId = json.loads(msg.decode('utf-8')).get("login_id")
         userRole = json.loads(msg.decode('utf-8')).get("role")
@@ -182,9 +183,11 @@ class ReceivePacket():
         except Exception as e:
             print(f"예외 발생: {e}")
     
+    @Slot(str)
     def loginError(self, msg):
         alertMsg = "중복된 아이디 입니다."
         self.main_window.alertMsg(alertMsg)
+        self.data_received.emit(alertMsg)
 
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
