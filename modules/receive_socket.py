@@ -2,23 +2,26 @@ import json
 import struct
 import select
 import threading
+import time
 from datetime import datetime
 from collections import OrderedDict
 from PySide6.QtWidgets import QMessageBox
+from PySide6.QtCore import QObject, Signal, Slot, Qt
 from modules.util import *
 from modules.send_packet import *
 
 
 class ReceivePacket():
+    
     def __init__(self, main_window):
         self.main_window = main_window
         self.receivedPacket = 0
         self.running = True
-        
 
     def receiveData(self, socket):
         self.sock = socket
         buffer = b""
+        start_time = time.time()
         while self.running:
             try:
                 if self.sock:
@@ -26,6 +29,7 @@ class ReceivePacket():
                     if readable:
                         data = self.sock.recv(4096)
                         if data:
+                            start_time = time.time()
                             buffer += data
                             print("-------받은 RAW DATA--------")
                             print(data)
@@ -35,17 +39,26 @@ class ReceivePacket():
                                 if len(buffer) >= msg_length - 4:
                                     json_msg = buffer[4:msg_length]
                                     buffer = buffer[msg_length:]
-                                    
                                     json_type = json.loads(json_msg).get("type")
                                     self.receivedType(json_type, json_msg)
                                 else:
                                     print("데이터가 없습니다")
                                     break
+                    # if time.time() - start_time > 4: 
+                    #     print("Timeout: No data received for 4 seconds. Closing socket.")
+                    #     self.main_window.packetSender.ping_flag = False
+                    #     self.main_window.packetSender.disconnect()
+                    #     break
             except BlockingIOError:
                 continue
             except Exception as e:
+                self.main_window.setLoginPage()
+                # self.main_window.login_btn_reconnect.show()
+                # self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
                 print(f"An error occurred: {e}")
                 self.running = False
+                self.main_window.isConnect = False
+                print("receive가 끊어졌습니다")
             # except BlockingIOError:
             #     continue
             # except (OSError, self.socket.error) as e: #좀더 자세한 소켓연결 오류와 라인을 알고싶을때
@@ -57,6 +70,9 @@ class ReceivePacket():
             #     print(f"An unexpected error occurred: {e}")
             #     self.running = False
             #     break
+    
+    def connectSuccess(self, msg):
+        self.main_window.isConnect = True
             
     def loginSuccess(self, msg):
         print(msg)
@@ -165,6 +181,10 @@ class ReceivePacket():
                 self.main_window.realtimetpsListModel.clear()
         except Exception as e:
             print(f"예외 발생: {e}")
+    
+    def loginError(self, msg):
+        alertMsg = "중복된 아이디 입니다."
+        self.main_window.alertMsg(alertMsg)
 
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
@@ -173,13 +193,14 @@ class ReceivePacket():
     def receivedType(self, jsonType, msg):
         if jsonType == TYPE_LOGIN:
             self.loginSuccess(msg)
+        elif jsonType == TYPE_CONNECTION:
+            self.connectSuccess(msg)
         elif jsonType == TYPE_USERLIST:
             self.receiveUserList(msg)
         elif jsonType == TYPE_MESSAGE:
             self.receiveMassage(msg)
         elif jsonType == TYPE_ERROR:
-            pass
-            # self.receiveError(msg)
+            self.receiveError(msg)
         elif jsonType == TYPE_GROUPLIST:
             self.receiveGroupList(msg)
         elif jsonType == TYPE_GROUPMEMBER:
@@ -196,6 +217,8 @@ class ReceivePacket():
             self.receivedDm(msg)
         elif jsonType == TYPE_DM_LOG:
             self.receiveDmLog(msg)
+        elif jsonType == TYPE_ERROR_DUP_LOGIN:
+            self.loginError(msg)
         else:
             print("jsonType이 None입니다.")
             print("------NoneType RAW DATA ------")

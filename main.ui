@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -2111,6 +2111,30 @@ margin-left:10px;</string>
                              <string/>
                             </property>
                            </widget>
+                           <widget class="QPushButton" name="login_btn_reconnect">
+                            <property name="geometry">
+                             <rect>
+                              <x>750</x>
+                              <y>70</y>
+                              <width>41</width>
+                              <height>31</height>
+                             </rect>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-image: url(:/icons/images/icons/cil-reload.png);
+background-position: center; /* 이미지가 가운데 오도록 설정 */
+background-repeat: no-repeat;
+width: 30px; /* 버튼의 너비 지정 */
+height: 30px; /* 버튼의 높이 지정 */
+</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                           </widget>
                            <zorder>login_label_back</zorder>
                            <zorder>login_label_cover</zorder>
                            <zorder>login_input_id</zorder>
@@ -2121,6 +2145,7 @@ margin-left:10px;</string>
                            <zorder>login_label_disc</zorder>
                            <zorder>horizontalLayoutWidget</zorder>
                            <zorder>login_btn_qrlogin</zorder>
+                           <zorder>login_btn_reconnect</zorder>
                           </widget>
                          </item>
                         </layout>
@@ -5161,22 +5186,6 @@ font-weight: 200;</string>
    </hints>
   </connection>
   <connection>
-   <sender>signup_btn_submit</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>signUpRequest()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>695</x>
-     <y>539</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>929</x>
-     <y>698</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>login_input_id</sender>
    <signal>returnPressed()</signal>
    <receiver>login_btn_login</receiver>
@@ -5209,22 +5218,6 @@ font-weight: 200;</string>
    </hints>
   </connection>
   <connection>
-   <sender>login_btn_login</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>loginRequest()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>684</x>
-     <y>433</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1083</x>
-     <y>90</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>signup_checkbox_agree</sender>
    <signal>stateChanged(int)</signal>
    <receiver>MainWindow</receiver>
@@ -5253,22 +5246,6 @@ font-weight: 200;</string>
     <hint type="destinationlabel">
      <x>1024</x>
      <y>617</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>home_btn_chatlist_send</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>sendMsg()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1005</x>
-     <y>630</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1046</x>
-     <y>695</y>
     </hint>
    </hints>
   </connection>

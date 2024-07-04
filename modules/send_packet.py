@@ -9,53 +9,97 @@ import threading
 request_thread = None
 stop_thread_flag = False
 import time
+
 class SendPacket:
     
     def __init__(self, main_window):
         self.main_window = main_window
-
+        self.lock = threading.Lock()
 
     def connectSocket(self, addr, port):
+        print("connectSocket진입")
+        self.sock = self.main_window.socket
         try:
-            self.socket = None
-            print(self.socket)
-            print(f"Connecting to {addr}:{port}")
+            if self.sock == None:
+                print(f"Connecting to {addr}:{port}")
 
-            self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.socket.settimeout(5)
+                self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                self.sock.settimeout(5)
 
-            self.socket.connect((addr, port))
-            
-            print("connectSocket의 socket")
-            print(self.socket)
-            self.socket.setblocking(False)
+                self.sock.connect((addr, port))
+                print(self.sock)
+                self.sock.setblocking(False)
 
-            self.main_window.socket = self.socket
-            return True
+                self.main_window.socket = self.sock
+                return True
+            else:
+                print("socket else")
+                self.sock.close()
+                self.sock = None
+                print(f"Connecting to {addr}:{port}")
+
+                self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                self.sock.settimeout(5)
+
+                self.sock.connect((addr, port))
+                
+                self.main_window.socket = self.sock
+                print(self.sock)
+                self.sock.setblocking(False)
+                return True
+
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
             return False
+    
+    def reconnect(self):
+        self.sock = None
+        self.connectSocket(SERVER_ADDR, SERVER_PORT)
+        self.main_window.start_receiving()
+        self.main_window.start_ping_thread()
 
-    def loginRequest(self):
-        self.socket = self.main_window.socket
+    def sendPingData(self, sock):
+        self.main_window.isFailed = True
+        while self.main_window.isFailed:
+            try:
+                with self.lock:
+                    if self.main_window.isConnect:
+                        break
+                    msg = {"type": 0}
+                    packet = jsonParser(msg)
+                    
+                    if sock and msg:
+                        sock.sendall(packet)
+                    time.sleep(2)
+
+            except socket.error as e:
+                with self.lock:
+                    self.main_window.setLoginPage()
+                    self.main_window.isConnect = False
+                    self.main_window.isFailed = False
+                    print(f"Socket error occurred: {e}")
+                    print("호스트와 연결이 끊어졌습니다.")
+                    # QMessageBox.warning(self.main_window, 'Warning', '서버와의 연결이 끊어졌습니다.')
+                    # self.connectSocket(SERVER_ADDR, SERVER_PORT)
+                return False
         
-        if self.socket == None:
+    def loginRequest(self, sock):
+        if sock == None:
             if not self.connectSocket(SERVER_ADDR, SERVER_PORT):
                 print("Socket connection failed.")
                 return False
-            socket = self.main_window.socket
+            sock = self.main_window.sock
             self.main_window.packetReceiver.running = True
             self.main_window.start_receiving()
         else:
-            socket = self.socket
+            sock = self.sock
             
-        print(self.socket)
-        socket = self.socket
+        print(self.sock)
+        sock = self.sock
         self.loginId = self.main_window.login_input_id.text()
         loginPw = self.main_window.login_input_pw.text()
         
-        self.loginId = "admin"
-        loginPw = "admin"
         try:
             msg = {
                 "type": TYPE_LOGIN,
@@ -64,8 +108,8 @@ class SendPacket:
             }
             packet = jsonParser(msg)
             
-            if socket and msg:
-                socket.sendall(packet)
+            if sock and msg:
+                sock.sendall(packet)
             
             print("login 패킷")
             print(packet)
@@ -73,10 +117,11 @@ class SendPacket:
             self.main_window.btn_home.show()
             self.main_window.btn_admin.show()
             self.main_window.btn_notice.show()
-            self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
             return True
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
+            self.connectSocket(SERVER_ADDR, SERVER_PORT)
             return False
     
     def qrLoginRequest(self, socket, msg):
@@ -91,6 +136,7 @@ class SendPacket:
             self.main_window.btn_notice.show()
             return True
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
             return False
     
@@ -101,7 +147,6 @@ class SendPacket:
         self.main_window.ui.btn_notice.hide()
         self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
         self.main_window.packetReceiver.running = False
-        self.main_window.receive_thread.join()
         print("스레드종료")
         if self.main_window.socket:
             self.main_window.socket.close()
@@ -147,6 +192,7 @@ class SendPacket:
             #                                     "Position: " + self.signupPosition + '\n')
             return True
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
             return False
     
@@ -180,6 +226,7 @@ class SendPacket:
                     
                 return True
             except Exception as e:
+                self.main_window.isConnect = False
                 print(f"An error occurred: {e}")
                 return False
         
@@ -203,8 +250,11 @@ class SendPacket:
                     
                 return True
             except Exception as e:
+                self.main_window.isConnect = False
                 print(f"An error occurred: {e}")
                 return False
+        
+        self.main_window.home_lineedit_chatlist_send.clear()
     
     def reqUserList(self, socket):
         try:
@@ -214,7 +264,9 @@ class SendPacket:
             if socket and msg:
                 socket.sendall(packet)
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
+            self.connectSocket(SERVER_ADDR, SERVER_PORT)
             return False
     
     def reqGroupList(self, socket):
@@ -224,7 +276,9 @@ class SendPacket:
             if socket and msg:
                 socket.sendall(packet)
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
+            self.connectSocket(SERVER_ADDR, SERVER_PORT)
             return False
     
     def reqGroupChat(self, socket):
@@ -248,13 +302,17 @@ class SendPacket:
             if socket and msg:
                 socket.sendall(packet)
         except Exception as e:
-                print(f"An error occurred: {e}")
-                return False
+            self.main_window.isConnect = False
+            print(f"An error occurred: {e}")
+            return False
     
     def sendEditedMember(self, socket):
         groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
         inMember = self.main_window.memberAddDialog.in_member
         outMember = self.main_window.memberAddDialog.out_member
+        
+        inMember, outMember = removeDuplicate(inMember, outMember)
+        
         try:
             msg = {"type": TYPE_EDIT_GROUP_MEMBER,
                    "groupname": groupname,
@@ -265,6 +323,7 @@ class SendPacket:
                 socket.sendall(packet)
             print(packet)
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
             return False
     
@@ -279,6 +338,7 @@ class SendPacket:
                 socket.sendall(packet)
             print(msg)
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
             return False
         
@@ -303,6 +363,7 @@ class SendPacket:
             if socket and msg:
                 socket.sendall(packet)
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
             return False
     
@@ -361,7 +422,9 @@ class SendPacket:
                     socket.sendall(packet)
                 print(packet)
             except Exception as e:
+                self.main_window.isConnect = False
                 print(f"An error occurred: {e}")
+                self.connectSocket(SERVER_ADDR, SERVER_PORT)
                 return False
         
         if group_type in json_data:
@@ -376,7 +439,9 @@ class SendPacket:
                     socket.sendall(packet)
                 print(packet)
             except Exception as e:
+                self.main_window.isConnect = False
                 print(f"An error occurred: {e}")
+                self.connectSocket(SERVER_ADDR, SERVER_PORT)
                 return False
     
     def rejectReq(self, socket):
@@ -399,6 +464,7 @@ class SendPacket:
                     socket.sendall(packet)
                 print(packet)
             except Exception as e:
+                self.main_window.isConnect = False
                 print(f"An error occurred: {e}")
                 return False
         else:
@@ -414,6 +480,7 @@ class SendPacket:
                     socket.sendall(packet)
                 print(packet)
             except Exception as e:
+                self.main_window.isConnect = False
                 print(f"An error occurred: {e}")
                 return False
     
@@ -447,8 +514,9 @@ class SendPacket:
                 socket.sendall(packet)
 
         except Exception as e:
-                print(f"An error occurred: {e}")
-                return False
+            self.main_window.isConnect = False
+            print(f"An error occurred: {e}")
+            return False
         
     # 그룹 삭제 요청
     def groupdeleteReq(self, socket):
@@ -464,8 +532,9 @@ class SendPacket:
                 socket.sendall(packet)
 
         except Exception as e:
-                print(f"An error occurred: {e}")
-                return False
+            self.main_window.isConnect = False
+            print(f"An error occurred: {e}")
+            return False
     
     # 서버 로그 요청
     def serverlogReq(self, socket):
@@ -489,8 +558,9 @@ class SendPacket:
                 socket.sendall(packet)
 
         except Exception as e:
-                print(f"An error occurred: {e}")
-                return False
+            self.main_window.isConnect = False
+            print(f"An error occurred: {e}")
+            return False
     
     def reqDm(self, socket):
         str_now = datetime.now().isoformat().replace('T', ' ')
@@ -511,8 +581,9 @@ class SendPacket:
                 socket.sendall(packet)
 
         except Exception as e:
-                print(f"An error occurred: {e}")
-                return False
+            self.main_window.isConnect = False
+            print(f"An error occurred: {e}")
+            return False
         
     
     def searchChatLog(self, socket):
@@ -535,8 +606,9 @@ class SendPacket:
                     socket.sendall(packet)
 
             except Exception as e:
-                    print(f"An error occurred: {e}")
-                    return False
+                self.main_window.isConnect = False
+                print(f"An error occurred: {e}")
+                return False
         
         elif self.main_window.nowClickedRow['login_id']:
             try:
@@ -554,8 +626,9 @@ class SendPacket:
                     socket.sendall(packet)
 
             except Exception as e:
-                    print(f"An error occurred: {e}")
-                    return False
+                self.main_window.isConnect = False
+                print(f"An error occurred: {e}")
+                return False
         
         self.main_window.home_btn_return_chat.show()
         
@@ -577,6 +650,7 @@ class SendPacket:
 
             except Exception as e:
                 print(f"An error occurred: {e}")
+                self.main_window.isConnect = False
                 self.stop_thread_flag = False
                 return False
             
@@ -593,6 +667,7 @@ class SendPacket:
             if socket and msg:
                 socket.sendall(packet)
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
             return False
         
@@ -609,6 +684,7 @@ class SendPacket:
                 socket.sendall(packet)
             print(msg)
         except Exception as e:
+            self.main_window.isConnect = False
             print(f"An error occurred: {e}")
             return False
     

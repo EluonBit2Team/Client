@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainCirMwx.ui'
+## Form generated from reading UI file 'mainLLzOYF.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1199,6 +1199,16 @@ class Ui_MainWindow(object):
 "border-radius: 14px;\n"
 "margin-right: 10px;\n"
 "margin-left:10px;")
+        self.login_btn_reconnect = QPushButton(self.widget)
+        self.login_btn_reconnect.setObjectName(u"login_btn_reconnect")
+        self.login_btn_reconnect.setGeometry(QRect(750, 70, 41, 31))
+        self.login_btn_reconnect.setCursor(QCursor(Qt.PointingHandCursor))
+        self.login_btn_reconnect.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-reload.png);\n"
+"background-position: center; /* \uc774\ubbf8\uc9c0\uac00 \uac00\uc6b4\ub370 \uc624\ub3c4\ub85d \uc124\uc815 */\n"
+"background-repeat: no-repeat;\n"
+"width: 30px; /* \ubc84\ud2bc\uc758 \ub108\ube44 \uc9c0\uc815 */\n"
+"height: 30px; /* \ubc84\ud2bc\uc758 \ub192\uc774 \uc9c0\uc815 */\n"
+"")
         self.login_label_back.raise_()
         self.login_label_cover.raise_()
         self.login_input_id.raise_()
@@ -1209,6 +1219,7 @@ class Ui_MainWindow(object):
         self.login_label_disc.raise_()
         self.horizontalLayoutWidget.raise_()
         self.login_btn_qrlogin.raise_()
+        self.login_btn_reconnect.raise_()
 
         self.gridLayout_3.addWidget(self.widget, 1, 0, 1, 1)
 
@@ -2466,15 +2477,12 @@ class Ui_MainWindow(object):
         self.signup_input_name.returnPressed.connect(self.signup_btn_submit.click)
         self.signup_input_phone.returnPressed.connect(self.signup_btn_submit.click)
         self.signup_input_email.returnPressed.connect(self.signup_btn_submit.click)
-        self.signup_btn_submit.clicked.connect(MainWindow.signUpRequest)
         self.login_input_id.returnPressed.connect(self.login_btn_login.click)
         self.login_input_pw.returnPressed.connect(self.login_btn_login.click)
-        self.login_btn_login.clicked.connect(MainWindow.loginRequest)
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
-        self.home_btn_chatlist_send.clicked.connect(MainWindow.sendMsg)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2537,6 +2545,7 @@ class Ui_MainWindow(object):
         self.login_btn_mail.setText("")
         self.login_btn_call.setText("")
         self.login_btn_qrlogin.setText("")
+        self.login_btn_reconnect.setText("")
         self.home_label_chatback.setText("")
         self.home_label_left1back.setText("")
         self.home_label_left2back.setText("")

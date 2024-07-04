@@ -14,6 +14,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.login_btn_call = mainWindow.findChild(QPushButton, "login_btn_call")
     mainWindow.login_btn_qrlogin = mainWindow.findChild(QPushButton, "login_btn_qrlogin")
     mainWindow.btn_logout = mainWindow.findChild(QPushButton, "btn_logout")
+    mainWindow.login_btn_reconnect = mainWindow.findChild(QPushButton, "login_btn_reconnect")
 
     mainWindow.qrlogin_btn_back = mainWindow.findChild(QPushButton, "qrlogin_btn_back")
     mainWindow.qrlogin_label_waiting = mainWindow.findChild(QLabel, "qrlogin_label_waiting")
@@ -91,8 +92,13 @@ def initialize_widgets(mainWindow: QMainWindow):
 
 
     #매개변수를 가진 버튼
+    
+    mainWindow.login_btn_login.clicked.connect(lambda: mainWindow.packetSender.loginRequest(mainWindow.socket))
     mainWindow.login_btn_mail.clicked.connect(lambda: mainWindow.openDialog("MailFunctionWindow"))
     mainWindow.login_btn_call.clicked.connect(lambda: mainWindow.openDialog("CallDialog"))
+    mainWindow.login_btn_reconnect.clicked.connect(lambda: mainWindow.packetSender.reconnect())
+    
+    mainWindow.signup_btn_submit.clicked.connect(lambda: mainWindow.packetSender.signUpRequest(mainWindow.socket))
     
     mainWindow.btn_notice.clicked.connect(lambda: mainWindow.openDialog("NoticeDialog"))
 
@@ -112,7 +118,8 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_search_chat.clicked.connect(lambda: mainWindow.openDialog("SetLogTimeDlg"))
     mainWindow.home_btn_return_chat.clicked.connect(lambda: returnChat(mainWindow, mainWindow.nowClickedRow))
     mainWindow.home_btn_leave_group.clicked.connect(lambda: mainWindow.packetSender.leaveGroup(mainWindow.socket))
-
+    mainWindow.home_btn_chatlist_send.clicked.connect(lambda: mainWindow.packetSender.sendMsg(mainWindow.socket))
+    
     mainWindow.serverstate_btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
     mainWindow.serverstate_btn_reload.clicked.connect(mainWindow.statusthread)
 
@@ -120,6 +127,8 @@ def initialize_widgets(mainWindow: QMainWindow):
 
     
 def initialize_variable(mainWindow: QMainWindow):
+    mainWindow.isFailed = True
+    mainWindow.isConnect = False
     mainWindow.groupname = None
     mainWindow.sendTarget = None
     mainWindow.nowClickedRow = None

@@ -7,11 +7,12 @@ from collections import OrderedDict
 from PySide6.QtWidgets import QMainWindow
 import threading
 
-SERVER_ADDR = "192.168.0.253"
+SERVER_ADDR = "192.168.0.149"
 # SERVER_ADDR = "127.0.0.1"
-SERVER_PORT = 3335
+SERVER_PORT = 3334
 
 #json type 4번은 ui_groupadddlg_function으로
+TYPE_CONNECTION = 0
 TYPE_SIGNUP_REQ = 1
 TYPE_LOGIN = 2
 TYPE_MESSAGE = 3
@@ -32,6 +33,7 @@ TYPE_REALTIME_REQ = 17
 TYPE_DM_SEND = 18
 TYPE_DM_LOG = 19
 TYPE_LEAVE_GROUP = 20
+TYPE_ERROR_DUP_LOGIN = 102
 
 
 
@@ -73,14 +75,22 @@ def connectionErrorEvent():
 def connectionSuccessEvent():
     QMessageBox.information(None, "Success", "연결 성공")
 
+def groupListUpdate(data, model):
+    for json_data in data:
+        item = QStandardItem(json_data['groupname'])
+        item.setData(json_data, Qt.UserRole)
+        model.appendRow(item)
+        
+
 def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
     print("updateDisplay 진입")
     if data_type == "grouplist":
         model.clear()
-        for json_data in data_list:
-            item = QStandardItem(json_data['groupname'])
-            item.setData(json_data, Qt.UserRole)
-            model.appendRow(item)
+        groupListUpdate(data_list, model)
+        # for json_data in data_list:
+        #     item = QStandardItem(json_data['groupname'])
+        #     item.setData(json_data, Qt.UserRole)
+        #     model.appendRow(item)
     
     elif data_type == "userlist":
         model.clear()
@@ -413,7 +423,26 @@ def returnChat(mainWindow: QMainWindow, json_data):
         mainWindow.packetSender.reqGroupChat(mainWindow.socket)
     
     mainWindow.home_btn_return_chat.hide()
-        
+    
+def removeDuplicate(list1, list2):
+    # 집합을 사용하여 중복 요소 찾기
+    set1 = set(list1)
+    set2 = set(list2)
+    
+    # 중복 요소 찾기
+    duplicates = set1.intersection(set2)
+    
+    # 중복 요소를 양쪽 리스트에서 제거
+    list1 = [item for item in list1 if item not in duplicates]
+    list2 = [item for item in list2 if item not in duplicates]
+    
+    return list1, list2
+
+
+def try_connect(mainWindow: QMainWindow):
+    connect_thread = threading.Thread(target=mainWindow.packetSender.connectSocket, args=(mainWindow.socket,))
+    connect_thread.daemon = True
+    connect_thread.start()
     
     
 

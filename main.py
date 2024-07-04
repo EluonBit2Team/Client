@@ -44,7 +44,7 @@ from modules.ui_loadingsp import *
 from modules.ui_setlogtimedlg_function import *
 from widgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
-
+from PySide6.QtWidgets import QMainWindow, QApplication, QMessageBox
 
 # FIX Problem for High DPI and Scale above 100%
 os.environ["QT_FONT_DPI"] = "96"
@@ -67,19 +67,21 @@ class MainWindow(QMainWindow):
         widgets = self.ui
 
         # 로딩 GIF 보여주기
-        self.loadingGif = LoadingGif()
-        self.loadingGif.show()
-        self.loadingGif.startAnimation()
+        # self.loadingGif = LoadingGif()
+        # self.loadingGif.show()
+        # self.loadingGif.startAnimation()
 
         # widgets initialize
         initialize_widgets(self)
         initialize_variable(self)
+        
 
         # hide menu
         self.btn_home.hide()
         self.btn_admin.hide()
         self.btn_notice.hide()
         self.home_btn_return_chat.hide()
+        self.login_btn_reconnect.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -194,18 +196,24 @@ class MainWindow(QMainWindow):
         self.btn_logout.clicked.connect(self.packetSender.disconnect)
         
         #connect socket
-        try:    
-            self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
-        except socket.error as e:
-            print(f"Socket connection error: {e}")
-            connectionErrorEvent()
+        while not self.socket:
+            try:
+                print("소켓연결 시도중...")
+                self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
+            except socket.error as e:
+                print(f"Socket connection error: {e}")
+                connectionErrorEvent()
+                print("소켓연결 실패")
+                time.sleep(5)
+                
         print("main의 socket")
         print(self.socket)
-        self.start_receiving() # 데이터 받기 시작
-
-        # 소켓 연결 성공 시 로딩 애니메이션 멈추기
-        self.loadingGif.stopAnimation()
-
+        
+        if self.socket:
+            self.start_receiving() # 데이터 받기 시작
+        
+        self.start_ping_thread()
+    
     # 약관체크버튼
     def toggleButton(self, state):
         if state == 2:
@@ -267,7 +275,6 @@ class MainWindow(QMainWindow):
 
     # SET HOME PAGE AND SELECT MENU
     # ///////////////////////////////////////////////////////////////
-
 
     def buttonClick(self):
         # GET BUTTON CLICKED
@@ -334,46 +341,19 @@ class MainWindow(QMainWindow):
             
         if btnName == "btn_exit":
             self.packetSender.testDataSender(self.socket)
-       
-
+            
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
-
-    def loginRequest(self):
-
-        # 로그인 요청 실행
-        self.packetSender.loginRequest()
         
-        # # 로딩 GIF 보여주기
-        # self.loadingGif = LoadingGif()
-        # self.loadingGif.show()
-        # self.loadingGif.startAnimation()
-
-        # # 3초 후에 loginRequest 실행
-        # QTimer.singleShot(1500, self.executeLoginRequest)
-        
-    # def executeLoginRequest(self):
-    #     # 로그인 요청 실행
-    #     self.packetSender.loginRequest()
-
-    #     # 애니메이션 멈추기
-    #     self.loadingGif.stopAnimation()
-
-    def signUpRequest(self):
-        self.packetSender.signUpRequest(self.socket)
-
-    def sendMsg(self):
-        self.packetSender.sendMsg(self.socket)
-        self.home_lineedit_chatlist_send.clear()
-
-    def receiveData(self):
-        self.packetReceiver.receiveData(self.socket)
-
     def start_receiving(self):
-        self.receive_thread = threading.Thread(target=self.receiveData)
-        self.receive_thread.daemon = True
+        self.packetReceiver.running = True
+        self.receive_thread = threading.Thread(target=self.packetReceiver.receiveData, args=(self.socket, ))
         self.receive_thread.start()
-
+    
+    def start_ping_thread(self):
+        self.ping_thread = threading.Thread(target=self.packetSender.sendPingData, args=(self.socket,))
+        self.ping_thread.start()
+        
     def statusthread(self):
         # 10초마다 요청을 보내는 스레드 시작
         print("statusthread 시작")
@@ -383,6 +363,16 @@ class MainWindow(QMainWindow):
         request_thread.start()
         self.request_thread = request_thread  # 스레드 객체를 인스턴스 변수로 저장
         print("서버 실시간 상태 요청 스레드 시작됨")
+    
+    def setLoginPage(self):
+        self.login_btn_reconnect.show()
+        widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
+    
+    def alertMsg(self,msg):
+        QMessageBox.warning(self, '경고', msg , QMessageBox.Ok)
+        self.data_receiver_thread = threading.Thread(target=self.packetReceiver.receiveData)
+        self.data_receiver_thread.start()
+
 
 
     # RESIZE EVENTSc
