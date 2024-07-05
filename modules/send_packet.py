@@ -104,8 +104,8 @@ class SendPacket:
             
             msg = {
                 "type": TYPE_LOGIN,
-                "login_id": "admin",
-                "pw": "admin"
+                "login_id": "admin2",
+                "pw": "admin2"
             }
             # msg = {
             #     "type": TYPE_LOGIN,

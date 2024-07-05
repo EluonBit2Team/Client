@@ -338,7 +338,6 @@ class MainWindow(QMainWindow):
         if btnName == "log_btn_back":
             widgets.stackedWidget.setCurrentWidget(widgets.adminpage)
 
-
         # SHOW USER LOG PAGE
         if btnName == "admin_btn_conlog":
             widgets.stackedWidget.setCurrentWidget(widgets.userlogpage)

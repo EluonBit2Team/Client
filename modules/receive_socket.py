@@ -9,7 +9,9 @@ from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import QObject, Signal, Slot, Qt
 from modules.util import *
 from modules.send_packet import *
-
+import tkinter as tk
+from tkinter import messagebox
+from widgets import *
 
 class ReceivePacket(QObject):
     messageSignal = Signal(str)
@@ -165,15 +167,31 @@ class ReceivePacket(QObject):
 
     # type 300
     def onlineReq(self, msg):
+        self.main_window.admin_label_new.show()
         print("onlineReq 진입")
         print(msg)
-        if msg == b'{\n\t"type":\t300\n}':
-            print("300 진입")
-            self.main_window.admin_label_new.show()
-        else:
-            print("300 진입 오류")
-        
 
+        # if not self.main_window.admin_label_new.show():
+        #     self.main_window.admin_label_new.show()
+
+   
+    # type 301 (서버 종료)
+    def serverErrorReq(self, msg):
+        print("301 표출 (서버 오류)")
+        print(msg)
+
+        self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
+        self.main_window.packetSender.disconnect()
+        print("소켓 종료")
+        # # 경고 다이얼로그 추가
+        # msgBox = QMessageBox()
+        # msgBox.setIcon(QMessageBox.Warning)
+        # msgBox.setText("서버 오류가 발생했습니다. 다시 시도해 주세요.")
+        # msgBox.setWindowTitle("서버 오류")
+        # msgBox.setStandardButtons(QMessageBox.Ok)
+        # msgBox.exec_()
+                
+        
     # 실시간
     def receiveReqRealtime(self, msg):
         try:
@@ -250,6 +268,8 @@ class ReceivePacket(QObject):
             self.loginError(msg)
         elif jsonType == TYPE_ONLINE_REQ:
             self.onlineReq(msg)
+        elif jsonType == TYPE_SERVERERR_REQ:
+            self.serverErrorReq(msg)
         else:
             print("jsonType이 None입니다.")
             print("------NoneType RAW DATA ------")

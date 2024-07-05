@@ -36,6 +36,7 @@ TYPE_LEAVE_GROUP = 20
 TYPE_ERROR_DUP_LOGIN = 102
 TYPE_USERLOG_REQ = 21
 TYPE_ONLINE_REQ = 300
+TYPE_SERVERERR_REQ = 301
 
 class CustomDelegate(QStyledItemDelegate):
     # def init
@@ -206,16 +207,29 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 logouttime = json_data['logout_time']
                 if logouttime == "NULL":
                     logouttime = "접속중"
-
-                id_column = QStandardItem(loginid)
-                login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
-                logout_column = QStandardItem(logouttime)
-                
-                id_column.setData(json_data, Qt.UserRole)
-                
-                row = [id_column, login_column, logout_column]
+                    id_column = QStandardItem(loginid)
+                    login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
+                    logout_column = QStandardItem(logouttime)
                     
-                model.appendRow(row)
+                    # 배경색 빨간색으로 설정
+                    for column in [id_column, login_column, logout_column]:
+                        column.setBackground(Qt.red)
+                    
+                    id_column.setData(json_data, Qt.UserRole)
+                    
+                    row = [id_column, login_column, logout_column]
+                    # 리스트의 가장 위에 추가
+                    model.insertRow(0, row)
+                else:
+                    id_column = QStandardItem(loginid)
+                    login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
+                    logout_column = QStandardItem(logouttime)
+
+                    id_column.setData(json_data, Qt.UserRole)
+                    
+                    row = [id_column, login_column, logout_column]
+
+                    model.appendRow(row)
             else:
                 print("Error: 'loginid' or 'login_time' or 'login_column' key not found in", json_data)
 
