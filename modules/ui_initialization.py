@@ -84,6 +84,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.btn_home = mainWindow.findChild(QPushButton, "btn_home")
     mainWindow.btn_admin = mainWindow.findChild(QPushButton, "btn_admin")
     mainWindow.btn_save = mainWindow.findChild(QPushButton, "btn_save")
+    mainWindow.btn_login = mainWindow.findChild(QPushButton, "btn_login")
     mainWindow.btn_notice = mainWindow.findChild(QPushButton, "btn_notice")
 
     mainWindow.admin_btn_reload = mainWindow.findChild(QPushButton, "admin_btn_reload")
@@ -136,6 +137,7 @@ def initialize_variable(mainWindow: QMainWindow):
     mainWindow.nowGroupName = None
     mainWindow.groupList = []
     mainWindow.userList = []
+    mainWindow.loginUserList = []
     mainWindow.groupMemberList = []
     mainWindow.userId = None
     mainWindow.socket = None

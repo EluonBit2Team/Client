@@ -7,7 +7,7 @@ from collections import OrderedDict
 from PySide6.QtWidgets import QMainWindow
 import threading
 
-SERVER_ADDR = "192.168.0.149"
+SERVER_ADDR = "10.23.10.2"
 # SERVER_ADDR = "127.0.0.1"
 SERVER_PORT = 3334
 
@@ -33,7 +33,9 @@ TYPE_REALTIME_REQ = 17
 TYPE_DM_SEND = 18
 TYPE_DM_LOG = 19
 TYPE_LEAVE_GROUP = 20
+TYPE_CURRENT_USERLIST = 22
 TYPE_ERROR_DUP_LOGIN = 102
+
 
 
 
@@ -96,14 +98,24 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
         for json_data in data_list:
-            print(json_data)
-            makeRow = json_data['dept_name'] + ' ' + \
-                json_data['position_name'] + ' ' + json_data['name']
-            name_column = QStandardItem(makeRow)
-            id_column = QStandardItem(json_data["login_id"])
-            name_column.setData(json_data, Qt.UserRole)
-            row = [name_column, id_column]
-            model.appendRow(row)
+            if json_data['login_id'] in mainWindow.loginUserList:
+                print(json_data)
+                makeRow = "🟢" + json_data['dept_name'] + ' ' + \
+                    json_data['position_name'] + ' ' + json_data['name']
+                name_column = QStandardItem(makeRow)
+                id_column = QStandardItem(json_data["login_id"])
+                name_column.setData(json_data, Qt.UserRole)
+                row = [name_column, id_column]
+                model.appendRow(row)
+            else:
+                print(json_data)
+                makeRow = "🔴" + json_data['dept_name'] + ' ' + \
+                    json_data['position_name'] + ' ' + json_data['name']
+                name_column = QStandardItem(makeRow)
+                id_column = QStandardItem(json_data["login_id"])
+                name_column.setData(json_data, Qt.UserRole)
+                row = [name_column, id_column]
+                model.appendRow(row)
     elif data_type == "reqList":
         signup_type = 'login_id'
         group_type = 'group_name'
@@ -245,7 +257,8 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         model.clear()
         for json_data in data_list:
             name = json_data['sender_login_id']
-            message = json_data['text']
+            message = '   ' + json_data['text'] + '   '
+            print(json_data)
             if mainWindow.userId == name:
                 sentUser = "me"
             else:

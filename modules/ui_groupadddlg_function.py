@@ -40,6 +40,7 @@ class GroupAddDialog(QDialog, Ui_Dialog):
                 self.sock.sendall(header + json_msg.encode('utf-8'))
             print(total_length)
             print(json_msg)
+            self.close_dialog()
             
             return True
         except Exception as e:

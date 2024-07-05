@@ -13,12 +13,14 @@ from modules.send_packet import *
 
 class ReceivePacket(QObject):
     messageSignal = Signal(str)
+    loginSignal = Signal(str)
     def __init__(self, main_window):
         super().__init__()
         self.main_window = main_window
         self.receivedPacket = 0
         self.running = True
         self.messageSignal.connect(self.main_window.alertMsgBox)
+        self.loginSignal.connect(self.main_window.setGUILoginSucess)
 
     def receiveData(self, socket):
         self.sock = socket
@@ -78,8 +80,6 @@ class ReceivePacket(QObject):
         self.main_window.isConnect = True
             
     def loginSuccess(self, msg):
-        self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.home)
-        print(msg)
         userId = json.loads(msg.decode('utf-8')).get("login_id")
         userRole = json.loads(msg.decode('utf-8')).get("role")
         print("로그인 성공")
@@ -88,9 +88,7 @@ class ReceivePacket(QObject):
         self.main_window.userId = userId
         self.main_window.packetSender.reqGroupList(self.main_window.socket)
         self.main_window.packetSender.reqUserList(self.main_window.socket)
-        
-        self.main_window.ui.btn_login.hide()
-        print("lself.main_window.ui.btn_login.hide() 성공")
+        self.loginSignal.emit(userId)
         
         # if userRole == 1:
         #     self.main_window.ui.btn_admin.show()
@@ -116,7 +114,7 @@ class ReceivePacket(QObject):
             print("다른 개인메세지로 연결되었습니다.")
     
     def receiveUserList(self, msg):
-        userList = json.loads(msg.decode('utf-8')).get("users")
+        userList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("users")
         updateDisplay(self.main_window, userList, "userlist", self.main_window.userListModel)
     
     def receiveGroupList(self, msg):
@@ -195,6 +193,14 @@ class ReceivePacket(QObject):
         alertMsg = "중복된 아이디 입니다."
         self.main_window.alertMsg = alertMsg
         self.messageSignal.emit(alertMsg)
+    
+    def receiveLoginUser(self, msg):
+        users = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("current_user_list")
+        self.main_window.loginUserList.clear()
+        for json_data in users:
+            self.main_window.loginUserList.append(json_data['login_id'])
+        
+        
         
         
     def receiveError(self, msg):
@@ -230,6 +236,8 @@ class ReceivePacket(QObject):
             self.receiveDmLog(msg)
         elif jsonType == TYPE_ERROR_DUP_LOGIN:
             self.loginError(msg)
+        elif jsonType == TYPE_CURRENT_USERLIST:
+            self.receiveLoginUser(msg)
         else:
             print("jsonType이 None입니다.")
             print("------NoneType RAW DATA ------")

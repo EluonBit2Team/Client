@@ -333,11 +333,13 @@ class MainWindow(QMainWindow):
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
         
+    #데이터를 받는 receiveData 스레드 실행
     def start_receiving(self):
         self.packetReceiver.running = True
         self.receive_thread = threading.Thread(target=self.packetReceiver.receiveData, args=(self.socket, ))
         self.receive_thread.start()
-    
+        
+    #서버와의 연결을 체크하는 핑 스레드 실행
     def start_ping_thread(self):
         self.ping_thread = threading.Thread(target=self.packetSender.sendPingData, args=(self.socket,))
         self.ping_thread.start()
@@ -354,24 +356,35 @@ class MainWindow(QMainWindow):
     
     def setLoginPage(self):
         self.login_btn_reconnect.show()
+        self.btn_home.hide()
+        self.btn_admin.hide()
+        self.btn_notice.hide()
         widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
     
+    @Slot()
+    def setGUILoginSucess(self, userId):
+        print(userId + '가 로그인함')
+        self.btn_home.show()
+        self.btn_admin.show()
+        self.btn_notice.show()
+        self.btn_login.hide()
+        widgets.stackedWidget.setCurrentWidget(widgets.home)
+    
     @Slot(str)
-    def alertMsgBox(self):
-        QMessageBox.warning(self, '경고', self.alertMsg, QMessageBox.Ok)
+    def alertMsgBox(self, alterMsg):
+        QMessageBox.warning(self, '경고', alterMsg, QMessageBox.Ok)
         
     def closeEvent(self, event):
-        reply = QMessageBox.question(self, 'Message', 
+        reply = QMessageBox.question(self, '경고', 
             "프로그램을 종료하시겠습니까?", 
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No, 
             QMessageBox.StandardButton.No)
 
         if reply == QMessageBox.StandardButton.Yes:
-            # 어플리케이션 종료 전에 소켓을 닫습니다.
             self.socket.close()
-            event.accept()  # 어플리케이션 종료
+            event.accept()
         else:
-            event.ignore()  # 어플리케이션 종료 취소
+            event.ignore()
 
 
     # RESIZE EVENTSc

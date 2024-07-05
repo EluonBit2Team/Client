@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainLLzOYF.ui'
+## Form generated from reading UI file 'mainlghjGu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1235,18 +1235,18 @@ class Ui_MainWindow(object):
 "")
         self.home_label_chatback = QLabel(self.home)
         self.home_label_chatback.setObjectName(u"home_label_chatback")
-        self.home_label_chatback.setGeometry(QRect(190, 20, 771, 491))
+        self.home_label_chatback.setGeometry(QRect(260, 20, 701, 491))
         self.home_label_chatback.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
 "border-radius: 10px;\n"
 "")
         self.home_label_left1back = QLabel(self.home)
         self.home_label_left1back.setObjectName(u"home_label_left1back")
-        self.home_label_left1back.setGeometry(QRect(20, 20, 151, 181))
+        self.home_label_left1back.setGeometry(QRect(20, 20, 211, 181))
         self.home_label_left1back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
 "border-radius: 10px;")
         self.home_label_left2back = QLabel(self.home)
         self.home_label_left2back.setObjectName(u"home_label_left2back")
-        self.home_label_left2back.setGeometry(QRect(20, 220, 151, 341))
+        self.home_label_left2back.setGeometry(QRect(20, 220, 211, 341))
         self.home_label_left2back.setStyleSheet(u"background-color: rgb(33, 37, 43);\n"
 "border-radius: 10px;")
         self.home_label_chatgroup = QLabel(self.home)
@@ -1267,7 +1267,7 @@ class Ui_MainWindow(object):
         self.home_label_userstate_pic.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-people.png);")
         self.home_listview_chatgroup = QListView(self.home)
         self.home_listview_chatgroup.setObjectName(u"home_listview_chatgroup")
-        self.home_listview_chatgroup.setGeometry(QRect(30, 70, 131, 91))
+        self.home_listview_chatgroup.setGeometry(QRect(30, 70, 191, 91))
         self.home_listview_chatgroup.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
 "border-bottom-right-radius: 10px;\n"
@@ -1275,18 +1275,18 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);")
         self.home_btn_chatgroup = QPushButton(self.home)
         self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
-        self.home_btn_chatgroup.setGeometry(QRect(34, 170, 31, 24))
+        self.home_btn_chatgroup.setGeometry(QRect(194, 34, 31, 24))
         self.home_btn_chatgroup.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_chatgroup.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
 "border:none;\n"
 "")
         self.home_label_chatlist_title = QLabel(self.home)
         self.home_label_chatlist_title.setObjectName(u"home_label_chatlist_title")
-        self.home_label_chatlist_title.setGeometry(QRect(220, 39, 91, 16))
+        self.home_label_chatlist_title.setGeometry(QRect(290, 39, 91, 16))
         self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
         self.home_treeview_userlist = QTreeView(self.home)
         self.home_treeview_userlist.setObjectName(u"home_treeview_userlist")
-        self.home_treeview_userlist.setGeometry(QRect(30, 270, 131, 251))
+        self.home_treeview_userlist.setGeometry(QRect(30, 270, 191, 251))
         self.home_treeview_userlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
 "border-bottom-right-radius: 10px;\n"
@@ -1294,7 +1294,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);")
         self.home_lineedit_chatlist_send = QLineEdit(self.home)
         self.home_lineedit_chatlist_send.setObjectName(u"home_lineedit_chatlist_send")
-        self.home_lineedit_chatlist_send.setGeometry(QRect(190, 519, 711, 41))
+        self.home_lineedit_chatlist_send.setGeometry(QRect(280, 519, 621, 41))
         self.home_lineedit_chatlist_send.setStyleSheet(u"border: 1px solid #497AA3;\n"
 "border-radius: 10px;\n"
 "padding-left: 30px; /* \uc67c\ucabd \uacf5\ubc31 */\n"
@@ -1304,7 +1304,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255); /* \ud14d\uc2a4\ud2b8 \uc0c9\uc0c1 */")
         self.home_listview_chatlist = QListView(self.home)
         self.home_listview_chatlist.setObjectName(u"home_listview_chatlist")
-        self.home_listview_chatlist.setGeometry(QRect(220, 70, 711, 421))
+        self.home_listview_chatlist.setGeometry(QRect(290, 70, 641, 421))
         self.home_listview_chatlist.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-top-right-radius: 10px;\n"
 "border-bottom-right-radius: 10px;\n"
@@ -1324,7 +1324,7 @@ class Ui_MainWindow(object):
 "")
         self.home_btn_right = QPushButton(self.home)
         self.home_btn_right.setObjectName(u"home_btn_right")
-        self.home_btn_right.setGeometry(QRect(130, 522, 31, 31))
+        self.home_btn_right.setGeometry(QRect(189, 522, 31, 31))
         self.home_btn_right.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_right.setStyleSheet(u"background-repeat: no-repeat;\n"
 "background-position: center;\n"
@@ -1346,7 +1346,7 @@ class Ui_MainWindow(object):
 "")
         self.home_btn_leave_group = QPushButton(self.home)
         self.home_btn_leave_group.setObjectName(u"home_btn_leave_group")
-        self.home_btn_leave_group.setGeometry(QRect(80, 170, 31, 24))
+        self.home_btn_leave_group.setGeometry(QRect(189, 170, 31, 24))
         self.home_btn_leave_group.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_leave_group.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-account-logout.png)")
         self.home_btn_search_chat = QPushButton(self.home)
@@ -1359,7 +1359,7 @@ class Ui_MainWindow(object):
 "")
         self.home_btn_return_chat = QPushButton(self.home)
         self.home_btn_return_chat.setObjectName(u"home_btn_return_chat")
-        self.home_btn_return_chat.setGeometry(QRect(540, 490, 31, 24))
+        self.home_btn_return_chat.setGeometry(QRect(570, 490, 31, 24))
         self.home_btn_return_chat.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_return_chat.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-action-undo.png);\n"
 "border:none;\n"
@@ -1367,7 +1367,7 @@ class Ui_MainWindow(object):
 "")
         self.home_btn_groupdelete = QPushButton(self.home)
         self.home_btn_groupdelete.setObjectName(u"home_btn_groupdelete")
-        self.home_btn_groupdelete.setGeometry(QRect(130, 170, 31, 24))
+        self.home_btn_groupdelete.setGeometry(QRect(34, 170, 31, 24))
         self.home_btn_groupdelete.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_groupdelete.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-x-circle.png)")
         self.stackedWidget.addWidget(self.home)
@@ -2482,7 +2482,7 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

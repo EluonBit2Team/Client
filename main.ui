@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -2162,9 +2162,9 @@ background-repeat: no-repeat;
                       <widget class="QLabel" name="home_label_chatback">
                        <property name="geometry">
                         <rect>
-                         <x>190</x>
+                         <x>260</x>
                          <y>20</y>
-                         <width>771</width>
+                         <width>701</width>
                          <height>491</height>
                         </rect>
                        </property>
@@ -2182,7 +2182,7 @@ border-radius: 10px;
                         <rect>
                          <x>20</x>
                          <y>20</y>
-                         <width>151</width>
+                         <width>211</width>
                          <height>181</height>
                         </rect>
                        </property>
@@ -2199,7 +2199,7 @@ border-radius: 10px;</string>
                         <rect>
                          <x>20</x>
                          <y>220</y>
-                         <width>151</width>
+                         <width>211</width>
                          <height>341</height>
                         </rect>
                        </property>
@@ -2280,7 +2280,7 @@ border-radius: 10px;</string>
                         <rect>
                          <x>30</x>
                          <y>70</y>
-                         <width>131</width>
+                         <width>191</width>
                          <height>91</height>
                         </rect>
                        </property>
@@ -2295,8 +2295,8 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QPushButton" name="home_btn_chatgroup">
                        <property name="geometry">
                         <rect>
-                         <x>34</x>
-                         <y>170</y>
+                         <x>194</x>
+                         <y>34</y>
                          <width>31</width>
                          <height>24</height>
                         </rect>
@@ -2316,7 +2316,7 @@ border:none;
                       <widget class="QLabel" name="home_label_chatlist_title">
                        <property name="geometry">
                         <rect>
-                         <x>220</x>
+                         <x>290</x>
                          <y>39</y>
                          <width>91</width>
                          <height>16</height>
@@ -2334,7 +2334,7 @@ border:none;
                         <rect>
                          <x>30</x>
                          <y>270</y>
-                         <width>131</width>
+                         <width>191</width>
                          <height>251</height>
                         </rect>
                        </property>
@@ -2349,9 +2349,9 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QLineEdit" name="home_lineedit_chatlist_send">
                        <property name="geometry">
                         <rect>
-                         <x>190</x>
+                         <x>280</x>
                          <y>519</y>
-                         <width>711</width>
+                         <width>621</width>
                          <height>41</height>
                         </rect>
                        </property>
@@ -2368,9 +2368,9 @@ color: rgb(255, 255, 255); /* 텍스트 색상 */</string>
                       <widget class="QListView" name="home_listview_chatlist">
                        <property name="geometry">
                         <rect>
-                         <x>220</x>
+                         <x>290</x>
                          <y>70</y>
-                         <width>711</width>
+                         <width>641</width>
                          <height>421</height>
                         </rect>
                        </property>
@@ -2425,7 +2425,7 @@ border: none;</string>
                       <widget class="QPushButton" name="home_btn_right">
                        <property name="geometry">
                         <rect>
-                         <x>130</x>
+                         <x>189</x>
                          <y>522</y>
                          <width>31</width>
                          <height>31</height>
@@ -2489,7 +2489,7 @@ border:none;
                       <widget class="QPushButton" name="home_btn_leave_group">
                        <property name="geometry">
                         <rect>
-                         <x>80</x>
+                         <x>189</x>
                          <y>170</y>
                          <width>31</width>
                          <height>24</height>
@@ -2530,7 +2530,7 @@ border:none;
                       <widget class="QPushButton" name="home_btn_return_chat">
                        <property name="geometry">
                         <rect>
-                         <x>540</x>
+                         <x>570</x>
                          <y>490</y>
                          <width>31</width>
                          <height>24</height>
@@ -2552,7 +2552,7 @@ border:none;
                       <widget class="QPushButton" name="home_btn_groupdelete">
                        <property name="geometry">
                         <rect>
-                         <x>130</x>
+                         <x>34</x>
                          <y>170</y>
                          <width>31</width>
                          <height>24</height>

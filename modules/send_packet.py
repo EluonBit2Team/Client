@@ -85,6 +85,7 @@ class SendPacket:
                     # QMessageBox.warning(self.main_window, 'Warning', '서버와의 연결이 끊어졌습니다.')
                     # self.connectSocket(SERVER_ADDR, SERVER_PORT)
                 return False
+        self.main_window.login_btn_reconnect.hide()
         print("연결됨")
         
     def loginRequest(self, sock):
@@ -117,9 +118,6 @@ class SendPacket:
             print("login 패킷")
             print(packet)
 
-            self.main_window.btn_home.show()
-            self.main_window.btn_admin.show()
-            self.main_window.btn_notice.show()
             return True
         except Exception as e:
             self.main_window.isConnect = False
@@ -263,6 +261,12 @@ class SendPacket:
         
             if socket and msg:
                 socket.sendall(packet)
+            
+            msg2 = {"type": TYPE_CURRENT_USERLIST}
+            packet2 = jsonParser(msg2)
+            if socket and msg2:
+                socket.sendall(packet2)
+
         except Exception as e:
             self.main_window.isConnect = False
             print(f"An error occurred: {e}")
@@ -594,10 +598,13 @@ class SendPacket:
         
     
     def searchChatLog(self, socket):
-        start_time = self.main_window.setLogTime.start_time
-        end_time = self.main_window.setLogTime.end_time
+        start_time = self.main_window.setLogTime.start_time 
+        end_time = self.main_window.setLogTime.end_time + ' 23:59:59'
         print(start_time + "부터 "+ end_time + "까지의 데이터")
-        if self.main_window.nowClickedRow['groupname']:
+        print("nowClickedRow")
+        print(self.main_window.nowClickedRow)
+        first_key = next(iter(self.main_window.nowClickedRow))
+        if first_key == 'groupname':
             try:
                 msg = {
                     "type": TYPE_GROUP_CHAT_REQ,
@@ -617,7 +624,7 @@ class SendPacket:
                 print(f"An error occurred: {e}")
                 return False
         
-        elif self.main_window.nowClickedRow['login_id']:
+        elif first_key == 'login_id':
             try:
                 msg = {
                     "type": TYPE_DM_LOG,
