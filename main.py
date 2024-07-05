@@ -359,6 +359,19 @@ class MainWindow(QMainWindow):
     @Slot(str)
     def alertMsgBox(self):
         QMessageBox.warning(self, '경고', self.alertMsg, QMessageBox.Ok)
+        
+    def closeEvent(self, event):
+        reply = QMessageBox.question(self, 'Message', 
+            "프로그램을 종료하시겠습니까?", 
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No, 
+            QMessageBox.StandardButton.No)
+
+        if reply == QMessageBox.StandardButton.Yes:
+            # 어플리케이션 종료 전에 소켓을 닫습니다.
+            self.socket.close()
+            event.accept()  # 어플리케이션 종료
+        else:
+            event.ignore()  # 어플리케이션 종료 취소
 
 
     # RESIZE EVENTSc
