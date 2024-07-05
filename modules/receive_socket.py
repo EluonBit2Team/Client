@@ -9,7 +9,9 @@ from PySide6.QtWidgets import QMessageBox
 from PySide6.QtCore import QObject, Signal, Slot, Qt
 from modules.util import *
 from modules.send_packet import *
-
+import tkinter as tk
+from tkinter import messagebox
+from widgets import *
 
 class ReceivePacket(QObject):
     messageSignal = Signal(str)
@@ -156,6 +158,43 @@ class ReceivePacket(QObject):
         else:
             self.main_window.logReqListModel.clear()
     
+    # 사용자 로그
+    def receiveReqUserLogList(self, msg):
+        print("receiveReqUserLogList 진입")
+        userLogList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("user_log_list")
+        if userLogList:
+            print("if문 userLogList 진입")
+            updateDisplay(self.main_window, userLogList, "userLogList", self.main_window.loguserReqListModel)
+        else:
+            self.main_window.loguserReqListModel.clear()
+
+    # type 300
+    def onlineReq(self, msg):
+        self.main_window.admin_label_new.show()
+        print("onlineReq 진입")
+        print(msg)
+
+        # if not self.main_window.admin_label_new.show():
+        #     self.main_window.admin_label_new.show()
+
+   
+    # type 301 (서버 종료)
+    def serverErrorReq(self, msg):
+        print("301 표출 (서버 오류)")
+        print(msg)
+
+        self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
+        self.main_window.packetSender.disconnect()
+        print("소켓 종료")
+        # # 경고 다이얼로그 추가
+        # msgBox = QMessageBox()
+        # msgBox.setIcon(QMessageBox.Warning)
+        # msgBox.setText("서버 오류가 발생했습니다. 다시 시도해 주세요.")
+        # msgBox.setWindowTitle("서버 오류")
+        # msgBox.setStandardButtons(QMessageBox.Ok)
+        # msgBox.exec_()
+                
+        
     # 실시간
     def receiveReqRealtime(self, msg):
         try:
@@ -228,6 +267,8 @@ class ReceivePacket(QObject):
             self.receiveGroupChat(msg)
         elif jsonType == TYPE_LOG_REQ:
             self.receiveReqLogList(msg)
+        elif jsonType == TYPE_USERLOG_REQ:
+            self.receiveReqUserLogList(msg)
         elif jsonType == TYPE_REALTIME_REQ:
             self.receiveReqRealtime(msg)
         elif jsonType == TYPE_DM_SEND:
@@ -236,6 +277,10 @@ class ReceivePacket(QObject):
             self.receiveDmLog(msg)
         elif jsonType == TYPE_ERROR_DUP_LOGIN:
             self.loginError(msg)
+        elif jsonType == TYPE_ONLINE_REQ:
+            self.onlineReq(msg)
+        elif jsonType == TYPE_SERVERERR_REQ:
+            self.serverErrorReq(msg)
         elif jsonType == TYPE_CURRENT_USERLIST:
             self.receiveLoginUser(msg)
         else:

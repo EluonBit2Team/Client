@@ -3283,7 +3283,7 @@ background-color: rgb(40, 44, 50);
 font: 9pt &quot;새굴림&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>로그 보기</string>
+                        <string>서버 로그</string>
                        </property>
                       </widget>
                       <widget class="QPushButton" name="admin_btn_server">
@@ -3326,6 +3326,64 @@ font: 9pt &quot;새굴림&quot;;</string>
                         <string>서버 정보</string>
                        </property>
                       </widget>
+                      <widget class="QPushButton" name="admin_btn_conlog">
+                       <property name="geometry">
+                        <rect>
+                         <x>820</x>
+                         <y>352</y>
+                         <width>41</width>
+                         <height>41</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/images/log-file.png);
+background-position: centered;
+background-repeat: no-repeat;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_conlog">
+                       <property name="geometry">
+                        <rect>
+                         <x>815</x>
+                         <y>390</y>
+                         <width>51</width>
+                         <height>20</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+background-color: rgb(40, 44, 50);
+font: 9pt &quot;새굴림&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>접속 로그</string>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="admin_label_new">
+                       <property name="geometry">
+                        <rect>
+                         <x>804</x>
+                         <y>344</y>
+                         <width>71</width>
+                         <height>71</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-radius: 10px;
+border-bottom: 2px solid red;
+border-right: 2px solid red;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
                       <zorder>admin_label_rightback1</zorder>
                       <zorder>admin_label_leftback</zorder>
                       <zorder>admin_listView_status</zorder>
@@ -3353,6 +3411,9 @@ font: 9pt &quot;새굴림&quot;;</string>
                       <zorder>admin_label_log</zorder>
                       <zorder>admin_btn_server</zorder>
                       <zorder>admin_label_server</zorder>
+                      <zorder>admin_label_conlog</zorder>
+                      <zorder>admin_label_new</zorder>
+                      <zorder>admin_btn_conlog</zorder>
                      </widget>
                      <widget class="QWidget" name="serverlogpage">
                       <property name="styleSheet">
@@ -3592,6 +3653,210 @@ border-radius: 10px;</string>
                       <zorder>log_btn_back</zorder>
                       <zorder>log_label_title</zorder>
                       <zorder>log_calendarwidget_cal</zorder>
+                     </widget>
+                     <widget class="QWidget" name="userlogpage">
+                      <widget class="QLabel" name="userlog_label_leftback">
+                       <property name="geometry">
+                        <rect>
+                         <x>20</x>
+                         <y>20</y>
+                         <width>521</width>
+                         <height>541</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);
+border-radius: 10px;
+border: 1px solid #3498db;
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="userlog_btn_back">
+                       <property name="geometry">
+                        <rect>
+                         <x>910</x>
+                         <y>40</y>
+                         <width>31</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/images/images/icons/free-icon-back-button-5708793 (1).png);
+background-position: centered;
+background-repeat: no-repeat;
+border:none;
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QCalendarWidget" name="userlog_calendarwidget_cal">
+                       <property name="geometry">
+                        <rect>
+                         <x>565</x>
+                         <y>140</y>
+                         <width>381</width>
+                         <height>241</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">
+/* 전체 위젯 배경 색상 및 배경 이미지 */
+QCalendarWidget {
+    background-color: #2e2e2e;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 헤더(월/연도 선택 영역) 스타일링 */
+QCalendarWidget QToolButton {
+    border: none; /* 버튼의 테두리 제거 */
+    background-color: transparent; /* 배경색 투명하게 설정 */
+    color: white;
+    font-size: 16px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+	font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;
+}
+
+QCalendarWidget QToolButton::hover {
+    background-color: rgba(102, 102, 102, 0.8); /* 투명도 적용 */
+}
+
+/* 헤더의 화살표 버튼 스타일링 */
+QCalendarWidget QToolButton#qt_calendar_prevmonth {
+	
+	
+	background-position: center; /* 이미지가 가운데 오도록 설정 */
+    background-repeat: no-repeat;
+    width: 30px; /* 버튼의 너비 지정 */
+    height: 30px; /* 버튼의 높이 지정 */
+    border: none; /* 버튼의 테두리 제거 */
+    background-color: transparent; /* 배경색 투명하게 설정 */
+}
+
+QCalendarWidget QToolButton#qt_calendar_nextmonth {
+	
+	background-position: center; /* 이미지가 가운데 오도록 설정 */
+    background-repeat: no-repeat;
+    width: 30px; /* 버튼의 너비 지정 */
+    height: 30px; /* 버튼의 높이 지정 */
+    border: none; /* 버튼의 테두리 제거 */
+    background-color: transparent; /* 배경색 투명하게 설정 */
+}
+
+/* 날짜 셀 스타일링 */
+QCalendarWidget QAbstractItemView {
+
+    background-color: rgba(58, 58, 58, 0.8); /* 투명도 적용 */
+    selection-background-color: #4CAF50;
+    selection-color: white;
+    border: none;
+    outline: 0;
+}
+
+QCalendarWidget QAbstractItemView::item {
+    height: 30px;
+    width: 30px;
+    margin: 3px;
+    color: white;
+    background-color: rgba(58, 58, 58, 0.6); /* 셀 배경에 투명도 적용 */
+}
+
+QCalendarWidget QAbstractItemView::item:selected {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 15px;
+}
+
+/* 오늘 날짜 스타일링 */
+QCalendarWidget QWidget#qt_calendar_calendarview .QWidget {
+    color: white;
+    background-color: #FF5722;
+    border-radius: 15px;
+}
+
+/* 요일 헤더 스타일링 */
+QCalendarWidget QTableView QHeaderView::section {
+    background-color: rgba(85, 85, 85, 0.8); /* 투명도 적용 */
+    color: #888; /* 요일 글자 색상을 어두운 회색으로 변경 */
+    font-size: 14px;
+    border: none;
+    height: 30px;
+}
+
+/* 현재 월에 속하지 않는 날짜 셀 스타일링 */
+QCalendarWidget QAbstractItemView::item:disabled {
+    background-color: rgba(30, 30, 30, 0.6); /* 현재 월에 속하지 않는 날짜의 배경 색상 */
+    color: rgba(255, 255, 255, 0.5); /* 현재 월에 속하지 않는 날짜의 글자 색상 */
+}
+</string>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="userlog_label_rightback">
+                       <property name="geometry">
+                        <rect>
+                         <x>550</x>
+                         <y>20</y>
+                         <width>411</width>
+                         <height>541</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(33, 37, 43);
+border-radius: 10px;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QLabel" name="userlog_label_title">
+                       <property name="geometry">
+                        <rect>
+                         <x>40</x>
+                         <y>40</y>
+                         <width>141</width>
+                         <height>21</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>유저 로그 목록</string>
+                       </property>
+                      </widget>
+                      <widget class="QTreeView" name="userlog_treview_log">
+                       <property name="geometry">
+                        <rect>
+                         <x>40</x>
+                         <y>70</y>
+                         <width>481</width>
+                         <height>471</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-color: rgb(31, 35, 41);
+border-radius: 10px;
+font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
+                       </property>
+                      </widget>
+                      <zorder>userlog_label_rightback</zorder>
+                      <zorder>userlog_label_leftback</zorder>
+                      <zorder>userlog_btn_back</zorder>
+                      <zorder>userlog_calendarwidget_cal</zorder>
+                      <zorder>userlog_label_title</zorder>
+                      <zorder>userlog_treview_log</zorder>
                      </widget>
                      <widget class="QWidget" name="serverstatepage">
                       <property name="styleSheet">

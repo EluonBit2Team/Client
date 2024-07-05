@@ -18,6 +18,7 @@
     <file>images/images/id.png</file>
     <file>images/images/free-icon-send-button-12439334 - 복사본.png</file>
     <file>images/images/grafana.png</file>
+    <file>images/images/record (1).png</file>
     <file>images/images/callimage.png</file>
     <file>images/images/스크린샷 2024-06-26 091000.png</file>
     <file>images/images/log-file.png</file>
@@ -36,6 +37,7 @@
     <file>images/images/LUON.png</file>
     <file>images/images/eluonlogo.png</file>
     <file>images/images/console (1).png</file>
+    <file>images/images/dot.png</file>
   </qresource>
   <qresource prefix="icons">
     <file>images/icons/cil-3d.png</file>

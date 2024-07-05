@@ -35,8 +35,9 @@ TYPE_DM_LOG = 19
 TYPE_LEAVE_GROUP = 20
 TYPE_CURRENT_USERLIST = 22
 TYPE_ERROR_DUP_LOGIN = 102
-
-
+TYPE_USERLOG_REQ = 21
+TYPE_ONLINE_REQ = 300
+TYPE_SERVERERR_REQ = 301
 
 
 class CustomDelegate(QStyledItemDelegate):
@@ -194,6 +195,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 uptime = json_data['uptime']
                 downtime = json_data['downtime']
                 
+                
                 date_column = QStandardItem(uptime.split(' ')[0])  # 날짜 부분만 추출
                 uptime_column = QStandardItem(uptime)
                 downtime_column = QStandardItem(downtime)
@@ -205,6 +207,43 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 model.appendRow(row)
             else:
                 print("Error: 'uptime' or 'downtime' key not found in", json_data)
+
+    elif data_type == "userLogList":
+        print("userLogList 진입")
+        model.clear()
+        model.setHorizontalHeaderLabels(["접속된 아이디", "접속 시간", "접속 종료 시간"])
+        for json_data in data_list:
+            if json_data['logout_time'] is not None:
+                loginid = json_data['login_id']
+                logintime = json_data['login_time']
+                logouttime = json_data['logout_time']
+                if logouttime == "NULL":
+                    logouttime = "접속중"
+                    id_column = QStandardItem(loginid)
+                    login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
+                    logout_column = QStandardItem(logouttime)
+                    
+                    # 배경색 빨간색으로 설정
+                    for column in [id_column, login_column, logout_column]:
+                        column.setBackground(Qt.red)
+                    
+                    id_column.setData(json_data, Qt.UserRole)
+                    
+                    row = [id_column, login_column, logout_column]
+                    # 리스트의 가장 위에 추가
+                    model.insertRow(0, row)
+                else:
+                    id_column = QStandardItem(loginid)
+                    login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
+                    logout_column = QStandardItem(logouttime)
+
+                    id_column.setData(json_data, Qt.UserRole)
+                    
+                    row = [id_column, login_column, logout_column]
+
+                    model.appendRow(row)
+            else:
+                print("Error: 'loginid' or 'login_time' or 'login_column' key not found in", json_data)
 
     elif data_type in ["realtimememList", "realtimeloginList", "realtimetpsList"]:
         model.clear()
