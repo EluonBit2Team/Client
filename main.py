@@ -123,7 +123,7 @@ class MainWindow(QMainWindow):
         widgets.settingsTopBtn.clicked.connect(openCloseRightBox)
 
         # LOGIN PAGE
-        widgets.login_btn_signup.clicked.connect(self.buttonClick) #회원가입 버튼 이벤트
+        widgets.login_btn_signup.clicked.connect(self.buttonClick)
         widgets.login_btn_qrlogin.clicked.connect(self.buttonClick)
         widgets.signup_btn_back.clicked.connect(self.buttonClick)
         widgets.qrlogin_btn_back.clicked.connect(self.buttonClick)
@@ -362,13 +362,11 @@ class MainWindow(QMainWindow):
         self.ping_thread.start()
         
     def statusthread(self):
-        # 10초마다 요청을 보내는 스레드 시작
         print("statusthread 시작")
-        # target에 함수 객체를 전달하고, args에 인자를 튜플 형태로 전달합니다.
         request_thread = threading.Thread(target=self.packetSender.serverrealtimeReq, args=(self.socket, 10))
-        request_thread.daemon = True  # 메인 스레드 종료 시 함께 종료
+        request_thread.daemon = True
         request_thread.start()
-        self.request_thread = request_thread  # 스레드 객체를 인스턴스 변수로 저장
+        self.request_thread = request_thread
         print("서버 실시간 상태 요청 스레드 시작됨")
     
     def setLoginPage(self):
