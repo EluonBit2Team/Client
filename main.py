@@ -203,23 +203,10 @@ class MainWindow(QMainWindow):
         
         
         #connect socket
-        while not self.socket:
-            try:
-                print("소켓연결 시도중...")
-                self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
-            except socket.error as e:
-                print(f"Socket connection error: {e}")
-                connectionErrorEvent()
-                print("소켓연결 실패")
-                time.sleep(5)
+        self.packetSender.reconnect(self.socket)
                 
         print("main의 socket")
         print(self.socket)
-        
-        if self.socket:
-            self.start_receiving() # 데이터 받기 시작
-        
-        self.start_ping_thread()
     
     # 약관체크버튼
     def toggleButton(self, state):
@@ -389,6 +376,19 @@ class MainWindow(QMainWindow):
     @Slot(str)
     def alertMsgBox(self):
         QMessageBox.warning(self, '경고', self.alertMsg, QMessageBox.Ok)
+        
+    def closeEvent(self, event):
+        reply = QMessageBox.question(self, 'Message', 
+            "프로그램을 종료하시겠습니까?", 
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No, 
+            QMessageBox.StandardButton.No)
+
+        if reply == QMessageBox.StandardButton.Yes:
+            # 어플리케이션 종료 전에 소켓을 닫습니다.
+            self.socket.close()
+            event.accept()  # 어플리케이션 종료
+        else:
+            event.ignore()  # 어플리케이션 종료 취소
 
 
     # RESIZE EVENTSc

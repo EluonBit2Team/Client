@@ -36,8 +36,12 @@ class MemberAddDialog(QDialog, Ui_Dialog):
         #connect widget
         self.ui.dialog_btn_insert.clicked.connect(self.moveItem)
         self.ui.dialog_btn_delete.clicked.connect(self.deleteItem)
-        self.ui.dialog_btn_send.clicked.connect(lambda: self.main_window.packetSender.sendEditedMember(self.main_window.socket))
-        self.ui.dialog_btn_send.clicked.connect(self.close_dialog)
+        self.ui.dialog_btn_send.clicked.connect(self.sendMember)
+        
+    def sendMember(self):
+        self.in_member = set(self.in_member)
+        self.main_window.packetSender.sendEditedMember(self.main_window.socket)
+        self.close_dialog()
         
     def moveItem(self):
         selectedIndexes = self.ui.dialog_treeview_left.selectedIndexes()
