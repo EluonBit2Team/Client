@@ -96,7 +96,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.login_btn_login.clicked.connect(lambda: mainWindow.packetSender.loginRequest(mainWindow.socket))
     mainWindow.login_btn_mail.clicked.connect(lambda: mainWindow.openDialog("MailFunctionWindow"))
     mainWindow.login_btn_call.clicked.connect(lambda: mainWindow.openDialog("CallDialog"))
-    mainWindow.login_btn_reconnect.clicked.connect(lambda: mainWindow.packetSender.reconnect())
+    mainWindow.login_btn_reconnect.clicked.connect(lambda: mainWindow.packetSender.reconnect(mainWindow.socket))
     
     mainWindow.signup_btn_submit.clicked.connect(lambda: mainWindow.packetSender.signUpRequest(mainWindow.socket))
     

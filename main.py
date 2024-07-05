@@ -197,23 +197,10 @@ class MainWindow(QMainWindow):
         
         
         #connect socket
-        while not self.socket:
-            try:
-                print("소켓연결 시도중...")
-                self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
-            except socket.error as e:
-                print(f"Socket connection error: {e}")
-                connectionErrorEvent()
-                print("소켓연결 실패")
-                time.sleep(5)
+        self.packetSender.reconnect(self.socket)
                 
         print("main의 socket")
         print(self.socket)
-        
-        if self.socket:
-            self.start_receiving() # 데이터 받기 시작
-        
-        self.start_ping_thread()
     
     # 약관체크버튼
     def toggleButton(self, state):

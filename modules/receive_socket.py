@@ -38,6 +38,7 @@ class ReceivePacket(QObject):
                             print("---------------------------")
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
+                                print(msg_length)
                                 if len(buffer) >= msg_length - 4:
                                     json_msg = buffer[4:msg_length]
                                     buffer = buffer[msg_length:]
@@ -106,9 +107,13 @@ class ReceivePacket(QObject):
     
     def receivedDm(self, msg):
         dm = json.loads(msg.decode('utf-8'))
-        print(self.main_window.nowClickedRow['login_id'])
-        if self.main_window.nowClickedRow['login_id'] == dm.get('recver_login_id'):
+        sender = dm['sender_login_id']
+        receiver = dm['recver_login_id']
+        
+        if self.main_window.userId == sender or self.main_window.userId == receiver:
             updateDisplay(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
+        else:
+            print("다른 개인메세지로 연결되었습니다.")
     
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8')).get("users")

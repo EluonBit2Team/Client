@@ -53,7 +53,9 @@ class SendPacket:
             print(f"An error occurred: {e}")
             return False
     
-    def reconnect(self):
+    def reconnect(self, sock):
+        print("reconnect 진입")
+        self.sock = sock
         self.sock = None
         self.connectSocket(SERVER_ADDR, SERVER_PORT)
         self.main_window.start_receiving()
@@ -83,6 +85,7 @@ class SendPacket:
                     # QMessageBox.warning(self.main_window, 'Warning', '서버와의 연결이 끊어졌습니다.')
                     # self.connectSocket(SERVER_ADDR, SERVER_PORT)
                 return False
+        print("연결됨")
         
     def loginRequest(self, sock):
         if sock == None:
@@ -220,10 +223,9 @@ class SendPacket:
             
                 if socket and msg:
                     socket.sendall(packet)
-                    
+                
                 print(packet)
-                print("전송완료")
-                    
+                self.main_window.home_lineedit_chatlist_send.clear()
                 return True
             except Exception as e:
                 self.main_window.isConnect = False
@@ -246,15 +248,13 @@ class SendPacket:
             
                 if socket and msg:
                     socket.sendall(packet)
-                print("개인메세지 전송완료")
                     
+                self.main_window.home_lineedit_chatlist_send.clear()
                 return True
             except Exception as e:
                 self.main_window.isConnect = False
                 print(f"An error occurred: {e}")
                 return False
-        
-        self.main_window.home_lineedit_chatlist_send.clear()
     
     def reqUserList(self, socket):
         try:
