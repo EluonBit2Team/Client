@@ -59,6 +59,21 @@ class CustomDelegate(QStyledItemDelegate):
 #     def __init__(self, main_window):
 #         self.main_window = main_window
 
+class clientSession:
+    def __init__(self, main_window):
+        self.main_window = main_window
+        self.main_window.userId = None
+        self.main_window.userRole = None
+    
+    def loginSession(self, userId, userRole):
+        self.main_window.userId = userId
+        self.main_window.userRole = userRole
+
+    def logoutSession(self):
+        self.main_window.userId = None
+        self.main_window.userRole = None
+
+
 def handleSendButtonClick(self):
     QCoreApplication.processEvents()  # 프로세스 이벤트를 처리하여 UI 업데이트
         

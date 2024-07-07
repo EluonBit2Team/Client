@@ -189,14 +189,6 @@ class SendPacket:
         
             if socket and msg:
                 socket.sendall(packet)
-            
-            # QMessageBox.information(self.main_window, "SignUp", "id: " + self.signupId + '\n'
-            #                                     "pw: " + self.signupPw + '\n'
-            #                                     "name: " + self.signupName + '\n'
-            #                                     "Phone: " + self.signupPhone + '\n'
-            #                                     "Email: " + self.signupEmail + '\n'
-            #                                     "Dept: " + self.signupDept + '\n'
-            #                                     "Position: " + self.signupPosition + '\n')
             return True
         except Exception as e:
             self.main_window.isConnect = False
@@ -400,44 +392,30 @@ class SendPacket:
             pos = self.main_window.admin_combo_position.currentText()
             role = self.main_window.admin_combo_role.currentText()
             tps = self.main_window.admin_combo_tps.currentText()
-            
-            if dept == "1팀":
-                dept = 1
-            elif dept == "2팀":
-                dept = 2
-            elif dept == "3팀":
-                dept = 3
-            else:
-                dept = 4
-            
-            if pos == "회장":
-                pos = 1
-            elif pos == "사장":
-                pos = 2
-            elif pos == "차장":
-                pos = 3
-            elif pos == "과장":
-                pos = 4
-            elif pos == "대리":
-                pos = 5
-            elif pos == "사원":
-                pos = 6
+
+            dept = sortUserInfo(dept, "dept")
+            pos = sortUserInfo(pos, "pos")
+            role = sortUserInfo(role, "role")
+            tps = sortUserInfo(tps, "tps")
             
             try:
-                msg = {
-                        "type": TYPE_ACCEPT_SIGNUP,
-                        "is_ok": 1,
-                        "login_id": login_id,
-                        "dept": dept, 
-                        "pos": pos, 
-                        "role": int(role),
-                        "max_tps": int(tps)
-                    }
-                packet = jsonParser(msg)
-                print(msg)
-                if socket and msg:
-                    socket.sendall(packet)
-                print(packet)
+                if not dept or pos or role or tps == 999:
+                    msg = {
+                            "type": TYPE_ACCEPT_SIGNUP,
+                            "is_ok": 1,
+                            "login_id": login_id,
+                            "dept": dept,
+                            "pos": pos,
+                            "role": role,
+                            "max_tps": tps
+                        }
+                    packet = jsonParser(msg)
+                    print(msg)
+                    if socket and msg:
+                        socket.sendall(packet)
+                    print(packet)
+                else:
+                    self.main_window.alertMsgBox("회원정보에 누락된 내용이 없는지 확인해주세요")
             except Exception as e:
                 self.main_window.isConnect = False
                 print(f"An error occurred: {e}")

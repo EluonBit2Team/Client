@@ -190,6 +190,7 @@ class MainWindow(QMainWindow):
 
         self.useredit_treeview_userlist.setModel(self.userListModel)
 
+        self.clientSession = clientSession(self)
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
         self.qrcode = Qrcode(self)
@@ -368,13 +369,15 @@ class MainWindow(QMainWindow):
         request_thread.start()
         self.request_thread = request_thread
         print("서버 실시간 상태 요청 스레드 시작됨")
-    
-    def setLoginPage(self):
+
+    @Slot(str)
+    def setDisconnect(self, alterMsg):
         self.login_btn_reconnect.show()
         self.btn_home.hide()
         self.btn_admin.hide()
         self.btn_notice.hide()
         widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
+        QMessageBox.warning(self, '경고', alterMsg, QMessageBox.Ok)
     
     @Slot()
     def setGUILoginSucess(self, userId):
@@ -388,6 +391,16 @@ class MainWindow(QMainWindow):
     @Slot(str)
     def alertMsgBox(self, alterMsg):
         QMessageBox.warning(self, '경고', alterMsg, QMessageBox.Ok)
+
+    @Slot(list, list)
+    def updateIcon(self, showIcon, hideIcon):
+        if showIcon:
+            for icon in showIcon:
+                icon.show()
+        
+        if hideIcon:
+            for icon in hideIcon:
+                icon.hide()
         
     def closeEvent(self, event):
         reply = QMessageBox.question(self, '경고', 
@@ -400,6 +413,8 @@ class MainWindow(QMainWindow):
             event.accept()
         else:
             event.ignore()
+    
+
 
 
     # RESIZE EVENTSc

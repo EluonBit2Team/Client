@@ -16,6 +16,9 @@ from widgets import *
 class ReceivePacket(QObject):
     messageSignal = Signal(str)
     loginSignal = Signal(str)
+    updateDisplaySignal = Signal(QObject, dict, str, QStringListModel)
+    disconnectSignal = Signal(str)
+    notiSignal = Signal(list, list)
     def __init__(self, main_window):
         super().__init__()
         self.main_window = main_window
@@ -23,6 +26,9 @@ class ReceivePacket(QObject):
         self.running = True
         self.messageSignal.connect(self.main_window.alertMsgBox)
         self.loginSignal.connect(self.main_window.setGUILoginSucess)
+        self.updateDisplaySignal.connect(updateDisplay) #아직 메인에 초기화는 안해봤음 안되면 메인에 초기화
+        self.disconnectSignal.connect(self.main_window.setDisconnect)
+        self.notiSignal.connect(self.main_window.updateIcon)
 
     def receiveData(self, socket):
         self.sock = socket
@@ -59,24 +65,12 @@ class ReceivePacket(QObject):
             except BlockingIOError:
                 continue
             except Exception as e:
-                self.main_window.setLoginPage()
-                # self.main_window.login_btn_reconnect.show()
-                # self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
+                alertMsg = "중복된 아이디 입니다."
+                self.disconnectSignal.emit(alertMsg)
                 print(f"An error occurred: {e}")
                 self.running = False
                 self.main_window.isConnect = False
                 print("receive가 끊어졌습니다")
-            # except BlockingIOError:
-            #     continue
-            # except (OSError, self.socket.error) as e: #좀더 자세한 소켓연결 오류와 라인을 알고싶을때
-            #     print(f"An error occurred: {e}")
-            #     self.running = False
-            #     buffer = b""
-            #     break
-            # except Exception as e:
-            #     print(f"An unexpected error occurred: {e}")
-            #     self.running = False
-            #     break
     
     def connectSuccess(self, msg):
         self.main_window.isConnect = True
@@ -92,15 +86,12 @@ class ReceivePacket(QObject):
         self.main_window.packetSender.reqUserList(self.main_window.socket)
         self.loginSignal.emit(userId)
         
-        # if userRole == 1:
-        #     self.main_window.ui.btn_admin.show()
-        #     self.main_window.ui.btn_notice.show()
-        
     def receiveMassage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = json.loads(msg.decode('utf-8')).get("groupname")
         if recvGroupName == self.main_window.nowGroupName:
-            updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
+            self.updateDisplaySignal.emit(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
+            # updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
         else:
             print("잘못된 그룹")
             return False
@@ -169,10 +160,10 @@ class ReceivePacket(QObject):
             self.main_window.loguserReqListModel.clear()
 
     # type 300
-    def onlineReq(self, msg):
-        self.main_window.admin_label_new.show()
-        print("onlineReq 진입")
-        print(msg)
+    def onlineReq(self):
+        showIcon = [self.main_window.admin_label_new]
+        hideIcon = []
+        self.notiSignal.emit(showIcon, hideIcon)
 
         # if not self.main_window.admin_label_new.show():
         #     self.main_window.admin_label_new.show()
@@ -180,6 +171,8 @@ class ReceivePacket(QObject):
    
     # type 301 (서버 종료)
     def serverErrorReq(self, msg):
+        # alertMsg = "서버가 종료되었습니다."
+        # self.disconnectSignal.emit(alertMsg)
         print("301 표출 (서버 오류)")
         print(msg)
 
@@ -227,8 +220,7 @@ class ReceivePacket(QObject):
         except Exception as e:
             print(f"예외 발생: {e}")
     
-    def loginError(self, msg):
-        errorMsg = msg
+    def loginError(self):
         alertMsg = "중복된 아이디 입니다."
         self.main_window.alertMsg = alertMsg
         self.messageSignal.emit(alertMsg)
@@ -276,7 +268,7 @@ class ReceivePacket(QObject):
         elif jsonType == TYPE_DM_LOG:
             self.receiveDmLog(msg)
         elif jsonType == TYPE_ERROR_DUP_LOGIN:
-            self.loginError(msg)
+            self.loginError()
         elif jsonType == TYPE_ONLINE_REQ:
             self.onlineReq(msg)
         elif jsonType == TYPE_SERVERERR_REQ:
