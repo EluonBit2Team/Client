@@ -190,7 +190,7 @@ class MainWindow(QMainWindow):
 
         self.useredit_treeview_userlist.setModel(self.userListModel)
 
-        self.clientSession = clientSession(self)
+        self.clientSession = ClientSession(self)
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
         self.qrcode = Qrcode(self)
@@ -369,6 +369,9 @@ class MainWindow(QMainWindow):
         request_thread.start()
         self.request_thread = request_thread
         print("서버 실시간 상태 요청 스레드 시작됨")
+        
+    def setLoginPage(self):
+        widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
 
     @Slot(str)
     def setDisconnect(self, alterMsg):
@@ -389,7 +392,14 @@ class MainWindow(QMainWindow):
         print(userId + '가 로그인함')
         self.btn_home.show()
         self.btn_admin.show()
-        self.btn_notice.show()
+        if self.userRole == 1:
+            self.btn_admin.show()
+        else:
+            self.btn_admin.hide()
+        if self.userRole == 1:
+            self.btn_notice.show()
+        else:
+            self.btn_notice.hide()
         self.btn_login.hide()
         widgets.stackedWidget.setCurrentWidget(widgets.home)
     

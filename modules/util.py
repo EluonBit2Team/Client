@@ -59,7 +59,7 @@ class CustomDelegate(QStyledItemDelegate):
 #     def __init__(self, main_window):
 #         self.main_window = main_window
 
-class clientSession:
+class ClientSession:
     def __init__(self, main_window):
         self.main_window = main_window
         self.main_window.userId = None
@@ -93,6 +93,19 @@ def connectionErrorEvent():
 def connectionSuccessEvent():
     QMessageBox.information(None, "Success", "연결 성공")
 
+def groupListNoti(groupname, model):
+    new_text = groupname + "🆕"
+    for row in range(model.rowCount()):
+        item = model.item(row)
+        if item.text() == groupname:
+            # 해당 항목의 데이터를 수정
+            item.setText(new_text)
+            print(f"'{groupname}'를 '{new_text}'로 수정했습니다.")
+            break
+        else:
+            print(f"'{groupname}'를 찾을 수 없습니다.")
+        
+
 def groupListUpdate(data, model):
     for json_data in data:
         item = QStandardItem(json_data['groupname'])
@@ -111,6 +124,9 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         #     model.appendRow(item)
     
     elif data_type == "userlist":
+        print("userList 진입함")
+        print("받은 jsondata")
+        print(data_list)
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
         mainWindow.home_treeview_userlist.setColumnWidth(0, 200)

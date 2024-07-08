@@ -392,16 +392,22 @@ class SendPacket:
             pos = self.main_window.admin_combo_position.currentText()
             role = self.main_window.admin_combo_role.currentText()
             tps = self.main_window.admin_combo_tps.currentText()
+            print("sort 하기 전")
+            print("dept: " + str(dept))
+            print("dept: " + str(pos))
+            print("dept: " + str(role))
+            print("dept: " + str(tps))
 
             dept = sortUserInfo(dept, "dept")
             pos = sortUserInfo(pos, "pos")
             role = sortUserInfo(role, "role")
             tps = sortUserInfo(tps, "tps")
             
-            print(dept)
-            print(pos)
-            print(role)
-            print(tps)
+            print("sort 한 후")
+            print("dept: " + str(dept))
+            print("dept: " + str(pos))
+            print("dept: " + str(role))
+            print("dept: " + str(tps))
             
             try:
                 if 999 in [dept, pos, role, tps]:

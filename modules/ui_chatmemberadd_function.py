@@ -40,7 +40,10 @@ class MemberAddDialog(QDialog, Ui_Dialog):
         
     def sendMember(self):
         self.in_member = set(self.in_member)
+        self.out_member = set(self.out_member)
         self.main_window.packetSender.sendEditedMember(self.main_window.socket)
+        self.in_member = []
+        self.out_member = []
         self.close_dialog()
         
     def moveItem(self):

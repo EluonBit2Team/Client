@@ -17,6 +17,8 @@ class ReceivePacket(QObject):
     messageSignal = Signal(str)
     loginSignal = Signal(str)
     updateDisplaySignal = Signal(QObject, dict, str, QStringListModel)
+    updateUserListSignal = Signal(QObject, list, str, QStringListModel)
+    messageNotiSignal = Signal(str, QStandardItemModel)
     disconnectSignal = Signal(str)
     notiSignal = Signal(list, list)
     setPageSignal = Signal(QObject)
@@ -28,6 +30,8 @@ class ReceivePacket(QObject):
         self.messageSignal.connect(self.main_window.alertMsgBox)
         self.loginSignal.connect(self.main_window.setGUILoginSucess)
         self.updateDisplaySignal.connect(updateDisplay) #아직 메인에 초기화는 안해봤음 안되면 메인에 초기화
+        self.updateUserListSignal.connect(updateDisplay)
+        self.messageNotiSignal.connect(groupListNoti)
         self.disconnectSignal.connect(self.main_window.setDisconnect)
         self.notiSignal.connect(self.main_window.updateIcon)
         self.setPageSignal.connect(self.main_window.updatePage)
@@ -83,7 +87,7 @@ class ReceivePacket(QObject):
         print("로그인 성공")
         print("id: " + userId)
         print("직급: " + str(userRole))
-        self.main_window.userId = userId
+        self.main_window.clientSession.loginSession(userId, userRole)
         self.main_window.packetSender.reqGroupList(self.main_window.socket)
         self.main_window.packetSender.reqUserList(self.main_window.socket)
         self.loginSignal.emit(userId)
@@ -99,6 +103,7 @@ class ReceivePacket(QObject):
             self.updateDisplaySignal.emit(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
             # updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
         else:
+            self.messageNotiSignal.emit(recvGroupName, self.main_window.groupListModel)
             print("잘못된 그룹")
             return False
     
@@ -114,7 +119,7 @@ class ReceivePacket(QObject):
     
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("users")
-        updateDisplay(self.main_window, userList, "userlist", self.main_window.userListModel)
+        self.updateUserListSignal.emit(self.main_window, userList, "userlist", self.main_window.userListModel)
     
     def receiveGroupList(self, msg):
         self.groupList = json.loads(msg.decode('utf-8')).get("groups")
@@ -164,9 +169,22 @@ class ReceivePacket(QObject):
             updateDisplay(self.main_window, userLogList, "userLogList", self.main_window.loguserReqListModel)
         else:
             self.main_window.loguserReqListModel.clear()
+    
+    def acceptSignup(self):
+        alertMsg = "회원가입을 승인했습니다"
+        self.messageSignal.emit(alertMsg)
+        self.main_window.packetSender.reqAcceptList(self.main_window.socket)
+        print("회원가입 승인")
+    
+    def acceptGroup(self):
+        alertMsg = "그룹생성 승인"
+        self.messageSignal.emit(alertMsg)
+        self.main_window.packetSender.reqAcceptList(self.main_window.socket)
+        print("그룹생성 승인")
 
     # type 300
     def onlineReq(self):
+        self.main_window.packetSender.reqUserList(self.main_window.socket)
         showIcon = [self.main_window.admin_label_new]
         hideIcon = []
         self.notiSignal.emit(showIcon, hideIcon)
@@ -258,7 +276,9 @@ class ReceivePacket(QObject):
         elif jsonType == TYPE_ERROR:
             self.receiveError(msg)
         elif jsonType == TYPE_ACCEPT_SIGNUP:
-            self.receiveReqList(msg)
+            self.acceptSignup()
+        elif jsonType == TYPE_ACCEPT_GROUP:
+            self.acceptGroup()
         elif jsonType == TYPE_GROUPLIST:
             self.receiveGroupList(msg)
         elif jsonType == TYPE_GROUPMEMBER:
