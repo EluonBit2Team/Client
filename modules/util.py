@@ -235,9 +235,23 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
 
     elif data_type in ["realtimememList", "realtimeloginList", "realtimetpsList"]:
         model.clear()
+        font = QFont()
+        font.setPointSize(14)
         for json_data in data_list:
-           item = QStandardItem(str(json_data))
-           model.appendRow(item)
+            if data_type == "realtimememList":
+                item = QStandardItem(f"{json_data}% / 100%    램 용량: 8GB")
+                item.setFont(font)
+                model.appendRow(item)
+
+            elif data_type == "realtimeloginList":
+                item = QStandardItem(f"{json_data}명 접속")
+                item.setFont(font)
+                model.appendRow(item)
+
+            elif data_type == "realtimetpsList":
+                item = QStandardItem(f"{json_data} TPS")
+                item.setFont(font)
+                model.appendRow(item)
 
     elif data_type == "receivedChat":
         name = data_list['login_id']
