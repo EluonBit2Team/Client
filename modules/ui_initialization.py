@@ -113,6 +113,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.admin_btn_accept.clicked.connect(lambda: mainWindow.packetSender.acceptReq(mainWindow.socket))
     mainWindow.admin_btn_reject.clicked.connect(lambda: mainWindow.packetSender.rejectReq(mainWindow.socket))
     mainWindow.home_btn_groupdelete.clicked.connect(lambda: mainWindow.packetSender.groupdeleteReq(mainWindow.socket))
+    mainWindow.admin_btn_server.clicked.connect(mainWindow.statusthread)
 
     mainWindow.useredit_treeview_userlist.clicked.connect(lambda index: groupClick(mainWindow, "useredit_treeview_userlist", index))
     mainWindow.useredit_btn_send.clicked.connect(lambda: mainWindow.packetSender.editUserReq(mainWindow.socket))
