@@ -19,6 +19,7 @@ class ReceivePacket(QObject):
     updateDisplaySignal = Signal(QObject, dict, str, QStringListModel)
     disconnectSignal = Signal(str)
     notiSignal = Signal(list, list)
+    setPageSignal = Signal(QObject)
     def __init__(self, main_window):
         super().__init__()
         self.main_window = main_window
@@ -29,6 +30,7 @@ class ReceivePacket(QObject):
         self.updateDisplaySignal.connect(updateDisplay) #아직 메인에 초기화는 안해봤음 안되면 메인에 초기화
         self.disconnectSignal.connect(self.main_window.setDisconnect)
         self.notiSignal.connect(self.main_window.updateIcon)
+        self.setPageSignal.connect(self.main_window.updatePage)
 
     def receiveData(self, socket):
         self.sock = socket
@@ -65,7 +67,7 @@ class ReceivePacket(QObject):
             except BlockingIOError:
                 continue
             except Exception as e:
-                alertMsg = "중복된 아이디 입니다."
+                alertMsg = "연결이 끊어졌습니다."
                 self.disconnectSignal.emit(alertMsg)
                 print(f"An error occurred: {e}")
                 self.running = False
@@ -85,6 +87,10 @@ class ReceivePacket(QObject):
         self.main_window.packetSender.reqGroupList(self.main_window.socket)
         self.main_window.packetSender.reqUserList(self.main_window.socket)
         self.loginSignal.emit(userId)
+    
+    def signupReqSucess(self):
+        self.setPageSignal.emit(self.main_window.ui.loginpage)
+        print("회원가입 신청 성공")
         
     def receiveMassage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
@@ -243,12 +249,16 @@ class ReceivePacket(QObject):
             self.loginSuccess(msg)
         elif jsonType == TYPE_CONNECTION:
             self.connectSuccess(msg)
+        elif jsonType == TYPE_SIGNUP_REQ:
+            self.signupReqSucess()
         elif jsonType == TYPE_USERLIST:
             self.receiveUserList(msg)
         elif jsonType == TYPE_MESSAGE:
             self.receiveMassage(msg)
         elif jsonType == TYPE_ERROR:
             self.receiveError(msg)
+        elif jsonType == TYPE_ACCEPT_SIGNUP:
+            self.receiveReqList(msg)
         elif jsonType == TYPE_GROUPLIST:
             self.receiveGroupList(msg)
         elif jsonType == TYPE_GROUPMEMBER:
@@ -270,7 +280,7 @@ class ReceivePacket(QObject):
         elif jsonType == TYPE_ERROR_DUP_LOGIN:
             self.loginError()
         elif jsonType == TYPE_ONLINE_REQ:
-            self.onlineReq(msg)
+            self.onlineReq()
         elif jsonType == TYPE_SERVERERR_REQ:
             self.serverErrorReq(msg)
         elif jsonType == TYPE_CURRENT_USERLIST:

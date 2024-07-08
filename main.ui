@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>2</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -2764,7 +2764,7 @@ background-color: rgb(27, 29, 35);
 </string>
                        </property>
                        <property name="currentText">
-                        <string>부서를 선택하세요.</string>
+                        <string>부서를 선택하세요</string>
                        </property>
                        <property name="iconSize">
                         <size>
@@ -2777,7 +2777,7 @@ background-color: rgb(27, 29, 35);
                        </property>
                        <item>
                         <property name="text">
-                         <string>부서를 선택하세요.</string>
+                         <string>부서를 선택하세요</string>
                         </property>
                        </item>
                        <item>
@@ -2831,7 +2831,7 @@ font: 8pt &quot;Segoe UI&quot;;
 font-weight: 200;</string>
                        </property>
                        <property name="currentText">
-                        <string>직급을 선택하세요.</string>
+                        <string>직급을 선택하세요</string>
                        </property>
                        <property name="iconSize">
                         <size>
@@ -2844,7 +2844,7 @@ font-weight: 200;</string>
                        </property>
                        <item>
                         <property name="text">
-                         <string>직급을 선택하세요.</string>
+                         <string>직급을 선택하세요</string>
                         </property>
                        </item>
                        <item>

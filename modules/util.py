@@ -7,7 +7,7 @@ from collections import OrderedDict
 from PySide6.QtWidgets import QMainWindow
 import threading
 
-SERVER_ADDR = "10.23.10.2"
+SERVER_ADDR = "192.168.0.149"
 # SERVER_ADDR = "127.0.0.1"
 SERVER_PORT = 3334
 
@@ -19,11 +19,11 @@ TYPE_MESSAGE = 3
 TYPE_USERLIST = 5
 TYPE_GROUPLIST = 6
 TYPE_EDIT_GROUP_MEMBER = 7
+TYPE_ACCEPT_SIGNUP = 9
 TYPE_ERROR = 100
 TYPE_GROUPMEMBER = 11
 TYPE_CHATLIST = 12
 TYPE_REQ_LIST = 8
-TYPE_ACCEPT_SIGNUP = 9
 TYPE_ACCEPT_GROUP = 10
 TYPE_EDIT_USERINFO = 13
 TYPE_GROUP_CHAT_REQ = 14
@@ -113,6 +113,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
     elif data_type == "userlist":
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
+        mainWindow.home_treeview_userlist.setColumnWidth(0, 200)
         for json_data in data_list:
             if json_data['login_id'] in mainWindow.loginUserList:
                 print(json_data)
@@ -446,7 +447,7 @@ def groupClick(mainWindow: QMainWindow, listname, index):
 
 def sortUserInfo(var, name):
     if name == "dept":
-        if var == "부서를 선택하세요.":
+        if var == "부서를 선택하세요":
             return 999
         elif var == "1팀":
             return 1
@@ -458,7 +459,7 @@ def sortUserInfo(var, name):
             return 4
     
     elif name == "pos":
-        if var == "직급을 선택하세요.":
+        if var == "직급을 선택하세요":
             return 999
         elif var == "회장":
             return 1
@@ -474,13 +475,13 @@ def sortUserInfo(var, name):
             return 6
     
     elif name == "role":
-        if var == "역할을 선택하세요.":
+        if var == "역할을 선택하세요":
             return 999
         else:
             return int(var)
     
     elif name == "tps":
-        if var == "tps를 선택하세요.":
+        if var == "tps를 선택하세요":
             return 999
         else:
             return int(var)

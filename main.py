@@ -379,6 +379,11 @@ class MainWindow(QMainWindow):
         widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
         QMessageBox.warning(self, '경고', alterMsg, QMessageBox.Ok)
     
+    @Slot(QObject)
+    def updatePage(self, page):
+         widgets.stackedWidget.setCurrentWidget(page)
+        
+    
     @Slot()
     def setGUILoginSucess(self, userId):
         print(userId + '가 로그인함')

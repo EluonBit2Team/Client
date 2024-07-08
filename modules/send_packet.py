@@ -398,8 +398,15 @@ class SendPacket:
             role = sortUserInfo(role, "role")
             tps = sortUserInfo(tps, "tps")
             
+            print(dept)
+            print(pos)
+            print(role)
+            print(tps)
+            
             try:
-                if not dept or pos or role or tps == 999:
+                if 999 in [dept, pos, role, tps]:
+                    self.main_window.alertMsgBox("회원정보에 누락된 내용이 없는지 확인해주세요")
+                else:
                     msg = {
                             "type": TYPE_ACCEPT_SIGNUP,
                             "is_ok": 1,
@@ -414,8 +421,7 @@ class SendPacket:
                     if socket and msg:
                         socket.sendall(packet)
                     print(packet)
-                else:
-                    self.main_window.alertMsgBox("회원정보에 누락된 내용이 없는지 확인해주세요")
+                    
             except Exception as e:
                 self.main_window.isConnect = False
                 print(f"An error occurred: {e}")
