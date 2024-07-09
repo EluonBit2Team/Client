@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainktLYIy.ui'
+## Form generated from reading UI file 'mainbJauuO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -2733,10 +2733,10 @@ class Ui_MainWindow(object):
         self.admin_btn_accept.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub77d", None))
         self.admin_btn_reject.setText(QCoreApplication.translate("MainWindow", u"\uac70\uc808", None))
         self.admin_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
-        self.admin_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u" 1\ud300", None))
-        self.admin_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u" 2\ud300", None))
-        self.admin_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u" 3\ud300", None))
-        self.admin_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u" \uc194\ub8e8\uc158\ud300", None))
+        self.admin_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u"1\ud300", None))
+        self.admin_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u"2\ud300", None))
+        self.admin_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u"3\ud300", None))
+        self.admin_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u"\uc194\ub8e8\uc158\ud300", None))
 
         self.admin_combo_dept.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
         self.admin_combo_position.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))

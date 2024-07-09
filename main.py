@@ -162,6 +162,7 @@ class MainWindow(QMainWindow):
 
         self.chatListModel = QStandardItemModel(self.home_listview_chatlist)
         self.home_listview_chatlist.setModel(self.chatListModel)
+        # self.chatListModel.rowsInserted.connect(self.scroll_to_bottom)
 
         self.groupListModel = QStandardItemModel(self.home_listview_chatgroup)
         self.home_listview_chatgroup.setModel(self.groupListModel)
@@ -190,7 +191,7 @@ class MainWindow(QMainWindow):
 
         self.useredit_treeview_userlist.setModel(self.userListModel)
 
-        self.clientSession = clientSession(self)
+        self.clientSession = ClientSession(self)
         self.packetSender = SendPacket(self)
         self.packetReceiver = ReceivePacket(self)
         self.qrcode = Qrcode(self)
@@ -204,7 +205,10 @@ class MainWindow(QMainWindow):
         
         
         #connect socket
-        self.packetSender.reconnect(self.socket)
+        self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
+        # self.packetSender.reconnect(self.socket)
+        self.start_receiving()
+        self.start_ping_thread()
                 
         print("main의 socket")
         print(self.socket)
@@ -369,7 +373,14 @@ class MainWindow(QMainWindow):
         request_thread.start()
         self.request_thread = request_thread
         print("서버 실시간 상태 요청 스레드 시작됨")
-
+        
+    def setLoginPage(self):
+        widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
+    
+    # @Slot()
+    # def scroll_to_bottom(self):
+    #     self.home_listview_chatlist.scrollToBottom()
+    
     @Slot(str)
     def setDisconnect(self, alterMsg):
         self.login_btn_reconnect.show()
@@ -389,7 +400,14 @@ class MainWindow(QMainWindow):
         print(userId + '가 로그인함')
         self.btn_home.show()
         self.btn_admin.show()
-        self.btn_notice.show()
+        if self.userRole == 1:
+            self.btn_admin.show()
+        else:
+            self.btn_admin.hide()
+        if self.userRole == 1:
+            self.btn_notice.show()
+        else:
+            self.btn_notice.hide()
         self.btn_login.hide()
         widgets.stackedWidget.setCurrentWidget(widgets.home)
     

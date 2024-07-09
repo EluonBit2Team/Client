@@ -51,6 +51,7 @@ class SendPacket:
         except Exception as e:
             self.main_window.isConnect = False
             print(f"An error occurred: {e}")
+            self.disconnect()
             return False
     
     def reconnect(self, sock):
@@ -196,20 +197,24 @@ class SendPacket:
             return False
     
     def sendMsg(self, socket):
+        if self.main_window.nowClickedRow == None:
+            self.main_window.home_lineedit_chatlist_send.clear()
+            return False
+        
         print("현재 sendTarget = " + self.main_window.sendTarget)
         if self.main_window.sendTarget == "group":
             print("그룹메세지")
             msgText = self.main_window.home_lineedit_chatlist_send.text()
             userId = self.main_window.userId
-            groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+            groupname = getClickedRow("json", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
             print("userId = " + userId)
-            print("groupname = " + groupname)
+            print("groupname = " + groupname['groupname'])
             print("msgText = " + msgText)
             
             try:
                 msg = {"type": TYPE_MESSAGE,
                     "login_id": userId,
-                    "groupname": groupname,
+                    "groupname": groupname['groupname'],
                     "text": msgText}
                 
                 print("msg")
@@ -392,16 +397,22 @@ class SendPacket:
             pos = self.main_window.admin_combo_position.currentText()
             role = self.main_window.admin_combo_role.currentText()
             tps = self.main_window.admin_combo_tps.currentText()
+            print("sort 하기 전")
+            print("dept: " + str(dept))
+            print("dept: " + str(pos))
+            print("dept: " + str(role))
+            print("dept: " + str(tps))
 
             dept = sortUserInfo(dept, "dept")
             pos = sortUserInfo(pos, "pos")
             role = sortUserInfo(role, "role")
             tps = sortUserInfo(tps, "tps")
             
-            print(dept)
-            print(pos)
-            print(role)
-            print(tps)
+            print("sort 한 후")
+            print("dept: " + str(dept))
+            print("dept: " + str(pos))
+            print("dept: " + str(role))
+            print("dept: " + str(tps))
             
             try:
                 if 999 in [dept, pos, role, tps]:
