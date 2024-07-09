@@ -37,3 +37,5 @@ setup(
     },
     executables = [Executable("main.py")]
 )
+
+# python setup.py build
