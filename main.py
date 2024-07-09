@@ -208,6 +208,7 @@ class MainWindow(QMainWindow):
         self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
         # self.packetSender.reconnect(self.socket)
         self.start_receiving()
+        self.start_ping_thread()
                 
         print("main의 socket")
         print(self.socket)

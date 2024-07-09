@@ -197,20 +197,24 @@ class SendPacket:
             return False
     
     def sendMsg(self, socket):
+        if self.main_window.nowClickedRow == None:
+            self.main_window.home_lineedit_chatlist_send.clear()
+            return False
+        
         print("현재 sendTarget = " + self.main_window.sendTarget)
         if self.main_window.sendTarget == "group":
             print("그룹메세지")
             msgText = self.main_window.home_lineedit_chatlist_send.text()
             userId = self.main_window.userId
-            groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+            groupname = getClickedRow("json", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
             print("userId = " + userId)
-            print("groupname = " + groupname)
+            print("groupname = " + groupname['groupname'])
             print("msgText = " + msgText)
             
             try:
                 msg = {"type": TYPE_MESSAGE,
                     "login_id": userId,
-                    "groupname": groupname,
+                    "groupname": groupname['groupname'],
                     "text": msgText}
                 
                 print("msg")

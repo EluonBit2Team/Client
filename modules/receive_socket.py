@@ -19,6 +19,7 @@ class ReceivePacket(QObject):
     updateDisplaySignal = Signal(QObject, dict, str, QStringListModel)
     updateUserListSignal = Signal(QObject, list, str, QStringListModel)
     messageNotiSignal = Signal(str, QStandardItemModel)
+    dmNotiSignal = Signal(str, QStandardItemModel, QTreeView)
     disconnectSignal = Signal(str)
     notiSignal = Signal(list, list)
     setPageSignal = Signal(QObject)
@@ -32,6 +33,7 @@ class ReceivePacket(QObject):
         self.updateDisplaySignal.connect(updateDisplay) #아직 메인에 초기화는 안해봤음 안되면 메인에 초기화
         self.updateUserListSignal.connect(updateDisplay)
         self.messageNotiSignal.connect(groupListNoti)
+        self.dmNotiSignal.connect(userListNoti)
         self.disconnectSignal.connect(self.main_window.setDisconnect)
         self.notiSignal.connect(self.main_window.updateIcon)
         self.setPageSignal.connect(self.main_window.updatePage)
@@ -104,18 +106,36 @@ class ReceivePacket(QObject):
             # updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
         else:
             self.messageNotiSignal.emit(recvGroupName, self.main_window.groupListModel)
-            print("잘못된 그룹")
-            return False
+            print("다른그룹에서 받은 메세지")
     
     def receivedDm(self, msg):
         dm = json.loads(msg.decode('utf-8'))
+        print(dm)
         sender = dm['sender_login_id']
-        receiver = dm['recver_login_id']
-        
-        if self.main_window.userId == sender or self.main_window.userId == receiver:
-            updateDisplay(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
+        # receiver = dm['recver_login_id']
+        print("talkNow 전")
+        if self.main_window.nowClickedRow:
+            first_key = next(iter(self.main_window.nowClickedRow))
+            if first_key == 'groupname':
+                return False
+            else:
+                talkNow = self.main_window.nowClickedRow['login_id']
         else:
-            print("다른 개인메세지로 연결되었습니다.")
+            return False
+         
+        if not sender == self.main_window.nowClickedRow['login_id']:
+            print("다른사람이 나에게 보냄")
+            self.dmNotiSignal.emit(sender, self.main_window.userListModel, self.main_window.home_treeview_userlist)
+        if not talkNow == sender:
+            pass
+        else:
+            self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
+        
+            
+        # if self.main_window.userId == sender or self.main_window.userId == receiver:
+        #     updateDisplay(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
+        # else:
+        #     print("다른 사람에게서 메세지를 받았습니다.")
     
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("users")
