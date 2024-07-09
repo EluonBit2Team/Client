@@ -17,7 +17,7 @@ class ReceivePacket(QObject):
     messageSignal = Signal(str)
     loginSignal = Signal(str)
     updateDisplaySignal = Signal(QObject, dict, str, QStringListModel)
-    updateUserListSignal = Signal(QObject, list, str, QStringListModel)
+    updateListSignal = Signal(QObject, list, str, QStringListModel)
     messageNotiSignal = Signal(str, QStandardItemModel)
     dmNotiSignal = Signal(str, QStandardItemModel, QTreeView)
     disconnectSignal = Signal(str)
@@ -31,7 +31,7 @@ class ReceivePacket(QObject):
         self.messageSignal.connect(self.main_window.alertMsgBox)
         self.loginSignal.connect(self.main_window.setGUILoginSucess)
         self.updateDisplaySignal.connect(updateDisplay) #아직 메인에 초기화는 안해봤음 안되면 메인에 초기화
-        self.updateUserListSignal.connect(updateDisplay)
+        self.updateListSignal.connect(updateDisplay)
         self.messageNotiSignal.connect(groupListNoti)
         self.dmNotiSignal.connect(userListNoti)
         self.disconnectSignal.connect(self.main_window.setDisconnect)
@@ -141,16 +141,16 @@ class ReceivePacket(QObject):
     
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("users")
-        self.updateUserListSignal.emit(self.main_window, userList, "userlist", self.main_window.userListModel)
+        self.updateListSignal.emit(self.main_window, userList, "userlist", self.main_window.userListModel)
     
     def receiveGroupList(self, msg):
         self.groupList = json.loads(msg.decode('utf-8')).get("groups")
-        updateDisplay(self.main_window, self.groupList, "grouplist", self.main_window.groupListModel)
+        self.updateListSignal.emit(self.main_window, self.groupList, "grouplist", self.main_window.groupListModel)
     
     def receiveGroupMember(self, msg):
         groupMemberList = json.loads(msg.decode('utf-8')).get("users")
-        updateDisplay(self.main_window, groupMemberList, "groupMemberList", self.main_window.groupMember.groupMemberModel)
-        updateDisplay(self.main_window, groupMemberList, "groupMemberList", self.main_window.memberAddDialog.treeview_right_model)
+        self.updateListSignal.emit(self.main_window, groupMemberList, "groupMemberList", self.main_window.groupMember.groupMemberModel)
+        self.updateListSignal.emit(self.main_window, groupMemberList, "groupMemberList", self.main_window.memberAddDialog.treeview_right_model)
 
     def receiveReqList(self, msg):
         signupList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("signup_req_list")
@@ -158,7 +158,7 @@ class ReceivePacket(QObject):
         reqList = signupList + groupReqList
         print (reqList)
         if reqList:
-            updateDisplay(self.main_window, reqList, "reqList", self.main_window.adminReqListModel)
+            self.updateListSignal.emit(self.main_window, reqList, "reqList", self.main_window.adminReqListModel)
         else:
             self.main_window.adminReqListModel.clear()
     
@@ -166,11 +166,11 @@ class ReceivePacket(QObject):
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = receivedMessage.get("groupname")
         if recvGroupName == self.main_window.nowGroupName:
-            self.updateUserListSignal.emit(self.main_window, receivedMessage.get("chatlog"), "clickedGroup", self.main_window.chatListModel)
+            self.updateListSignal.emit(self.main_window, receivedMessage.get("chatlog"), "clickedGroup", self.main_window.chatListModel)
             
     def receiveDmLog(self, msg):
         dm = json.loads(msg.decode('utf-8'))
-        updateDisplay(self.main_window, dm.get("dmlog"), "clickedUser", self.main_window.chatListModel)
+        self.updateListSignal.emit(self.main_window, dm.get("dmlog"), "clickedUser", self.main_window.chatListModel)
         
     # 로그
     def receiveReqLogList(self, msg):
@@ -178,7 +178,7 @@ class ReceivePacket(QObject):
         serverLogList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("server_log_list")
         if serverLogList:
             print("if문 serverLogList 진입")
-            updateDisplay(self.main_window, serverLogList, "serverLogList", self.main_window.logReqListModel)
+            self.updateListSignal.emit(self.main_window, serverLogList, "serverLogList", self.main_window.logReqListModel)
         else:
             self.main_window.logReqListModel.clear()
     
@@ -188,7 +188,7 @@ class ReceivePacket(QObject):
         userLogList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("user_log_list")
         if userLogList:
             print("if문 userLogList 진입")
-            updateDisplay(self.main_window, userLogList, "userLogList", self.main_window.loguserReqListModel)
+            self.updateListSignal.emit(self.main_window, userLogList, "userLogList", self.main_window.loguserReqListModel)
         else:
             self.main_window.loguserReqListModel.clear()
     

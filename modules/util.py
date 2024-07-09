@@ -41,7 +41,7 @@ TYPE_SERVERERR_REQ = 301
 
 
 class CustomDelegate(QStyledItemDelegate):
-    # def init
+    # 보낸사람에 따라 각각 정렬
     def paint(self, painter, option, index):
         painter.save()
         messageSender = index.data(Qt.ItemDataRole.UserRole + 1)
@@ -259,20 +259,20 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 logintime = json_data['login_time']
                 logouttime = json_data['logout_time']
                 if logouttime == "NULL":
-                    logouttime = "접속중"
+                    loginNow = "접속중"
                     id_column = QStandardItem(loginid)
                     login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
-                    logout_column = QStandardItem(logouttime)
+                    logout_column = QStandardItem(loginNow)
                     
                     # 배경색 빨간색으로 설정
-                    for column in [id_column, login_column, logout_column]:
-                        column.setBackground(Qt.red)
+                    # for column in [id_column, login_column, logout_column]:
+                    #     column.setBackground(Qt.red)
                     
                     id_column.setData(json_data, Qt.UserRole)
                     
                     row = [id_column, login_column, logout_column]
                     # 리스트의 가장 위에 추가
-                    model.insertRow(0, row)
+                    model.appendRow(row)
                 else:
                     id_column = QStandardItem(loginid)
                     login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
