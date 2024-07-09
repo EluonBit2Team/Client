@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>2</number>
+                      <number>5</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -2162,9 +2162,9 @@ background-repeat: no-repeat;
                       <widget class="QLabel" name="home_label_chatback">
                        <property name="geometry">
                         <rect>
-                         <x>260</x>
+                         <x>190</x>
                          <y>20</y>
-                         <width>701</width>
+                         <width>771</width>
                          <height>491</height>
                         </rect>
                        </property>
@@ -2182,7 +2182,7 @@ border-radius: 10px;
                         <rect>
                          <x>20</x>
                          <y>20</y>
-                         <width>211</width>
+                         <width>151</width>
                          <height>181</height>
                         </rect>
                        </property>
@@ -2199,7 +2199,7 @@ border-radius: 10px;</string>
                         <rect>
                          <x>20</x>
                          <y>220</y>
-                         <width>211</width>
+                         <width>151</width>
                          <height>341</height>
                         </rect>
                        </property>
@@ -2280,7 +2280,7 @@ border-radius: 10px;</string>
                         <rect>
                          <x>30</x>
                          <y>70</y>
-                         <width>191</width>
+                         <width>131</width>
                          <height>91</height>
                         </rect>
                        </property>
@@ -2295,8 +2295,8 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QPushButton" name="home_btn_chatgroup">
                        <property name="geometry">
                         <rect>
-                         <x>194</x>
-                         <y>34</y>
+                         <x>34</x>
+                         <y>170</y>
                          <width>31</width>
                          <height>24</height>
                         </rect>
@@ -2316,7 +2316,7 @@ border:none;
                       <widget class="QLabel" name="home_label_chatlist_title">
                        <property name="geometry">
                         <rect>
-                         <x>290</x>
+                         <x>220</x>
                          <y>39</y>
                          <width>91</width>
                          <height>16</height>
@@ -2334,7 +2334,7 @@ border:none;
                         <rect>
                          <x>30</x>
                          <y>270</y>
-                         <width>191</width>
+                         <width>131</width>
                          <height>251</height>
                         </rect>
                        </property>
@@ -2349,9 +2349,9 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QLineEdit" name="home_lineedit_chatlist_send">
                        <property name="geometry">
                         <rect>
-                         <x>280</x>
+                         <x>190</x>
                          <y>519</y>
-                         <width>621</width>
+                         <width>711</width>
                          <height>41</height>
                         </rect>
                        </property>
@@ -2368,9 +2368,9 @@ color: rgb(255, 255, 255); /* 텍스트 색상 */</string>
                       <widget class="QListView" name="home_listview_chatlist">
                        <property name="geometry">
                         <rect>
-                         <x>290</x>
+                         <x>220</x>
                          <y>70</y>
-                         <width>641</width>
+                         <width>711</width>
                          <height>421</height>
                         </rect>
                        </property>
@@ -2425,7 +2425,7 @@ border: none;</string>
                       <widget class="QPushButton" name="home_btn_right">
                        <property name="geometry">
                         <rect>
-                         <x>189</x>
+                         <x>130</x>
                          <y>522</y>
                          <width>31</width>
                          <height>31</height>
@@ -2489,7 +2489,7 @@ border:none;
                       <widget class="QPushButton" name="home_btn_leave_group">
                        <property name="geometry">
                         <rect>
-                         <x>189</x>
+                         <x>80</x>
                          <y>170</y>
                          <width>31</width>
                          <height>24</height>
@@ -2530,7 +2530,7 @@ border:none;
                       <widget class="QPushButton" name="home_btn_return_chat">
                        <property name="geometry">
                         <rect>
-                         <x>570</x>
+                         <x>540</x>
                          <y>490</y>
                          <width>31</width>
                          <height>24</height>
@@ -2552,7 +2552,7 @@ border:none;
                       <widget class="QPushButton" name="home_btn_groupdelete">
                        <property name="geometry">
                         <rect>
-                         <x>34</x>
+                         <x>130</x>
                          <y>170</y>
                          <width>31</width>
                          <height>24</height>
@@ -2764,7 +2764,7 @@ background-color: rgb(27, 29, 35);
 </string>
                        </property>
                        <property name="currentText">
-                        <string>부서를 선택하세요</string>
+                        <string>부서를 선택하세요.</string>
                        </property>
                        <property name="iconSize">
                         <size>
@@ -2777,7 +2777,7 @@ background-color: rgb(27, 29, 35);
                        </property>
                        <item>
                         <property name="text">
-                         <string>부서를 선택하세요</string>
+                         <string>부서를 선택하세요.</string>
                         </property>
                        </item>
                        <item>
@@ -2831,7 +2831,7 @@ font: 8pt &quot;Segoe UI&quot;;
 font-weight: 200;</string>
                        </property>
                        <property name="currentText">
-                        <string>직급을 선택하세요</string>
+                        <string>직급을 선택하세요.</string>
                        </property>
                        <property name="iconSize">
                         <size>
@@ -2844,7 +2844,7 @@ font-weight: 200;</string>
                        </property>
                        <item>
                         <property name="text">
-                         <string>직급을 선택하세요</string>
+                         <string>직급을 선택하세요.</string>
                         </property>
                        </item>
                        <item>
