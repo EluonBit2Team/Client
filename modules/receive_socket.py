@@ -112,20 +112,22 @@ class ReceivePacket(QObject):
         dm = json.loads(msg.decode('utf-8'))
         print(dm)
         sender = dm['sender_login_id']
-        # receiver = dm['recver_login_id']
+        receiver = dm['recver_login_id']
         print("talkNow 전")
         if self.main_window.nowClickedRow:
             first_key = next(iter(self.main_window.nowClickedRow))
             if first_key == 'groupname':
+                self.dmNotiSignal.emit(sender, self.main_window.userListModel, self.main_window.home_treeview_userlist)
                 return False
             else:
                 talkNow = self.main_window.nowClickedRow['login_id']
         else:
+            self.dmNotiSignal.emit(sender, self.main_window.userListModel, self.main_window.home_treeview_userlist)
             return False
          
-        if not sender == self.main_window.nowClickedRow['login_id']:
-            print("다른사람이 나에게 보냄")
-            self.dmNotiSignal.emit(sender, self.main_window.userListModel, self.main_window.home_treeview_userlist)
+        # if not sender == self.main_window.nowClickedRow['login_id']:
+        #     print("다른사람이 나에게 보냄")
+        #     self.dmNotiSignal.emit(sender, self.main_window.userListModel, self.main_window.home_treeview_userlist)
         if not talkNow == sender:
             pass
         else:
@@ -204,7 +206,7 @@ class ReceivePacket(QObject):
 
     # type 300
     def onlineReq(self):
-        self.main_window.packetSender.reqUserList(self.main_window.socket)
+        self.main_window.packetSender.reqOnlineList(self.main_window.socket)
         showIcon = [self.main_window.admin_label_new]
         hideIcon = []
         self.notiSignal.emit(showIcon, hideIcon)
@@ -275,6 +277,8 @@ class ReceivePacket(QObject):
         for json_data in users:
             self.main_window.loginUserList.append(json_data['login_id'])
         
+        self.main_window.packetSender.reqUserList(self.main_window.socket)
+    
         
         
         

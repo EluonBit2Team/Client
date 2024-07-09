@@ -115,14 +115,11 @@ def userListNoti(userId, model, view):
         name = model.item(row, name_column_index)
         if item.text() == userId:
             print("아이템 텍스트: " + item.text())
-            original_color_item = model.item(row, id_column_index)
             current_color = item.background().color()
-            original_color_item.setData(current_color.Qt.UserRole)
+            name.setData(current_color, Qt.UserRole + 2)
             name.setBackground(QBrush(QColor(255, 255, 0, 100)))
             view.viewport().update()
             
-        
-
 def groupListUpdate(data, model):
     for json_data in data:
         item = QStandardItem(json_data['groupname'])
@@ -162,6 +159,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 name_column.setData(json_data, Qt.UserRole)
                 row = [name_column, id_column]
                 model.appendRow(row)
+        mainWindow.home_treeview_userlist.viewport().update()
     elif data_type == "reqList":
         signup_type = 'login_id'
         group_type = 'group_name'
@@ -481,11 +479,19 @@ def groupClick(mainWindow: QMainWindow, listname, index):
         mainWindow.sendTarget = "group"
     elif listname == "home_treeview_userlist":
         print("home_treeview_userlist의 요소를 클릭함")
+        item = mainWindow.userListModel.itemFromIndex(index)
         item_json = index.data(Qt.UserRole)
-        if index.data(Qt.UserRole + 2):
-            color_data = index.data(Qt.UserRole + 2)
         mainWindow.nowClickedRow = item_json
         mainWindow.packetSender.reqDm(mainWindow.socket)
+        if index.data(Qt.UserRole + 2):
+            color_data = index.data(Qt.UserRole + 2)
+            print("컬러데이터")
+            print(color_data)
+            if color_data:
+                item.setBackground(QBrush(QColor(31, 35, 41)))
+            else:
+                print("컬러데이터가 없어서 else로 빠짐")
+                item.setBackground(QBrush(QColor(Qt.transparent)))
         mainWindow.home_listview_chatgroup.clearSelection()
         mainWindow.sendTarget = "user"
 
