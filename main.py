@@ -162,6 +162,7 @@ class MainWindow(QMainWindow):
 
         self.chatListModel = QStandardItemModel(self.home_listview_chatlist)
         self.home_listview_chatlist.setModel(self.chatListModel)
+        # self.chatListModel.rowsInserted.connect(self.scroll_to_bottom)
 
         self.groupListModel = QStandardItemModel(self.home_listview_chatgroup)
         self.home_listview_chatgroup.setModel(self.groupListModel)
@@ -204,7 +205,9 @@ class MainWindow(QMainWindow):
         
         
         #connect socket
-        self.packetSender.reconnect(self.socket)
+        self.packetSender.connectSocket(SERVER_ADDR, SERVER_PORT)
+        # self.packetSender.reconnect(self.socket)
+        self.start_receiving()
                 
         print("main의 socket")
         print(self.socket)
@@ -372,7 +375,11 @@ class MainWindow(QMainWindow):
         
     def setLoginPage(self):
         widgets.stackedWidget.setCurrentWidget(widgets.loginpage)
-
+    
+    # @Slot()
+    # def scroll_to_bottom(self):
+    #     self.home_listview_chatlist.scrollToBottom()
+    
     @Slot(str)
     def setDisconnect(self, alterMsg):
         self.login_btn_reconnect.show()

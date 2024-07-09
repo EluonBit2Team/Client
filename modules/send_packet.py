@@ -51,6 +51,7 @@ class SendPacket:
         except Exception as e:
             self.main_window.isConnect = False
             print(f"An error occurred: {e}")
+            self.disconnect()
             return False
     
     def reconnect(self, sock):

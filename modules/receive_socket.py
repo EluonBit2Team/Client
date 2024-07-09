@@ -144,7 +144,7 @@ class ReceivePacket(QObject):
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = receivedMessage.get("groupname")
         if recvGroupName == self.main_window.nowGroupName:
-            updateDisplay(self.main_window, receivedMessage.get("chatlog"), "clickedGroup", self.main_window.chatListModel)
+            self.updateUserListSignal.emit(self.main_window, receivedMessage.get("chatlog"), "clickedGroup", self.main_window.chatListModel)
             
     def receiveDmLog(self, msg):
         dm = json.loads(msg.decode('utf-8'))

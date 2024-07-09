@@ -215,9 +215,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                     item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
                     item.setData(json_data, Qt.UserRole)
                     model.appendRow(item)
-        
-        mainWindow.home_listview_chatlist.scrollToBottom
-    
+
     elif data_type == "serverLogList":
         print("serverLogList 진입")
         model.clear()
@@ -335,8 +333,6 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
                 item.setData(data_list, Qt.UserRole)
                 model.appendRow(item)
-                
-        mainWindow.home_listview_chatlist.scrollToBottom
     
     elif data_type=="clickedUser":
         model.clear()
@@ -377,8 +373,6 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                     item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
                     item.setData(json_data, Qt.UserRole)
                     model.appendRow(item)
-        
-        mainWindow.home_listview_chatlist.scrollToBottom
     
     elif data_type == "receivedDm":
         name = data_list['sender_login_id']
@@ -418,7 +412,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 item.setData(data_list, Qt.UserRole)
                 model.appendRow(item)
                 
-        mainWindow.home_listview_chatlist.scrollToBottom
+    mainWindow.home_listview_chatlist.scrollToBottom()
         
 
 def getClickedRow(type, widget, model):
