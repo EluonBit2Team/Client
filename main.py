@@ -83,6 +83,9 @@ class MainWindow(QMainWindow):
         self.home_btn_return_chat.hide()
         self.login_btn_reconnect.hide()
         self.admin_label_new.hide()
+        self.home_btn_search_chat.hide()
+        self.home_btn_groupmemberlist.hide()
+        self.home_btn_add_member.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -162,6 +165,7 @@ class MainWindow(QMainWindow):
 
         self.chatListModel = QStandardItemModel(self.home_listview_chatlist)
         self.home_listview_chatlist.setModel(self.chatListModel)
+        self.home_listview_chatlist.setUniformItemSizes(False)
         # self.chatListModel.rowsInserted.connect(self.scroll_to_bottom)
 
         self.groupListModel = QStandardItemModel(self.home_listview_chatgroup)
@@ -399,15 +403,14 @@ class MainWindow(QMainWindow):
     def setGUILoginSucess(self, userId):
         print(userId + '가 로그인함')
         self.btn_home.show()
-        self.btn_admin.show()
         if self.userRole == 1:
             self.btn_admin.show()
         else:
             self.btn_admin.hide()
-        if self.userRole == 1:
-            self.btn_notice.show()
-        else:
-            self.btn_notice.hide()
+        # if self.userRole == 1:
+        #     self.btn_notice.show()
+        # else:
+        #     self.btn_notice.hide()
         self.btn_login.hide()
         widgets.stackedWidget.setCurrentWidget(widgets.home)
     
@@ -434,6 +437,7 @@ class MainWindow(QMainWindow):
         if reply == QMessageBox.StandardButton.Yes:
             self.socket.close()
             event.accept()
+            QApplication.quit()
         else:
             event.ignore()
     

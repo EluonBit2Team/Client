@@ -50,8 +50,8 @@ class SendPacket:
 
         except Exception as e:
             self.main_window.isConnect = False
+            self.main_window.login_btn_reconnect.show()
             print(f"An error occurred: {e}")
-            self.disconnect()
             return False
     
     def reconnect(self, sock):
@@ -138,10 +138,7 @@ class SendPacket:
 
             if socket and msg:
                 socket.sendall(packet)
-
-            self.main_window.btn_home.show()
-            self.main_window.btn_admin.show()
-            self.main_window.btn_notice.show()
+            
             return True
         except Exception as e:
             self.main_window.isConnect = False
@@ -159,6 +156,7 @@ class SendPacket:
         if self.main_window.socket:
             self.main_window.socket.close()
             self.main_window.socket = None
+            self.main_window.login_btn_reconnect.show()
             print("소켓 종료됨")
         else:
             print("소켓이 이미 닫혔거나 유효하지 않습니다.")
@@ -169,6 +167,7 @@ class SendPacket:
                 return False
             self.main_window.packetReceiver.running = True
             self.main_window.start_receiving()
+            self.main_window.start_ping_thread()
     
     def signUpRequest(self, socket):
         self.signupId = self.main_window.signup_input_id.text()
@@ -197,24 +196,20 @@ class SendPacket:
             return False
     
     def sendMsg(self, socket):
-        if self.main_window.nowClickedRow == None:
-            self.main_window.home_lineedit_chatlist_send.clear()
-            return False
-        
         print("현재 sendTarget = " + self.main_window.sendTarget)
         if self.main_window.sendTarget == "group":
             print("그룹메세지")
             msgText = self.main_window.home_lineedit_chatlist_send.text()
             userId = self.main_window.userId
-            groupname = getClickedRow("json", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
+            groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
             print("userId = " + userId)
-            print("groupname = " + groupname['groupname'])
+            print("groupname = " + groupname)
             print("msgText = " + msgText)
             
             try:
                 msg = {"type": TYPE_MESSAGE,
                     "login_id": userId,
-                    "groupname": groupname['groupname'],
+                    "groupname": groupname,
                     "text": msgText}
                 
                 print("msg")
@@ -264,12 +259,19 @@ class SendPacket:
         
             if socket and msg:
                 socket.sendall(packet)
-            
-            msg2 = {"type": TYPE_CURRENT_USERLIST}
-            packet2 = jsonParser(msg2)
-            if socket and msg2:
-                socket.sendall(packet2)
-
+                
+        except Exception as e:
+            self.main_window.isConnect = False
+            print(f"An error occurred: {e}")
+            self.connectSocket(SERVER_ADDR, SERVER_PORT)
+            return False
+    
+    def reqOnlineList(self, socket):
+        try:
+            msg = {"type": TYPE_CURRENT_USERLIST}
+            packet = jsonParser(msg)
+            if socket and msg:
+                socket.sendall(packet)
         except Exception as e:
             self.main_window.isConnect = False
             print(f"An error occurred: {e}")
@@ -397,22 +399,16 @@ class SendPacket:
             pos = self.main_window.admin_combo_position.currentText()
             role = self.main_window.admin_combo_role.currentText()
             tps = self.main_window.admin_combo_tps.currentText()
-            print("sort 하기 전")
-            print("dept: " + str(dept))
-            print("dept: " + str(pos))
-            print("dept: " + str(role))
-            print("dept: " + str(tps))
 
             dept = sortUserInfo(dept, "dept")
             pos = sortUserInfo(pos, "pos")
             role = sortUserInfo(role, "role")
             tps = sortUserInfo(tps, "tps")
             
-            print("sort 한 후")
-            print("dept: " + str(dept))
-            print("dept: " + str(pos))
-            print("dept: " + str(role))
-            print("dept: " + str(tps))
+            print(dept)
+            print(pos)
+            print(role)
+            print(tps)
             
             try:
                 if 999 in [dept, pos, role, tps]:

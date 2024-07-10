@@ -41,8 +41,6 @@ class GroupAddDialog(QDialog, Ui_Dialog):
             print(total_length)
             print(json_msg)
             self.close_dialog()
-            
-            return True
         except Exception as e:
             print(f"An error occurred: {e}")
             return False
