@@ -242,31 +242,6 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
             name_column.setData(json_data, Qt.UserRole)
             row = [name_column, id_column]
             model.appendRow(row)
-    elif data_type == "clickedGroup":
-        print("clickedgroup 진입")
-        model.clear()
-        for json_data in data_list:
-            name = json_data['login_id']
-            message = json_data['text']
-            if mainWindow.userId == name:
-                sentUser = "me"
-            else:
-                sentUser = "other"
-            row_count = model.rowCount()
-            if row_count<2:
-                addNameRow(sentUser, name, model)
-                addTextRow(sentUser, message, json_data, model)
-            else:
-                last_index = model.index(row_count - 1, 0)
-                last_item = model.itemFromIndex(last_index)
-                row_json_data = last_item.data(Qt.UserRole)
-                lastSender = row_json_data['login_id']
-                if lastSender == name:
-                    addTextRow(sentUser, message, json_data, model)
-                else:
-                    addNameRow(sentUser, name, model)
-                    addTextRow(sentUser, message, json_data, model)
-        mainWindow.home_listview_chatlist.scrollToBottom()
 
     elif data_type == "serverLogList":
         print("serverLogList 진입")
@@ -346,29 +321,31 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 item = QStandardItem(f"{json_data} TPS")
                 item.setFont(font)
                 model.appendRow(item)
-
-    elif data_type == "receivedChat":
-        name = data_list['login_id']
-        message = data_list['text']
-        if mainWindow.userId == name:
-            sentUser = "me"
-        else:
-            sentUser = "other"
-        print("sentUser: " + sentUser)
-        row_count = model.rowCount()
-        if row_count<1:
-            addNameRow(sentUser, name, model)
-            addTextRow(sentUser, message, json_data, model)
-        else:
-            last_index = model.index(row_count - 1, 0)
-            last_item = model.itemFromIndex(last_index)
-            row_json_data = last_item.data(Qt.UserRole)
-            lastSender = row_json_data['login_id']
-            if lastSender == name:
-                addTextRow(sentUser, message, json_data, model)
+    
+    elif data_type == "clickedGroup":
+        print("clickedgroup 진입")
+        model.clear()
+        for json_data in data_list:
+            name = json_data['login_id']
+            message = json_data['text']
+            if mainWindow.userId == name:
+                sentUser = "me"
             else:
+                sentUser = "other"
+            row_count = model.rowCount()
+            if row_count<2:
                 addNameRow(sentUser, name, model)
                 addTextRow(sentUser, message, json_data, model)
+            else:
+                last_index = model.index(row_count - 1, 0)
+                last_item = model.itemFromIndex(last_index)
+                row_json_data = last_item.data(Qt.UserRole)
+                lastSender = row_json_data['login_id']
+                if lastSender == name:
+                    addTextRow(sentUser, message, json_data, model)
+                else:
+                    addNameRow(sentUser, name, model)
+                    addTextRow(sentUser, message, json_data, model)
         mainWindow.home_listview_chatlist.scrollToBottom()
     
     elif data_type=="clickedUser":
@@ -396,6 +373,30 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                     addTextRow(sentUser, message, json_data, model)
         mainWindow.home_listview_chatlist.scrollToBottom()
     
+    elif data_type == "receivedChat":
+        name = data_list['login_id']
+        message = data_list['text']
+        if mainWindow.userId == name:
+            sentUser = "me"
+        else:
+            sentUser = "other"
+        print("sentUser: " + sentUser)
+        row_count = model.rowCount()
+        if row_count<1:
+            addNameRow(sentUser, name, model)
+            addTextRow(sentUser, message, data_list, model)
+        else:
+            last_index = model.index(row_count - 1, 0)
+            last_item = model.itemFromIndex(last_index)
+            row_json_data = last_item.data(Qt.UserRole)
+            lastSender = row_json_data['login_id']
+            if lastSender == name:
+                addTextRow(sentUser, message, data_list, model)
+            else:
+                addNameRow(sentUser, name, model)
+                addTextRow(sentUser, message, data_list, model)
+        mainWindow.home_listview_chatlist.scrollToBottom()
+    
     elif data_type == "receivedDm":
         name = data_list['sender_login_id']
         message = data_list['text']
@@ -406,7 +407,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         row_count = model.rowCount()
         if row_count<1:
             addNameRow(sentUser, name, model)
-            addTextRow(sentUser, message, json_data, model)
+            addTextRow(sentUser, message, data_list, model)
         else:
             last_index = model.index(row_count - 1, 0)
             last_item = model.itemFromIndex(last_index)
@@ -416,7 +417,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 addNameRow(sentUser, name, model)
             else:
                 addNameRow(sentUser, name, model)
-                addTextRow(sentUser, message, json_data, model)
+                addTextRow(sentUser, message, data_list, model)
         mainWindow.home_listview_chatlist.scrollToBottom()
         
 
