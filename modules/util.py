@@ -414,7 +414,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
             row_json_data = last_item.data(Qt.UserRole)
             lastSender = row_json_data['sender_login_id']
             if lastSender == name:
-                addNameRow(sentUser, name, model)
+                addTextRow(sentUser, message, data_list, model)
             else:
                 addNameRow(sentUser, name, model)
                 addTextRow(sentUser, message, data_list, model)
