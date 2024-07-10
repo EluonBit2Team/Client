@@ -31,7 +31,7 @@ setup(
     description = "chatclient prototype",
     options = {
         "build_exe": {
-            "packages": ["PySide6"],
+            "packages": ["PySide6", "cv2", "pyzbar"],
             "excludes": ["PyQt6"]
         }
     },

@@ -50,6 +50,7 @@ class SendPacket:
 
         except Exception as e:
             self.main_window.isConnect = False
+            self.main_window.login_btn_reconnect.show()
             print(f"An error occurred: {e}")
             return False
     

@@ -162,6 +162,7 @@ class MainWindow(QMainWindow):
 
         self.chatListModel = QStandardItemModel(self.home_listview_chatlist)
         self.home_listview_chatlist.setModel(self.chatListModel)
+        self.home_listview_chatlist.setUniformItemSizes(False)
         # self.chatListModel.rowsInserted.connect(self.scroll_to_bottom)
 
         self.groupListModel = QStandardItemModel(self.home_listview_chatgroup)

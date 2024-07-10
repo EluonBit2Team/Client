@@ -41,6 +41,8 @@ TYPE_SERVERERR_REQ = 301
 
 
 class CustomDelegate(QStyledItemDelegate):
+    def __init__(self, parent=None):
+        super().__init__(parent)
     # 보낸사람에 따라 각각 정렬
     def paint(self, painter, option, index):
         painter.save()
@@ -52,8 +54,30 @@ class CustomDelegate(QStyledItemDelegate):
             option.displayAlignment = Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter
 
         text = index.data(Qt.ItemDataRole.DisplayRole)
-        painter.drawText(option.rect, option.displayAlignment, '  ' + text + '  ')
+        # painter.drawText(option.rect, option.displayAlignment, '  ' + text + '  ')
+        formatted_text = self.format_text(text, 30)
+
+        # Text alignment options
+        text_option = QTextOption()
+        text_option.setAlignment(option.displayAlignment)
+
+        painter.drawText(option.rect, formatted_text, text_option)
         painter.restore()
+    
+    def format_text(self, text, line_length):
+        # 텍스트를 line_length 글자마다 줄 바꿈
+        lines = []
+        for i in range(0, len(text), line_length):
+            lines.append(text[i:i+line_length])
+        return '\n'.join(lines)
+
+    def sizeHint(self, option, index):
+        text = index.data(Qt.ItemDataRole.DisplayRole)
+        formatted_text = self.format_text(text, 30)
+        lines = formatted_text.split('\n')
+        height = option.fontMetrics.lineSpacing() * len(lines) + 10  # Add some padding
+        return QSize(option.rect.width(), height)
+    
     
 # class util:
 #     def __init__(self, main_window):
