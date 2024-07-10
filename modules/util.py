@@ -22,7 +22,6 @@ TYPE_EDIT_GROUP_MEMBER = 7
 TYPE_ACCEPT_SIGNUP = 9
 TYPE_ERROR = 100
 TYPE_GROUPMEMBER = 11
-TYPE_CHATLIST = 12
 TYPE_REQ_LIST = 8
 TYPE_ACCEPT_GROUP = 10
 TYPE_EDIT_USERINFO = 13
@@ -313,21 +312,26 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         model.clear()
         font = QFont()
         font.setPointSize(14)
-        for json_data in data_list:
-            if data_type == "realtimememList":
-                item = QStandardItem(f"{json_data}% / 100%    램 용량: 8GB")
-                item.setFont(font)
-                model.appendRow(item)
+        font.setBold(True)
+        
+        mem = data_list['mem']
+        usercnt = data_list['login_user_cnt']
+        tps = data_list['tps']
+        
+        if data_type == "realtimememList":
+            item = QStandardItem(f"{mem}% / 100%    램 용량: 8GB")
+            item.setFont(font)
+            model.appendRow(item)
 
-            elif data_type == "realtimeloginList":
-                item = QStandardItem(f"{json_data}명 접속")
-                item.setFont(font)
-                model.appendRow(item)
+        elif data_type == "realtimeloginList":
+            item = QStandardItem(f"{usercnt}명 접속")
+            item.setFont(font)
+            model.appendRow(item)
 
-            elif data_type == "realtimetpsList":
-                item = QStandardItem(f"{json_data} TPS")
-                item.setFont(font)
-                model.appendRow(item)
+        elif data_type == "realtimetpsList":
+            item = QStandardItem(f"{tps} TPS")
+            item.setFont(font)
+            model.appendRow(item)
     
     elif data_type == "clickedGroup":
         print("clickedgroup 진입")

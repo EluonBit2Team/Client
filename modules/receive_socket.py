@@ -238,26 +238,21 @@ class ReceivePacket(QObject):
     def receiveReqRealtime(self, msg):
         try:
             print("receiveReqRealtime 진입")
-            decoded_msg = msg.decode('utf-8')
-            parsed_json = json.loads(decoded_msg, object_pairs_hook=OrderedDict)
-
+            parsed_json = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict)
+            
             realtimememList = parsed_json.get("mem")
             realtimeloginList = parsed_json.get("login_user_cnt")
             realtimetpsList = parsed_json.get("tps")
 
-            print(f"realtimememList: {realtimememList}")
-            print(f"realtimeloginList: {realtimeloginList}")
-            print(f"realtimetpsList: {realtimetpsList}")
-
             if realtimememList is not None:
                 print("if문 realtimememList 진입")
-                self.updateDisplaySignal.emit(self.main_window, [realtimememList], "realtimememList", self.main_window.realtimememListModel)
+                self.updateDisplaySignal.emit(self.main_window, parsed_json, "realtimememList", self.main_window.realtimememListModel)
             if realtimeloginList is not None:
                 print("if문 realtimeloginList 진입")
-                self.updateDisplaySignal.emit(self.main_window, [realtimeloginList], "realtimeloginList", self.main_window.realtimeloginListModel)
+                self.updateDisplaySignal.emit(self.main_window, parsed_json, "realtimeloginList", self.main_window.realtimeloginListModel)
             if realtimetpsList is not None:
                 print("if문 realtimetpsList 진입")
-                self.updateDisplaySignal.emit(self.main_window, [realtimetpsList], "realtimetpsList", self.main_window.realtimetpsListModel)
+                self.updateDisplaySignal.emit(self.main_window, parsed_json, "realtimetpsList", self.main_window.realtimetpsListModel)
             if realtimememList is None and realtimeloginList is None and realtimetpsList is None:
                 print("받은데이터 없음")
         except Exception as e:
