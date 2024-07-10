@@ -101,7 +101,8 @@ class ReceivePacket(QObject):
     def receiveMassage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = json.loads(msg.decode('utf-8')).get("groupname")
-        if recvGroupName == self.main_window.nowGroupName:
+        first_key = next(iter(self.main_window.nowClickedRow))
+        if recvGroupName == self.main_window.nowGroupName and first_key == 'groupname':
             self.updateDisplaySignal.emit(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
             # updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
         else:

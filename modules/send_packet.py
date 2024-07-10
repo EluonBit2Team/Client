@@ -196,10 +196,15 @@ class SendPacket:
             return False
     
     def sendMsg(self, socket):
+        if not self.main_window.sendTarget:
+            return
+        
         print("현재 sendTarget = " + self.main_window.sendTarget)
         if self.main_window.sendTarget == "group":
             print("그룹메세지")
             msgText = self.main_window.home_lineedit_chatlist_send.text()
+            if not msgText:
+                msgText = " "
             userId = self.main_window.userId
             groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
             print("userId = " + userId)
@@ -232,6 +237,8 @@ class SendPacket:
             print("개인메세지")
             sendTo = self.main_window.nowClickedRow['login_id']
             msgText = self.main_window.home_lineedit_chatlist_send.text()
+            if not msgText:
+                msgText = " "
             print("보낸사람: " + self.main_window.userId)
             print("받는사람: " + sendTo)
             try:
@@ -333,6 +340,10 @@ class SendPacket:
             packet = jsonParser(msg)
             if socket and msg:
                 socket.sendall(packet)
+            
+            if not inMember and not outMember:
+                self.main_window.alertMsgBox("추가하거나 제외한 사람이 없습니다")
+                return
             
             inMember.clear()
             outMember.clear()
