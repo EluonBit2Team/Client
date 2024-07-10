@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainhACdpQ.ui'
+## Form generated from reading UI file 'mainoRdBFf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,7 +13,6 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -2646,7 +2645,7 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(8)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2823,14 +2822,14 @@ class Ui_MainWindow(object):
         self.useredit_btn_back.setText("")
         self.useredit_btn_reset.setText(QCoreApplication.translate("MainWindow", u"\ucd08\uae30\ud654", None))
         self.useredit_btn_send.setText(QCoreApplication.translate("MainWindow", u"\ud655\uc778", None))
-        self.useredit_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.useredit_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u" 1\ud300", None))
-        self.useredit_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u" 2\ud300", None))
-        self.useredit_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u" 3\ud300", None))
-        self.useredit_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u" \uc194\ub8e8\uc158\ud300", None))
+        self.useredit_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
+        self.useredit_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u"1\ud300", None))
+        self.useredit_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u"2\ud300", None))
+        self.useredit_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u"3\ud300", None))
+        self.useredit_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u"\uc194\ub8e8\uc158\ud300", None))
 
-        self.useredit_combo_dept.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.useredit_combo_position.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.useredit_combo_dept.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
+        self.useredit_combo_position.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))
         self.useredit_combo_position.setItemText(1, QCoreApplication.translate("MainWindow", u"\ud68c\uc7a5", None))
         self.useredit_combo_position.setItemText(2, QCoreApplication.translate("MainWindow", u"\uc0ac\uc7a5", None))
         self.useredit_combo_position.setItemText(3, QCoreApplication.translate("MainWindow", u"\ucc28\uc7a5", None))
@@ -2838,18 +2837,18 @@ class Ui_MainWindow(object):
         self.useredit_combo_position.setItemText(5, QCoreApplication.translate("MainWindow", u"\ub300\ub9ac", None))
         self.useredit_combo_position.setItemText(6, QCoreApplication.translate("MainWindow", u"\uc0ac\uc6d0", None))
 
-        self.useredit_combo_position.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.useredit_combo_role.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc5ed\ud560\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.useredit_combo_position.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))
+        self.useredit_combo_role.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc5ed\ud560\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))
         self.useredit_combo_role.setItemText(1, QCoreApplication.translate("MainWindow", u"0", None))
         self.useredit_combo_role.setItemText(2, QCoreApplication.translate("MainWindow", u"1", None))
 
-        self.useredit_combo_role.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc5ed\ud560\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
-        self.useredit_combo_tps.setItemText(0, QCoreApplication.translate("MainWindow", u"tps\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.useredit_combo_role.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc5ed\ud560\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))
+        self.useredit_combo_tps.setItemText(0, QCoreApplication.translate("MainWindow", u"tps\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
         self.useredit_combo_tps.setItemText(1, QCoreApplication.translate("MainWindow", u"5", None))
         self.useredit_combo_tps.setItemText(2, QCoreApplication.translate("MainWindow", u"30", None))
         self.useredit_combo_tps.setItemText(3, QCoreApplication.translate("MainWindow", u"100", None))
 
-        self.useredit_combo_tps.setCurrentText(QCoreApplication.translate("MainWindow", u"tps\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.useredit_combo_tps.setCurrentText(QCoreApplication.translate("MainWindow", u"tps\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u2705 \ud68c\uc6d0 \ubaa9\ub85d", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
