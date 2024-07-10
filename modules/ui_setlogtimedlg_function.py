@@ -20,6 +20,7 @@ class SetLogTimeDlg(QDialog):
         self.ui.dialog_dateEdit_end.setDate(current_date)
         
         self.ui.dialog_btn_submit.clicked.connect(self.clickSubmit)
+        self.ui.dialog_btn_exit.clicked.connect(self.close_dialog)
     
     def clickSubmit(self):
         self.start_time = self.ui.dialog_dateEdit_start.date().toString("yyyy-MM-dd")

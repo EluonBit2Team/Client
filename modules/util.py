@@ -187,10 +187,6 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
     if data_type == "grouplist":
         model.clear()
         groupListUpdate(data_list, model)
-        # for json_data in data_list:
-        #     item = QStandardItem(json_data['groupname'])
-        #     item.setData(json_data, Qt.UserRole)
-        #     model.appendRow(item)
     
     elif data_type == "userlist":
         print("userList 진입함")
@@ -216,6 +212,9 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 model.appendRow(row)
         mainWindow.home_treeview_userlist.viewport().update()
     elif data_type == "reqList":
+        if not data_list:
+            model.clear()
+            return
         signup_type = 'login_id'
         group_type = 'group_name'
         model.clear()
@@ -245,6 +244,10 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
 
     elif data_type == "serverLogList":
         print("serverLogList 진입")
+        if not data_list:
+            model.clear()
+            return
+        
         model.clear()
         model.setHorizontalHeaderLabels(["날짜", "UP TIME", "DOWN TIME"])
         for json_data in data_list:
@@ -267,6 +270,10 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
 
     elif data_type == "userLogList":
         print("userLogList 진입")
+        if not data_list:
+            model.clear()
+            return
+            
         model.clear()
         model.setHorizontalHeaderLabels(["접속된 아이디", "접속 시간", "접속 종료 시간"])
         for json_data in data_list:
@@ -461,6 +468,9 @@ def groupClick(mainWindow: QMainWindow, listname, index):
         mainWindow.sendTarget = "user"
     elif listname == "home_listview_chatgroup":
         print("채팅그룹 클릭함")
+        mainWindow.home_btn_search_chat.show()
+        mainWindow.home_btn_groupmemberlist.show()
+        mainWindow.home_btn_add_member.show()
         item = mainWindow.groupListModel.itemFromIndex(index)
         item_json = index.data(Qt.UserRole)
         item_text = index.data(Qt.DisplayRole)
@@ -477,6 +487,9 @@ def groupClick(mainWindow: QMainWindow, listname, index):
         mainWindow.useredit_treeview_userlist.clearSelection()
         mainWindow.sendTarget = "group"
     elif listname == "home_treeview_userlist":
+        mainWindow.home_btn_search_chat.show()
+        mainWindow.home_btn_groupmemberlist.hide()
+        mainWindow.home_btn_add_member.hide()
         print("home_treeview_userlist의 요소를 클릭함")
         item = mainWindow.userListModel.itemFromIndex(index)
         item_json = index.data(Qt.UserRole)

@@ -168,10 +168,7 @@ class ReceivePacket(QObject):
         groupReqList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("group_req_list")
         reqList = signupList + groupReqList
         print (reqList)
-        if reqList:
-            self.updateListSignal.emit(self.main_window, reqList, "reqList", self.main_window.adminReqListModel)
-        else:
-            self.main_window.adminReqListModel.clear()
+        self.updateListSignal.emit(self.main_window, reqList, "reqList", self.main_window.adminReqListModel)
     
     def receiveGroupChat(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
@@ -187,21 +184,13 @@ class ReceivePacket(QObject):
     def receiveReqLogList(self, msg):
         print("receiveReqLogList 진입")
         serverLogList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("server_log_list")
-        if serverLogList:
-            print("if문 serverLogList 진입")
-            self.updateListSignal.emit(self.main_window, serverLogList, "serverLogList", self.main_window.logReqListModel)
-        else:
-            self.main_window.logReqListModel.clear()
+        self.updateListSignal.emit(self.main_window, serverLogList, "serverLogList", self.main_window.logReqListModel)
     
     # 사용자 로그
     def receiveReqUserLogList(self, msg):
         print("receiveReqUserLogList 진입")
         userLogList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("user_log_list")
-        if userLogList:
-            print("if문 userLogList 진입")
-            self.updateListSignal.emit(self.main_window, userLogList, "userLogList", self.main_window.loguserReqListModel)
-        else:
-            self.main_window.loguserReqListModel.clear()
+        self.updateListSignal.emit(self.main_window, userLogList, "userLogList", self.main_window.loguserReqListModel)
     
     def acceptSignup(self):
         alertMsg = "회원가입을 승인했습니다"
@@ -262,18 +251,15 @@ class ReceivePacket(QObject):
 
             if realtimememList is not None:
                 print("if문 realtimememList 진입")
-                updateDisplay(self.main_window, [realtimememList], "realtimememList", self.main_window.realtimememListModel)
+                self.updateDisplaySignal.emit(self.main_window, [realtimememList], "realtimememList", self.main_window.realtimememListModel)
             if realtimeloginList is not None:
                 print("if문 realtimeloginList 진입")
-                updateDisplay(self.main_window, [realtimeloginList], "realtimeloginList", self.main_window.realtimeloginListModel)
+                self.updateDisplaySignal.emit(self.main_window, [realtimeloginList], "realtimeloginList", self.main_window.realtimeloginListModel)
             if realtimetpsList is not None:
                 print("if문 realtimetpsList 진입")
-                updateDisplay(self.main_window, [realtimetpsList], "realtimetpsList", self.main_window.realtimetpsListModel)
+                self.updateDisplaySignal.emit(self.main_window, [realtimetpsList], "realtimetpsList", self.main_window.realtimetpsListModel)
             if realtimememList is None and realtimeloginList is None and realtimetpsList is None:
-                print("else문 진입 - 모든 모델을 클리어합니다.")
-                self.main_window.realtimememListModel.clear()
-                self.main_window.realtimeloginListModel.clear()
-                self.main_window.realtimetpsListModel.clear()
+                print("받은데이터 없음")
         except Exception as e:
             print(f"예외 발생: {e}")
     

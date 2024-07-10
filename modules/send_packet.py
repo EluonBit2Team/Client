@@ -138,10 +138,7 @@ class SendPacket:
 
             if socket and msg:
                 socket.sendall(packet)
-
-            self.main_window.btn_home.show()
-            self.main_window.btn_admin.show()
-            self.main_window.btn_notice.show()
+            
             return True
         except Exception as e:
             self.main_window.isConnect = False
@@ -159,7 +156,7 @@ class SendPacket:
         if self.main_window.socket:
             self.main_window.socket.close()
             self.main_window.socket = None
-            self.main_window.self.main_window.login_btn_reconnect.show()
+            self.main_window.login_btn_reconnect.show()
             print("소켓 종료됨")
         else:
             print("소켓이 이미 닫혔거나 유효하지 않습니다.")
@@ -170,6 +167,7 @@ class SendPacket:
                 return False
             self.main_window.packetReceiver.running = True
             self.main_window.start_receiving()
+            self.main_window.start_ping_thread()
     
     def signUpRequest(self, socket):
         self.signupId = self.main_window.signup_input_id.text()
