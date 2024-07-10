@@ -250,7 +250,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 model.appendRow(row)
             else:
                 print("Error: 'uptime' or 'downtime' key not found in", json_data)
-
+         
     elif data_type == "userLogList":
         print("userLogList 진입")
         model.clear()
@@ -266,15 +266,15 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                     login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
                     logout_column = QStandardItem(logouttime)
                     
-                    # 배경색 빨간색으로 설정
-                    for column in [id_column, login_column, logout_column]:
-                        column.setBackground(Qt.red)
+                    # # 배경색 빨간색으로 설정
+                    # for column in [id_column, login_column, logout_column]:
+                    #     column.setBackground(Qt.red)
                     
                     id_column.setData(json_data, Qt.UserRole)
                     
                     row = [id_column, login_column, logout_column]
-                    # 리스트의 가장 위에 추가
-                    model.insertRow(0, row)
+                    # # 리스트의 가장 위에 추가
+                    model.appendRow(row)
                 else:
                     id_column = QStandardItem(loginid)
                     login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
@@ -288,6 +288,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
             else:
                 print("Error: 'loginid' or 'login_time' or 'login_column' key not found in", json_data)
 
+    
     elif data_type in ["realtimememList", "realtimeloginList", "realtimetpsList"]:
         model.clear()
         font = QFont()
@@ -346,6 +347,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 item.setData(data_list, Qt.UserRole)
                 model.appendRow(item)
     
+    
     elif data_type=="clickedUser":
         model.clear()
         for json_data in data_list:
@@ -384,7 +386,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                     item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
                     item.setData(json_data, Qt.UserRole)
                     model.appendRow(item)
-    
+          
     elif data_type == "receivedDm":
         name = data_list['sender_login_id']
         message = data_list['text']
@@ -421,7 +423,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
                 item.setData(data_list, Qt.UserRole)
                 model.appendRow(item)
-                
+   
     mainWindow.home_listview_chatlist.scrollToBottom()
         
 
