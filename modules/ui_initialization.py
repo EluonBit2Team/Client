@@ -44,6 +44,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_search_chat = mainWindow.findChild(QPushButton, "home_btn_search_chat")
     mainWindow.home_btn_return_chat = mainWindow.findChild(QPushButton, "home_btn_return_chat")
     mainWindow.home_btn_leave_group =  mainWindow.findChild(QPushButton, "home_btn_leave_group")
+    mainWindow.home_label_chatlist_title = mainWindow.findChild(QLabel, "home_label_chatlist_title")
     
     mainWindow.admin_btn_accept = mainWindow.findChild(QPushButton, "admin_btn_accept")
     mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")

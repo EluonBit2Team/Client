@@ -159,6 +159,7 @@ class SendPacket:
         if self.main_window.socket:
             self.main_window.socket.close()
             self.main_window.socket = None
+            self.main_window.self.main_window.login_btn_reconnect.show()
             print("소켓 종료됨")
         else:
             print("소켓이 이미 닫혔거나 유효하지 않습니다.")

@@ -121,17 +121,28 @@ class ReceivePacket(QObject):
                 return False
             else:
                 talkNow = self.main_window.nowClickedRow['login_id']
+                print("현재 대화중인 사람: " + talkNow)
         else:
             self.dmNotiSignal.emit(sender, self.main_window.userListModel, self.main_window.home_treeview_userlist)
             return False
+        
+        if not sender == talkNow and receiver == self.main_window.userId:
+            self.dmNotiSignal.emit(sender, self.main_window.userListModel, self.main_window.home_treeview_userlist)
+        
+        if sender == self.main_window.userId and receiver == talkNow:
+            self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
+        elif sender == talkNow and receiver == self.main_window.userId:
+            self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
+            
+        
          
         # if not sender == self.main_window.nowClickedRow['login_id']:
         #     print("다른사람이 나에게 보냄")
         #     self.dmNotiSignal.emit(sender, self.main_window.userListModel, self.main_window.home_treeview_userlist)
-        if not talkNow == sender:
-            pass
-        else:
-            self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
+        # if not talkNow == sender:
+        #     pass
+        # else:
+        #     self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
         
             
         # if self.main_window.userId == sender or self.main_window.userId == receiver:

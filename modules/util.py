@@ -47,23 +47,38 @@ class CustomDelegate(QStyledItemDelegate):
     def paint(self, painter, option, index):
         painter.save()
         messageSender = index.data(Qt.ItemDataRole.UserRole + 1)
+        rowType = index.data(Qt.ItemDataRole.UserRole + 2)
+        text = index.data(Qt.ItemDataRole.DisplayRole)
+        formatted_text = self.format_text(text, 30)
 
         if messageSender == "me":
             option.displayAlignment = Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter
         else:
             option.displayAlignment = Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter
-
-        text = index.data(Qt.ItemDataRole.DisplayRole)
-        # painter.drawText(option.rect, option.displayAlignment, '  ' + text + '  ')
-        formatted_text = self.format_text(text, 30)
+        
+        rect = option.rect.adjusted(10, 0, -10, 0)
+        
+        if rowType == "name":
+            font = QFont()
+            font.setBold(True)
+            font.setPointSize(12)  # Set font size to 14px
+            
+            pen = QPen()
+            pen.setColor(Qt.GlobalColor.yellow)  # Set text color to dark green
+            
+            painter.setFont(font)
+            painter.setPen(pen)
+        else:
+            rect = option.rect.adjusted(30, 0, -30, 0)
 
         # Text alignment options
         text_option = QTextOption()
         text_option.setAlignment(option.displayAlignment)
+        
 
-        painter.drawText(option.rect, formatted_text, text_option)
+        painter.drawText(rect, formatted_text, text_option)
         painter.restore()
-    
+        
     def format_text(self, text, line_length):
         # 텍스트를 line_length 글자마다 줄 바꿈
         lines = []
@@ -75,8 +90,10 @@ class CustomDelegate(QStyledItemDelegate):
         text = index.data(Qt.ItemDataRole.DisplayRole)
         formatted_text = self.format_text(text, 30)
         lines = formatted_text.split('\n')
+        width = min(option.rect.width(), 630)
         height = option.fontMetrics.lineSpacing() * len(lines) + 10  # Add some padding
-        return QSize(option.rect.width(), height)
+        return QSize(width, height)
+        # return QSize(option.rect.width(), height)
     
     
 # class util:
@@ -149,7 +166,21 @@ def groupListUpdate(data, model):
         item = QStandardItem(json_data['groupname'])
         item.setData(json_data, Qt.UserRole)
         model.appendRow(item)
-        
+
+def addNameRow(sentUser, name, model):
+    rowType="name"
+    item = QStandardItem(name)
+    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+    item.setData(rowType, Qt.ItemDataRole.UserRole + 2)
+    model.appendRow(item)
+
+def addTextRow(sentUser, message, json_data, model):
+    rowType="text"
+    item = QStandardItem(message)
+    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
+    item.setData(rowType, Qt.ItemDataRole.UserRole + 2)
+    item.setData(json_data, Qt.UserRole)
+    model.appendRow(item)
 
 def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
     print("updateDisplay 진입")
@@ -216,40 +247,26 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         model.clear()
         for json_data in data_list:
             name = json_data['login_id']
-            message = '   ' + json_data['text'] + '   ' 
+            message = json_data['text']
             if mainWindow.userId == name:
                 sentUser = "me"
             else:
                 sentUser = "other"
             row_count = model.rowCount()
             if row_count<2:
-                item = QStandardItem(name)
-                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                model.appendRow(item)
-                
-                item = QStandardItem(message)
-                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                item.setData(json_data, Qt.UserRole)
-                model.appendRow(item)
+                addNameRow(sentUser, name, model)
+                addTextRow(sentUser, message, json_data, model)
             else:
                 last_index = model.index(row_count - 1, 0)
                 last_item = model.itemFromIndex(last_index)
                 row_json_data = last_item.data(Qt.UserRole)
                 lastSender = row_json_data['login_id']
                 if lastSender == name:
-                    item = QStandardItem(message)
-                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                    item.setData(json_data, Qt.UserRole)
-                    model.appendRow(item)
+                    addTextRow(sentUser, message, json_data, model)
                 else:
-                    item = QStandardItem(name)
-                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                    model.appendRow(item)
-                    
-                    item = QStandardItem(message)
-                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                    item.setData(json_data, Qt.UserRole)
-                    model.appendRow(item)
+                    addNameRow(sentUser, name, model)
+                    addTextRow(sentUser, message, json_data, model)
+        mainWindow.home_listview_chatlist.scrollToBottom()
 
     elif data_type == "serverLogList":
         print("serverLogList 진입")
@@ -332,7 +349,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
 
     elif data_type == "receivedChat":
         name = data_list['login_id']
-        message = '   ' + data_list['text'] + '   '
+        message = data_list['text']
         if mainWindow.userId == name:
             sentUser = "me"
         else:
@@ -340,72 +357,44 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         print("sentUser: " + sentUser)
         row_count = model.rowCount()
         if row_count<1:
-            item = QStandardItem(name)
-            item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-            model.appendRow(item)
-            
-            item = QStandardItem(message)
-            item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-            item.setData(data_list, Qt.UserRole)
-            model.appendRow(item)
+            addNameRow(sentUser, name, model)
+            addTextRow(sentUser, message, json_data, model)
         else:
             last_index = model.index(row_count - 1, 0)
             last_item = model.itemFromIndex(last_index)
             row_json_data = last_item.data(Qt.UserRole)
             lastSender = row_json_data['login_id']
             if lastSender == name:
-                item = QStandardItem(message)
-                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                item.setData(data_list, Qt.UserRole)
-                model.appendRow(item)
+                addTextRow(sentUser, message, json_data, model)
             else:
-                item = QStandardItem(name)
-                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                model.appendRow(item)
-                
-                item = QStandardItem(message)
-                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                item.setData(data_list, Qt.UserRole)
-                model.appendRow(item)
+                addNameRow(sentUser, name, model)
+                addTextRow(sentUser, message, json_data, model)
+        mainWindow.home_listview_chatlist.scrollToBottom()
     
     elif data_type=="clickedUser":
         model.clear()
         for json_data in data_list:
             name = json_data['sender_login_id']
-            message = '   ' + json_data['text'] + '   '
+            message = json_data['text']
             if mainWindow.userId == name:
                 sentUser = "me"
             else:
                 sentUser = "other"
             row_count = model.rowCount()
             if row_count<2:
-                item = QStandardItem(name)
-                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                model.appendRow(item)
-                
-                item = QStandardItem(message)
-                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                item.setData(json_data, Qt.UserRole)
-                model.appendRow(item)
+                addNameRow(sentUser, name, model)
+                addTextRow(sentUser, message, json_data, model)
             else:
                 last_index = model.index(row_count - 1, 0)
                 last_item = model.itemFromIndex(last_index)
                 row_json_data = last_item.data(Qt.UserRole)
                 lastSender = row_json_data['sender_login_id']
                 if lastSender == name:
-                    item = QStandardItem(message)
-                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                    item.setData(json_data, Qt.UserRole)
-                    model.appendRow(item)
+                    addTextRow(sentUser, message, json_data, model)
                 else:
-                    item = QStandardItem(name)
-                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                    model.appendRow(item)
-                    
-                    item = QStandardItem(message)
-                    item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                    item.setData(json_data, Qt.UserRole)
-                    model.appendRow(item)
+                    addNameRow(sentUser, name, model)
+                    addTextRow(sentUser, message, json_data, model)
+        mainWindow.home_listview_chatlist.scrollToBottom()
     
     elif data_type == "receivedDm":
         name = data_list['sender_login_id']
@@ -416,35 +405,19 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
             sentUser = "other"
         row_count = model.rowCount()
         if row_count<1:
-            item = QStandardItem(name)
-            item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-            model.appendRow(item)
-            
-            item = QStandardItem(message)
-            item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-            item.setData(data_list, Qt.UserRole)
-            model.appendRow(item)
+            addNameRow(sentUser, name, model)
+            addTextRow(sentUser, message, json_data, model)
         else:
             last_index = model.index(row_count - 1, 0)
             last_item = model.itemFromIndex(last_index)
             row_json_data = last_item.data(Qt.UserRole)
             lastSender = row_json_data['sender_login_id']
             if lastSender == name:
-                item = QStandardItem(message)
-                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                item.setData(data_list, Qt.UserRole)
-                model.appendRow(item)
+                addNameRow(sentUser, name, model)
             else:
-                item = QStandardItem(name)
-                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                model.appendRow(item)
-                
-                item = QStandardItem(message)
-                item.setData(sentUser, Qt.ItemDataRole.UserRole + 1)
-                item.setData(data_list, Qt.UserRole)
-                model.appendRow(item)
-                
-    mainWindow.home_listview_chatlist.scrollToBottom()
+                addNameRow(sentUser, name, model)
+                addTextRow(sentUser, message, json_data, model)
+        mainWindow.home_listview_chatlist.scrollToBottom()
         
 
 def getClickedRow(type, widget, model):
@@ -491,6 +464,7 @@ def groupClick(mainWindow: QMainWindow, listname, index):
         item_json = index.data(Qt.UserRole)
         item_text = index.data(Qt.DisplayRole)
         mainWindow.nowGroupName = item_json['groupname']
+        mainWindow.home_label_chatlist_title.setText(mainWindow.nowGroupName)
         mainWindow.nowClickedRow = item_json
         mainWindow.packetSender.reqGroupChat(mainWindow.socket)
         if item_text.startswith("🆕"):
@@ -505,6 +479,7 @@ def groupClick(mainWindow: QMainWindow, listname, index):
         print("home_treeview_userlist의 요소를 클릭함")
         item = mainWindow.userListModel.itemFromIndex(index)
         item_json = index.data(Qt.UserRole)
+        mainWindow.home_label_chatlist_title.setText(item_json['name'] + "님 과의 대화")
         mainWindow.nowClickedRow = item_json
         mainWindow.packetSender.reqDm(mainWindow.socket)
         if index.data(Qt.UserRole + 2):
@@ -585,44 +560,6 @@ def try_connect(mainWindow: QMainWindow):
     connect_thread = threading.Thread(target=mainWindow.packetSender.connectSocket, args=(mainWindow.socket,))
     connect_thread.daemon = True
     connect_thread.start()
-    
-    
-
-# class AnimationClass:
-#     def __init__(self, main_window):
-#         self.main_window = main_window
-
-    # def switchPage(self, currentPage, nextPage):
-    #     self.animateTransition(self.main_window, currentPage, nextPage)
-    #     self.stackedWidget.setCurrentWidget(nextPage)
-
-    # def animateTransition(self, fromIndex, toIndex):
-    #         currentWidget = self.stackedWidget.widget(fromIndex)
-    #         nextWidget = self.stackedWidget.widget(toIndex)
-
-    #         currentRect = self.stackedWidget.geometry()
-    #         width = currentRect.width()
-
-    #         # 다음 위젯의 초기 위치를 스택 위젯의 오른쪽으로 설정
-    #         nextWidget.setGeometry(currentRect.x() + width, currentRect.y(), width, currentRect.height())
-
-    #         # 현재 위젯을 왼쪽으로 밀어내는 애니메이션
-    #         self.currentAnimation = QPropertyAnimation(currentWidget, b"geometry")
-    #         self.currentAnimation.setDuration(500)
-    #         self.currentAnimation.setStartValue(currentRect)
-    #         self.currentAnimation.setEndValue(QRect(currentRect.x() - width, currentRect.y(), width, currentRect.height()))
-    #         self.currentAnimation.setEasingCurve(QEasingCurve.InOutQuad)
-
-    #         # 다음 위젯을 제자리에 맞추는 애니메이션
-    #         self.nextAnimation = QPropertyAnimation(nextWidget, b"geometry")
-    #         self.nextAnimation.setDuration(500)
-    #         self.nextAnimation.setStartValue(nextWidget.geometry())
-    #         self.nextAnimation.setEndValue(currentRect)
-    #         self.nextAnimation.setEasingCurve(QEasingCurve.InOutQuad)
-
-    #         # 애니메이션 시작
-    #         self.currentAnimation.start()
-    #         self.nextAnimation.start()
 
 def setPage(self, nextPage):
     self.stackedWidget.setCurrentWidget(nextPage)

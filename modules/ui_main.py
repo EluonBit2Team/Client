@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainbJauuO.ui'
+## Form generated from reading UI file 'mainhACdpQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -13,6 +13,7 @@ from PySide6.QtGui import *
 from PySide6.QtWidgets import *
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from . resources_rc import *
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1282,7 +1283,7 @@ class Ui_MainWindow(object):
 "")
         self.home_label_chatlist_title = QLabel(self.home)
         self.home_label_chatlist_title.setObjectName(u"home_label_chatlist_title")
-        self.home_label_chatlist_title.setGeometry(QRect(290, 39, 91, 16))
+        self.home_label_chatlist_title.setGeometry(QRect(290, 39, 431, 16))
         self.home_label_chatlist_title.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";")
         self.home_treeview_userlist = QTreeView(self.home)
         self.home_treeview_userlist.setObjectName(u"home_treeview_userlist")
@@ -2645,7 +2646,7 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2733,10 +2734,10 @@ class Ui_MainWindow(object):
         self.admin_btn_accept.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub77d", None))
         self.admin_btn_reject.setText(QCoreApplication.translate("MainWindow", u"\uac70\uc808", None))
         self.admin_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
-        self.admin_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u"1\ud300", None))
-        self.admin_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u"2\ud300", None))
-        self.admin_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u"3\ud300", None))
-        self.admin_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u"\uc194\ub8e8\uc158\ud300", None))
+        self.admin_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u" 1\ud300", None))
+        self.admin_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u" 2\ud300", None))
+        self.admin_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u" 3\ud300", None))
+        self.admin_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u" \uc194\ub8e8\uc158\ud300", None))
 
         self.admin_combo_dept.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
         self.admin_combo_position.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))
