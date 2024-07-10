@@ -282,6 +282,9 @@ class ReceivePacket(QObject):
         self.main_window.alertMsg = alertMsg
         self.messageSignal.emit(alertMsg)
     
+    def errorQboxMsg(self, msg):
+        self.messageSignal.emit(msg)
+    
     def receiveLoginUser(self, msg):
         users = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("current_user_list")
         self.main_window.loginUserList.clear()
@@ -289,9 +292,6 @@ class ReceivePacket(QObject):
             self.main_window.loginUserList.append(json_data['login_id'])
         
         self.main_window.packetSender.reqUserList(self.main_window.socket)
-    
-        
-        
         
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
@@ -340,6 +340,8 @@ class ReceivePacket(QObject):
             self.serverErrorReq(msg)
         elif jsonType == TYPE_CURRENT_USERLIST:
             self.receiveLoginUser(msg)
+        elif jsonType == TYPE_EDIT_USERINFO:
+            self.errorQboxMsg("회원정보수정 성공")
         else:
             print("jsonType이 None입니다.")
             print("------NoneType RAW DATA ------")
