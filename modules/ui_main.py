@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainoRdBFf.ui'
+## Form generated from reading UI file 'mainsoIzje.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1273,6 +1273,7 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;\n"
 "font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
 "color: rgb(255, 255, 255);")
+        self.home_listview_chatgroup.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.home_btn_chatgroup = QPushButton(self.home)
         self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
         self.home_btn_chatgroup.setGeometry(QRect(194, 34, 31, 24))
@@ -1292,6 +1293,7 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;\n"
 "font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
 "color: rgb(255, 255, 255);")
+        self.home_treeview_userlist.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.home_lineedit_chatlist_send = QLineEdit(self.home)
         self.home_lineedit_chatlist_send.setObjectName(u"home_lineedit_chatlist_send")
         self.home_lineedit_chatlist_send.setGeometry(QRect(280, 519, 621, 41))
@@ -1310,6 +1312,7 @@ class Ui_MainWindow(object):
 "border-bottom-right-radius: 10px;\n"
 "font: 9pt \"\ub9d1\uc740 \uace0\ub515\";\n"
 "color: rgb(255, 255, 255);")
+        self.home_listview_chatlist.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.home_btn_chatlist_send = QPushButton(self.home)
         self.home_btn_chatlist_send.setObjectName(u"home_btn_chatlist_send")
         self.home_btn_chatlist_send.setGeometry(QRect(914, 520, 41, 41))
@@ -1445,6 +1448,7 @@ class Ui_MainWindow(object):
         self.admin_listView_status.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-radius: 10px;\n"
 "font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.admin_listView_status.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.admin_label_status = QLabel(self.adminpage)
         self.admin_label_status.setObjectName(u"admin_label_status")
         self.admin_label_status.setGeometry(QRect(40, 40, 141, 21))
@@ -1736,6 +1740,7 @@ class Ui_MainWindow(object):
         self.log_treview_log.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-radius: 10px;\n"
 "font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.log_treview_log.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.log_calendarwidget_cal = QCalendarWidget(self.serverlogpage)
         self.log_calendarwidget_cal.setObjectName(u"log_calendarwidget_cal")
         self.log_calendarwidget_cal.setGeometry(QRect(565, 140, 381, 241))
@@ -2001,6 +2006,7 @@ class Ui_MainWindow(object):
         self.userlog_treview_log.setStyleSheet(u"background-color: rgb(31, 35, 41);\n"
 "border-radius: 10px;\n"
 "font: 600 10pt \"Segoe UI Variable Small Semibol\";")
+        self.userlog_treview_log.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.stackedWidget.addWidget(self.userlogpage)
         self.userlog_label_rightback.raise_()
         self.userlog_label_leftback.raise_()
@@ -2127,12 +2133,15 @@ class Ui_MainWindow(object):
         self.serverstate_listview_mem = QListView(self.serverstatepage)
         self.serverstate_listview_mem.setObjectName(u"serverstate_listview_mem")
         self.serverstate_listview_mem.setGeometry(QRect(70, 150, 841, 41))
+        self.serverstate_listview_mem.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.serverstate_listview_numuser = QListView(self.serverstatepage)
         self.serverstate_listview_numuser.setObjectName(u"serverstate_listview_numuser")
         self.serverstate_listview_numuser.setGeometry(QRect(70, 300, 841, 41))
+        self.serverstate_listview_numuser.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.serverstate_listview_packet = QListView(self.serverstatepage)
         self.serverstate_listview_packet.setObjectName(u"serverstate_listview_packet")
         self.serverstate_listview_packet.setGeometry(QRect(70, 460, 841, 41))
+        self.serverstate_listview_packet.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.stackedWidget.addWidget(self.serverstatepage)
         self.qrlogin = QWidget()
         self.qrlogin.setObjectName(u"qrlogin")
@@ -2482,6 +2491,7 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);\n"
 "border-radius: 10px;\n"
 "")
+        self.useredit_treeview_userlist.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.useredit_combo_role = QComboBox(self.infoeditpage)
         self.useredit_combo_role.addItem("")
         self.useredit_combo_role.addItem("")
@@ -2733,10 +2743,10 @@ class Ui_MainWindow(object):
         self.admin_btn_accept.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub77d", None))
         self.admin_btn_reject.setText(QCoreApplication.translate("MainWindow", u"\uac70\uc808", None))
         self.admin_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
-        self.admin_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u" 1\ud300", None))
-        self.admin_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u" 2\ud300", None))
-        self.admin_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u" 3\ud300", None))
-        self.admin_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u" \uc194\ub8e8\uc158\ud300", None))
+        self.admin_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u"1\ud300", None))
+        self.admin_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u"2\ud300", None))
+        self.admin_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u"3\ud300", None))
+        self.admin_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u"\uc194\ub8e8\uc158\ud300", None))
 
         self.admin_combo_dept.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
         self.admin_combo_position.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))

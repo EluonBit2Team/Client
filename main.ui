@@ -2291,6 +2291,9 @@ border-bottom-right-radius: 10px;
 font: 9pt &quot;맑은 고딕&quot;;
 color: rgb(255, 255, 255);</string>
                        </property>
+                       <property name="editTriggers">
+                        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                       </property>
                       </widget>
                       <widget class="QPushButton" name="home_btn_chatgroup">
                        <property name="geometry">
@@ -2345,6 +2348,9 @@ border-bottom-right-radius: 10px;
 font: 9pt &quot;맑은 고딕&quot;;
 color: rgb(255, 255, 255);</string>
                        </property>
+                       <property name="editTriggers">
+                        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                       </property>
                       </widget>
                       <widget class="QLineEdit" name="home_lineedit_chatlist_send">
                        <property name="geometry">
@@ -2380,6 +2386,9 @@ border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
 font: 9pt &quot;맑은 고딕&quot;;
 color: rgb(255, 255, 255);</string>
+                       </property>
+                       <property name="editTriggers">
+                        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
                        </property>
                       </widget>
                       <widget class="QPushButton" name="home_btn_chatlist_send">
@@ -2675,6 +2684,9 @@ border-radius: 10px;</string>
 border-radius: 10px;
 font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
                        </property>
+                       <property name="editTriggers">
+                        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                       </property>
                       </widget>
                       <widget class="QLabel" name="admin_label_status">
                        <property name="geometry">
@@ -2782,22 +2794,22 @@ background-color: rgb(27, 29, 35);
                        </item>
                        <item>
                         <property name="text">
-                         <string> 1팀</string>
+                         <string>1팀</string>
                         </property>
                        </item>
                        <item>
                         <property name="text">
-                         <string> 2팀</string>
+                         <string>2팀</string>
                         </property>
                        </item>
                        <item>
                         <property name="text">
-                         <string> 3팀</string>
+                         <string>3팀</string>
                         </property>
                        </item>
                        <item>
                         <property name="text">
-                         <string> 솔루션팀</string>
+                         <string>솔루션팀</string>
                         </property>
                        </item>
                       </widget>
@@ -3465,6 +3477,9 @@ QPushButton#log_btn_back:pressed {
 border-radius: 10px;
 font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
                        </property>
+                       <property name="editTriggers">
+                        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                       </property>
                       </widget>
                       <widget class="QCalendarWidget" name="log_calendarwidget_cal">
                        <property name="geometry">
@@ -3850,6 +3865,9 @@ border-radius: 10px;</string>
 border-radius: 10px;
 font: 600 10pt &quot;Segoe UI Variable Small Semibol&quot;;</string>
                        </property>
+                       <property name="editTriggers">
+                        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                       </property>
                       </widget>
                       <zorder>userlog_label_rightback</zorder>
                       <zorder>userlog_label_leftback</zorder>
@@ -4105,6 +4123,9 @@ height: 30px; /* 버튼의 높이 지정 */
                          <height>41</height>
                         </rect>
                        </property>
+                       <property name="editTriggers">
+                        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                       </property>
                       </widget>
                       <widget class="QListView" name="serverstate_listview_numuser">
                        <property name="geometry">
@@ -4115,6 +4136,9 @@ height: 30px; /* 버튼의 높이 지정 */
                          <height>41</height>
                         </rect>
                        </property>
+                       <property name="editTriggers">
+                        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+                       </property>
                       </widget>
                       <widget class="QListView" name="serverstate_listview_packet">
                        <property name="geometry">
@@ -4124,6 +4148,9 @@ height: 30px; /* 버튼의 높이 지정 */
                          <width>841</width>
                          <height>41</height>
                         </rect>
+                       </property>
+                       <property name="editTriggers">
+                        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
                        </property>
                       </widget>
                      </widget>
@@ -4940,6 +4967,9 @@ font: 9pt &quot;맑은 고딕&quot;;
 color: rgb(255, 255, 255);
 border-radius: 10px;
 </string>
+                       </property>
+                       <property name="editTriggers">
+                        <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
                        </property>
                       </widget>
                       <widget class="QComboBox" name="useredit_combo_role">

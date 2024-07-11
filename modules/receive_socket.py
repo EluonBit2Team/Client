@@ -153,6 +153,9 @@ class ReceivePacket(QObject):
     
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("users")
+        filterUserList = {item["login_id"]: item["name"] for item in userList}
+        if not self.main_window.userList or not len(self.main_window.userList) == len(filterUserList):
+            self.main_window.userList = filterUserList
         self.updateListSignal.emit(self.main_window, userList, "userlist", self.main_window.userListModel)
     
     def receiveGroupList(self, msg):
