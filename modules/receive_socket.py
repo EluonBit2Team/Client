@@ -214,30 +214,14 @@ class ReceivePacket(QObject):
         showIcon = [self.main_window.admin_label_new]
         hideIcon = []
         self.notiSignal.emit(showIcon, hideIcon)
-
-        # if not self.main_window.admin_label_new.show():
-        #     self.main_window.admin_label_new.show()
-
    
     # type 301 (서버 종료)
     def serverErrorReq(self, msg):
-        # alertMsg = "서버가 종료되었습니다."
-        # self.disconnectSignal.emit(alertMsg)
+        alertMsg = "서버가 종료되었습니다."
+        self.disconnectSignal.emit(alertMsg)
         print("301 표출 (서버 오류)")
         print(msg)
-
-        self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
-        self.main_window.packetSender.disconnect()
-        print("소켓 종료")
-        # # 경고 다이얼로그 추가
-        # msgBox = QMessageBox()
-        # msgBox.setIcon(QMessageBox.Warning)
-        # msgBox.setText("서버 오류가 발생했습니다. 다시 시도해 주세요.")
-        # msgBox.setWindowTitle("서버 오류")
-        # msgBox.setStandardButtons(QMessageBox.Ok)
-        # msgBox.exec_()
                 
-        
     # 실시간
     def receiveReqRealtime(self, msg):
         try:
