@@ -70,7 +70,17 @@ class ReceivePacket(QObject):
                     #     self.main_window.packetSender.ping_flag = False
                     #     self.main_window.packetSender.disconnect()
                     #     break
-            except BlockingIOError:
+            except BlockingIOError as e:
+                print(f"BAn error occurred: {e}")
+                continue
+            except ValueError as e:
+                print(f"VAn error occurred: {e}")
+                continue
+            except IndexError as e:
+                print(f"IAn error occurred: {e}")
+                continue
+            except KeyError as e:
+                print(f"An error occurred: {e}")
                 continue
             except Exception as e:
                 alertMsg = "연결이 끊어졌습니다."
@@ -98,7 +108,7 @@ class ReceivePacket(QObject):
         self.setPageSignal.emit(self.main_window.ui.loginpage)
         print("회원가입 신청 성공")
         
-    def receiveMassage(self, msg):
+    def receiveMessage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = json.loads(msg.decode('utf-8')).get("groupname")
         first_key = next(iter(self.main_window.nowClickedRow))
@@ -276,7 +286,7 @@ class ReceivePacket(QObject):
         elif jsonType == TYPE_USERLIST:
             self.receiveUserList(msg)
         elif jsonType == TYPE_MESSAGE:
-            self.receiveMassage(msg)
+            self.receiveMessage(msg)
         elif jsonType == TYPE_ERROR:
             self.receiveError(msg)
         elif jsonType == TYPE_ACCEPT_SIGNUP:
