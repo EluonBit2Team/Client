@@ -59,12 +59,13 @@ class CustomDelegate(QStyledItemDelegate):
             bubble_color = QColor(14, 84, 204)  # blue
             text_color = Qt.white
         
-        rect = option.rect.adjusted(10, 0, -10, 0)
+        rect = option.rect.adjusted(10, -5, -10, 5)
         
         if rowType == "name":
             font = QFont()
             font.setPointSize(10)  # Set font size to 14px
             painter.setFont(font)
+            painter.drawText(rect, option.displayAlignment, formatted_text)
         else:
             font = QFont()
             font.setPointSize(12)
@@ -72,9 +73,11 @@ class CustomDelegate(QStyledItemDelegate):
             text_rect = painter.boundingRect(option.rect, Qt.TextWordWrap, formatted_text)
             bubble_rect = text_rect.adjusted(-10, -5, 10, 5)
             if messageSender == "me":
-                bubble_rect.moveRight(option.rect.right() - 10)
+                bubble_rect.moveRight(option.rect.right() - 15)
+                bubble_rect.setLeft(max(bubble_rect.left(), option.rect.left() + 15))
             else:
-                bubble_rect.moveLeft(option.rect.left() + 10)
+                bubble_rect.moveLeft(option.rect.left() + 15)
+                bubble_rect.setRight(min(bubble_rect.right(), option.rect.right() - 15))
             painter.setBrush(bubble_color)
             painter.setPen(Qt.NoPen)
             painter.drawRoundedRect(bubble_rect, 10, 10)
@@ -88,11 +91,10 @@ class CustomDelegate(QStyledItemDelegate):
         text_option.setAlignment(option.displayAlignment)
         
         painter.setPen(QPen(text_color))
-        painter.drawText(rect, formatted_text, text_option)
+        # painter.drawText(rect, formatted_text, text_option)
         painter.restore()
         
     def format_text(self, text, line_length):
-        # 텍스트를 line_length 글자마다 줄 바꿈
         lines = []
         for i in range(0, len(text), line_length):
             lines.append(text[i:i+line_length])
@@ -100,7 +102,6 @@ class CustomDelegate(QStyledItemDelegate):
 
     def sizeHint(self, option, index):
         text = index.data(Qt.ItemDataRole.DisplayRole)
-        rowType = index.data(Qt.ItemDataRole.UserRole + 2)
         formatted_text = self.format_text(text, 30)
         lines = formatted_text.split('\n')
         padding_between_lines = 8  # 각 줄 사이의 기본적인 패딩
@@ -119,9 +120,8 @@ class CustomDelegate(QStyledItemDelegate):
             else:
                 line_heights.append(option.fontMetrics.height() + padding_between_lines)
         height = sum(line_heights)
-        width = min(option.rect.width(), 630)
+        width = min(option.rect.width(), 600)
         return QSize(width, height)
-        # return QSize(option.rect.width(), height)
     
     
 # class util:

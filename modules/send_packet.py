@@ -205,6 +205,9 @@ class SendPacket:
             msgText = self.main_window.home_lineedit_chatlist_send.text()
             if not msgText:
                 msgText = " "
+            if len(msgText) > 400:
+                self.main_window.alertMsgBox("400자 이하로 작성해주세요")
+                return
             userId = self.main_window.userId
             groupname = getClickedRow("string", self.main_window.home_listview_chatgroup, self.main_window.groupListModel)
             print("userId = " + userId)

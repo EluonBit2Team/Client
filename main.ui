@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>8</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -2162,10 +2162,10 @@ background-repeat: no-repeat;
                       <widget class="QLabel" name="home_label_chatback">
                        <property name="geometry">
                         <rect>
-                         <x>260</x>
+                         <x>280</x>
                          <y>20</y>
-                         <width>701</width>
-                         <height>491</height>
+                         <width>681</width>
+                         <height>551</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2180,7 +2180,7 @@ border-radius: 10px;
                       <widget class="QLabel" name="home_label_left1back">
                        <property name="geometry">
                         <rect>
-                         <x>20</x>
+                         <x>30</x>
                          <y>20</y>
                          <width>211</width>
                          <height>181</height>
@@ -2197,10 +2197,10 @@ border-radius: 10px;</string>
                       <widget class="QLabel" name="home_label_left2back">
                        <property name="geometry">
                         <rect>
-                         <x>20</x>
+                         <x>30</x>
                          <y>220</y>
                          <width>211</width>
-                         <height>341</height>
+                         <height>351</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2214,7 +2214,7 @@ border-radius: 10px;</string>
                       <widget class="QLabel" name="home_label_chatgroup">
                        <property name="geometry">
                         <rect>
-                         <x>64</x>
+                         <x>74</x>
                          <y>39</y>
                          <width>91</width>
                          <height>16</height>
@@ -2230,7 +2230,7 @@ border-radius: 10px;</string>
                       <widget class="QLabel" name="home_label_chatgroup_pic">
                        <property name="geometry">
                         <rect>
-                         <x>31</x>
+                         <x>41</x>
                          <y>37</y>
                          <width>31</width>
                          <height>21</height>
@@ -2246,7 +2246,7 @@ border-radius: 10px;</string>
                       <widget class="QLabel" name="home_label_userstate">
                        <property name="geometry">
                         <rect>
-                         <x>64</x>
+                         <x>74</x>
                          <y>240</y>
                          <width>91</width>
                          <height>16</height>
@@ -2262,7 +2262,7 @@ border-radius: 10px;</string>
                       <widget class="QLabel" name="home_label_userstate_pic">
                        <property name="geometry">
                         <rect>
-                         <x>31</x>
+                         <x>41</x>
                          <y>238</y>
                          <width>31</width>
                          <height>21</height>
@@ -2278,7 +2278,7 @@ border-radius: 10px;</string>
                       <widget class="QListView" name="home_listview_chatgroup">
                        <property name="geometry">
                         <rect>
-                         <x>30</x>
+                         <x>40</x>
                          <y>70</y>
                          <width>191</width>
                          <height>91</height>
@@ -2298,7 +2298,7 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QPushButton" name="home_btn_chatgroup">
                        <property name="geometry">
                         <rect>
-                         <x>194</x>
+                         <x>204</x>
                          <y>34</y>
                          <width>31</width>
                          <height>24</height>
@@ -2319,7 +2319,7 @@ border:none;
                       <widget class="QLabel" name="home_label_chatlist_title">
                        <property name="geometry">
                         <rect>
-                         <x>290</x>
+                         <x>313</x>
                          <y>39</y>
                          <width>431</width>
                          <height>16</height>
@@ -2335,10 +2335,10 @@ border:none;
                       <widget class="QTreeView" name="home_treeview_userlist">
                        <property name="geometry">
                         <rect>
-                         <x>30</x>
+                         <x>40</x>
                          <y>270</y>
                          <width>191</width>
-                         <height>251</height>
+                         <height>291</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2355,9 +2355,9 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QLineEdit" name="home_lineedit_chatlist_send">
                        <property name="geometry">
                         <rect>
-                         <x>280</x>
-                         <y>519</y>
-                         <width>621</width>
+                         <x>310</x>
+                         <y>510</y>
+                         <width>571</width>
                          <height>41</height>
                         </rect>
                        </property>
@@ -2374,9 +2374,9 @@ color: rgb(255, 255, 255); /* 텍스트 색상 */</string>
                       <widget class="QListView" name="home_listview_chatlist">
                        <property name="geometry">
                         <rect>
-                         <x>290</x>
+                         <x>310</x>
                          <y>70</y>
-                         <width>641</width>
+                         <width>621</width>
                          <height>421</height>
                         </rect>
                        </property>
@@ -2394,8 +2394,8 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QPushButton" name="home_btn_chatlist_send">
                        <property name="geometry">
                         <rect>
-                         <x>914</x>
-                         <y>520</y>
+                         <x>890</x>
+                         <y>510</y>
                          <width>41</width>
                          <height>41</height>
                         </rect>
@@ -2406,48 +2406,6 @@ color: rgb(255, 255, 255);</string>
                        <property name="styleSheet">
                         <string notr="true">background-image: url(:/images/images/images/free-icon-send-button-12439334.png);
 border: none;</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                      <widget class="QPushButton" name="home_btn_left">
-                       <property name="geometry">
-                        <rect>
-                         <x>30</x>
-                         <y>522</y>
-                         <width>31</width>
-                         <height>31</height>
-                        </rect>
-                       </property>
-                       <property name="cursor">
-                        <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-image: url(:/images/images/images/left.png);
-</string>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                      <widget class="QPushButton" name="home_btn_right">
-                       <property name="geometry">
-                        <rect>
-                         <x>189</x>
-                         <y>522</y>
-                         <width>31</width>
-                         <height>31</height>
-                        </rect>
-                       </property>
-                       <property name="cursor">
-                        <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">background-repeat: no-repeat;
-background-position: center;
-background-image: url(:/images/images/images/right.png);
-</string>
                        </property>
                        <property name="text">
                         <string/>
@@ -2498,7 +2456,7 @@ border:none;
                       <widget class="QPushButton" name="home_btn_leave_group">
                        <property name="geometry">
                         <rect>
-                         <x>189</x>
+                         <x>200</x>
                          <y>170</y>
                          <width>31</width>
                          <height>24</height>
@@ -2539,8 +2497,8 @@ border:none;
                       <widget class="QPushButton" name="home_btn_return_chat">
                        <property name="geometry">
                         <rect>
-                         <x>570</x>
-                         <y>490</y>
+                         <x>600</x>
+                         <y>483</y>
                          <width>31</width>
                          <height>24</height>
                         </rect>
@@ -2561,7 +2519,7 @@ border:none;
                       <widget class="QPushButton" name="home_btn_groupdelete">
                        <property name="geometry">
                         <rect>
-                         <x>34</x>
+                         <x>44</x>
                          <y>170</y>
                          <width>31</width>
                          <height>24</height>
