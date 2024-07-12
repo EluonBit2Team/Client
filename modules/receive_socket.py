@@ -52,7 +52,7 @@ class ReceivePacket(QObject):
                             print("---------------------------")
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
-                                print(msg_length)
+                                print(f"메시지 길이: {msg_length}")
                                 if len(buffer) >= msg_length - 4:
                                     json_msg = buffer[4:msg_length]
                                     buffer = buffer[msg_length:]
@@ -118,9 +118,9 @@ class ReceivePacket(QObject):
             return
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = json.loads(msg.decode('utf-8')).get("groupname")
-        if self.main_window.isLogin and self.main_window.nowGroupName:
-            first_key = next(iter(self.main_window.nowClickedRow))
-            if recvGroupName == self.main_window.nowGroupName and first_key == 'groupname':
+        if self.main_window.isLogin and self.main_window.nowGroupName: # 로그인 상태 및 현재 그룹 이름 확인
+            first_key = next(iter(self.main_window.nowClickedRow)) # 클릭된 행의 첫번째 키 확인
+            if recvGroupName == self.main_window.nowGroupName and first_key == 'groupname': # 수신된 메시지의 그룹 이름과 현재 그룹 이름 비교
                 self.updateDisplaySignal.emit(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
             else:
                 self.messageNotiSignal.emit(recvGroupName, self.main_window.groupListModel, self.main_window.home_listview_chatgroup)

@@ -2298,8 +2298,8 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QPushButton" name="home_btn_chatgroup">
                        <property name="geometry">
                         <rect>
-                         <x>204</x>
-                         <y>34</y>
+                         <x>120</x>
+                         <y>170</y>
                          <width>31</width>
                          <height>24</height>
                         </rect>
@@ -2535,6 +2535,26 @@ border:none;
                         <string/>
                        </property>
                       </widget>
+                      <widget class="QPushButton" name="home_btn_reloadchat">
+                       <property name="geometry">
+                        <rect>
+                         <x>201</x>
+                         <y>35</y>
+                         <width>31</width>
+                         <height>24</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/icons/images/icons/cil-reload.png);
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
                      </widget>
                      <widget class="QWidget" name="adminpage">
                       <property name="styleSheet">
@@ -2734,7 +2754,7 @@ background-color: rgb(27, 29, 35);
 </string>
                        </property>
                        <property name="currentText">
-                        <string>부서를 선택하세요</string>
+                        <string>부서를 선택하세요.</string>
                        </property>
                        <property name="iconSize">
                         <size>
@@ -2747,7 +2767,7 @@ background-color: rgb(27, 29, 35);
                        </property>
                        <item>
                         <property name="text">
-                         <string>부서를 선택하세요</string>
+                         <string>부서를 선택하세요.</string>
                         </property>
                        </item>
                        <item>
@@ -2801,7 +2821,7 @@ font: 8pt &quot;Segoe UI&quot;;
 font-weight: 200;</string>
                        </property>
                        <property name="currentText">
-                        <string>직급을 선택하세요</string>
+                        <string>직급을 선택하세요.</string>
                        </property>
                        <property name="iconSize">
                         <size>
@@ -2814,7 +2834,7 @@ font-weight: 200;</string>
                        </property>
                        <item>
                         <property name="text">
-                         <string>직급을 선택하세요</string>
+                         <string>직급을 선택하세요.</string>
                         </property>
                        </item>
                        <item>

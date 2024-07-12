@@ -45,7 +45,8 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_return_chat = mainWindow.findChild(QPushButton, "home_btn_return_chat")
     mainWindow.home_btn_leave_group =  mainWindow.findChild(QPushButton, "home_btn_leave_group")
     mainWindow.home_label_chatlist_title = mainWindow.findChild(QLabel, "home_label_chatlist_title")
-    
+    mainWindow.home_btn_return_chat = mainWindow.findChild(QPushButton, "home_btn_return_chat")
+
     mainWindow.admin_btn_accept = mainWindow.findChild(QPushButton, "admin_btn_accept")
     mainWindow.admin_btn_reject = mainWindow.findChild(QPushButton, "admin_btn_reject")
     mainWindow.admin_btn_food = mainWindow.findChild(QPushButton, "admin_btn_food")
@@ -128,7 +129,8 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.home_btn_return_chat.clicked.connect(lambda: returnChat(mainWindow, mainWindow.nowClickedRow))
     mainWindow.home_btn_leave_group.clicked.connect(lambda: mainWindow.packetSender.leaveGroup(mainWindow.socket))
     mainWindow.home_btn_chatlist_send.clicked.connect(lambda: mainWindow.packetSender.sendMsg(mainWindow.socket))
-    
+
+
     mainWindow.serverstate_btn_grafana.clicked.connect(lambda: mainWindow.openDialog("GrafanaDialog"))
     mainWindow.serverstate_btn_reload.clicked.connect(mainWindow.statusthread)
 
