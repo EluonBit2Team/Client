@@ -137,6 +137,7 @@ class MainWindow(QMainWindow):
         widgets.serverstate_btn_back.clicked.connect(self.buttonClick)
         widgets.userlog_btn_back.clicked.connect(self.buttonClick)
         widgets.admin_btn_conlog.clicked.connect(self.buttonClick)
+        widgets.home_btn_reloadchat.clicked.connect(self.buttonClick)
         # SHOW APP
         # ///////////////////////////////////////////////////////////////
         self.show()
@@ -289,6 +290,9 @@ class MainWindow(QMainWindow):
             widgets.stackedWidget.setCurrentWidget(widgets.home)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
             self.packetSender.reqUserList(self.socket)
+            self.packetSender.reqGroupList(self.socket)
+        
+        if btnName == "home_btn_reloadchat":
             self.packetSender.reqGroupList(self.socket)
 
         # SHOW ADMIN PAGE

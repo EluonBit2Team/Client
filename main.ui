@@ -2182,7 +2182,7 @@ border-radius: 10px;
                         <rect>
                          <x>30</x>
                          <y>20</y>
-                         <width>151</width>
+                         <width>211</width>
                          <height>181</height>
                         </rect>
                        </property>
@@ -2280,7 +2280,7 @@ border-radius: 10px;</string>
                         <rect>
                          <x>40</x>
                          <y>70</y>
-                         <width>131</width>
+                         <width>191</width>
                          <height>91</height>
                         </rect>
                        </property>
@@ -2298,8 +2298,8 @@ color: rgb(255, 255, 255);</string>
                       <widget class="QPushButton" name="home_btn_chatgroup">
                        <property name="geometry">
                         <rect>
-                         <x>204</x>
-                         <y>34</y>
+                         <x>120</x>
+                         <y>170</y>
                          <width>31</width>
                          <height>24</height>
                         </rect>
@@ -2530,6 +2530,26 @@ border:none;
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background-image: url(:/icons/images/icons/cil-x-circle.png)</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="home_btn_reloadchat">
+                       <property name="geometry">
+                        <rect>
+                         <x>201</x>
+                         <y>35</y>
+                         <width>31</width>
+                         <height>24</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/icons/images/icons/cil-reload.png);
+</string>
                        </property>
                        <property name="text">
                         <string/>

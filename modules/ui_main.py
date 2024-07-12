@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainbsNMmE.ui'
+## Form generated from reading UI file 'mainPhgnFe.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -1276,7 +1276,7 @@ class Ui_MainWindow(object):
         self.home_listview_chatgroup.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.home_btn_chatgroup = QPushButton(self.home)
         self.home_btn_chatgroup.setObjectName(u"home_btn_chatgroup")
-        self.home_btn_chatgroup.setGeometry(QRect(204, 34, 31, 24))
+        self.home_btn_chatgroup.setGeometry(QRect(120, 170, 31, 24))
         self.home_btn_chatgroup.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_chatgroup.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-plus.png);\n"
 "border:none;\n"
@@ -1359,6 +1359,12 @@ class Ui_MainWindow(object):
         self.home_btn_groupdelete.setGeometry(QRect(44, 170, 31, 24))
         self.home_btn_groupdelete.setCursor(QCursor(Qt.PointingHandCursor))
         self.home_btn_groupdelete.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-x-circle.png)")
+        self.home_btn_reloadchat = QPushButton(self.home)
+        self.home_btn_reloadchat.setObjectName(u"home_btn_reloadchat")
+        self.home_btn_reloadchat.setGeometry(QRect(201, 35, 31, 24))
+        self.home_btn_reloadchat.setCursor(QCursor(Qt.PointingHandCursor))
+        self.home_btn_reloadchat.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-reload.png);\n"
+"")
         self.stackedWidget.addWidget(self.home)
         self.adminpage = QWidget()
         self.adminpage.setObjectName(u"adminpage")
@@ -2721,19 +2727,20 @@ class Ui_MainWindow(object):
         self.home_btn_search_chat.setText("")
         self.home_btn_return_chat.setText("")
         self.home_btn_groupdelete.setText("")
+        self.home_btn_reloadchat.setText("")
         self.admin_label_leftback.setText("")
         self.admin_label_rightback1.setText("")
         self.admin_label_status.setText(QCoreApplication.translate("MainWindow", u"\ud68c\uc6d0 \ub4f1\ub85d / \ud68c\uc6d0 \uc0c1\ud0dc", None))
         self.admin_btn_accept.setText(QCoreApplication.translate("MainWindow", u"\uc218\ub77d", None))
         self.admin_btn_reject.setText(QCoreApplication.translate("MainWindow", u"\uac70\uc808", None))
-        self.admin_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
+        self.admin_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
         self.admin_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u"1\ud300", None))
         self.admin_combo_dept.setItemText(2, QCoreApplication.translate("MainWindow", u"2\ud300", None))
         self.admin_combo_dept.setItemText(3, QCoreApplication.translate("MainWindow", u"3\ud300", None))
         self.admin_combo_dept.setItemText(4, QCoreApplication.translate("MainWindow", u"\uc194\ub8e8\uc158\ud300", None))
 
-        self.admin_combo_dept.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
-        self.admin_combo_position.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))
+        self.admin_combo_dept.setCurrentText(QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694.", None))
+        self.admin_combo_position.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
         self.admin_combo_position.setItemText(1, QCoreApplication.translate("MainWindow", u"\ud68c\uc7a5", None))
         self.admin_combo_position.setItemText(2, QCoreApplication.translate("MainWindow", u"\uc0ac\uc7a5", None))
         self.admin_combo_position.setItemText(3, QCoreApplication.translate("MainWindow", u"\ucc28\uc7a5", None))
@@ -2741,7 +2748,7 @@ class Ui_MainWindow(object):
         self.admin_combo_position.setItemText(5, QCoreApplication.translate("MainWindow", u"\ub300\ub9ac", None))
         self.admin_combo_position.setItemText(6, QCoreApplication.translate("MainWindow", u"\uc0ac\uc6d0", None))
 
-        self.admin_combo_position.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))
+        self.admin_combo_position.setCurrentText(QCoreApplication.translate("MainWindow", u"\uc9c1\uae09\uc744 \uc120\ud0dd\ud558\uc138\uc694.", None))
         self.admin_combo_role.setItemText(0, QCoreApplication.translate("MainWindow", u"\uc5ed\ud560\uc744 \uc120\ud0dd\ud558\uc138\uc694", None))
         self.admin_combo_role.setItemText(1, QCoreApplication.translate("MainWindow", u"0", None))
         self.admin_combo_role.setItemText(2, QCoreApplication.translate("MainWindow", u"1", None))
