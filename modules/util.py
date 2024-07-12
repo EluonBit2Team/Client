@@ -163,6 +163,7 @@ def connectionSuccessEvent():
     QMessageBox.information(None, "Success", "연결 성공")
 
 def groupListNoti(groupname, model):
+    print("그룹에 새메세지 오면 알림")
     new_text = "🆕" + groupname 
     for row in range(model.rowCount()):
         item = model.item(row)
@@ -239,6 +240,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 row = [name_column, id_column]
                 model.appendRow(row)
         mainWindow.home_treeview_userlist.viewport().update()
+        print("유저목록 업데이트 완료")
     elif data_type == "reqList":
         if not data_list:
             model.clear()

@@ -140,6 +140,7 @@ def initialize_variable(mainWindow: QMainWindow):
     mainWindow.alertMsg = ""
     mainWindow.isFailed = True
     mainWindow.isConnect = False
+    mainWindow.isLogin = False
     mainWindow.groupname = None
     mainWindow.sendTarget = None
     mainWindow.nowClickedRow = None

@@ -1,8 +1,6 @@
 import json
 import struct
 import select
-import threading
-import time
 from datetime import datetime
 from collections import OrderedDict
 from PySide6.QtWidgets import QMessageBox
@@ -38,10 +36,9 @@ class ReceivePacket(QObject):
         self.notiSignal.connect(self.main_window.updateIcon)
         self.setPageSignal.connect(self.main_window.updatePage)
 
-    def receiveData(self, socket):
-        self.sock = socket
+    def receiveData(self, sock):
+        self.sock = sock
         buffer = b""
-        start_time = time.time()
         while self.running:
             try:
                 if self.sock:
@@ -49,7 +46,6 @@ class ReceivePacket(QObject):
                     if readable:
                         data = self.sock.recv(4096)
                         if data:
-                            start_time = time.time()
                             buffer += data
                             print("-------받은 RAW DATA--------")
                             print(data)
@@ -60,47 +56,43 @@ class ReceivePacket(QObject):
                                 if len(buffer) >= msg_length - 4:
                                     json_msg = buffer[4:msg_length]
                                     buffer = buffer[msg_length:]
-                                    print(f"받은 JSON 메시지: {json_msg}")
-                                    # json_type = json.loads(json_msg).get("type")
-                                    # self.receivedType(json_type, json_msg)
-                                    try:
-                                        json_data = json.loads(json_msg)
-                                        if json_data is not None:
-                                            json_type = json_data.get("type")
-                                            print("json_type 진입")
-                                            if json_type is not None:
-                                                self.receivedType(json_type, json_msg)
-                                                print("receivedType 진입")
-                                            else:
-                                                print("유효하지 않은 JSON 데이터: 'type' 필드가 없습니다")
-                                        else:
-                                            print("유효하지 않은 JSON 데이터")
-                                    except json.JSONDecodeError as e:
-                                        print(f"JSON 디코딩 오류: {e}")
-                                        print(f"문제가 있는 JSON 메시지: {json_msg}")
+                                    json_type = json.loads(json_msg).get("type")
+                                    if json_type is not None:
+                                        self.receivedType(json_type, json_msg)
+                                    else:
+                                        print("type이 None입니다")
+                                        print(json_msg)
                                         break
-                                    
                                 else:
                                     print("데이터가 없습니다")
                                     break
-                    # if time.time() - start_time > 4: 
-                    #     print("Timeout: No data received for 4 seconds. Closing socket.")
-                    #     self.main_window.packetSender.ping_flag = False
-                    #     self.main_window.packetSender.disconnect()
-                    #     break
-            except BlockingIOError:
+            except BlockingIOError as e:
+                print(f"BAn error occurred: {e}")
                 continue
-            except Exception as e:
+            except ValueError as e:
+                print(f"VAn error occurred: {e}")
+                continue
+            except IndexError as e:
+                print(f"IAn error occurred: {e}")
+                continue
+            except KeyError as e:
+                print(f"An error occurred: {e}")
+                continue
+            except socket.error as e:
                 alertMsg = "연결이 끊어졌습니다."
                 self.disconnectSignal.emit(alertMsg)
                 print(f"An error occurred: {e}")
                 self.running = False
                 self.main_window.isConnect = False
                 print("receive가 끊어졌습니다")
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                continue
+                
     
     def connectSuccess(self, msg):
         self.main_window.isConnect = True
-            
+        
     def loginSuccess(self, msg):
         userId = json.loads(msg.decode('utf-8')).get("login_id")
         userRole = json.loads(msg.decode('utf-8')).get("role")
@@ -110,22 +102,27 @@ class ReceivePacket(QObject):
         self.main_window.clientSession.loginSession(userId, userRole)
         self.main_window.packetSender.reqGroupList(self.main_window.socket)
         self.main_window.packetSender.reqUserList(self.main_window.socket)
+        self.main_window.isLogin = True
         self.loginSignal.emit(userId)
     
     def signupReqSucess(self):
         self.setPageSignal.emit(self.main_window.ui.loginpage)
         print("회원가입 신청 성공")
         
-    def receiveMassage(self, msg):
+    def receiveMessage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = json.loads(msg.decode('utf-8')).get("groupname")
-        first_key = next(iter(self.main_window.nowClickedRow))
-        if recvGroupName == self.main_window.nowGroupName and first_key == 'groupname':
-            self.updateDisplaySignal.emit(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
-            # updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
+        if self.main_window.isLogin and self.main_window.nowGroupName:
+            first_key = next(iter(self.main_window.nowClickedRow))
+            if recvGroupName == self.main_window.nowGroupName and first_key == 'groupname':
+                self.updateDisplaySignal.emit(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
+            else:
+                self.messageNotiSignal.emit(recvGroupName, self.main_window.groupListModel)
+                print("다른그룹에서 받은 메세지")
         else:
             self.messageNotiSignal.emit(recvGroupName, self.main_window.groupListModel)
             print("다른그룹에서 받은 메세지")
+            return
     
     def receivedDm(self, msg):
         dm = json.loads(msg.decode('utf-8'))
@@ -153,22 +150,6 @@ class ReceivePacket(QObject):
         elif sender == talkNow and receiver == self.main_window.userId:
             self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
             
-        
-         
-        # if not sender == self.main_window.nowClickedRow['login_id']:
-        #     print("다른사람이 나에게 보냄")
-        #     self.dmNotiSignal.emit(sender, self.main_window.userListModel, self.main_window.home_treeview_userlist)
-        # if not talkNow == sender:
-        #     pass
-        # else:
-        #     self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
-        
-            
-        # if self.main_window.userId == sender or self.main_window.userId == receiver:
-        #     updateDisplay(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
-        # else:
-        #     print("다른 사람에게서 메세지를 받았습니다.")
-    
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("users")
         filterUserList = {item["login_id"]: item["name"] for item in userList}
@@ -232,6 +213,7 @@ class ReceivePacket(QObject):
         showIcon = [self.main_window.admin_label_new]
         hideIcon = []
         self.notiSignal.emit(showIcon, hideIcon)
+            
    
     # type 301 (서버 종료)
     def serverErrorReq(self, msg):
@@ -251,13 +233,10 @@ class ReceivePacket(QObject):
             realtimetpsList = parsed_json.get("tps")
 
             if realtimememList is not None:
-                print("if문 realtimememList 진입")
                 self.updateDisplaySignal.emit(self.main_window, parsed_json, "realtimememList", self.main_window.realtimememListModel)
             if realtimeloginList is not None:
-                print("if문 realtimeloginList 진입")
                 self.updateDisplaySignal.emit(self.main_window, parsed_json, "realtimeloginList", self.main_window.realtimeloginListModel)
             if realtimetpsList is not None:
-                print("if문 realtimetpsList 진입")
                 self.updateDisplaySignal.emit(self.main_window, parsed_json, "realtimetpsList", self.main_window.realtimetpsListModel)
             if realtimememList is None and realtimeloginList is None and realtimetpsList is None:
                 print("받은데이터 없음")
@@ -294,7 +273,7 @@ class ReceivePacket(QObject):
         elif jsonType == TYPE_USERLIST:
             self.receiveUserList(msg)
         elif jsonType == TYPE_MESSAGE:
-            self.receiveMassage(msg)
+            self.receiveMessage(msg)
         elif jsonType == TYPE_ERROR:
             self.receiveError(msg)
         elif jsonType == TYPE_ACCEPT_SIGNUP:
