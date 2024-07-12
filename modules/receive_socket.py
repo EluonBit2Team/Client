@@ -101,7 +101,8 @@ class ReceivePacket(QObject):
     def receiveMassage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = json.loads(msg.decode('utf-8')).get("groupname")
-        if recvGroupName == self.main_window.nowGroupName:
+        first_key = next(iter(self.main_window.nowClickedRow))
+        if recvGroupName == self.main_window.nowGroupName and first_key == 'groupname':
             self.updateDisplaySignal.emit(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
             # updateDisplay(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
         else:
@@ -152,6 +153,9 @@ class ReceivePacket(QObject):
     
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("users")
+        filterUserList = {item["login_id"]: item["name"] for item in userList}
+        if not self.main_window.userList or not len(self.main_window.userList) == len(filterUserList):
+            self.main_window.userList = filterUserList
         self.updateListSignal.emit(self.main_window, userList, "userlist", self.main_window.userListModel)
     
     def receiveGroupList(self, msg):
@@ -210,54 +214,33 @@ class ReceivePacket(QObject):
         showIcon = [self.main_window.admin_label_new]
         hideIcon = []
         self.notiSignal.emit(showIcon, hideIcon)
-
-        # if not self.main_window.admin_label_new.show():
-        #     self.main_window.admin_label_new.show()
-
    
     # type 301 (서버 종료)
     def serverErrorReq(self, msg):
-        # alertMsg = "서버가 종료되었습니다."
-        # self.disconnectSignal.emit(alertMsg)
+        alertMsg = "서버가 종료되었습니다."
+        self.disconnectSignal.emit(alertMsg)
         print("301 표출 (서버 오류)")
         print(msg)
-
-        self.main_window.ui.stackedWidget.setCurrentWidget(self.main_window.ui.loginpage)
-        self.main_window.packetSender.disconnect()
-        print("소켓 종료")
-        # # 경고 다이얼로그 추가
-        # msgBox = QMessageBox()
-        # msgBox.setIcon(QMessageBox.Warning)
-        # msgBox.setText("서버 오류가 발생했습니다. 다시 시도해 주세요.")
-        # msgBox.setWindowTitle("서버 오류")
-        # msgBox.setStandardButtons(QMessageBox.Ok)
-        # msgBox.exec_()
                 
-        
     # 실시간
     def receiveReqRealtime(self, msg):
         try:
             print("receiveReqRealtime 진입")
-            decoded_msg = msg.decode('utf-8')
-            parsed_json = json.loads(decoded_msg, object_pairs_hook=OrderedDict)
-
+            parsed_json = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict)
+            
             realtimememList = parsed_json.get("mem")
             realtimeloginList = parsed_json.get("login_user_cnt")
             realtimetpsList = parsed_json.get("tps")
 
-            print(f"realtimememList: {realtimememList}")
-            print(f"realtimeloginList: {realtimeloginList}")
-            print(f"realtimetpsList: {realtimetpsList}")
-
             if realtimememList is not None:
                 print("if문 realtimememList 진입")
-                self.updateDisplaySignal.emit(self.main_window, [realtimememList], "realtimememList", self.main_window.realtimememListModel)
+                self.updateDisplaySignal.emit(self.main_window, parsed_json, "realtimememList", self.main_window.realtimememListModel)
             if realtimeloginList is not None:
                 print("if문 realtimeloginList 진입")
-                self.updateDisplaySignal.emit(self.main_window, [realtimeloginList], "realtimeloginList", self.main_window.realtimeloginListModel)
+                self.updateDisplaySignal.emit(self.main_window, parsed_json, "realtimeloginList", self.main_window.realtimeloginListModel)
             if realtimetpsList is not None:
                 print("if문 realtimetpsList 진입")
-                self.updateDisplaySignal.emit(self.main_window, [realtimetpsList], "realtimetpsList", self.main_window.realtimetpsListModel)
+                self.updateDisplaySignal.emit(self.main_window, parsed_json, "realtimetpsList", self.main_window.realtimetpsListModel)
             if realtimememList is None and realtimeloginList is None and realtimetpsList is None:
                 print("받은데이터 없음")
         except Exception as e:

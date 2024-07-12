@@ -54,7 +54,6 @@ os.environ["QT_FONT_DPI"] = "96"
 # ///////////////////////////////////////////////////////////////
 widgets = None
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
@@ -304,6 +303,11 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
         
         if btnName == "signup_btn_back":
+            self.signup_input_id.clear()
+            self.signup_input_pw.clear()
+            self.signup_input_name.clear()
+            self.signup_input_phone.clear()
+            self.signup_input_email.clear()
             animateTransitionBack(self.ui, widgets.signuppage, widgets.loginpage, setPage)
         
         if btnName == "qrlogin_btn_back":
@@ -402,6 +406,9 @@ class MainWindow(QMainWindow):
     @Slot()
     def setGUILoginSucess(self, userId):
         print(userId + '가 로그인함')
+        self.login_input_id.clear()
+        self.login_input_pw.clear()
+        self.chatListModel.clear()
         self.btn_home.show()
         if self.userRole == 1:
             self.btn_admin.show()

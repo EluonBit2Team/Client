@@ -22,7 +22,6 @@ TYPE_EDIT_GROUP_MEMBER = 7
 TYPE_ACCEPT_SIGNUP = 9
 TYPE_ERROR = 100
 TYPE_GROUPMEMBER = 11
-TYPE_CHATLIST = 12
 TYPE_REQ_LIST = 8
 TYPE_ACCEPT_GROUP = 10
 TYPE_EDIT_USERINFO = 13
@@ -53,34 +52,49 @@ class CustomDelegate(QStyledItemDelegate):
 
         if messageSender == "me":
             option.displayAlignment = Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter
+            bubble_color = QColor(31, 181, 71)  # green
+            text_color = Qt.white
         else:
             option.displayAlignment = Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter
+            bubble_color = QColor(14, 84, 204)  # blue
+            text_color = Qt.white
         
-        rect = option.rect.adjusted(10, 0, -10, 0)
+        rect = option.rect.adjusted(10, -5, -10, 5)
         
         if rowType == "name":
             font = QFont()
-            font.setBold(True)
-            font.setPointSize(12)  # Set font size to 14px
-            
-            pen = QPen()
-            pen.setColor(Qt.GlobalColor.yellow)  # Set text color to dark green
-            
+            font.setPointSize(10)  # Set font size to 14px
             painter.setFont(font)
-            painter.setPen(pen)
+            painter.drawText(rect, option.displayAlignment, formatted_text)
         else:
-            rect = option.rect.adjusted(30, 0, -30, 0)
+            font = QFont()
+            font.setPointSize(12)
+            painter.setFont(font)
+            text_rect = painter.boundingRect(option.rect, Qt.TextWordWrap, formatted_text)
+            bubble_rect = text_rect.adjusted(-10, -5, 10, 5)
+            if messageSender == "me":
+                bubble_rect.moveRight(option.rect.right() - 15)
+                bubble_rect.setLeft(max(bubble_rect.left(), option.rect.left() + 15))
+            else:
+                bubble_rect.moveLeft(option.rect.left() + 15)
+                bubble_rect.setRight(min(bubble_rect.right(), option.rect.right() - 15))
+            painter.setBrush(bubble_color)
+            painter.setPen(Qt.NoPen)
+            painter.drawRoundedRect(bubble_rect, 10, 10)
+            painter.setPen(QPen(text_color))
+            painter.drawText(bubble_rect, Qt.AlignCenter, formatted_text)
+            painter.restore()
+            return
 
         # Text alignment options
         text_option = QTextOption()
         text_option.setAlignment(option.displayAlignment)
         
-
-        painter.drawText(rect, formatted_text, text_option)
+        painter.setPen(QPen(text_color))
+        # painter.drawText(rect, formatted_text, text_option)
         painter.restore()
         
     def format_text(self, text, line_length):
-        # 텍스트를 line_length 글자마다 줄 바꿈
         lines = []
         for i in range(0, len(text), line_length):
             lines.append(text[i:i+line_length])
@@ -90,10 +104,24 @@ class CustomDelegate(QStyledItemDelegate):
         text = index.data(Qt.ItemDataRole.DisplayRole)
         formatted_text = self.format_text(text, 30)
         lines = formatted_text.split('\n')
-        width = min(option.rect.width(), 630)
-        height = option.fontMetrics.lineSpacing() * len(lines) + 10  # Add some padding
+        padding_between_lines = 8  # 각 줄 사이의 기본적인 패딩
+        first_line_padding = 10  # 첫 번째 줄의 추가 패딩
+        last_line_padding = 10  # 마지막 줄의 추가 패딩
+
+        line_heights = []
+    
+        for i, line in enumerate(lines):
+            if len(line) <= 30 and len(lines) == 1:
+                line_heights.append(option.fontMetrics.height() + first_line_padding + last_line_padding)
+            elif i == 0:
+                line_heights.append(option.fontMetrics.height() + first_line_padding)
+            elif i == len(lines) - 1:
+                line_heights.append(option.fontMetrics.height() + last_line_padding)
+            else:
+                line_heights.append(option.fontMetrics.height() + padding_between_lines)
+        height = sum(line_heights)
+        width = min(option.rect.width(), 600)
         return QSize(width, height)
-        # return QSize(option.rect.width(), height)
     
     
 # class util:
@@ -313,29 +341,35 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         model.clear()
         font = QFont()
         font.setPointSize(14)
-        for json_data in data_list:
-            if data_type == "realtimememList":
-                item = QStandardItem(f"{json_data}% / 100%    램 용량: 8GB")
-                item.setFont(font)
-                model.appendRow(item)
+        font.setBold(True)
+        
+        mem = data_list['mem']
+        usercnt = data_list['login_user_cnt']
+        tps = data_list['tps']
+        
+        if data_type == "realtimememList":
+            item = QStandardItem(f"{mem}% / 100%    램 용량: 8GB")
+            item.setFont(font)
+            model.appendRow(item)
 
-            elif data_type == "realtimeloginList":
-                item = QStandardItem(f"{json_data}명 접속")
-                item.setFont(font)
-                model.appendRow(item)
+        elif data_type == "realtimeloginList":
+            item = QStandardItem(f"{usercnt}명 접속")
+            item.setFont(font)
+            model.appendRow(item)
 
-            elif data_type == "realtimetpsList":
-                item = QStandardItem(f"{json_data} TPS")
-                item.setFont(font)
-                model.appendRow(item)
+        elif data_type == "realtimetpsList":
+            item = QStandardItem(f"{tps} TPS")
+            item.setFont(font)
+            model.appendRow(item)
     
     elif data_type == "clickedGroup":
         print("clickedgroup 진입")
         model.clear()
         for json_data in data_list:
-            name = json_data['login_id']
+            login_id = json_data['login_id']
+            name = mainWindow.userList[login_id]
             message = json_data['text']
-            if mainWindow.userId == name:
+            if mainWindow.userId == login_id:
                 sentUser = "me"
             else:
                 sentUser = "other"
@@ -348,7 +382,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 last_item = model.itemFromIndex(last_index)
                 row_json_data = last_item.data(Qt.UserRole)
                 lastSender = row_json_data['login_id']
-                if lastSender == name:
+                if lastSender == login_id:
                     addTextRow(sentUser, message, json_data, model)
                 else:
                     addNameRow(sentUser, name, model)
@@ -358,9 +392,10 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
     elif data_type=="clickedUser":
         model.clear()
         for json_data in data_list:
-            name = json_data['sender_login_id']
+            login_id = json_data['sender_login_id']
+            name = mainWindow.userList[login_id]
             message = json_data['text']
-            if mainWindow.userId == name:
+            if mainWindow.userId == login_id:
                 sentUser = "me"
             else:
                 sentUser = "other"
@@ -373,7 +408,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 last_item = model.itemFromIndex(last_index)
                 row_json_data = last_item.data(Qt.UserRole)
                 lastSender = row_json_data['sender_login_id']
-                if lastSender == name:
+                if lastSender == login_id:
                     addTextRow(sentUser, message, json_data, model)
                 else:
                     addNameRow(sentUser, name, model)
@@ -381,9 +416,10 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         mainWindow.home_listview_chatlist.scrollToBottom()
     
     elif data_type == "receivedChat":
-        name = data_list['login_id']
+        login_id = data_list['login_id']
+        name = mainWindow.userList[login_id]
         message = data_list['text']
-        if mainWindow.userId == name:
+        if mainWindow.userId == login_id:
             sentUser = "me"
         else:
             sentUser = "other"
@@ -397,7 +433,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
             last_item = model.itemFromIndex(last_index)
             row_json_data = last_item.data(Qt.UserRole)
             lastSender = row_json_data['login_id']
-            if lastSender == name:
+            if lastSender == login_id:
                 addTextRow(sentUser, message, data_list, model)
             else:
                 addNameRow(sentUser, name, model)
@@ -405,9 +441,10 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         mainWindow.home_listview_chatlist.scrollToBottom()
     
     elif data_type == "receivedDm":
-        name = data_list['sender_login_id']
+        login_id = data_list['sender_login_id']
+        name = mainWindow.userList[login_id]
         message = data_list['text']
-        if mainWindow.userId == name:
+        if mainWindow.userId == login_id:
             sentUser = "me"
         else:
             sentUser = "other"
@@ -420,7 +457,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
             last_item = model.itemFromIndex(last_index)
             row_json_data = last_item.data(Qt.UserRole)
             lastSender = row_json_data['sender_login_id']
-            if lastSender == name:
+            if lastSender == login_id:
                 addTextRow(sentUser, message, data_list, model)
             else:
                 addNameRow(sentUser, name, model)

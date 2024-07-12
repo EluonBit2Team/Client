@@ -46,5 +46,7 @@ class GroupAddDialog(QDialog, Ui_Dialog):
             return False
         
     def close_dialog(self):
+        self.dialog_edit_chattitle.clear()
+        self.dialog_edit_issue.clear()
         self.accept()  # 다이얼로그 닫기    
 
