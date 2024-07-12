@@ -28,7 +28,7 @@ class SendPacket:
 
                 self.sock.connect((addr, port))
                 print(self.sock)
-                self.sock.setblocking(False)
+                # self.sock.setblocking(False)
 
                 self.main_window.socket = self.sock
                 return True
@@ -45,7 +45,7 @@ class SendPacket:
                 
                 self.main_window.socket = self.sock
                 print(self.sock)
-                self.sock.setblocking(False)
+                # self.sock.setblocking(False)
                 return True
 
         except Exception as e:
@@ -112,11 +112,6 @@ class SendPacket:
                 "login_id": self.loginId,
                 "pw": loginPw
             }
-            # msg = {
-            #     "type": TYPE_LOGIN,
-            #     "login_id": self.loginId,
-            #     "pw": loginPw
-            # }
             packet = jsonParser(msg)
             
             if sock and msg:
@@ -146,6 +141,7 @@ class SendPacket:
             return False
     
     def disconnect(self):
+        self.isLogin = True
         self.main_window.ui.btn_login.show()
         self.main_window.ui.btn_home.hide()
         self.main_window.ui.btn_admin.hide()

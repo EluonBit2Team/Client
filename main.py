@@ -391,6 +391,7 @@ class MainWindow(QMainWindow):
     
     @Slot(str)
     def setDisconnect(self, alterMsg):
+        self.isLogin = False
         self.login_btn_reconnect.show()
         self.btn_home.hide()
         self.btn_admin.hide()
