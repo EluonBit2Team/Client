@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>6</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -4187,9 +4187,34 @@ border-radius: 20px;
                         <string/>
                        </property>
                       </widget>
+                      <widget class="QPushButton" name="qrlogin_btn_refresh">
+                       <property name="geometry">
+                        <rect>
+                         <x>748</x>
+                         <y>134</y>
+                         <width>41</width>
+                         <height>31</height>
+                        </rect>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">background-image: url(:/icons/images/icons/cil-reload.png);
+background-position: center; /* 이미지가 가운데 오도록 설정 */
+background-repeat: no-repeat;
+width: 30px; /* 버튼의 너비 지정 */
+height: 30px; /* 버튼의 높이 지정 */
+</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
                       <zorder>qrlogin_label_back</zorder>
                       <zorder>qrlogin_label_waiting</zorder>
                       <zorder>qrlogin_btn_back</zorder>
+                      <zorder>qrlogin_btn_refresh</zorder>
                      </widget>
                      <widget class="QWidget" name="signuppage">
                       <property name="styleSheet">
