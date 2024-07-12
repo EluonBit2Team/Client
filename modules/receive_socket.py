@@ -16,7 +16,7 @@ class ReceivePacket(QObject):
     loginSignal = Signal(str)
     updateDisplaySignal = Signal(QObject, dict, str, QStringListModel)
     updateListSignal = Signal(QObject, list, str, QStringListModel)
-    messageNotiSignal = Signal(str, QStandardItemModel)
+    messageNotiSignal = Signal(str, QStandardItemModel, QListView)
     dmNotiSignal = Signal(str, QStandardItemModel, QTreeView)
     disconnectSignal = Signal(str)
     notiSignal = Signal(list, list)
@@ -70,8 +70,12 @@ class ReceivePacket(QObject):
                 print(f"BAn error occurred: {e}")
                 continue
             except ValueError as e:
-                print(f"VAn error occurred: {e}")
-                continue
+                alertMsg = "연결이 끊어졌습니다."
+                self.disconnectSignal.emit(alertMsg)
+                print(f"An error occurred: {e}")
+                self.running = False
+                self.main_window.isConnect = False
+                print("receive가 끊어졌습니다")
             except IndexError as e:
                 print(f"IAn error occurred: {e}")
                 continue
@@ -92,7 +96,7 @@ class ReceivePacket(QObject):
     
     def connectSuccess(self, msg):
         self.main_window.isConnect = True
-        
+    #TYPE_LOGIN 2
     def loginSuccess(self, msg):
         userId = json.loads(msg.decode('utf-8')).get("login_id")
         userRole = json.loads(msg.decode('utf-8')).get("role")
@@ -104,11 +108,11 @@ class ReceivePacket(QObject):
         self.main_window.packetSender.reqUserList(self.main_window.socket)
         self.main_window.isLogin = True
         self.loginSignal.emit(userId)
-    
+    #TYPE_SIGNUP_REQ 1
     def signupReqSucess(self):
         self.setPageSignal.emit(self.main_window.ui.loginpage)
         print("회원가입 신청 성공")
-        
+    #TYPE_MESSAGE 3
     def receiveMessage(self, msg):
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = json.loads(msg.decode('utf-8')).get("groupname")
@@ -117,10 +121,10 @@ class ReceivePacket(QObject):
             if recvGroupName == self.main_window.nowGroupName and first_key == 'groupname':
                 self.updateDisplaySignal.emit(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
             else:
-                self.messageNotiSignal.emit(recvGroupName, self.main_window.groupListModel)
+                self.messageNotiSignal.emit(recvGroupName, self.main_window.groupListModel, self.main_window.home_listview_chatgroup)
                 print("다른그룹에서 받은 메세지")
         else:
-            self.messageNotiSignal.emit(recvGroupName, self.main_window.groupListModel)
+            self.messageNotiSignal.emit(recvGroupName, self.main_window.groupListModel, self.main_window.home_listview_chatgroup)
             print("다른그룹에서 받은 메세지")
             return
     
@@ -149,7 +153,7 @@ class ReceivePacket(QObject):
             self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
         elif sender == talkNow and receiver == self.main_window.userId:
             self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
-            
+    # TYPE_USERLIST 5
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("users")
         filterUserList = {item["login_id"]: item["name"] for item in userList}

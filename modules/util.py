@@ -162,22 +162,16 @@ def connectionErrorEvent():
 def connectionSuccessEvent():
     QMessageBox.information(None, "Success", "연결 성공")
 
-def groupListNoti(groupname, model):
-    print("그룹에 새메세지 오면 알림")
-    new_text = "🆕" + groupname 
+def groupListNoti(groupname, model, view):
     for row in range(model.rowCount()):
         item = model.item(row)
         if item.text() == groupname:
-            # 해당 항목의 데이터를 수정
-            item.setText(new_text)
-            print(f"'{groupname}'를 '{new_text}'로 수정했습니다.")
-            break
-        else:
-            print(f"'{groupname}'를 찾을 수 없습니다.")
+            current_color = item.background().color()
+            item.setData(current_color, Qt.UserRole + 2)
+            item.setBackground(QBrush(QColor(255, 255, 0, 100)))
+            view.viewport().update()
 
 def userListNoti(userId, model, view):
-    print("dm알람 함수로 진입함")
-    print("userId: " + userId)
     id_column_index = 1 
     name_column_index = 0
     for row in range(model.rowCount()):
@@ -222,6 +216,8 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
         model.clear()
         model.setHorizontalHeaderLabels(["이름", "아이디"])
         mainWindow.home_treeview_userlist.setColumnWidth(0, 200)
+        print("로그인한 유저목록")
+        print(mainWindow.loginUserList)
         for json_data in data_list:
             if json_data['login_id'] in mainWindow.loginUserList:
                 makeRow = "🟢" + json_data['dept_name'] + ' ' + \
@@ -512,37 +508,37 @@ def groupClick(mainWindow: QMainWindow, listname, index):
         mainWindow.home_btn_add_member.show()
         item = mainWindow.groupListModel.itemFromIndex(index)
         item_json = index.data(Qt.UserRole)
-        item_text = index.data(Qt.DisplayRole)
+        # item_text = index.data(Qt.DisplayRole)
         mainWindow.nowGroupName = item_json['groupname']
         mainWindow.home_label_chatlist_title.setText(mainWindow.nowGroupName)
         mainWindow.nowClickedRow = item_json
         mainWindow.packetSender.reqGroupChat(mainWindow.socket)
-        if item_text.startswith("🆕"):
-            new_text = item_text[1:]  # Remove the "🆕" character
-            item.setText(new_text)
-            print(f"'{item_text}'를 '{new_text}'로 수정했습니다.")
-        else:
-            print(f"'{item_text}'는 수정할 필요가 없습니다.")
+        if index.data(Qt.UserRole + 2):
+            color_data = index.data(Qt.UserRole + 2)
+            if color_data:
+                item.setBackground(QBrush(QColor(31, 35, 41)))
+            else:
+                print("컬러데이터가 없어서 else로 빠짐")
+                item.setBackground(QBrush(QColor(Qt.transparent)))
         mainWindow.useredit_treeview_userlist.clearSelection()
         mainWindow.sendTarget = "group"
     elif listname == "home_treeview_userlist":
         mainWindow.home_btn_search_chat.show()
         mainWindow.home_btn_groupmemberlist.hide()
         mainWindow.home_btn_add_member.hide()
-        print("home_treeview_userlist의 요소를 클릭함")
         item = mainWindow.userListModel.itemFromIndex(index)
         item_json = index.data(Qt.UserRole)
-        mainWindow.home_label_chatlist_title.setText(item_json['name'] + "님 과의 대화")
+        if item_json['login_id'] == mainWindow.userId:
+            mainWindow.home_label_chatlist_title.setText("나와 대화 하기")
+        else:
+            mainWindow.home_label_chatlist_title.setText(item_json['name'] + "님 과의 대화")
         mainWindow.nowClickedRow = item_json
         mainWindow.packetSender.reqDm(mainWindow.socket)
         if index.data(Qt.UserRole + 2):
             color_data = index.data(Qt.UserRole + 2)
-            print("컬러데이터")
-            print(color_data)
             if color_data:
                 item.setBackground(QBrush(QColor(31, 35, 41)))
             else:
-                print("컬러데이터가 없어서 else로 빠짐")
                 item.setBackground(QBrush(QColor(Qt.transparent)))
         mainWindow.home_listview_chatgroup.clearSelection()
         mainWindow.sendTarget = "user"
