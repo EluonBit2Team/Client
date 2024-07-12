@@ -56,12 +56,30 @@ class ReceivePacket(QObject):
                             print("---------------------------")
                             while len(buffer) >= 4:
                                 msg_length = struct.unpack('<I', buffer[:4])[0]
-                                print(msg_length)
+                                print(f"메시지 길이: {msg_length}")
                                 if len(buffer) >= msg_length - 4:
                                     json_msg = buffer[4:msg_length]
                                     buffer = buffer[msg_length:]
-                                    json_type = json.loads(json_msg).get("type")
-                                    self.receivedType(json_type, json_msg)
+                                    print(f"받은 JSON 메시지: {json_msg}")
+                                    # json_type = json.loads(json_msg).get("type")
+                                    # self.receivedType(json_type, json_msg)
+                                    try:
+                                        json_data = json.loads(json_msg)
+                                        if json_data is not None:
+                                            json_type = json_data.get("type")
+                                            print("json_type 진입")
+                                            if json_type is not None:
+                                                self.receivedType(json_type, json_msg)
+                                                print("receivedType 진입")
+                                            else:
+                                                print("유효하지 않은 JSON 데이터: 'type' 필드가 없습니다")
+                                        else:
+                                            print("유효하지 않은 JSON 데이터")
+                                    except json.JSONDecodeError as e:
+                                        print(f"JSON 디코딩 오류: {e}")
+                                        print(f"문제가 있는 JSON 메시지: {json_msg}")
+                                        break
+                                    
                                 else:
                                     print("데이터가 없습니다")
                                     break
