@@ -503,6 +503,8 @@ def groupClick(mainWindow: QMainWindow, listname, index):
         mainWindow.sendTarget = "user"
     elif listname == "home_listview_chatgroup":
         print("채팅그룹 클릭함")
+        mainWindow.listMode = "chat"
+        mainWindow.home_btn_return_chat.hide()
         mainWindow.home_btn_search_chat.show()
         mainWindow.home_btn_groupmemberlist.show()
         mainWindow.home_btn_add_member.show()
@@ -523,7 +525,9 @@ def groupClick(mainWindow: QMainWindow, listname, index):
         mainWindow.useredit_treeview_userlist.clearSelection()
         mainWindow.sendTarget = "group"
     elif listname == "home_treeview_userlist":
+        mainWindow.listMode = "chat"
         mainWindow.home_btn_search_chat.show()
+        mainWindow.home_btn_return_chat.hide()
         mainWindow.home_btn_groupmemberlist.hide()
         mainWindow.home_btn_add_member.hide()
         item = mainWindow.userListModel.itemFromIndex(index)
@@ -585,6 +589,7 @@ def sortUserInfo(var, name):
             return int(var)
     
 def returnChat(mainWindow: QMainWindow, json_data):
+    mainWindow.listMode = "chat"
     if json_data['groupname']:
         mainWindow.packetSender.reqGroupChat(mainWindow.socket)
     

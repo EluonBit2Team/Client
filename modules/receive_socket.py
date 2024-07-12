@@ -114,6 +114,8 @@ class ReceivePacket(QObject):
         print("회원가입 신청 성공")
     #TYPE_MESSAGE 3
     def receiveMessage(self, msg):
+        if not self.main_window.listMode == "chat":
+            return
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = json.loads(msg.decode('utf-8')).get("groupname")
         if self.main_window.isLogin and self.main_window.nowGroupName:
@@ -129,6 +131,8 @@ class ReceivePacket(QObject):
             return
     
     def receivedDm(self, msg):
+        if not self.main_window.listMode == "chat":
+            return
         dm = json.loads(msg.decode('utf-8'))
         print(dm)
         sender = dm['sender_login_id']
@@ -265,7 +269,7 @@ class ReceivePacket(QObject):
         
     def receiveError(self, msg):
         errorMsg = json.loads(msg.decode('utf-8')).get("msg")
-        print(errorMsg)
+        self.messageSignal.emit(errorMsg)
         
     def receivedType(self, jsonType, msg):
         if jsonType == TYPE_LOGIN:

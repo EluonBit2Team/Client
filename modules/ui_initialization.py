@@ -145,6 +145,7 @@ def initialize_variable(mainWindow: QMainWindow):
     mainWindow.sendTarget = None
     mainWindow.nowClickedRow = None
     mainWindow.nowGroupName = None
+    mainWindow.listMode = None
     mainWindow.groupList = []
     mainWindow.userList = []
     mainWindow.loginUserList = []

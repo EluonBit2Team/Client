@@ -605,6 +605,7 @@ class SendPacket:
         
     
     def searchChatLog(self, socket):
+        self.main_window.listMode = "log"
         start_time = self.main_window.setLogTime.start_time 
         end_time = self.main_window.setLogTime.end_time + ' 23:59:59'
         print(start_time + "부터 "+ end_time + "까지의 데이터")
