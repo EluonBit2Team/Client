@@ -18,6 +18,7 @@ def initialize_widgets(mainWindow: QMainWindow):
 
     mainWindow.qrlogin_btn_back = mainWindow.findChild(QPushButton, "qrlogin_btn_back")
     mainWindow.qrlogin_label_waiting = mainWindow.findChild(QLabel, "qrlogin_label_waiting")
+    mainWindow.qrlogin_btn_refresh = mainWindow.findChild(QPushButton, "qrlogin_btn_refresh")
 
     mainWindow.signup_input_id = mainWindow.findChild(QLineEdit, "signup_input_id")
     mainWindow.signup_input_pw = mainWindow.findChild(QLineEdit, "signup_input_pw")
@@ -106,6 +107,7 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.login_btn_mail.clicked.connect(lambda: mainWindow.openDialog("MailFunctionWindow"))
     mainWindow.login_btn_call.clicked.connect(lambda: mainWindow.openDialog("CallDialog"))
     mainWindow.login_btn_reconnect.clicked.connect(lambda: mainWindow.packetSender.reconnect(mainWindow.socket))
+    mainWindow.qrlogin_btn_refresh.clicked.connect(lambda: mainWindow.qrcode.wait_qrcode())
     
     mainWindow.signup_btn_submit.clicked.connect(lambda: mainWindow.packetSender.signUpRequest(mainWindow.socket))
     

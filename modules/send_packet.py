@@ -128,6 +128,7 @@ class SendPacket:
             return False
     
     def qrLoginRequest(self, socket, msg):
+        print(msg)
         try:
             packet = jsonParser(msg)
 

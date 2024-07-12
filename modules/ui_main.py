@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainPhgnFe.ui'
+## Form generated from reading UI file 'mainCQBsSl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -2155,10 +2155,21 @@ class Ui_MainWindow(object):
         self.qrlogin_label_back.setStyleSheet(u"background-image: url(:/images/images/images/loginbackground.jpg);\n"
 "border-radius: 20px;\n"
 "")
+        self.qrlogin_btn_refresh = QPushButton(self.qrlogin)
+        self.qrlogin_btn_refresh.setObjectName(u"qrlogin_btn_refresh")
+        self.qrlogin_btn_refresh.setGeometry(QRect(748, 134, 41, 31))
+        self.qrlogin_btn_refresh.setCursor(QCursor(Qt.PointingHandCursor))
+        self.qrlogin_btn_refresh.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-reload.png);\n"
+"background-position: center; /* \uc774\ubbf8\uc9c0\uac00 \uac00\uc6b4\ub370 \uc624\ub3c4\ub85d \uc124\uc815 */\n"
+"background-repeat: no-repeat;\n"
+"width: 30px; /* \ubc84\ud2bc\uc758 \ub108\ube44 \uc9c0\uc815 */\n"
+"height: 30px; /* \ubc84\ud2bc\uc758 \ub192\uc774 \uc9c0\uc815 */\n"
+"")
         self.stackedWidget.addWidget(self.qrlogin)
         self.qrlogin_label_back.raise_()
         self.qrlogin_label_waiting.raise_()
         self.qrlogin_btn_back.raise_()
+        self.qrlogin_btn_refresh.raise_()
         self.signuppage = QWidget()
         self.signuppage.setObjectName(u"signuppage")
         self.signuppage.setStyleSheet(u"QPushButton#signup_btn_submit {\n"
@@ -2647,7 +2658,7 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(6)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2801,6 +2812,7 @@ class Ui_MainWindow(object):
         self.qrlogin_label_waiting.setText("")
         self.qrlogin_btn_back.setText("")
         self.qrlogin_label_back.setText("")
+        self.qrlogin_btn_refresh.setText("")
         self.signup_label_back.setText("")
         self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.signup_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
