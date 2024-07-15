@@ -25,6 +25,7 @@ import struct
 import time
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
+# from shiboken6 import Shiboken
 from modules.util import *
 from modules.ui_initialization import *
 from modules.send_packet import *
