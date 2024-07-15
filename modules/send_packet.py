@@ -613,7 +613,11 @@ class SendPacket:
         self.main_window.listMode = "log"
         start_time = self.main_window.setLogTime.start_time 
         end_time = self.main_window.setLogTime.end_time + ' 23:59:59'
-        print(start_time + "부터 "+ end_time + "까지의 데이터")
+        start_time_to_datetime = datetime.strptime(start_time, "%Y-%m-%d") - timedelta(hours=9)
+        end_time_to_datetime = datetime.strptime(end_time, "%Y-%m-%d %H:%M:%S") - timedelta(hours=9)
+        str_start_time = start_time_to_datetime.isoformat().replace('T', ' ')
+        str_end_time = end_time_to_datetime.isoformat().replace('T', ' ')
+        print(str_start_time + "부터 "+ str_end_time + "까지의 데이터")
         print("nowClickedRow")
         print(self.main_window.nowClickedRow)
         first_key = next(iter(self.main_window.nowClickedRow))
@@ -622,8 +626,8 @@ class SendPacket:
                 msg = {
                     "type": TYPE_GROUP_CHAT_REQ,
                     "groupname": self.main_window.nowClickedRow['groupname'],
-                    "start_time": start_time,
-                    "end_time": end_time
+                    "start_time": str_start_time,
+                    "end_time": str_end_time
                 }
                 packet = jsonParser(msg)
                 print("그룹채팅로그요청")
@@ -642,8 +646,8 @@ class SendPacket:
                 msg = {
                     "type": TYPE_DM_LOG,
                     "recver_login_id": self.main_window.nowClickedRow['login_id'],
-                    "start_time": start_time,
-                    "end_time": end_time
+                    "start_time": str_start_time,
+                    "end_time": str_end_time
                 }
                 packet = jsonParser(msg)
                 print("개인채팅로그요청")
