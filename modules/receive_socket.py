@@ -114,14 +114,13 @@ class ReceivePacket(QObject):
         print("회원가입 신청 성공")
     #TYPE_MESSAGE 3
     def receiveMessage(self, msg):
-        if not self.main_window.listMode == "chat":
-            return
         receivedMessage = json.loads(msg.decode('utf-8'))
         recvGroupName = json.loads(msg.decode('utf-8')).get("groupname")
         if self.main_window.isLogin and self.main_window.nowGroupName: # 로그인 상태 및 현재 그룹 이름 확인
             first_key = next(iter(self.main_window.nowClickedRow)) # 클릭된 행의 첫번째 키 확인
             if recvGroupName == self.main_window.nowGroupName and first_key == 'groupname': # 수신된 메시지의 그룹 이름과 현재 그룹 이름 비교
-                self.updateDisplaySignal.emit(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
+                if self.main_window.listMode == "chat":
+                    self.updateDisplaySignal.emit(self.main_window, receivedMessage, "receivedChat", self.main_window.chatListModel)
             else:
                 self.messageNotiSignal.emit(recvGroupName, self.main_window.groupListModel, self.main_window.home_listview_chatgroup)
                 print("다른그룹에서 받은 메세지")
@@ -131,8 +130,6 @@ class ReceivePacket(QObject):
             return
     
     def receivedDm(self, msg):
-        if not self.main_window.listMode == "chat":
-            return
         dm = json.loads(msg.decode('utf-8'))
         print(dm)
         sender = dm['sender_login_id']
@@ -154,9 +151,11 @@ class ReceivePacket(QObject):
             self.dmNotiSignal.emit(sender, self.main_window.userListModel, self.main_window.home_treeview_userlist)
         
         if sender == self.main_window.userId and receiver == talkNow:
-            self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
+            if self.main_window.listMode == "chat":
+                self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
         elif sender == talkNow and receiver == self.main_window.userId:
-            self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
+            if self.main_window.listMode == "chat":
+                self.updateDisplaySignal.emit(self.main_window, dm, "receivedDm", self.main_window.chatListModel)
     # TYPE_USERLIST 5
     def receiveUserList(self, msg):
         userList = json.loads(msg.decode('utf-8'), object_pairs_hook=OrderedDict).get("users")

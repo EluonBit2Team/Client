@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainCQBsSl.ui'
+## Form generated from reading UI file 'maincTaalg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -2399,16 +2399,9 @@ class Ui_MainWindow(object):
 "background-repeat: no-repeat;\n"
 "border:none;\n"
 "")
-        self.useredit_btn_reset = QPushButton(self.infoeditpage)
-        self.useredit_btn_reset.setObjectName(u"useredit_btn_reset")
-        self.useredit_btn_reset.setGeometry(QRect(400, 504, 75, 24))
-        self.useredit_btn_reset.setCursor(QCursor(Qt.PointingHandCursor))
-        self.useredit_btn_reset.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
-"border: 1px solid white;\n"
-"")
         self.useredit_btn_send = QPushButton(self.infoeditpage)
         self.useredit_btn_send.setObjectName(u"useredit_btn_send")
-        self.useredit_btn_send.setGeometry(QRect(510, 504, 75, 24))
+        self.useredit_btn_send.setGeometry(QRect(450, 504, 75, 24))
         self.useredit_btn_send.setCursor(QCursor(Qt.PointingHandCursor))
         self.useredit_btn_send.setStyleSheet(u"font: 600 9pt \"Segoe UI Variable Small Semibol\";\n"
 "border: 1px solid yellow;\n"
@@ -2658,7 +2651,7 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
 
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(8)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2819,7 +2812,7 @@ class Ui_MainWindow(object):
         self.signup_input_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Name", None))
         self.signup_input_phone.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Phone", None))
         self.signup_input_email.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email", None))
-        self.signup_btn_submit.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
+        self.signup_btn_submit.setText(QCoreApplication.translate("MainWindow", u"submit", None))
         self.signup_checkbox_agree.setText("")
         self.signup_label_useagree.setText(QCoreApplication.translate("MainWindow", u"\uc774\uc6a9\uc57d\uad00", None))
         self.signup_label_infoagree.setText(QCoreApplication.translate("MainWindow", u"\uac1c\uc778\uc815\ubcf4 \uc218\uc9d1 \ubc0f \uc774\uc6a9\uc5d0 \ubaa8\ub450 \ub3d9\uc758\ud569\ub2c8\ub2e4.", None))
@@ -2833,7 +2826,6 @@ class Ui_MainWindow(object):
         self.useredit_label_email.setText(QCoreApplication.translate("MainWindow", u"\uc774\uba54\uc77c", None))
         self.useredit_label_downline.setText("")
         self.useredit_btn_back.setText("")
-        self.useredit_btn_reset.setText(QCoreApplication.translate("MainWindow", u"\ucd08\uae30\ud654", None))
         self.useredit_btn_send.setText(QCoreApplication.translate("MainWindow", u"\ud655\uc778", None))
         self.useredit_combo_dept.setItemText(0, QCoreApplication.translate("MainWindow", u"\ubd80\uc11c\ub97c \uc120\ud0dd\ud558\uc138\uc694", None))
         self.useredit_combo_dept.setItemText(1, QCoreApplication.translate("MainWindow", u"1\ud300", None))

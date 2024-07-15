@@ -78,7 +78,6 @@ def initialize_widgets(mainWindow: QMainWindow):
     mainWindow.useredit_edit_name = mainWindow.findChild(QLineEdit, "useredit_edit_name")
     mainWindow.useredit_edit_phone = mainWindow.findChild(QLineEdit, "useredit_edit_phone")
     mainWindow.useredit_edit_email = mainWindow.findChild(QLineEdit, "useredit_edit_email")
-    mainWindow.useredit_btn_reset = mainWindow.findChild(QPushButton, "useredit_btn_reset")
     mainWindow.useredit_btn_send = mainWindow.findChild(QPushButton, "useredit_btn_send")
     mainWindow.useredit_combo_dept = mainWindow.findChild(QComboBox, "useredit_combo_dept")
     mainWindow.useredit_combo_position = mainWindow.findChild(QComboBox, "useredit_combo_position")

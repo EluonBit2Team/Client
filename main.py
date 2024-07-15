@@ -85,6 +85,8 @@ class MainWindow(QMainWindow):
         self.home_btn_search_chat.hide()
         self.home_btn_groupmemberlist.hide()
         self.home_btn_add_member.hide()
+        widgets.btn_print.hide()
+        widgets.btn_message.hide()
 
         # USE CUSTOM TITLE BAR | USE AS "False" FOR MAC OR LINUX
         # ///////////////////////////////////////////////////////////////
@@ -194,6 +196,7 @@ class MainWindow(QMainWindow):
         self.userListModel.setHorizontalHeaderLabels(["이름", "아이디"])
 
         self.useredit_treeview_userlist.setModel(self.userListModel)
+        self.useredit_treeview_userlist.header().resizeSection(0, 200)
 
         self.clientSession = ClientSession(self)
         self.packetSender = SendPacket(self)
@@ -205,7 +208,7 @@ class MainWindow(QMainWindow):
         self.setLogTime = SetLogTimeDlg(self)
         self.lock = threading.Lock()
         
-        self.btn_logout.clicked.connect(self.packetSender.disconnect)
+        self.btn_logout.clicked.connect(self.logoutButton)
         
         
         #connect socket
@@ -453,6 +456,9 @@ class MainWindow(QMainWindow):
         else:
             event.ignore()
     
+    def logoutButton(self):
+        self.packetSender.disconnect()
+        UIFunctions.toggleRightBox(self, True)
 
 
 

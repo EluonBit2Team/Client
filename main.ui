@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>6</number>
+                      <number>8</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -4400,7 +4400,7 @@ border-radius: none;</string>
 </string>
                        </property>
                        <property name="text">
-                        <string>Submit</string>
+                        <string>submit</string>
                        </property>
                       </widget>
                       <widget class="QCheckBox" name="signup_checkbox_agree">
@@ -4694,31 +4694,10 @@ border:none;
                         <string/>
                        </property>
                       </widget>
-                      <widget class="QPushButton" name="useredit_btn_reset">
-                       <property name="geometry">
-                        <rect>
-                         <x>400</x>
-                         <y>504</y>
-                         <width>75</width>
-                         <height>24</height>
-                        </rect>
-                       </property>
-                       <property name="cursor">
-                        <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">font: 600 9pt &quot;Segoe UI Variable Small Semibol&quot;;
-border: 1px solid white;
-</string>
-                       </property>
-                       <property name="text">
-                        <string>초기화</string>
-                       </property>
-                      </widget>
                       <widget class="QPushButton" name="useredit_btn_send">
                        <property name="geometry">
                         <rect>
-                         <x>510</x>
+                         <x>450</x>
                          <y>504</y>
                          <width>75</width>
                          <height>24</height>

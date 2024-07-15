@@ -237,6 +237,7 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 model.appendRow(row)
         mainWindow.home_treeview_userlist.viewport().update()
         print("유저목록 업데이트 완료")
+        return
     elif data_type == "reqList":
         if not data_list:
             model.clear()
@@ -590,8 +591,11 @@ def sortUserInfo(var, name):
     
 def returnChat(mainWindow: QMainWindow, json_data):
     mainWindow.listMode = "chat"
-    if json_data['groupname']:
+    first_key = next(iter(mainWindow.nowClickedRow))
+    if first_key == 'groupname':
         mainWindow.packetSender.reqGroupChat(mainWindow.socket)
+    else:
+        mainWindow.packetSender.reqDm(mainWindow.socket)
     
     mainWindow.home_btn_return_chat.hide()
     
