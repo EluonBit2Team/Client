@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maincTaalg.ui'
+## Form generated from reading UI file 'maindgkpqI.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.1
 ##
@@ -2651,7 +2651,7 @@ class Ui_MainWindow(object):
         self.signup_checkbox_agree.stateChanged.connect(MainWindow.toggleButton)
         self.home_lineedit_chatlist_send.returnPressed.connect(self.home_btn_chatlist_send.click)
 
-        self.stackedWidget.setCurrentIndex(8)
+        self.stackedWidget.setCurrentIndex(7)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2807,8 +2807,8 @@ class Ui_MainWindow(object):
         self.qrlogin_label_back.setText("")
         self.qrlogin_btn_refresh.setText("")
         self.signup_label_back.setText("")
-        self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID", None))
-        self.signup_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
+        self.signup_input_id.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ID                                         \uc601\ubb38, \uc22b\uc790\ub97c \ud3ec\ud568\ud558\uc5ec 5\uc790 \uc774\uc0c1", None))
+        self.signup_input_pw.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password                             \uc601\ubb38, \uc22b\uc790\ub97c \ud3ec\ud568\ud558\uc5ec 5\uc790 \uc774\uc0c1", None))
         self.signup_input_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Name", None))
         self.signup_input_phone.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Phone", None))
         self.signup_input_email.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Email", None))

@@ -1,6 +1,7 @@
 import socket
 import json
 import struct
+from datetime import datetime, timedelta
 from modules import *
 from widgets import *
 from collections import OrderedDict
@@ -281,11 +282,15 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
             if 'uptime' in json_data and 'downtime' in json_data:
                 uptime = json_data['uptime']
                 downtime = json_data['downtime']
+                uptime_to_datetime = datetime.strptime(uptime, "%Y-%m-%d %H:%M:%S") + timedelta(hours=9)
+                downtime_to_datetime = datetime.strptime(downtime, "%Y-%m-%d %H:%M:%S") + timedelta(hours=9)
+                str_uptime = uptime_to_datetime.isoformat().replace('T', ' ')
+                str_downtime = downtime_to_datetime.isoformat().replace('T', ' ')
                 
                 
-                date_column = QStandardItem(uptime.split(' ')[0])  # 날짜 부분만 추출
-                uptime_column = QStandardItem(uptime)
-                downtime_column = QStandardItem(downtime)
+                date_column = QStandardItem(str_uptime.split(' ')[0])  # 날짜 부분만 추출
+                uptime_column = QStandardItem(str_uptime)
+                downtime_column = QStandardItem(str_downtime)
                 
                 date_column.setData(json_data, Qt.UserRole)
                 
@@ -308,10 +313,14 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                 loginid = json_data['login_id']
                 logintime = json_data['login_time']
                 logouttime = json_data['logout_time']
+                logintime_to_datetime = datetime.strptime(logintime, "%Y-%m-%d %H:%M:%S") + timedelta(hours=9)
+                logouttime_to_datetime = datetime.strptime(logouttime, "%Y-%m-%d %H:%M:%S") + timedelta(hours=9)
+                str_logintime = logintime_to_datetime.isoformat().replace('T', ' ')
+                str_logouttime = logouttime_to_datetime.isoformat().replace('T', ' ')
                 if logouttime == "NULL":
                     loginNow = "접속중"
                     id_column = QStandardItem(loginid)
-                    login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
+                    login_column = QStandardItem(str_logintime.split(' ')[0])  # 날짜 부분만 추출
                     logout_column = QStandardItem(loginNow)
                     
                     # 배경색 빨간색으로 설정
@@ -325,8 +334,8 @@ def updateDisplay(mainWindow: QMainWindow, data_list, data_type, model):
                     model.appendRow(row)
                 else:
                     id_column = QStandardItem(loginid)
-                    login_column = QStandardItem(logintime.split(' ')[0])  # 날짜 부분만 추출
-                    logout_column = QStandardItem(logouttime)
+                    login_column = QStandardItem(str_logintime.split(' ')[0])  # 날짜 부분만 추출
+                    logout_column = QStandardItem(str_logouttime)
 
                     id_column.setData(json_data, Qt.UserRole)
                     

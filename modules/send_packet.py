@@ -6,9 +6,9 @@ from PySide6.QtWidgets import QMessageBox
 from modules.util import *
 from main import *
 import threading
+import time
 request_thread = None
 stop_thread_flag = False
-import time
 
 class SendPacket:
     
@@ -298,11 +298,13 @@ class SendPacket:
             return False
     
     def reqGroupChat(self, socket):
+        now = datetime.now()
+        utc_time = now - timedelta(hours=9)
+        str_now = utc_time.isoformat().replace('T', ' ')
+        start_time = datetime.now() - timedelta(days=3) - timedelta(hours=9)
+        str_start_time = start_time.isoformat().replace('T', ' ')
         groupname = self.main_window.nowClickedRow['groupname']
         print("그룹네임 : " + groupname)
-        str_now = datetime.now().isoformat().replace('T', ' ')
-        start_time = datetime.now() - timedelta(days=3)
-        str_start_time = start_time.isoformat().replace('T', ' ')
         try:
             msg = {
                 "type": TYPE_GROUP_CHAT_REQ,
@@ -582,8 +584,10 @@ class SendPacket:
             return False
     
     def reqDm(self, socket):
-        str_now = datetime.now().isoformat().replace('T', ' ')
-        start_time = datetime.now() - timedelta(days=3)
+        now = datetime.now()
+        utc_time = now - timedelta(hours=9)
+        str_now = utc_time.isoformat().replace('T', ' ')
+        start_time = datetime.now() - timedelta(days=3) - timedelta(hours=9)
         str_start_time = start_time.isoformat().replace('T', ' ')
         try:
             msg = {

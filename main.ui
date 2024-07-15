@@ -1756,7 +1756,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 </string>
                      </property>
                      <property name="currentIndex">
-                      <number>8</number>
+                      <number>7</number>
                      </property>
                      <widget class="QWidget" name="loginpage">
                       <property name="styleSheet">
@@ -4289,7 +4289,7 @@ font: 12pt &quot;Segoe UI&quot;;
 border-radius: none;</string>
                        </property>
                        <property name="placeholderText">
-                        <string>ID</string>
+                        <string>ID                                         영문, 숫자를 포함하여 5자 이상</string>
                        </property>
                       </widget>
                       <widget class="QLineEdit" name="signup_input_pw">
@@ -4314,7 +4314,7 @@ border-radius: none;</string>
                         <enum>QLineEdit::EchoMode::Password</enum>
                        </property>
                        <property name="placeholderText">
-                        <string>Password</string>
+                        <string>Password                             영문, 숫자를 포함하여 5자 이상</string>
                        </property>
                       </widget>
                       <widget class="QLineEdit" name="signup_input_name">
